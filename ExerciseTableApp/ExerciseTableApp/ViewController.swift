@@ -12,6 +12,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var items = [DataSet]()
     
+    @IBOutlet weak var tableView: UITableView!
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
@@ -25,9 +27,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            items.remove(at:indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        if editing {
+            tableView.setEditing(true, animated: true)
+        } else {
+            tableView.setEditing(false, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = editButtonItem
+        automaticallyAdjustsScrollViewInsets = false
+        //tableView.allowsSelectionDuringEditing = true
         for count in 1...10 {
             items.append(DataSet())
         }
