@@ -11,7 +11,7 @@ import UIKit
 class DataSet {
     var name: String
     let date: String
-    let nameSet: [String] = ["Eggs","Onions", "Chicken", "Rice", "Beef", "Cheese", "Mushrooms"]
+    let nameSet: [String] = ["David","Susan","Juan","Kate","Joe","Jen"]
     
     init() {
         let idx = arc4random_uniform(UInt32(nameSet.count))
