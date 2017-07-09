@@ -16,29 +16,30 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        //let addedRow = isEditing ? 1 : 0
+        let addedRow = isEditing ? 1 : 0
         
-        //return items.count + addedRow
-        return items.count
+        return items.count + addedRow
+        
+        //return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        let item = items[indexPath.row]
-        cell.textLabel?.text = item.name
-        cell.detailTextLabel?.text = item.date
-        
-        return cell
-        
-//        if isEditing {
-//            cell.textLabel?.text = "New Entry"
-//        } else {
-//            let item = items[indexPath.row]
-//            cell.textLabel?.text = item.name
-//            cell.detailTextLabel?.text = item.date
-//        }
+//        let item = items[indexPath.row]
+//        cell.textLabel?.text = item.name
+//        cell.detailTextLabel?.text = item.date
+//        
 //        return cell
+        
+        if indexPath.row >= items.count && isEditing {
+            cell.textLabel?.text = "New Entry"
+        } else {
+            let item = items[indexPath.row]
+            cell.textLabel?.text = item.name
+            cell.detailTextLabel?.text = item.date
+        }
+        return cell
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -52,25 +53,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         
-        if editing {
-            tableView.setEditing(true, animated: true)
-        } else {
-            tableView.setEditing(false, animated: true)
-        }
-        
 //        if editing {
-//            tableView.beginUpdates()
-//            let indexPath = IndexPath(index: items.count)
-//            tableView.insertRows(at: [indexPath], with: .fade)
-//            tableView.endUpdates()
 //            tableView.setEditing(true, animated: true)
 //        } else {
-//            tableView.beginUpdates()
-//            let indexPath = IndexPath(index: items.count)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            tableView.endUpdates()
 //            tableView.setEditing(false, animated: true)
 //        }
+        
+        if editing {
+            tableView.beginUpdates()
+            print (items.count)
+            for idx in {
+                print (items)
+            }
+//            for (index, sectionItems) in items.enumerated() {
+//                let indexPath = IndexPath(row: sectionItems.count, section: index)
+//                tableView.insertRows(at: [indexPath], with: .fade)
+//            }
+            
+            tableView.endUpdates()
+            tableView.setEditing(true, animated: true)
+        } else {
+            tableView.beginUpdates()
+            for index in items.enumerated(){
+                print (index)
+            }
+//            for (index, sectionItems) in items.enumerated() {
+//                let indexPath = IndexPath(row: sectionItems.count, section: index)
+//                tableView.deleteRows(at: [indexPath], with: .fade)
+//            }
+            
+            tableView.endUpdates()
+            tableView.setEditing(false, animated: true)
+        }
     }
     
     override func viewDidLoad() {
