@@ -13,19 +13,19 @@
         <scene sceneID="DoS-TZ-YVU">
             <objects>
                 <collectionViewController id="lOM-e8-wbN" customClass="CollectionViewController" customModule="CollectionViewDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Hah-id-X8k">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Hah-id-X8k">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cML-iD-kwg">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="cML-iD-kwg">
                             <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="5Zc-m3-LfK" customClass="DataItemCell" customModule="CollectionViewDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -47,12 +47,39 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionHeader" id="Ntq-hf-Vim" customClass="DataItemHeader" customModule="CollectionViewDemo" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5z9-AH-mxf">
+                                    <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="5z9-AH-mxf" secondAttribute="bottom" constant="8" id="07A-RE-oEN"/>
+                                <constraint firstAttribute="trailing" secondItem="5z9-AH-mxf" secondAttribute="trailing" constant="8" id="anm-NO-cpb"/>
+                                <constraint firstItem="5z9-AH-mxf" firstAttribute="top" secondItem="Ntq-hf-Vim" secondAttribute="top" constant="8" id="nIE-Vx-zp0"/>
+                                <constraint firstItem="5z9-AH-mxf" firstAttribute="leading" secondItem="Ntq-hf-Vim" secondAttribute="leading" constant="8" id="zpG-UD-sWd"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="titleLabel" destination="5z9-AH-mxf" id="Zdj-TI-89y"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="lOM-e8-wbN" id="eEi-rP-gQR"/>
                             <outlet property="delegate" destination="lOM-e8-wbN" id="GiP-xm-Wpc"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Nature Pictures" id="xAz-7b-P1y"/>
+                    <navigationItem key="navigationItem" title="Nature Pictures" id="xAz-7b-P1y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="N3z-94-Sbx">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="lOM-e8-wbN" id="1tg-lW-HoV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h6F-JM-xea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

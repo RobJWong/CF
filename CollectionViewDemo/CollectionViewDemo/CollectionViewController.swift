@@ -13,9 +13,23 @@ import UIKit
 class CollectionViewController: UICollectionViewController {
     
     var plantDataItems = [DataItem]()
+    
+    var animalDataItems = [DataItem]()
+    var allItems = [[DataItem]]()
 
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        let item = DataItem(title: "New Item", kind: .Animal, imageName: "images 2/default.jpeg")
+        let index = allItems[0].count
+        allItems[0].append(item)
+        let indexPath = IndexPath(item: index, section: 0)
+        collectionView?.insertItems(at: [indexPath])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let width = collectionView!.frame.width/3
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: width, height: width)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -31,6 +45,16 @@ class CollectionViewController: UICollectionViewController {
                 plantDataItems.append(DataItem(title: "Title #0\(i)", kind: Kind.Plant, imageName: "images 2/img0\(i).jpg"))
             }
         }
+        for i in 1...12 {
+            if i > 9 {
+                animalDataItems.append(DataItem(title: "Another Title #\(i)", kind: Kind.Animal, imageName: "images 2/anim\(i).jpg"))
+            } else {
+                animalDataItems.append(DataItem(title: "Another Title #0\(i)", kind: Kind.Animal, imageName: "images 2/anim0\(i).jpg"))
+            }
+        }
+        
+        allItems.append(plantDataItems)
+        allItems.append(animalDataItems)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,30 +73,78 @@ class CollectionViewController: UICollectionViewController {
     */
 
     // MARK: UICollectionViewDataSource
+    
+//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        let sectionItems = allItems[indexPath.section]
+//        if indexPath.row >= sectionItems.count && isEditing {
+//            return false
+//        }
+//        return true
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let itemToMove = allItems[sourceIndexPath.section][sourceIndexPath.row]
+//        allItems[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+//        if sourceIndexPath.section == destinationIndexPath.section {
+//            allItems[sourceIndexPath.section].insert(itemToMove, at: destinationIndexPath.row)
+//        } else {
+//            allItems[destinationIndexPath.section].insert(itemToMove, at:destinationIndexPath.row)
+//        }
+//    }
+//    
+//    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+//        let sectionItems = allItems[proposedDestinationIndexPath.section]
+//        if proposedDestinationIndexPath.row >= sectionItems.count {
+//            return IndexPath(row: sectionItems.count - 1, section: proposedDestinationIndexPath.section)
+//        }
+//        return proposedDestinationIndexPath
+//    }
+    
+    
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "SectionHeader", for: indexPath) as! DataItemHeader
+        //let title = "Plants"
+        //sectionHeader.title = title
+        
+        //return sectionHeader
+        
+        var title = ""
+        if let kind = Kind(rawValue: indexPath.section) {
+            title = kind.description()
+        }
+        sectionHeader.title = title
+        
+        return sectionHeader
+    }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        //return 0
+        //return 1
         
-        return 1
+        return allItems.count
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        //return 0
+        //return plantDataItems.count
         
-        return plantDataItems.count
+        return allItems[section].count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DataItemCell
-        let dataItem = plantDataItems[indexPath.row]
-        cell.dataItem = dataItem
+        //let dataItem = plantDataItems[indexPath.row]
+        //cell.dataItem = dataItem
         // Configure the cell
     
+        //return cell
+        
+        let dataItem = allItems[indexPath.section][indexPath.row]
+        cell.dataItem = dataItem
+        
         return cell
     }
 

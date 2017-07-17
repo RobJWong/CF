@@ -15,6 +15,7 @@
 		D412220D1F12C4DB00D65899 /* images 2 in Resources */ = {isa = PBXBuildFile; fileRef = D412220C1F12C4DB00D65899 /* images 2 */; };
 		D412220F1F12C4EF00D65899 /* DataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D412220E1F12C4EF00D65899 /* DataItem.swift */; };
 		D41222111F12C71400D65899 /* DataItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41222101F12C71400D65899 /* DataItemCell.swift */; };
+		D41222131F12EEB300D65899 /* DataItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41222121F12EEB300D65899 /* DataItemHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		D412220C1F12C4DB00D65899 /* images 2 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "images 2"; sourceTree = "<group>"; };
 		D412220E1F12C4EF00D65899 /* DataItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItem.swift; sourceTree = "<group>"; };
 		D41222101F12C71400D65899 /* DataItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItemCell.swift; sourceTree = "<group>"; };
+		D41222121F12EEB300D65899 /* DataItemHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataItemHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				D41221F81F129F5E00D65899 /* AppDelegate.swift */,
 				D41221FC1F129F5E00D65899 /* Main.storyboard */,
+				D41222121F12EEB300D65899 /* DataItemHeader.swift */,
 				D41222101F12C71400D65899 /* DataItemCell.swift */,
 				D412220A1F12C4AF00D65899 /* CollectionViewController.swift */,
 				D412220E1F12C4EF00D65899 /* DataItem.swift */,
@@ -150,6 +153,7 @@
 				D412220F1F12C4EF00D65899 /* DataItem.swift in Sources */,
 				D41222111F12C71400D65899 /* DataItemCell.swift in Sources */,
 				D41221F91F129F5E00D65899 /* AppDelegate.swift in Sources */,
+				D41222131F12EEB300D65899 /* DataItemHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
