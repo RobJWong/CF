@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="I77-wE-mzc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Collection View Controller-->
+        <scene sceneID="Fgf-oS-RRD">
+            <objects>
+                <collectionViewController id="d2W-J7-OhY" customClass="CollectionViewController" customModule="CrossViewApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3xA-AH-niW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nFX-9s-9b5">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="2ux-VU-87Q" customClass="DataItemCell" customModule="CrossViewApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="spz-Bb-DTv">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="spz-Bb-DTv" secondAttribute="trailing" id="IQN-DQ-w2k"/>
+                                    <constraint firstItem="spz-Bb-DTv" firstAttribute="top" secondItem="2ux-VU-87Q" secondAttribute="top" id="TfL-Ni-JAP"/>
+                                    <constraint firstItem="spz-Bb-DTv" firstAttribute="leading" secondItem="2ux-VU-87Q" secondAttribute="leading" id="dta-MA-P25"/>
+                                    <constraint firstAttribute="bottom" secondItem="spz-Bb-DTv" secondAttribute="bottom" id="p87-Y3-bqc"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataItemImageView" destination="spz-Bb-DTv" id="olU-dX-eQ2"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="d2W-J7-OhY" id="zcd-bR-3Dc"/>
+                            <outlet property="delegate" destination="d2W-J7-OhY" id="mEe-WN-odg"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="qpK-1s-uX3"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xpo-Lh-nrD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962.4000000000001" y="93.103448275862078"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sOl-Br-bXh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I77-wE-mzc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xnY-KI-SC9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="d2W-J7-OhY" kind="relationship" relationship="rootViewController" id="YBh-fE-iOa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="c72-tu-iIo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023.2" y="93.103448275862078"/>
+        </scene>
+    </scenes>
+</document>
