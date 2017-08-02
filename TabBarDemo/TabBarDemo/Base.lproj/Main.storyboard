@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Vgn-Ak-dX3">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calendar-->
         <scene sceneID="INM-KC-cus">
             <objects>
                 <viewController id="HGT-Vd-c6F" sceneMemberID="viewController">
@@ -18,24 +18,39 @@
                         <viewControllerLayoutGuide type="bottom" id="Wpq-nf-chm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tvZ-F2-qk6">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nqi-Yd-hpO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nqi-Yd-hpO">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calendar View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEF-LS-Cag">
+                                        <rect key="frame" x="-95" y="-10" width="190" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="LEF-LS-Cag" firstAttribute="centerY" secondItem="Nqi-Yd-hpO" secondAttribute="centerY" id="Caa-Ur-Z2G"/>
+                                    <constraint firstItem="LEF-LS-Cag" firstAttribute="centerX" secondItem="Nqi-Yd-hpO" secondAttribute="centerX" id="MJK-DO-z8q"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Nqi-Yd-hpO" firstAttribute="centerY" secondItem="tvZ-F2-qk6" secondAttribute="centerY" id="LPT-60-UwT"/>
+                            <constraint firstItem="Nqi-Yd-hpO" firstAttribute="centerX" secondItem="tvZ-F2-qk6" secondAttribute="centerX" id="rOZ-Q8-CYV"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="featured" id="4tl-rR-aF0"/>
+                    <tabBarItem key="tabBarItem" title="Calendar" image="Calendar" id="4tl-rR-aF0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhN-w0-ERk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1618.125" y="-520.77464788732391"/>
+            <point key="canvasLocation" x="-1659" y="-545"/>
         </scene>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="SwP-9v-uUG">
             <objects>
                 <viewController id="xaN-jp-T18" sceneMemberID="viewController">
@@ -44,11 +59,23 @@
                         <viewControllerLayoutGuide type="bottom" id="M3W-80-FfL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UTP-FZ-UEK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Home View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wd4-BT-Dbj">
+                                <rect key="frame" x="124" y="358" width="167" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Wd4-BT-Dbj" firstAttribute="centerX" secondItem="UTP-FZ-UEK" secondAttribute="centerX" id="Brh-bN-oPN"/>
+                            <constraint firstItem="Wd4-BT-Dbj" firstAttribute="centerY" secondItem="UTP-FZ-UEK" secondAttribute="centerY" id="Oj4-Nh-mcA"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="downloads" id="4ZO-tM-Pbm"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="4ZO-tM-Pbm"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqR-fe-Oej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -74,7 +101,7 @@
             </objects>
             <point key="canvasLocation" x="-946" y="-174"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Trash-->
         <scene sceneID="mof-YD-xJs">
             <objects>
                 <viewController id="1Sk-cU-iqx" customClass="HomeViewController" customModule="TabBarDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -83,11 +110,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GbD-cq-QZF"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="waa-Fw-AtK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09Q-dk-qjG">
-                                <rect key="frame" x="137" y="269" width="46" height="30"/>
+                                <rect key="frame" x="184" y="353" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="jumpToCalendarTab:" destination="1Sk-cU-iqx" eventType="touchUpInside" id="rtI-sY-N5o"/>
@@ -100,13 +127,13 @@
                             <constraint firstItem="09Q-dk-qjG" firstAttribute="centerX" secondItem="waa-Fw-AtK" secondAttribute="centerX" id="r2U-Y8-zzZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="icons8-Home-20.png" systemItem="history" id="lS5-oZ-V8W"/>
+                    <tabBarItem key="tabBarItem" title="Trash" image="Trash" id="lS5-oZ-V8W"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qKz-rf-gKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-76" y="-588"/>
         </scene>
-        <!--View Controller-->
+        <!--Camera-->
         <scene sceneID="iMu-5w-udi">
             <objects>
                 <viewController id="m0t-7H-maU" sceneMemberID="viewController">
@@ -115,11 +142,23 @@
                         <viewControllerLayoutGuide type="bottom" id="61H-pI-xGq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mPu-7E-EWx">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camera View Controller" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2Q-4W-87T">
+                                <rect key="frame" x="117" y="358" width="181" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="P2Q-4W-87T" firstAttribute="centerY" secondItem="mPu-7E-EWx" secondAttribute="centerY" id="jjC-oW-O9s"/>
+                            <constraint firstItem="P2Q-4W-87T" firstAttribute="centerX" secondItem="mPu-7E-EWx" secondAttribute="centerX" id="kGh-2Z-oYI"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" selectedImage="icons8-Calendar-20.png" systemItem="more" id="ich-I4-4pg"/>
+                    <tabBarItem key="tabBarItem" title="Camera" image="Camera" id="ich-I4-4pg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aej-g0-RWJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,7 +166,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-Calendar-20.png" width="20" height="20"/>
-        <image name="icons8-Home-20.png" width="20" height="20"/>
+        <image name="Calendar" width="10" height="10"/>
+        <image name="Camera" width="10" height="10"/>
+        <image name="Home" width="10" height="10"/>
+        <image name="Trash" width="10" height="10"/>
     </resources>
 </document>
