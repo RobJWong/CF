@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AdaptiveDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6U-U3-qMm">
+                                <rect key="frame" x="8" y="28" width="359" height="482"/>
+                                <string key="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu tincidunt nisi. Aliquam varius ante orci, in pretium ligula imperdiet nec. Nam laoreet a enim quis blandit. Nulla libero elit, scelerisque sed dui nec, finibus scelerisque elit. Pellentesque viverra lacus a justo interdum, sit amet faucibus nisi bibendum.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="new_mac" translatesAutoresizingMaskIntoConstraints="NO" id="5jr-rl-Wk7">
+                                <rect key="frame" x="0.0" y="510" width="375" height="157"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="K6U-U3-qMm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="Dg8-7t-LJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="5jr-rl-Wk7" secondAttribute="trailing" id="Dob-aU-vd1"/>
+                            <constraint firstAttribute="trailing" secondItem="K6U-U3-qMm" secondAttribute="trailing" constant="8" id="R0k-28-mJe"/>
+                            <constraint firstItem="K6U-U3-qMm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="URz-lV-ZGz"/>
+                            <constraint firstItem="5jr-rl-Wk7" firstAttribute="top" secondItem="K6U-U3-qMm" secondAttribute="bottom" id="WVo-it-Enk"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5jr-rl-Wk7" secondAttribute="bottom" id="XSh-zn-Iel"/>
+                            <constraint firstItem="5jr-rl-Wk7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qXQ-A8-1Nz"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="136.28185907046478"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="new_mac" width="300" height="157"/>
+    </resources>
+</document>
