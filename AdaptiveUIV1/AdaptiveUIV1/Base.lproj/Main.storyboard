@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="landscape">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -18,32 +18,38 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-pf-lQq">
-                                <rect key="frame" x="8" y="28" width="659" height="347"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0y-pf-lQq">
+                                <rect key="frame" x="8" y="28" width="359" height="489"/>
                                 <string key="text">Team SoloMid (TSM) is a North American eSports Team, created around the community website SoloMid.Net by brothers Andy "Reginald" Dinh and Dan "Dan Dinh" Dinh in September 2009. The team was first seen in early 2011 after being formed to participate in the Riot Season 1 Championship later that year. The organization previously hosted TSM Darkness and the now-disbanded Team SoloMid Evo. Team SoloMid is the only team to attend all six World Championships.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="TSM" translatesAutoresizingMaskIntoConstraints="NO" id="JvV-Kf-rmE">
-                                <rect key="frame" x="517" y="0.0" width="150" height="375"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TSM" translatesAutoresizingMaskIntoConstraints="NO" id="JvV-Kf-rmE">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LoL" translatesAutoresizingMaskIntoConstraints="NO" id="plL-9A-6Jj">
+                                <rect key="frame" x="0.0" y="20" width="375" height="178"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="JvV-Kf-rmE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9hp-Gy-Rkg"/>
                             <constraint firstItem="t0y-pf-lQq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="A5W-E0-stM"/>
+                            <constraint firstItem="plL-9A-6Jj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="HLB-mX-KWM"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JvV-Kf-rmE" secondAttribute="bottom" id="IV4-re-1Uz"/>
                             <constraint firstItem="t0y-pf-lQq" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="IYU-dR-9Ux"/>
                             <constraint firstItem="JvV-Kf-rmE" firstAttribute="top" secondItem="t0y-pf-lQq" secondAttribute="bottom" id="K4V-DA-SLG"/>
                             <constraint firstAttribute="trailing" secondItem="t0y-pf-lQq" secondAttribute="trailing" constant="8" id="L8F-cM-eeM"/>
+                            <constraint firstAttribute="trailing" secondItem="plL-9A-6Jj" secondAttribute="trailing" id="RTl-FH-pHW"/>
                             <constraint firstAttribute="bottom" secondItem="t0y-pf-lQq" secondAttribute="bottom" id="VPs-m9-gBa"/>
                             <constraint firstItem="JvV-Kf-rmE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XEc-LP-R4H"/>
                             <constraint firstAttribute="trailing" secondItem="JvV-Kf-rmE" secondAttribute="trailing" id="bpC-NG-7pY"/>
                             <constraint firstItem="JvV-Kf-rmE" firstAttribute="leading" secondItem="t0y-pf-lQq" secondAttribute="trailing" id="rHv-As-HXy"/>
+                            <constraint firstItem="plL-9A-6Jj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="tl3-uN-ZVv"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -62,6 +68,16 @@
                                 <include reference="rHv-As-HXy"/>
                             </mask>
                         </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="subviews">
+                                <exclude reference="plL-9A-6Jj"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="plL-9A-6Jj"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -70,6 +86,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LoL" width="450" height="178"/>
         <image name="TSM" width="150" height="150"/>
     </resources>
 </document>
