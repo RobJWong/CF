@@ -10,7 +10,7 @@ import UIKit
 
 class MasterViewController: UITableViewController {
     
-    var items: [Item] = ItemData.items
+    var teams: [Team] = TeamData.teams
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +34,21 @@ class MasterViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return teams.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = items[indexPath.row].teamName
+        cell.textLabel?.text = teams[indexPath.row].teamName
         return cell
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ShowDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let item = items[indexPath.row]
+                let team = teams[indexPath.row]
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
-                controller.item = item
+                controller.team = team
             }
         }
     }

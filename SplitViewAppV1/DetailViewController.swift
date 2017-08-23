@@ -12,15 +12,15 @@ class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailTeamImage: UIImageView!
     
-    var item: Item?
+    var team: Team?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        if let item = self.item {
-            navigationItem.title = item.teamName
-            detailTeamImage.image = UIImage(named: item.imageName)
+        if let team = self.team {
+            navigationItem.title = team.teamName
+            detailTeamImage.image = UIImage(named: team.imageName)
         }
     }
 

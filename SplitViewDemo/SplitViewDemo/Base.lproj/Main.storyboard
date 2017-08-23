@@ -69,7 +69,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="NBp-8W-zxt" kind="show" identifier="ShowDetail" id="6zG-Ky-jiu"/>
+                                    <segue destination="NBp-8W-zxt" kind="showDetail" identifier="ShowDetail" id="QtT-ir-Gs3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -133,6 +133,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="6zG-Ky-jiu"/>
+        <segue reference="QtT-ir-Gs3"/>
     </inferredMetricsTieBreakers>
 </document>

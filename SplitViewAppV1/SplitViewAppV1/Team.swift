@@ -8,12 +8,13 @@
 
 import UIKit
 
-class Item {
+//class Item {
+struct Team{
     var teamName: String
     var imageName: String
     
-    init(teamName: String, imageName: String) {
-        self.teamName = teamName
-        self.imageName = imageName
-    }
+//    init(teamName: String, imageName: String) {
+//        self.teamName = teamName
+//        self.imageName = imageName
+//    }
 }
