@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fJ4-Yk-kp3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Eight Ball Scene-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" userLabel="Eight Ball Scene" customClass="ViewController" customModule="AlertViewAppV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fj5-g5-zo2">
+                                <rect key="frame" x="133" y="318" width="108" height="30"/>
+                                <state key="normal" title="Ask a Question!"/>
+                                <connections>
+                                    <action selector="random8BallGenerator:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BgF-Hq-yQV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KzV-6H-dPp">
+                                <rect key="frame" x="187" y="356" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Fj5-g5-zo2" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="14s-KF-U5i"/>
+                            <constraint firstItem="KzV-6H-dPp" firstAttribute="top" secondItem="Fj5-g5-zo2" secondAttribute="bottom" constant="8" id="2Hz-QC-gIE"/>
+                            <constraint firstItem="KzV-6H-dPp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EMg-tz-wV8"/>
+                            <constraint firstItem="Fj5-g5-zo2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Zhg-FL-9ht"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uIZ-bq-O1J">
+                        <barButtonItem key="rightBarButtonItem" title="Add New Outcome" id="mjF-FX-RWr">
+                            <connections>
+                                <action selector="actionButtonTapped:" destination="BYZ-38-t0r" id="VF1-Dg-HgU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="outcomeLabel" destination="KzV-6H-dPp" id="HMU-mg-xkx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="70"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QZO-QF-Isq">
+            <objects>
+                <viewController storyboardIdentifier="AddNewOptionController" id="Miq-pF-S7s" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WcZ-eb-j5s"/>
+                        <viewControllerLayoutGuide type="bottom" id="Epf-YN-QwP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KyS-MN-tAX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming soon!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igb-Xd-gNv">
+                                <rect key="frame" x="134.5" y="323" width="106" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="igb-Xd-gNv" firstAttribute="centerY" secondItem="KyS-MN-tAX" secondAttribute="centerY" id="nZy-hD-dVp"/>
+                            <constraint firstItem="igb-Xd-gNv" firstAttribute="centerX" secondItem="KyS-MN-tAX" secondAttribute="centerX" id="zcH-Wv-mnl"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hot-Ke-ugn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="788"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e2s-Kz-1AT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fJ4-Yk-kp3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qwr-Bv-WuG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="6rM-wQ-ctP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q7j-Oy-F8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="69.715142428785612"/>
+        </scene>
+    </scenes>
+</document>
