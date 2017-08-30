@@ -29,38 +29,41 @@ class ViewController: UIViewController {
                 let morePeopleData = ["Name": "\(nameData)", "Age" : "\(ageData)"] as [String: Any]
                 let finalPeopleData = [morePeopleData]
                 let serializedData = try PropertyListSerialization.data(fromPropertyList: finalPeopleData, format: PropertyListSerialization.PropertyListFormat.xml, options: 0)
-                let document = try fileManager.url(for:FileManager.SearchPathDirectory.documentDirectory, in:FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+                let document = documentData()
                 let file = document.appendingPathComponent("final_people.plist")
                 try serializedData.write(to: file)
-                //print(document)
             }
         } catch {
-                print("error handling data setup")
+                print("Error handling data setup")
         }
     }
     @IBAction func showData(_ sender: UIBarButtonItem) {
         do {
-            let documents = try fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+            let documents = documentData()
+            print(documents.description)
             let url = URL(string: "final_people.plist", relativeTo: documents)
             var plistFormat = PropertyListSerialization.PropertyListFormat.xml
             let plistData = try Data(contentsOf: url!)
             let people = try PropertyListSerialization.propertyList(from: plistData, options: [], format: &plistFormat) as! [Dictionary<String, Any>]
-            print(people)
-            let alertController = UIAlertController(title: "Displaying previous data", message: ("\(people[0]["Name"]!) \(people[0]["Age"]!)"), preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Displaying previous data", message: ("Name: \(people[0]["Name"]!) Age: \(people[0]["Age"]!)"), preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "Done", style: .default)
             alertController.addAction(cancelAction)
             present(alertController, animated: true, completion: nil)
         } catch {
-            print("unable to read data")
+            print("Unable to read data")
         }
-        
     }
-
+    
+    func documentData() -> URL {
+        var documents : URL?
+        do {
+            let documents = try fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+            return documents
+        } catch {
+            print("Error getting data")
+        }
+        return documents!
+    }
 
 }
 
-
-/*let alertController = UIAlertController(title: "Done", message: "Saved", preferredStyle: .alert)
-let doneAction = UIAlertAction(title: "Done", style: .default)
-alertController.addAction(doneAction)
-present(alertController, animated: true, completion: nil) */
