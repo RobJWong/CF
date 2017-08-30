@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     }
     @IBAction func showSavedData(_ sender: UIBarButtonItem) {
         do {
-        let documents = try self.fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+            let documents = try self.fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
             let url = URL(string: "saved_document.txt", relativeTo: documents)
             let textFromFile = try String(contentsOf: url!)
             
