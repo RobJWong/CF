@@ -58,10 +58,10 @@
             </objects>
             <point key="canvasLocation" x="1894" y="70"/>
         </scene>
-        <!--View Controller-->
+        <!--Popout Controller-->
         <scene sceneID="QZO-QF-Isq">
             <objects>
-                <viewController storyboardIdentifier="AddNewOptionController" id="Miq-pF-S7s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewOptionController" id="Miq-pF-S7s" customClass="PopoutController" customModule="AlertViewAppV1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WcZ-eb-j5s"/>
                         <viewControllerLayoutGuide type="bottom" id="Epf-YN-QwP"/>
