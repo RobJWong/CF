@@ -13,6 +13,7 @@
 		D45FA84C1F59C12300A277CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D45FA84B1F59C12300A277CA /* Assets.xcassets */; };
 		D45FA84F1F59C12300A277CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D45FA84D1F59C12300A277CA /* LaunchScreen.storyboard */; };
 		D45FA8591F5A620700A277CA /* ShowDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45FA8581F5A620700A277CA /* ShowDataViewController.swift */; };
+		D45FA85D1F5B3DE700A277CA /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D45FA85C1F5B3DE700A277CA /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D45FA84E1F59C12300A277CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D45FA8501F59C12300A277CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D45FA8581F5A620700A277CA /* ShowDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataViewController.swift; sourceTree = "<group>"; };
+		D45FA85C1F5B3DE700A277CA /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				D45FA8461F59C12300A277CA /* ViewController.swift */,
 				D45FA84B1F59C12300A277CA /* Assets.xcassets */,
 				D45FA84D1F59C12300A277CA /* LaunchScreen.storyboard */,
+				D45FA85C1F5B3DE700A277CA /* Settings.bundle */,
 				D45FA8501F59C12300A277CA /* Info.plist */,
 			);
 			path = PreferencesAppV1;
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D45FA85D1F5B3DE700A277CA /* Settings.bundle in Resources */,
 				D45FA84F1F59C12300A277CA /* LaunchScreen.storyboard in Resources */,
 				D45FA84C1F59C12300A277CA /* Assets.xcassets in Resources */,
 				D45FA84A1F59C12300A277CA /* Main.storyboard in Resources */,

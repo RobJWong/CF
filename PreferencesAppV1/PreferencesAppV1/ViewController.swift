@@ -23,20 +23,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         present(alertController, animated: true, completion: nil)
         clearForm()
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     func clearForm() {
-        usernameTextField.text = ""
-        passwordTextField.text = ""
+        usernameTextField.text = nil
+        passwordTextField.text = nil
     }
 
 }
