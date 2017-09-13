@@ -21,8 +21,9 @@ class ViewController: UIViewController {
         let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
         let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
         
+        ////SQLite
         // Get file manager needed to work with the file system
-        let fileManager = FileManager.default
+        /*let fileManager = FileManager.default
         var sqliteDatabase: OpaquePointer? = nil
         var databaseUrl: URL? = nil
         
@@ -76,6 +77,42 @@ class ViewController: UIViewController {
                     }
                 }
                 sqlite3_finalize(selectStatement)
+            }
+        } */
+        // Get file manager needed to work with the file system
+        let fileManager = FileManager.default
+        var databaseUrl: URL? = nil
+        
+        do {
+            let baseUrl = try
+                fileManager.url(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask, appropriateFor: nil, create: false)
+            databaseUrl = baseUrl.appendingPathComponent("swifty.sqlite")
+        } catch {
+            print(error)
+        }
+        
+        if let databaseUrl = databaseUrl {
+            let fmdb = FMDatabase(path: databaseUrl.absoluteString)
+            fmdb.open()
+            
+            let sqlStatement = "create table if not exists Person (ID Integer Primary key AutoIncrement, FirstName Text, LastName Text, Age Integer);"
+            let insertStatement = "insert into Person (FirstName, LastName, Age) values ('\(randomFirstName)', '\(randomLastName)', \(randomAge));"
+            do {
+                try fmdb.executeUpdate(sqlStatement, values: nil)
+                try fmdb.executeUpdate(insertStatement, values: nil)
+            } catch {
+                print(error)
+            }
+            
+            let selectSql = "select * from Person"
+            let fmdbResult = fmdb.executeQuery(selectSql, withParameterDictionary: nil)
+            while (fmdbResult?.next())! {
+                let rowId = fmdbResult?.int(forColumn: "ID")
+                let firstName = fmdbResult?.string(forColumn: "FirstName")
+                let lastName = fmdbResult?.string(forColumn: "LastName")
+                let age = fmdbResult?.int(forColumn: "Age")
+                
+                print("Record ID: \(String(describing: rowId)) First Name: \(String(describing: firstName)) Last Name: \(String(describing: lastName)) Age: \(String(describing: age))")
             }
         }
     }
