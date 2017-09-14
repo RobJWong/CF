@@ -15,6 +15,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveUserLogin(_ sender: UIButton) {
         let userDefaults = UserDefaults.standard
+        let testData = usernameTextField.text
+        print(testData!)
         userDefaults.set(usernameTextField.text, forKey: "Username")
         userDefaults.set(passwordTextField.text, forKey: "Password")
         let alertController = UIAlertController(title: "Saved", message: ("Saved Data"), preferredStyle: .alert)
@@ -30,4 +32,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
 }
-

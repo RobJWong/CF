@@ -19,7 +19,7 @@
 		D983FBFA1F69D5E000F7440B /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = D983FBF21F69D5E000F7440B /* FMDatabaseQueue.m */; };
 		D983FBFB1F69D5E000F7440B /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = D983FBF51F69D5E000F7440B /* FMResultSet.m */; };
 		D983FBFC1F69D5E000F7440B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D983FBF61F69D5E000F7440B /* Info.plist */; };
-		D983FBFE1F69D81C00F7440B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983FBFD1F69D81C00F7440B /* TableViewController.swift */; };
+		D983FC021F6A50DE00F7440B /* ShowDataViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D983FC011F6A50DE00F7440B /* ShowDataViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +44,7 @@
 		D983FBF41F69D5E000F7440B /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		D983FBF51F69D5E000F7440B /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		D983FBF61F69D5E000F7440B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D983FBFD1F69D81C00F7440B /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		D983FC011F6A50DE00F7440B /* ShowDataViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowDataViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +83,7 @@
 			children = (
 				D975EA071F690494002D3D1D /* AppDelegate.swift */,
 				D975EA091F690494002D3D1D /* ViewController.swift */,
-				D983FBFD1F69D81C00F7440B /* TableViewController.swift */,
+				D983FC011F6A50DE00F7440B /* ShowDataViewController.swift */,
 				D975EA0B1F690494002D3D1D /* Main.storyboard */,
 				D975EA0E1F690494002D3D1D /* Assets.xcassets */,
 				D975EA101F690494002D3D1D /* LaunchScreen.storyboard */,
@@ -196,10 +196,10 @@
 				D983FBF71F69D5E000F7440B /* FMDatabase.m in Sources */,
 				D975EA0A1F690494002D3D1D /* ViewController.swift in Sources */,
 				D983FBFB1F69D5E000F7440B /* FMResultSet.m in Sources */,
-				D983FBFE1F69D81C00F7440B /* TableViewController.swift in Sources */,
 				D983FBF91F69D5E000F7440B /* FMDatabasePool.m in Sources */,
 				D975EA081F690494002D3D1D /* AppDelegate.swift in Sources */,
 				D983FBF81F69D5E000F7440B /* FMDatabaseAdditions.m in Sources */,
+				D983FC021F6A50DE00F7440B /* ShowDataViewController.swift in Sources */,
 				D983FBFA1F69D5E000F7440B /* FMDatabaseQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
