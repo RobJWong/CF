@@ -42,4 +42,6 @@ class ShowDataViewController: UIViewController {
         }
         showSQLData.text = dataText
     }
+    
+    
 }
