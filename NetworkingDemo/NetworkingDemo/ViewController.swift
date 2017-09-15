@@ -38,7 +38,7 @@ class ViewController: UIViewController {
             })
         }
     task.resume()
-}
+    }
 
     func setLabel(weatherData: Data) {
         do {
