@@ -32,12 +32,16 @@ class ShowDataViewController: UIViewController {
             fmdb.open()
             let selectSql = "select * from PersonInfo"
             let fmdbResult = fmdb.executeQuery(selectSql, withParameterDictionary: nil)
-            while (fmdbResult?.next())! {
-                let rowId = fmdbResult?.int(forColumn: "ID")
-                let username = fmdbResult?.string(forColumn: "Username")
-                let password = fmdbResult?.string(forColumn: "Password")
-                let rowData = "ID: \(rowId!) Username: \(username!), Password: \(password!)\n"
-                dataText += rowData
+            if let fmdbValidFlag = fmdbResult {
+                while (fmdbResult?.next())! {
+                    let rowId = fmdbResult?.int(forColumn: "ID")
+                    let username = fmdbResult?.string(forColumn: "Username")
+                    let password = fmdbResult?.string(forColumn: "Password")
+                    let rowData = "ID: \(rowId!) Username: \(username!), Password: \(password!)\n"
+                    dataText += rowData
+                }
+            } else {
+                dataText = "No data was saved"
             }
         }
         showSQLData.text = dataText

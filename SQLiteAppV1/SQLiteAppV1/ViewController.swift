@@ -41,6 +41,8 @@ class ViewController: UIViewController {
                 print(error)
             }
         }
+        usernameField.text = ""
+        passwordField.text = ""
     }
     override func viewDidLoad() {
         super.viewDidLoad()
