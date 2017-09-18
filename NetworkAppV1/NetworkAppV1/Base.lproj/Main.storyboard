@@ -13,7 +13,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NetworkAppV1" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
@@ -26,11 +25,18 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BS9-hy-RHw">
                                 <rect key="frame" x="37.5" y="35" width="300" height="190"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOc-T1-hw7">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="gOc-T1-hw7">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
                                         <subviews>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Player Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4AC-4k-wog">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UZe-zp-DYO">
-                                                <rect key="frame" x="0.0" y="0.0" width="300" height="30"/>
+                                                <rect key="frame" x="150" y="0.0" width="150" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                 <state key="normal" title="Generate LoL Player Data"/>
                                                 <connections>
                                                     <action selector="generatePlayerData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="79u-2f-Z1t"/>
@@ -119,10 +125,12 @@
                     <connections>
                         <outlet property="divisionLabel" destination="7xL-GL-mzZ" id="EoA-Jj-BIy"/>
                         <outlet property="losesLabel" destination="orE-yN-SkP" id="pd5-oH-HcJ"/>
+                        <outlet property="summonerName" destination="4AC-4k-wog" id="CW9-M5-bqS"/>
                         <outlet property="tierLabel" destination="KI0-YV-Zlh" id="SZS-Ko-wZO"/>
                         <outlet property="winsLabel" destination="z05-Vj-EVI" id="zIn-WW-bCk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
