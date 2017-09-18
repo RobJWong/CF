@@ -22,29 +22,29 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         self.picker.delegate = self
         self.picker.dataSource = self
-        pickerData = ["", "Bloomberg", "Buzzfeed", "CNN", "ESPN", "Independent", "Time"]
+        pickerData = ["Bloomberg", "Buzzfeed", "CNN", "ESPN", "Independent", "Time"]
+        self.newsSelectionPicked = pickerData[0]
     }
 
     @IBAction func generateHeadline(_ sender: UIButton) {
-//        if let noOption = newsSelectionPicked, noOption.isEmpty, noOption == nil {
-            let formattedNewsString = newsSelectionPicked!.lowercased()
-            let urlString = "https://newsapi.org/v1/articles?source=\(formattedNewsString)&sortBy=top&apiKey=7dae1514f165451699da7d4633acc5ac"
-            Alamofire.request(urlString)
-                .validate()
-                .responseJSON { response in
-                    if response.result.isSuccess {
-                        if let newsJSON = response.result.value {
-                            let parsedData = JSON(newsJSON)
-                            let newsAuthor = parsedData["articles", 0 ,"author"]
-                            let newsTitle = parsedData["articles", 0, "title"]
-                            let newsDescription = parsedData["articles", 0, "description"]
-                            let newsURL = parsedData["articles", 0, "url"]
-                            print (newsURL)
-                            self.newsTextField.text = (" Author: \(newsAuthor) \n\n Title: \(newsTitle) \n\n Description: \(newsDescription) \n\n URL: \(newsURL)")
-                        }
-                    } else {
-                        print(response.result.error.debugDescription)
+        print(newsSelectionPicked)
+        let formattedNewsString = newsSelectionPicked!.lowercased()
+        let urlString = "https://newsapi.org/v1/articles?source=\(formattedNewsString)&sortBy=top&apiKey=7dae1514f165451699da7d4633acc5ac"
+        Alamofire.request(urlString)
+            .validate()
+            .responseJSON { response in
+                if response.result.isSuccess {
+                    if let newsJSON = response.result.value {
+                        let parsedData = JSON(newsJSON)
+                        let newsAuthor = parsedData["articles", 0 ,"author"]
+                        let newsTitle = parsedData["articles", 0, "title"]
+                        let newsDescription = parsedData["articles", 0, "description"]
+                        let newsURL = parsedData["articles", 0, "url"]
+                        self.newsTextField.text = (" Author: \(newsAuthor) \n\n Title: \(newsTitle) \n\n Description: \(newsDescription) \n\n URL: \(newsURL)")
                     }
+                } else {
+                    print(response.result.error.debugDescription)
+                }
         }
     }
 
