@@ -21,9 +21,9 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
             getPlayerData(urlString: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonerNameInput)?api_key=RGAPI-07450933-905d-4a3a-b7eb-70a6cf5b04f7")
         }
         
-        if let summonerID = summonerID {
-            getSummonerRanked(urlString: "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerID)?api_key=RGAPI-07450933-905d-4a3a-b7eb-70a6cf5b04f7")
-        }
+//        if let summonerID = summonerID {
+//            getSummonerRanked(urlString: "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerID)?api_key=RGAPI-07450933-905d-4a3a-b7eb-70a6cf5b04f7")
+//        }
         
         let alertController = UIAlertController(title: "Entered", message: "Entered", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "Ok", style: .default) {
@@ -87,21 +87,6 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
         }
     }
 }
-
-//    func getSummonerRankedJSON(playerData: Data) {
-//        do {
-//            let jsonUserRanked = try? JSONSerialization.jsonObject(with: playerData, options:  []) as! [[String:Any]]
-//            if let winData = jsonUserRanked?[0]["wins"], let loseData = jsonUserRanked?[0]["losses"], let divisionData = jsonUserRanked?[0]["rank"], let tierData = jsonUserRanked?[0]["tier"] {
-//                winsLabel.text = String(stringInterpolationSegment:winData)
-//                losesLabel.text = String(stringInterpolationSegment:loseData)
-//                divisionLabel.text = String(stringInterpolationSegment:divisionData)
-//                tierLabel.text = String(stringInterpolationSegment:tierData)
-//            } catch {
-//                print ("Error capturing smmoner ranked stats")
-//            }
-//        }
-//    }
-
 
 //    func getData(playerData: Data) {
 //        do {

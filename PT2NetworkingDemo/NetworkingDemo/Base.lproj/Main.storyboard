@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NetworkingDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6OE-kH-1CM">
+                                <rect key="frame" x="143.5" y="45" width="88.5" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPj-1G-P7l">
+                                <rect key="frame" x="153.5" y="100" width="67" height="30"/>
+                                <state key="normal" title="Get Temp"/>
+                                <connections>
+                                    <action selector="getTempButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xyx-eh-eOG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVS-AO-Cxv">
+                                <rect key="frame" x="182" y="155" width="10.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6OE-kH-1CM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="29D-EA-uKz"/>
+                            <constraint firstItem="gVS-AO-Cxv" firstAttribute="top" secondItem="kPj-1G-P7l" secondAttribute="bottom" constant="25" id="2mb-R9-fsH"/>
+                            <constraint firstItem="kPj-1G-P7l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3eR-Zk-XOU"/>
+                            <constraint firstItem="gVS-AO-Cxv" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="XEH-O4-KdC"/>
+                            <constraint firstItem="kPj-1G-P7l" firstAttribute="top" secondItem="6OE-kH-1CM" secondAttribute="bottom" constant="25" id="h1U-b5-ef2"/>
+                            <constraint firstItem="6OE-kH-1CM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="yoo-4P-GYH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cityNameTextField" destination="6OE-kH-1CM" id="d9o-e3-Oin"/>
+                        <outlet property="temperatureLabel" destination="gVS-AO-Cxv" id="7cz-ds-tbX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
