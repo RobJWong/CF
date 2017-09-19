@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="iVH-3h-gcf">
                         <nil key="title"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="&lt;" id="Vsh-4h-Qy5">
+                                <connections>
+                                    <action selector="back:" destination="BYZ-38-t0r" id="Gp1-0H-I4d"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="&gt;" id="6ky-hh-Dnd">
+                                <connections>
+                                    <action selector="forward:" destination="BYZ-38-t0r" id="Kht-Bc-5Nv"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                         <view key="titleView" contentMode="scaleToFill" id="GRe-af-R2A">
                             <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -46,10 +59,18 @@
                                 <constraint firstAttribute="bottom" secondItem="FsY-YU-VDf" secondAttribute="bottom" id="pFp-FO-rzQ"/>
                             </constraints>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Reload" id="lqw-sy-DkM">
+                            <connections>
+                                <action selector="reload:" destination="BYZ-38-t0r" id="n08-v2-nPD"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="Vsh-4h-Qy5" id="FJi-jO-Ny5"/>
                         <outlet property="barView" destination="GRe-af-R2A" id="fZJ-9h-uDA"/>
+                        <outlet property="forwardButton" destination="6ky-hh-Dnd" id="NNW-0f-i5K"/>
+                        <outlet property="reloadButton" destination="lqw-sy-DkM" id="3kU-Zq-EOq"/>
                         <outlet property="urlField" destination="FsY-YU-VDf" id="JE7-AE-Ptw"/>
                     </connections>
                 </viewController>
