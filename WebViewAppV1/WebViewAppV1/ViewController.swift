@@ -42,8 +42,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 let searchURL = URL(string: formattedUrlField)
                 webView!.load(URLRequest(url: searchURL!))
             }
+            let searchURL = URL(string: unformattedURLField)
+            webView!.load(URLRequest(url: searchURL!))
         }
         return false
+    }
+    
+    func displayWebPage(url: String) {
+        
     }
 
 }
