@@ -9,11 +9,9 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController, UITextFieldDelegate, WKNavigationDelegate {
+class ViewController: UIViewController {
     var webView: WKWebView?
     
-    @IBOutlet weak var urlField: UITextField!
-    @IBOutlet weak var barView: UIView!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -28,6 +26,8 @@ class ViewController: UIViewController, UITextFieldDelegate, WKNavigationDelegat
     
     @IBAction func reload(_ sender: UIBarButtonItem) {
         let request = URLRequest(url: (webView?.url)!)
+        print(request)
+        print("Reloading Page")
         webView!.load(request)
     }
     
@@ -36,34 +36,23 @@ class ViewController: UIViewController, UITextFieldDelegate, WKNavigationDelegat
         view = webView!
     }
     
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if (keyPath == "loading") {
+            backButton.isEnabled = (webView?.canGoBack)!
+            forwardButton.isEnabled = (webView?.canGoForward)!
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        barView.frame = CGRect(x:0, y: 0, width: view.frame.width, height: 30)
         // Do any additional setup after loading the view, typically from a nib.
-        webView?.navigationDelegate = self as WKNavigationDelegate
+        webView?.addObserver(self, forKeyPath: "loading", options: .new, context: nil)
         let url = URL(string:"https://en.wikipedia.org/wiki/Main_Page")
         let request = URLRequest(url: url!)
         webView!.load(request)
         
+        backButton.isEnabled = false
+        forwardButton.isEnabled = false
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        barView.frame = CGRect(x:0, y: 0, width: size.width, height: 30)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        urlField.resignFirstResponder()
-        if let unformattedURLField = urlField.text, !unformattedURLField.isEmpty
-        {
-            if !unformattedURLField.hasPrefix("http://") || !unformattedURLField.hasPrefix("https://") {
-                let formattedUrlField = "https://" + unformattedURLField
-                let searchURL = URL(string: formattedUrlField)
-                webView!.load(URLRequest(url: searchURL!))
-            }
-            let searchURL = URL(string: unformattedURLField)
-            webView!.load(URLRequest(url: searchURL!))
-        }
-        return false
-    }
-
 }
