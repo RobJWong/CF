@@ -16,90 +16,88 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
     @IBOutlet weak var summonerName: UITextField!
     var summonerID: String?
     
-    @IBAction func generatePlayerData(_ sender: UIButton) {
-        if let summonerNameInput = summonerName.text {
-            getPlayerData(urlString: "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(summonerNameInput)?api_key=RGAPI-07450933-905d-4a3a-b7eb-70a6cf5b04f7")
-        }
-        
-//        if let summonerID = summonerID {
-//            getSummonerRanked(urlString: "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(summonerID)?api_key=RGAPI-07450933-905d-4a3a-b7eb-70a6cf5b04f7")
-//        }
-        
-        let alertController = UIAlertController(title: "Entered", message: "Entered", preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default) {
-            (alert) in
-            print("User tapped Ok")
-        }
-        alertController.addAction(okAction)
-        alertController.popoverPresentationController?.sourceRect = sender.frame
-        alertController.popoverPresentationController?.sourceView = view
-        
-        present(alertController, animated: true, completion: nil)
+    enum ApiError: Error {
+        case invalidURL
+        case couldntParseData
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func getPlayerData(urlString: String) {
-        let url = URL(string: urlString)
-        let dataTask = URLSession.shared.dataTask(with: url!)  {(data, response, error) in DispatchQueue.main.async ( execute : {
-            self.getSummonerIDJSON(playerData: data!)
-            })
+    @IBAction func getSummerInfoButton(_ sender: UIButton) {
+        if let nameString = summonerName.text {
+            getSummonerInfo(forName: nameString) { (userJson, error) in
+                let summonerIDTest = userJson!["id"]!
+                //print (summonerIDTest)
+                self.summonerID = String(describing: summonerIDTest)
+                print (self.summonerID)
+            }
+            getSummonerRankedInfo(forID: self.summonerID!) { (userRankJson, error) in
+                if let wins = userRankJson![0]["wins"] {
+                    self.winsLabel.text = String(describing: wins)
+                }
+            }
         }
-        //dataTask.resume()
     }
     
-    func getSummonerRanked(urlString: String) {
-        let url = URL(string: urlString)
-        let dataTask = URLSession.shared.dataTask(with: url!)  {(data, response, error) in DispatchQueue.main.async ( execute : {
-            self.getSummonerRankedJSON(playerData: data!)
-            })
+    func getSummonerInfo(forName name: String, completion: @escaping ([String:Any]?, Error?) -> Void ) {
+        let urlString = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(name)?api_key=RGAPI-fe0d450b-e6c4-4f0e-a2ca-d9fa6cd3b3a3"
+        guard let url = URL(string: urlString) else {
+            completion(nil, ApiError.invalidURL)
+            return
+        }
+        
+        let dataTask = URLSession.shared.dataTask(with:url) { data, response, error in
+            if let error = error {
+                completion(nil, error)
+            } else if let data = data {
+                do {
+                    if let jsonUser = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                        completion(jsonUser, nil)
+                    } else {
+                        completion(nil, ApiError.couldntParseData)
+                    }
+                } catch {
+                    completion(nil, ApiError.couldntParseData)
+                }
+            }
         }
         dataTask.resume()
     }
-
-    func getSummonerIDJSON(playerData: Data) {
-        do {
-            let jsonUser = try JSONSerialization.jsonObject(with: playerData, options: []) as! [String:Any]
-            if let summonerIDData = jsonUser["id"] {
-                self.summonerID = String(describing: summonerIDData)
-            }
-        } catch {
-            print("Error capturing summonerID")
+    
+    func getSummonerRankedInfo(forID ID: String, completion: @escaping ([[String:Any]]?, Error?) -> Void ) {
+        let urlString = "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(ID)?api_key=RGAPI-fe0d450b-e6c4-4f0e-a2ca-d9fa6cd3b3a3"
+        guard let url = URL(string: urlString) else {
+            completion(nil, ApiError.invalidURL)
+            return
         }
+        
+        let dataTask = URLSession.shared.dataTask(with:url) { data, response, error in
+            if let error = error {
+                completion(nil, error)
+            } else if let data = data {
+                do {
+                    if let jsonUser = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] {
+                        completion(jsonUser, nil)
+                    } else {
+                        completion(nil, ApiError.couldntParseData)
+                    }
+                } catch {
+                    completion(nil, ApiError.couldntParseData)
+                }
+            }
+        }
+        dataTask.resume()
     }
     
-    func getSummonerRankedJSON(playerData: Data) {
-        do {
-            let jsonRankedData = try JSONSerialization.jsonObject(with: playerData, options: []) as! [[String:Any]]
-            if let winData = jsonRankedData[0]["wins"] {
-                winsLabel.text = String(stringInterpolationSegment:winData)
-            }
-        } catch {
-            print("potato code")
-        }
-    }
+    //    if let winData = json[0]["wins"], let loseData = json[0]["losses"], let divisionData = json[0]["rank"], let tierData = json[0]["tier"] {
+    //        winsLabel.text = String(stringInterpolationSegment:winData)
+    //        losesLabel.text = String(stringInterpolationSegment:loseData)
+    //        divisionLabel.text = String(stringInterpolationSegment:divisionData)
+    //        tierLabel.text = String(stringInterpolationSegment:tierData)
+    
+    //        if let winData = userRankJson![0]["wins"], let loseData = userRankJson![0]["losses"], let divisionData = userRankJson![0]["rank"], let tierData = userRankJson![0]["tier"]{
+    //            winsLabel.text = winData
+    //        }
 }
-
-//    func getData(playerData: Data) {
-//        do {
-//            let json = try JSONSerialization.jsonObject(with: playerData, options: []) as! [[String:Any]]
-//            if let winData = json[0]["wins"], let loseData = json[0]["losses"], let divisionData = json[0]["rank"], let tierData = json[0]["tier"] {
-//                winsLabel.text = String(stringInterpolationSegment:winData)
-//                losesLabel.text = String(stringInterpolationSegment:loseData)
-//                divisionLabel.text = String(stringInterpolationSegment:divisionData)
-//                tierLabel.text = String(stringInterpolationSegment:tierData)
-//            } else {
-//                let summonerData = json[0]["id]
-//        } catch {
-//            print("error")
-//        }
-//
-
