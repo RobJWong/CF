@@ -25,6 +25,8 @@ class NewReminderViewController: UIViewController {
             let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
             mapView.setRegion(region, animated: true)
         }
+        userInputGeofencingSetting()
+
     }
     
 
@@ -63,5 +65,46 @@ class NewReminderViewController: UIViewController {
         
         print(touchMapCoordinate.latitude)
         print(touchMapCoordinate.longitude)
+    }
+}
+
+extension NewReminderViewController {
+    
+    func userInputGeofencingSetting() {
+        
+        let alertController = UIAlertController(title: "Geofence Setting", message: "Enter radius in meters for alert boundary", preferredStyle: .alert)
+        
+        let nofityOnEntryAction = UIAlertAction(title: "Notify on Entry", style: .default) { (_) in
+            getRadiusInput()
+            RemindersManager.shared.notifyOnEntry = true
+        }
+        let notifyOnExitAction = UIAlertAction(title: "Notify on Exit", style: .default) { (_) in
+            getRadiusInput()
+            RemindersManager.shared.notifyOnEntry = false
+        }
+        
+        alertController.addTextField { (textField) in
+            textField.placeholder = "25"
+            textField.textAlignment = .center
+        }
+        
+        // adding action to dialogbox
+        alertController.addAction(nofityOnEntryAction)
+        alertController.addAction(notifyOnExitAction)
+        
+        // presenting the dialog
+        present(alertController, animated: true, completion: nil)
+        
+        // helper
+        func getRadiusInput() {
+            if let radius = alertController.textFields?[0].text,
+                radius.trimmingCharacters(in: .whitespacesAndNewlines) != "",
+                let radiusAsDouble = Double(radius) {
+                RemindersManager.shared.userInputRadius = radiusAsDouble
+            } else {
+                // user has entered invalid radius, thus we use defaultRadius
+                RemindersManager.shared.userInputRadius = RemindersManager.shared.defaultRadius
+            }
+        }
     }
 }

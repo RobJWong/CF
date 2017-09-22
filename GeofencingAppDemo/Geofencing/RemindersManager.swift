@@ -17,6 +17,13 @@ class RemindersManager: NSObject {
     var currentLocation: CLLocation?
     let userDefaultsKey = "RemindersUserDefaultsKey"
     let defaultRadius: Double = 500
+    var userInputRadius: Double?
+    private var notifyOnExit = false
+    var notifyOnEntry = true {
+        didSet {
+            notifyOnExit = !notifyOnEntry
+        }
+    }
     
     func updateLocation() {
         locationManager.delegate = self
@@ -43,7 +50,9 @@ class RemindersManager: NSObject {
         UserDefaults.standard.set(remindersData, forKey: userDefaultsKey)
         UserDefaults.standard.synchronize()
         let region = CLCircularRegion(center: reminder.coordinate, radius: defaultRadius, identifier: reminder.identifier)
-        region.notifyOnEntry = true
+        //region.notifyOnEntry = true
+        region.notifyOnEntry = notifyOnEntry
+        region.notifyOnExit = notifyOnExit
         
         locationManager.startMonitoring(for: region)
     }
@@ -54,7 +63,7 @@ class RemindersManager: NSObject {
         
         for region in locationManager.monitoredRegions {
             if let circularRegion = region as? CLCircularRegion, circularRegion.identifier == reminderIdentifier {
-                locationManager.stopMonitoring(for: circularRegion)
+                locationManager.startMonitoring(for: circularRegion)
             }
         }
         reminders.remove(at: index)
@@ -75,6 +84,14 @@ extension RemindersManager: CLLocationManagerDelegate  {
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        for reminder in reminders() {
+            if reminder.identifier == region.identifier {
+                showAlert(reminder: reminder)
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         for reminder in reminders() {
             if reminder.identifier == region.identifier {
                 showAlert(reminder: reminder)
