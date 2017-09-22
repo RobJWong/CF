@@ -16,8 +16,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var postalData: UILabel!
     @IBOutlet weak var regionData: UILabel!
     @IBOutlet weak var countryData: UILabel!
+    @IBOutlet weak var streetData: UILabel!
     
-    @IBOutlet weak var locationTextBox: UITextView!
+    //@IBOutlet weak var locationTextBox: UITextView!
     
     let locationManager = CLLocationManager()
     @IBAction func findLocation(_ sender: UIButton) {
@@ -59,10 +60,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.stopUpdatingLocation()
         latitudeData.text = String(location.coordinate.latitude)
         longitudeData.text = String(location.coordinate.longitude)
-        localData.text = String(placemark.locality!)
-        postalData.text = String(placemark.postalCode!)
-        regionData.text = String(placemark.administrativeArea!)
-        countryData.text = String(placemark.country!)
+        localData.text = placemark.locality ?? "No local data"
+        postalData.text = placemark.postalCode ?? "No postal code"
+        regionData.text = placemark.administrativeArea ?? "No regional data"
+        countryData.text = placemark.country ?? "No country data"
+        let streetNumber = placemark.subThoroughfare ?? "No st. #"
+        let streetName = placemark.thoroughfare ?? "No st. name"
+        streetData.text = streetNumber + " " + streetName
     }
 }
 
