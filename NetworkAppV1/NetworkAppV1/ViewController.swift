@@ -27,11 +27,11 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
     }
     @IBAction func getSummerInfoButton(_ sender: UIButton) {
         if let nameString = summonerName.text {
-            getSummonerInfo(forName: nameString) { (userJson, error) in
+            getSummonerInfo(forName: nameString) { (userJson, error) in ///not sure how to solve this
                 if let summonerID = userJson?["id"] as? Int {
                     self.getSummonerRankedInfo(forID: summonerID) { (userRankJson, error) in
                         DispatchQueue.main.async(execute: {
-                            if let apiWorked = userJson![0]["wins"]! {
+                            if !userRankJson!.isEmpty {
                                 let wins = userRankJson![0]["wins"]!
                                 self.set(self.winsLabel, with: String(describing:wins))
                                 let loses = userRankJson![0]["losses"]!
@@ -46,7 +46,8 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
                         })
                     }
                 } else {
-                    self.showErrorAlert(title: "Error", message: "No ranked info")
+                    print("Error thrown")
+                    self.showErrorAlert(title: "Error", message: "User not found")
                 }
             }
         }
