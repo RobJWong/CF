@@ -1,0 +1,339 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		541E00C51E8433A000F92E2A /* NewReminderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E00C41E8433A000F92E2A /* NewReminderViewController.swift */; };
+		541E00C91E843A7300F92E2A /* RemindersManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E00C81E843A7300F92E2A /* RemindersManager.swift */; };
+		541E00CB1E843A9E00F92E2A /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541E00CA1E843A9E00F92E2A /* Reminder.swift */; };
+		54EABE0B1E84333400FFD786 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE0A1E84333400FFD786 /* AppDelegate.swift */; };
+		54EABE0D1E84333400FFD786 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54EABE0C1E84333400FFD786 /* RemindersViewController.swift */; };
+		54EABE101E84333400FFD786 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EABE0E1E84333400FFD786 /* Main.storyboard */; };
+		54EABE121E84333400FFD786 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EABE111E84333400FFD786 /* Assets.xcassets */; };
+		54EABE151E84333400FFD786 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EABE131E84333400FFD786 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		541E00C41E8433A000F92E2A /* NewReminderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewReminderViewController.swift; sourceTree = "<group>"; };
+		541E00C81E843A7300F92E2A /* RemindersManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersManager.swift; sourceTree = "<group>"; };
+		541E00CA1E843A9E00F92E2A /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		54EABE071E84333400FFD786 /* Geofencing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Geofencing.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		54EABE0A1E84333400FFD786 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		54EABE0C1E84333400FFD786 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
+		54EABE0F1E84333400FFD786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		54EABE111E84333400FFD786 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		54EABE141E84333400FFD786 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		54EABE161E84333400FFD786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		54EABE041E84333400FFD786 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		54EABDFE1E84333300FFD786 = {
+			isa = PBXGroup;
+			children = (
+				54EABE091E84333400FFD786 /* Geofencing */,
+				54EABE081E84333400FFD786 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		54EABE081E84333400FFD786 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				54EABE071E84333400FFD786 /* Geofencing.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		54EABE091E84333400FFD786 /* Geofencing */ = {
+			isa = PBXGroup;
+			children = (
+				54EABE0A1E84333400FFD786 /* AppDelegate.swift */,
+				54EABE0C1E84333400FFD786 /* RemindersViewController.swift */,
+				541E00C41E8433A000F92E2A /* NewReminderViewController.swift */,
+				541E00C81E843A7300F92E2A /* RemindersManager.swift */,
+				541E00CA1E843A9E00F92E2A /* Reminder.swift */,
+				54EABE0E1E84333400FFD786 /* Main.storyboard */,
+				54EABE111E84333400FFD786 /* Assets.xcassets */,
+				54EABE131E84333400FFD786 /* LaunchScreen.storyboard */,
+				54EABE161E84333400FFD786 /* Info.plist */,
+			);
+			path = Geofencing;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		54EABE061E84333400FFD786 /* Geofencing */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 54EABE191E84333400FFD786 /* Build configuration list for PBXNativeTarget "Geofencing" */;
+			buildPhases = (
+				54EABE031E84333400FFD786 /* Sources */,
+				54EABE041E84333400FFD786 /* Frameworks */,
+				54EABE051E84333400FFD786 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Geofencing;
+			productName = Geofencing;
+			productReference = 54EABE071E84333400FFD786 /* Geofencing.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		54EABDFF1E84333300FFD786 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = CareerFoundry;
+				TargetAttributes = {
+					54EABE061E84333400FFD786 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = KUK8W9TW2G;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 54EABE021E84333300FFD786 /* Build configuration list for PBXProject "Geofencing" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 54EABDFE1E84333300FFD786;
+			productRefGroup = 54EABE081E84333400FFD786 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				54EABE061E84333400FFD786 /* Geofencing */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		54EABE051E84333400FFD786 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54EABE151E84333400FFD786 /* LaunchScreen.storyboard in Resources */,
+				54EABE121E84333400FFD786 /* Assets.xcassets in Resources */,
+				54EABE101E84333400FFD786 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		54EABE031E84333400FFD786 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				54EABE0D1E84333400FFD786 /* RemindersViewController.swift in Sources */,
+				541E00C91E843A7300F92E2A /* RemindersManager.swift in Sources */,
+				541E00C51E8433A000F92E2A /* NewReminderViewController.swift in Sources */,
+				54EABE0B1E84333400FFD786 /* AppDelegate.swift in Sources */,
+				541E00CB1E843A9E00F92E2A /* Reminder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		54EABE0E1E84333400FFD786 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54EABE0F1E84333400FFD786 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		54EABE131E84333400FFD786 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				54EABE141E84333400FFD786 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		54EABE171E84333400FFD786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		54EABE181E84333400FFD786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		54EABE1A1E84333400FFD786 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KUK8W9TW2G;
+				INFOPLIST_FILE = Geofencing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.careerfoundry.Geofencing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		54EABE1B1E84333400FFD786 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = KUK8W9TW2G;
+				INFOPLIST_FILE = Geofencing/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.careerfoundry.Geofencing;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		54EABE021E84333300FFD786 /* Build configuration list for PBXProject "Geofencing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54EABE171E84333400FFD786 /* Debug */,
+				54EABE181E84333400FFD786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		54EABE191E84333400FFD786 /* Build configuration list for PBXNativeTarget "Geofencing" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				54EABE1A1E84333400FFD786 /* Debug */,
+				54EABE1B1E84333400FFD786 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 54EABDFF1E84333300FFD786 /* Project object */;
+}
