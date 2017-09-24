@@ -58,22 +58,26 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        func showAlert(title: String) {
-            let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in
-                
-                collectionView.performBatchUpdates({Void in
-                    self.allExercises[indexPath.section].remove(at: indexPath.row)
-                    self.collectionView?.deleteItems(at: [indexPath])
-                }, completion: nil)
-                
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-        }
-        
-        let exercises = allExercises[indexPath.section][indexPath.row]
-        showAlert(title: "Delete '\(exercises.exerciseName)'?")
+        collectionView.performBatchUpdates( { Void in
+            self.allExercises[indexPath.section].remove(at: indexPath.row)
+            self.collectionView?.deleteItems(at: [indexPath])
+        }, completion: nil)
+//        func showAlert(title: String) {
+//            let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { action in
+//
+//                collectionView.performBatchUpdates({Void in
+//                    self.allExercises[indexPath.section].remove(at: indexPath.row)
+//                    self.collectionView?.deleteItems(at: [indexPath])
+//                }, completion: nil)
+//
+//            }))
+//            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.cancel, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//        }
+//
+//        let exercises = allExercises[indexPath.section][indexPath.row]
+//        showAlert(title: "Delete '\(exercises.exerciseName)'?")
     }
 
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {

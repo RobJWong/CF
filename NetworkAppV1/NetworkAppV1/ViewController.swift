@@ -27,7 +27,7 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
     }
     @IBAction func getSummerInfoButton(_ sender: UIButton) {
         if let nameString = summonerName.text {
-            getSummonerInfo(forName: nameString) { (userJson, error) in ///not sure how to solve this
+            getSummonerInfo(forName: nameString) { (userJson, error) in
                 if let summonerID = userJson?["id"] as? Int {
                     self.getSummonerRankedInfo(forID: summonerID) { (userRankJson, error) in
                         DispatchQueue.main.async(execute: {
@@ -46,15 +46,16 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
                         })
                     }
                 } else {
-                    print("Error thrown")
-                    self.showErrorAlert(title: "Error", message: "User not found")
+                    DispatchQueue.main.async {
+                        self.showErrorAlert(title: "Error", message: "Not a valid username")
+                    }
                 }
             }
         }
     }
     
     func getSummonerInfo(forName name: String, completion: @escaping ([String:Any]?, Error?) -> Void ) {
-        let urlString = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(name)?api_key=RGAPI-779334cb-51f8-4845-b988-cf190f240407"
+        let urlString = "https://na1.api.riotgames.com/lol/summoner/v3/summoners/by-name/\(name)?api_key=RGAPI-bd3e6849-d52c-4c6c-b0d0-157cb0b13393"
         guard let url = URL(string: urlString) else {
             completion(nil, ApiError.invalidURL)
             return
@@ -79,7 +80,7 @@ class ViewController: UIViewController, UIPopoverControllerDelegate {
     }
     
     func getSummonerRankedInfo(forID ID: Int, completion: @escaping ([[String:Any]]?, Error?) -> Void ) {
-        let urlString = "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(ID)?api_key=RGAPI-779334cb-51f8-4845-b988-cf190f240407"
+        let urlString = "https://na1.api.riotgames.com/lol/league/v3/positions/by-summoner/\(ID)?api_key=RGAPI-bd3e6849-d52c-4c6c-b0d0-157cb0b13393"
         guard let url = URL(string: urlString) else {
             completion(nil, ApiError.invalidURL)
             return
