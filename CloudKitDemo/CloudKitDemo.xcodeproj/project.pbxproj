@@ -7,76 +7,76 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D9953D121F781863002287FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D111F781863002287FD /* AppDelegate.swift */; };
-		D9953D141F781863002287FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D131F781863002287FD /* ViewController.swift */; };
-		D9953D171F781863002287FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D151F781863002287FD /* Main.storyboard */; };
-		D9953D1A1F781863002287FD /* CloudKitDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9953D181F781863002287FD /* CloudKitDemo.xcdatamodeld */; };
-		D9953D1C1F781863002287FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9953D1B1F781863002287FD /* Assets.xcassets */; };
-		D9953D1F1F781863002287FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D1D1F781863002287FD /* LaunchScreen.storyboard */; };
-		D9953D291F781874002287FD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9953D281F781874002287FD /* CloudKit.framework */; };
+		D9953D371F795BA7002287FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D361F795BA7002287FD /* AppDelegate.swift */; };
+		D9953D3C1F795BA7002287FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D3A1F795BA7002287FD /* Main.storyboard */; };
+		D9953D3F1F795BA7002287FD /* CloudKitDemo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9953D3D1F795BA7002287FD /* CloudKitDemo.xcdatamodeld */; };
+		D9953D411F795BA7002287FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9953D401F795BA7002287FD /* Assets.xcassets */; };
+		D9953D441F795BA7002287FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D421F795BA7002287FD /* LaunchScreen.storyboard */; };
+		D9953D541F7976A1002287FD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9953D531F7976A1002287FD /* CloudKit.framework */; };
+		D9953D561F798636002287FD /* MessagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D551F798636002287FD /* MessagesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D9953D0E1F781863002287FD /* CloudKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D9953D111F781863002287FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9953D131F781863002287FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D9953D161F781863002287FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D9953D191F781863002287FD /* CloudKitDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudKitDemo.xcdatamodel; sourceTree = "<group>"; };
-		D9953D1B1F781863002287FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D9953D1E1F781863002287FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D9953D201F781863002287FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9953D261F78186F002287FD /* CloudKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitDemo.entitlements; sourceTree = "<group>"; };
-		D9953D281F781874002287FD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D9953D331F795BA7002287FD /* CloudKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CloudKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9953D361F795BA7002287FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9953D3B1F795BA7002287FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9953D3E1F795BA7002287FD /* CloudKitDemo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CloudKitDemo.xcdatamodel; sourceTree = "<group>"; };
+		D9953D401F795BA7002287FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9953D431F795BA7002287FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9953D451F795BA7002287FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9953D4B1F795BD6002287FD /* CloudKitDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CloudKitDemo.entitlements; sourceTree = "<group>"; };
+		D9953D531F7976A1002287FD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D9953D551F798636002287FD /* MessagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D9953D0B1F781863002287FD /* Frameworks */ = {
+		D9953D301F795BA7002287FD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9953D291F781874002287FD /* CloudKit.framework in Frameworks */,
+				D9953D541F7976A1002287FD /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D9953D051F781863002287FD = {
+		D9953D2A1F795BA7002287FD = {
 			isa = PBXGroup;
 			children = (
-				D9953D101F781863002287FD /* CloudKitDemo */,
-				D9953D0F1F781863002287FD /* Products */,
-				D9953D271F781874002287FD /* Frameworks */,
+				D9953D351F795BA7002287FD /* CloudKitDemo */,
+				D9953D341F795BA7002287FD /* Products */,
+				D9953D4C1F795BDD002287FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		D9953D0F1F781863002287FD /* Products */ = {
+		D9953D341F795BA7002287FD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D9953D0E1F781863002287FD /* CloudKitDemo.app */,
+				D9953D331F795BA7002287FD /* CloudKitDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D9953D101F781863002287FD /* CloudKitDemo */ = {
+		D9953D351F795BA7002287FD /* CloudKitDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D9953D261F78186F002287FD /* CloudKitDemo.entitlements */,
-				D9953D111F781863002287FD /* AppDelegate.swift */,
-				D9953D131F781863002287FD /* ViewController.swift */,
-				D9953D151F781863002287FD /* Main.storyboard */,
-				D9953D1B1F781863002287FD /* Assets.xcassets */,
-				D9953D1D1F781863002287FD /* LaunchScreen.storyboard */,
-				D9953D201F781863002287FD /* Info.plist */,
-				D9953D181F781863002287FD /* CloudKitDemo.xcdatamodeld */,
+				D9953D4B1F795BD6002287FD /* CloudKitDemo.entitlements */,
+				D9953D361F795BA7002287FD /* AppDelegate.swift */,
+				D9953D551F798636002287FD /* MessagesTableViewController.swift */,
+				D9953D3A1F795BA7002287FD /* Main.storyboard */,
+				D9953D401F795BA7002287FD /* Assets.xcassets */,
+				D9953D421F795BA7002287FD /* LaunchScreen.storyboard */,
+				D9953D451F795BA7002287FD /* Info.plist */,
+				D9953D3D1F795BA7002287FD /* CloudKitDemo.xcdatamodeld */,
 			);
 			path = CloudKitDemo;
 			sourceTree = "<group>";
 		};
-		D9953D271F781874002287FD /* Frameworks */ = {
+		D9953D4C1F795BDD002287FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D9953D281F781874002287FD /* CloudKit.framework */,
+				D9953D531F7976A1002287FD /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -84,13 +84,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D9953D0D1F781863002287FD /* CloudKitDemo */ = {
+		D9953D321F795BA7002287FD /* CloudKitDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D9953D231F781863002287FD /* Build configuration list for PBXNativeTarget "CloudKitDemo" */;
+			buildConfigurationList = D9953D481F795BA7002287FD /* Build configuration list for PBXNativeTarget "CloudKitDemo" */;
 			buildPhases = (
-				D9953D0A1F781863002287FD /* Sources */,
-				D9953D0B1F781863002287FD /* Frameworks */,
-				D9953D0C1F781863002287FD /* Resources */,
+				D9953D2F1F795BA7002287FD /* Sources */,
+				D9953D301F795BA7002287FD /* Frameworks */,
+				D9953D311F795BA7002287FD /* Resources */,
 			);
 			buildRules = (
 			);
@@ -98,20 +98,20 @@
 			);
 			name = CloudKitDemo;
 			productName = CloudKitDemo;
-			productReference = D9953D0E1F781863002287FD /* CloudKitDemo.app */;
+			productReference = D9953D331F795BA7002287FD /* CloudKitDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D9953D061F781863002287FD /* Project object */ = {
+		D9953D2B1F795BA7002287FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Robert Wong";
 				TargetAttributes = {
-					D9953D0D1F781863002287FD = {
+					D9953D321F795BA7002287FD = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
@@ -125,7 +125,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D9953D091F781863002287FD /* Build configuration list for PBXProject "CloudKitDemo" */;
+			buildConfigurationList = D9953D2E1F795BA7002287FD /* Build configuration list for PBXProject "CloudKitDemo" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -133,55 +133,55 @@
 				en,
 				Base,
 			);
-			mainGroup = D9953D051F781863002287FD;
-			productRefGroup = D9953D0F1F781863002287FD /* Products */;
+			mainGroup = D9953D2A1F795BA7002287FD;
+			productRefGroup = D9953D341F795BA7002287FD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D9953D0D1F781863002287FD /* CloudKitDemo */,
+				D9953D321F795BA7002287FD /* CloudKitDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D9953D0C1F781863002287FD /* Resources */ = {
+		D9953D311F795BA7002287FD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9953D1F1F781863002287FD /* LaunchScreen.storyboard in Resources */,
-				D9953D1C1F781863002287FD /* Assets.xcassets in Resources */,
-				D9953D171F781863002287FD /* Main.storyboard in Resources */,
+				D9953D441F795BA7002287FD /* LaunchScreen.storyboard in Resources */,
+				D9953D411F795BA7002287FD /* Assets.xcassets in Resources */,
+				D9953D3C1F795BA7002287FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D9953D0A1F781863002287FD /* Sources */ = {
+		D9953D2F1F795BA7002287FD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9953D141F781863002287FD /* ViewController.swift in Sources */,
-				D9953D1A1F781863002287FD /* CloudKitDemo.xcdatamodeld in Sources */,
-				D9953D121F781863002287FD /* AppDelegate.swift in Sources */,
+				D9953D3F1F795BA7002287FD /* CloudKitDemo.xcdatamodeld in Sources */,
+				D9953D561F798636002287FD /* MessagesTableViewController.swift in Sources */,
+				D9953D371F795BA7002287FD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D9953D151F781863002287FD /* Main.storyboard */ = {
+		D9953D3A1F795BA7002287FD /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D9953D161F781863002287FD /* Base */,
+				D9953D3B1F795BA7002287FD /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D9953D1D1F781863002287FD /* LaunchScreen.storyboard */ = {
+		D9953D421F795BA7002287FD /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D9953D1E1F781863002287FD /* Base */,
+				D9953D431F795BA7002287FD /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -189,7 +189,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D9953D211F781863002287FD /* Debug */ = {
+		D9953D461F795BA7002287FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -246,7 +246,7 @@
 			};
 			name = Debug;
 		};
-		D9953D221F781863002287FD /* Release */ = {
+		D9953D471F795BA7002287FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,37 +296,33 @@
 			};
 			name = Release;
 		};
-		D9953D241F781863002287FD /* Debug */ = {
+		D9953D491F795BA7002287FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CloudKitDemo/CloudKitDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = CloudKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudKitDemoV1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exercise.CloudKitDemoV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D9953D251F781863002287FD /* Release */ = {
+		D9953D4A1F795BA7002287FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = CloudKitDemo/CloudKitDemo.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = CloudKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.CloudKitDemoV1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.exercise.CloudKitDemoV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -335,20 +331,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D9953D091F781863002287FD /* Build configuration list for PBXProject "CloudKitDemo" */ = {
+		D9953D2E1F795BA7002287FD /* Build configuration list for PBXProject "CloudKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D9953D211F781863002287FD /* Debug */,
-				D9953D221F781863002287FD /* Release */,
+				D9953D461F795BA7002287FD /* Debug */,
+				D9953D471F795BA7002287FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D9953D231F781863002287FD /* Build configuration list for PBXNativeTarget "CloudKitDemo" */ = {
+		D9953D481F795BA7002287FD /* Build configuration list for PBXNativeTarget "CloudKitDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D9953D241F781863002287FD /* Debug */,
-				D9953D251F781863002287FD /* Release */,
+				D9953D491F795BA7002287FD /* Debug */,
+				D9953D4A1F795BA7002287FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -356,17 +352,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D9953D181F781863002287FD /* CloudKitDemo.xcdatamodeld */ = {
+		D9953D3D1F795BA7002287FD /* CloudKitDemo.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D9953D191F781863002287FD /* CloudKitDemo.xcdatamodel */,
+				D9953D3E1F795BA7002287FD /* CloudKitDemo.xcdatamodel */,
 			);
-			currentVersion = D9953D191F781863002287FD /* CloudKitDemo.xcdatamodel */;
+			currentVersion = D9953D3E1F795BA7002287FD /* CloudKitDemo.xcdatamodel */;
 			path = CloudKitDemo.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = D9953D061F781863002287FD /* Project object */;
+	rootObject = D9953D2B1F795BA7002287FD /* Project object */;
 }

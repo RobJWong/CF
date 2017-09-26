@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  CloudKitDemo
+//  ShoppingListCKAppV1
 //
 //  Created by Robert Wong on 9/25/17.
 //  Copyright © 2017 Robert Wong. All rights reserved.
@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "CloudKitDemo")
+        let container = NSPersistentContainer(name: "ShoppingListCKAppV1")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
