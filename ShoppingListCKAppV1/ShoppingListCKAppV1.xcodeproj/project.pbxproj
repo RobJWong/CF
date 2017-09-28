@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		C08787B8DDB86BF745F45AB9 /* Pods_ShoppingListCKAppV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A3B99A127267225C1D4A6D1 /* Pods_ShoppingListCKAppV1.framework */; };
 		D9953D641F79CFBC002287FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D631F79CFBC002287FD /* AppDelegate.swift */; };
-		D9953D661F79CFBC002287FD /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D651F79CFBC002287FD /* ListViewController.swift */; };
+		D9953D661F79CFBC002287FD /* ListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9953D651F79CFBC002287FD /* ListsViewController.swift */; };
 		D9953D691F79CFBC002287FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D671F79CFBC002287FD /* Main.storyboard */; };
 		D9953D6C1F79CFBC002287FD /* ShoppingListCKAppV1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9953D6A1F79CFBC002287FD /* ShoppingListCKAppV1.xcdatamodeld */; };
 		D9953D6E1F79CFBC002287FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9953D6D1F79CFBC002287FD /* Assets.xcassets */; };
 		D9953D711F79CFBC002287FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9953D6F1F79CFBC002287FD /* LaunchScreen.storyboard */; };
 		D9953D7B1F79D0A1002287FD /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9953D7A1F79D0A1002287FD /* CloudKit.framework */; };
+		D9E9E9571F7BF13100863A48 /* AddListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9E9561F7BF13100863A48 /* AddListViewController.swift */; };
+		D9E9E95F1F7C410000863A48 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9E95E1F7C40FF00863A48 /* ListViewController.swift */; };
+		D9E9E9611F7C7D9D00863A48 /* AddItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E9E9601F7C7D9D00863A48 /* AddItemViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +25,7 @@
 		5A3B99A127267225C1D4A6D1 /* Pods_ShoppingListCKAppV1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShoppingListCKAppV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9953D601F79CFBC002287FD /* ShoppingListCKAppV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingListCKAppV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9953D631F79CFBC002287FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9953D651F79CFBC002287FD /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		D9953D651F79CFBC002287FD /* ListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListsViewController.swift; sourceTree = "<group>"; };
 		D9953D681F79CFBC002287FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9953D6B1F79CFBC002287FD /* ShoppingListCKAppV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ShoppingListCKAppV1.xcdatamodel; sourceTree = "<group>"; };
 		D9953D6D1F79CFBC002287FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -30,6 +33,9 @@
 		D9953D721F79CFBC002287FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9953D781F79D080002287FD /* ShoppingListCKAppV1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShoppingListCKAppV1.entitlements; sourceTree = "<group>"; };
 		D9953D7A1F79D0A1002287FD /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		D9E9E9561F7BF13100863A48 /* AddListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListViewController.swift; sourceTree = "<group>"; };
+		D9E9E95E1F7C40FF00863A48 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/ShoppingListCKAppV1/ShoppingListCKAppV1/ListViewController.swift"; sourceTree = "<absolute>"; };
+		D9E9E9601F7C7D9D00863A48 /* AddItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemViewController.swift; sourceTree = "<group>"; };
 		DD8F21815C379D2DABB8D161 /* Pods-ShoppingListCKAppV1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShoppingListCKAppV1.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShoppingListCKAppV1/Pods-ShoppingListCKAppV1.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +84,10 @@
 			children = (
 				D9953D781F79D080002287FD /* ShoppingListCKAppV1.entitlements */,
 				D9953D631F79CFBC002287FD /* AppDelegate.swift */,
-				D9953D651F79CFBC002287FD /* ListViewController.swift */,
+				D9953D651F79CFBC002287FD /* ListsViewController.swift */,
+				D9E9E9561F7BF13100863A48 /* AddListViewController.swift */,
+				D9E9E95E1F7C40FF00863A48 /* ListViewController.swift */,
+				D9E9E9601F7C7D9D00863A48 /* AddItemViewController.swift */,
 				D9953D671F79CFBC002287FD /* Main.storyboard */,
 				D9953D6D1F79CFBC002287FD /* Assets.xcassets */,
 				D9953D6F1F79CFBC002287FD /* LaunchScreen.storyboard */,
@@ -234,9 +243,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9953D661F79CFBC002287FD /* ListViewController.swift in Sources */,
+				D9953D661F79CFBC002287FD /* ListsViewController.swift in Sources */,
 				D9953D6C1F79CFBC002287FD /* ShoppingListCKAppV1.xcdatamodeld in Sources */,
+				D9E9E9571F7BF13100863A48 /* AddListViewController.swift in Sources */,
+				D9E9E95F1F7C410000863A48 /* ListViewController.swift in Sources */,
 				D9953D641F79CFBC002287FD /* AppDelegate.swift in Sources */,
+				D9E9E9611F7C7D9D00863A48 /* AddItemViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
