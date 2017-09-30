@@ -192,7 +192,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
         
-        cell.accessoryType = .detailDisclosureButton
+        //cell.accessoryType = .detailDisclosureButton
         
         let item = items[indexPath.row]
         if let itemName = item.object(forKey: "name") as? String {
@@ -220,14 +220,14 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         deleteRecord(item: item)
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//    }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selection = indexPath.row
-        performSegue(withIdentifier: SegueItemDetail, sender: self)
-    }
+//    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        selection = indexPath.row
+//        performSegue(withIdentifier: SegueItemDetail, sender: self)
+//    }
 
 }

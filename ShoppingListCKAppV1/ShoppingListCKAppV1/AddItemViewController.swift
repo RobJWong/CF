@@ -49,6 +49,7 @@ class AddItemViewController: UIViewController {
             let listReference = CKReference(recordID: list.recordID, action: .deleteSelf)
             item?.setObject(listReference, forKey: "list")
         }
+        //double reference
         item?.setObject(name as! CKRecordValue, forKey: "name")
         item?.setObject(number as! CKRecordValue, forKey: "number")
         SVProgressHUD.show()

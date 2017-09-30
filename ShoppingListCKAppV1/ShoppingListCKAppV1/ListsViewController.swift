@@ -42,7 +42,6 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //fetchUserRecordID()
         fetchLists()
         setupView()
     }
@@ -51,11 +50,8 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //if segue.identifier == "ListDetail" {
             guard let identifier = segue.identifier else { return }
             
             switch identifier {
@@ -229,11 +225,11 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
         return true
     }
     
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        selection = indexPath.row
-        performSegue(withIdentifier: SegueListDetail, sender: self)
-    }
+//    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: true)
+//        selection = indexPath.row
+//        performSegue(withIdentifier: SegueListDetail, sender: self)
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
@@ -246,7 +242,7 @@ class ListsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ListCell", for: indexPath)
 
-        cell.accessoryType = .detailDisclosureButton
+        //cell.accessoryType = .detailDisclosureButton
         
         let list = lists[indexPath.row]
         
