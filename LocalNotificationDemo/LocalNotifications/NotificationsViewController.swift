@@ -52,7 +52,18 @@ class NotificationsViewController: UIViewController {
         content.sound = UNNotificationSound.default()
         content.badge = 5
         
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        //Bundle.main.path looks for a resource with the string identifier for resource and type
+        guard let path = Bundle.main.path(forResource: "logo", ofType: "png") else {return}
+        let url = URL(fileURLWithPath: path)
+
+        do{
+            let attachment = try UNNotificationAttachment(identifier: "logo", url: url, options: nil)
+            content.attachments = [attachment]
+        } catch{
+            print("Could not load image")
+        }
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: "OverdueTaskNotification", content: content, trigger: trigger)
         notificationCenter.add(request,withCompletionHandler: { (error) in
             if let error = error {

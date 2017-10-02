@@ -12,6 +12,7 @@
 		54EEC7041E6F312D00F0F6C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EEC7021E6F312D00F0F6C0 /* Main.storyboard */; };
 		54EEC7061E6F312D00F0F6C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 54EEC7051E6F312D00F0F6C0 /* Assets.xcassets */; };
 		54EEC7091E6F312D00F0F6C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 54EEC7071E6F312D00F0F6C0 /* LaunchScreen.storyboard */; };
+		D9FEE99D1F82E706001CF12C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE99C1F82E029001CF12C /* logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		54EEC7051E6F312D00F0F6C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		54EEC7081E6F312D00F0F6C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		54EEC70A1E6F312D00F0F6C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9FEE99C1F82E029001CF12C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				54EEC6FE1E6F312D00F0F6C0 /* AppDelegate.swift */,
 				54EEC7001E6F312D00F0F6C0 /* NotificationsViewController.swift */,
+				D9FEE99C1F82E029001CF12C /* logo.png */,
 				54EEC7021E6F312D00F0F6C0 /* Main.storyboard */,
 				54EEC7051E6F312D00F0F6C0 /* Assets.xcassets */,
 				54EEC7071E6F312D00F0F6C0 /* LaunchScreen.storyboard */,
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9FEE99D1F82E706001CF12C /* logo.png in Resources */,
 				54EEC7091E6F312D00F0F6C0 /* LaunchScreen.storyboard in Resources */,
 				54EEC7061E6F312D00F0F6C0 /* Assets.xcassets in Resources */,
 				54EEC7041E6F312D00F0F6C0 /* Main.storyboard in Resources */,

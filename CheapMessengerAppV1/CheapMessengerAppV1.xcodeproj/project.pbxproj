@@ -9,12 +9,19 @@
 /* Begin PBXBuildFile section */
 		71E64975F3DA9CA5B8783902 /* Pods_CheapMessengerAppV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4049558CEADE24D1F29C2225 /* Pods_CheapMessengerAppV1.framework */; };
 		D9FEE9711F803189001CF12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9701F803189001CF12C /* AppDelegate.swift */; };
-		D9FEE9731F803189001CF12C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9721F803189001CF12C /* ViewController.swift */; };
+		D9FEE9731F803189001CF12C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9721F803189001CF12C /* LogInViewController.swift */; };
 		D9FEE9761F803189001CF12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE9741F803189001CF12C /* Main.storyboard */; };
 		D9FEE9791F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9771F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld */; };
 		D9FEE97B1F803189001CF12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE97A1F803189001CF12C /* Assets.xcassets */; };
 		D9FEE97E1F803189001CF12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */; };
 		D9FEE9871F803428001CF12C /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9861F803428001CF12C /* AuthenticationManager.swift */; };
+		D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9881F803E94001CF12C /* AlertBox.swift */; };
+		D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE98A1F804535001CF12C /* SignUpViewController.swift */; };
+		D9FEE98F1F804B59001CF12C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */; };
+		D9FEE9911F80AAC2001CF12C /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */; };
+		D9FEE9951F81E791001CF12C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9941F81E791001CF12C /* DataService.swift */; };
+		D9FEE9971F827C3F001CF12C /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */; };
+		D9FEE9991F82837A001CF12C /* ChatUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9981F82837A001CF12C /* ChatUsers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,14 +30,20 @@
 		A75A82907E82AC2F9DF6F0AD /* Pods-CheapMessengerAppV1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapMessengerAppV1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1.debug.xcconfig"; sourceTree = "<group>"; };
 		D9FEE96D1F803189001CF12C /* CheapMessengerAppV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapMessengerAppV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEE9701F803189001CF12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9FEE9721F803189001CF12C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9FEE9721F803189001CF12C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		D9FEE9751F803189001CF12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9FEE9781F803189001CF12C /* CheapMessengerAppV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheapMessengerAppV1.xcdatamodel; sourceTree = "<group>"; };
 		D9FEE97A1F803189001CF12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9FEE97D1F803189001CF12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9FEE97F1F803189001CF12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D9FEE9851F80335C001CF12C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9FEE9861F803428001CF12C /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		D9FEE9881F803E94001CF12C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
+		D9FEE98A1F804535001CF12C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
+		D9FEE9941F81E791001CF12C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerTest.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/CheapMessengerAppV1/CheapMessengerAppV1/ViewControllerTest.swift"; sourceTree = "<absolute>"; };
+		D9FEE9981F82837A001CF12C /* ChatUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUsers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,12 +98,18 @@
 			children = (
 				D9FEE9701F803189001CF12C /* AppDelegate.swift */,
 				D9FEE9861F803428001CF12C /* AuthenticationManager.swift */,
-				D9FEE9721F803189001CF12C /* ViewController.swift */,
+				D9FEE9881F803E94001CF12C /* AlertBox.swift */,
+				D9FEE9721F803189001CF12C /* LogInViewController.swift */,
+				D9FEE98A1F804535001CF12C /* SignUpViewController.swift */,
+				D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */,
+				D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */,
+				D9FEE9941F81E791001CF12C /* DataService.swift */,
+				D9FEE9981F82837A001CF12C /* ChatUsers.swift */,
 				D9FEE9741F803189001CF12C /* Main.storyboard */,
+				D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */,
 				D9FEE97A1F803189001CF12C /* Assets.xcassets */,
 				D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */,
 				D9FEE97F1F803189001CF12C /* Info.plist */,
-				D9FEE9851F80335C001CF12C /* GoogleService-Info.plist */,
 				D9FEE9771F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld */,
 			);
 			path = CheapMessengerAppV1;
@@ -159,6 +178,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D9FEE97E1F803189001CF12C /* LaunchScreen.storyboard in Resources */,
+				D9FEE98F1F804B59001CF12C /* GoogleService-Info.plist in Resources */,
 				D9FEE97B1F803189001CF12C /* Assets.xcassets in Resources */,
 				D9FEE9761F803189001CF12C /* Main.storyboard in Resources */,
 			);
@@ -235,7 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FEE9731F803189001CF12C /* ViewController.swift in Sources */,
+				D9FEE9951F81E791001CF12C /* DataService.swift in Sources */,
+				D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */,
+				D9FEE9971F827C3F001CF12C /* ViewControllerTest.swift in Sources */,
+				D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */,
+				D9FEE9991F82837A001CF12C /* ChatUsers.swift in Sources */,
+				D9FEE9911F80AAC2001CF12C /* UserListTableViewController.swift in Sources */,
+				D9FEE9731F803189001CF12C /* LogInViewController.swift in Sources */,
 				D9FEE9871F803428001CF12C /* AuthenticationManager.swift in Sources */,
 				D9FEE9711F803189001CF12C /* AppDelegate.swift in Sources */,
 				D9FEE9791F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld in Sources */,
