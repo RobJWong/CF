@@ -15,7 +15,7 @@ class SecondViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 1, delay: 0, options: .curveEaseIn, animations: {
-            self.cakePhoto.image = UIImage(named: "cake")
+            self.cakePhoto.image = UIImage(named: "cake1")
             self.cakePhoto.alpha = 1
             self.likeCakeLabel.alpha = 1
         })
@@ -24,6 +24,11 @@ class SecondViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(cakePhotoTapped(recognizer:)))
+        
+        cakePhoto.gestureRecognizers = [tapGesture]
+        cakePhoto.isUserInteractionEnabled = true
+        //let tapRecognizer = UITapGestureRecognizer(target)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,15 +36,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @objc func cakePhotoTapped(recognizer: UITapGestureRecognizer) {
+        let randomCakeNumber = Int(arc4random_uniform(10) + 1)
+        let cakeNumber = "cake" + "\(randomCakeNumber)"
+        UIView.animate(withDuration: 1.5) {
+            self.cakePhoto.alpha = 0
+            self.cakePhoto.image = UIImage(named: String(cakeNumber))
+            self.cakePhoto.alpha = 1
+        }
+        //self.cakePhoto.image = UIImage(named: String(cakeNumber))
     }
-    */
 
 }
