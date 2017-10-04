@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="zt6-y7-6W7">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimationAppV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJl-IB-TbF">
+                                <rect key="frame" x="121" y="105" width="30" height="30"/>
+                                <state key="normal" title="Yes"/>
+                                <connections>
+                                    <segue destination="Hvo-j0-lOe" kind="show" id="fNU-UL-D4C"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gbS-WS-dpZ">
+                                <rect key="frame" x="224" y="105" width="30" height="30"/>
+                                <state key="normal" title="No"/>
+                                <connections>
+                                    <action selector="noButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Oex-fd-tre"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you like cake?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McZ-N6-JMc">
+                                <rect key="frame" x="121" y="74" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="PJl-IB-TbF" firstAttribute="top" secondItem="McZ-N6-JMc" secondAttribute="bottom" constant="10" id="6nq-AK-qXn"/>
+                            <constraint firstItem="McZ-N6-JMc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="AeU-qW-eFO"/>
+                            <constraint firstItem="McZ-N6-JMc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FLE-xG-5jm"/>
+                            <constraint firstItem="PJl-IB-TbF" firstAttribute="leading" secondItem="McZ-N6-JMc" secondAttribute="leading" id="Msf-Og-2o0"/>
+                            <constraint firstItem="gbS-WS-dpZ" firstAttribute="top" secondItem="McZ-N6-JMc" secondAttribute="bottom" constant="10" id="OlU-ZF-BBx"/>
+                            <constraint firstItem="gbS-WS-dpZ" firstAttribute="trailing" secondItem="McZ-N6-JMc" secondAttribute="trailing" id="tHl-Ve-Z86"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="R49-EY-8ZQ"/>
+                    <connections>
+                        <outlet property="cakeLabel" destination="McZ-N6-JMc" id="F80-1q-5Yh"/>
+                        <outlet property="noButton" destination="gbS-WS-dpZ" id="F4c-Yf-0Ml"/>
+                        <outlet property="yesButton" destination="PJl-IB-TbF" id="LGJ-lG-xFd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.80000000000001" y="32.833583208395808"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="Zp0-sd-hTb">
+            <objects>
+                <viewController id="Hvo-j0-lOe" customClass="SecondViewController" customModule="AnimationAppV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Mql-8L-bXC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yeah, you like cake :D" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyj-rX-rfU">
+                                <rect key="frame" x="105" y="74" width="165.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GgB-EG-1IU">
+                                <rect key="frame" x="67" y="105" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="7aO-c1-cml"/>
+                                    <constraint firstAttribute="width" constant="240" id="Ypd-JA-Cai"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Hyj-rX-rfU" firstAttribute="top" secondItem="LyX-83-efN" secondAttribute="top" constant="10" id="8pH-HC-TSh"/>
+                            <constraint firstItem="GgB-EG-1IU" firstAttribute="top" secondItem="Hyj-rX-rfU" secondAttribute="bottom" constant="10" id="BFk-qO-JzB"/>
+                            <constraint firstItem="GgB-EG-1IU" firstAttribute="centerX" secondItem="Mql-8L-bXC" secondAttribute="centerX" id="L1r-6D-BSY"/>
+                            <constraint firstItem="Hyj-rX-rfU" firstAttribute="centerX" secondItem="Mql-8L-bXC" secondAttribute="centerX" id="uAB-W5-AZS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LyX-83-efN"/>
+                    </view>
+                    <connections>
+                        <outlet property="cakePhoto" destination="GgB-EG-1IU" id="lmE-0J-rNg"/>
+                        <outlet property="likeCakeLabel" destination="Hyj-rX-rfU" id="2wX-ID-I1a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vLQ-pZ-wJ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1370" y="33"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0Nn-0u-o7V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zt6-y7-6W7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="G81-Km-FnR">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Rvz-ib-2zi"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5CR-vL-yXA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-508" y="33"/>
+        </scene>
+    </scenes>
+</document>
