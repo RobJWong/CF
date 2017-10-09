@@ -56,10 +56,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oxtail" translatesAutoresizingMaskIntoConstraints="NO" id="r5J-za-I5d">
-                                <rect key="frame" x="0.0" y="120" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV1-XZ-PIb">
-                                <rect key="frame" x="144" y="535" width="87" height="82"/>
+                                <rect key="frame" x="144" y="587" width="87" height="30"/>
                                 <state key="normal" title="Looks Good!"/>
                                 <connections>
                                     <action selector="tapDismissButton:" destination="NHm-Dc-6xg" eventType="touchUpInside" id="HvF-nc-2OS"/>
@@ -68,11 +68,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MRA-d7-VOn" firstAttribute="trailing" secondItem="r5J-za-I5d" secondAttribute="trailing" id="CUc-Fx-3dZ"/>
-                            <constraint firstItem="r5J-za-I5d" firstAttribute="leading" secondItem="MRA-d7-VOn" secondAttribute="leading" id="L6s-UQ-TTD"/>
-                            <constraint firstItem="r5J-za-I5d" firstAttribute="top" secondItem="MRA-d7-VOn" secondAttribute="top" constant="100" id="RRY-5G-qjJ"/>
+                            <constraint firstAttribute="trailing" secondItem="r5J-za-I5d" secondAttribute="trailing" id="EbH-NK-zIk"/>
                             <constraint firstItem="iV1-XZ-PIb" firstAttribute="centerX" secondItem="3xb-gf-del" secondAttribute="centerX" id="mCl-Cx-Zv7"/>
-                            <constraint firstItem="iV1-XZ-PIb" firstAttribute="top" secondItem="r5J-za-I5d" secondAttribute="bottom" constant="40" id="miv-tp-FJc"/>
+                            <constraint firstItem="r5J-za-I5d" firstAttribute="centerX" secondItem="3xb-gf-del" secondAttribute="centerX" id="sDB-lU-asp"/>
+                            <constraint firstItem="r5J-za-I5d" firstAttribute="leading" secondItem="MRA-d7-VOn" secondAttribute="leading" id="y32-Ou-2C6"/>
+                            <constraint firstItem="r5J-za-I5d" firstAttribute="top" secondItem="MRA-d7-VOn" secondAttribute="top" id="ywS-5N-vYs"/>
                             <constraint firstItem="MRA-d7-VOn" firstAttribute="bottom" secondItem="iV1-XZ-PIb" secondAttribute="bottom" constant="50" id="zG9-qD-pva"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MRA-d7-VOn"/>
