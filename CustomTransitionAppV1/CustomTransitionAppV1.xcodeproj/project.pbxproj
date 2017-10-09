@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D9E49D551F8B3FD60055D305 /* CustomDismissAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E49D541F8B3FD60055D305 /* CustomDismissAnimator.swift */; };
+		D9E49D571F8B47EC0055D305 /* CustomNavigationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E49D561F8B47EC0055D305 /* CustomNavigationAnimator.swift */; };
 		D9FEE9DC1F8ADEBF001CF12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9DB1F8ADEBF001CF12C /* AppDelegate.swift */; };
 		D9FEE9DE1F8ADEBF001CF12C /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9DD1F8ADEBF001CF12C /* InitialViewController.swift */; };
 		D9FEE9E11F8ADEBF001CF12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE9DF1F8ADEBF001CF12C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		D9E49D541F8B3FD60055D305 /* CustomDismissAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDismissAnimator.swift; sourceTree = "<group>"; };
+		D9E49D561F8B47EC0055D305 /* CustomNavigationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationAnimator.swift; sourceTree = "<group>"; };
 		D9FEE9D81F8ADEBF001CF12C /* CustomTransitionAppV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTransitionAppV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9FEE9DB1F8ADEBF001CF12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9FEE9DD1F8ADEBF001CF12C /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				D9FEE9DB1F8ADEBF001CF12C /* AppDelegate.swift */,
 				D9FEE9DD1F8ADEBF001CF12C /* InitialViewController.swift */,
+				D9E49D561F8B47EC0055D305 /* CustomNavigationAnimator.swift */,
 				D9E49D541F8B3FD60055D305 /* CustomDismissAnimator.swift */,
 				D9FEE9F21F8B0B69001CF12C /* CustomPresentAnimator.swift */,
 				D9FEE9F01F8AE625001CF12C /* OxTailPhoto.swift */,
@@ -150,6 +153,7 @@
 			files = (
 				D9FEE9DE1F8ADEBF001CF12C /* InitialViewController.swift in Sources */,
 				D9FEE9E41F8ADEBF001CF12C /* CustomTransitionAppV1.xcdatamodeld in Sources */,
+				D9E49D571F8B47EC0055D305 /* CustomNavigationAnimator.swift in Sources */,
 				D9E49D551F8B3FD60055D305 /* CustomDismissAnimator.swift in Sources */,
 				D9FEE9DC1F8ADEBF001CF12C /* AppDelegate.swift in Sources */,
 				D9FEE9F11F8AE625001CF12C /* OxTailPhoto.swift in Sources */,
