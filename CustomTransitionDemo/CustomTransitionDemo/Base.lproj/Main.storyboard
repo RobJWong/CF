@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7th-53-Px2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="CustomTransitionDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a75-mM-1BM">
+                                <rect key="frame" x="132" y="318.5" width="111" height="30"/>
+                                <state key="normal" title="Present modally"/>
+                                <connections>
+                                    <segue destination="g5i-dy-ptG" kind="presentation" identifier="presentPhotoController" id="mKO-rp-Fkq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9d4-0J-wJU">
+                                <rect key="frame" x="90.5" y="356.5" width="194" height="30"/>
+                                <state key="normal" title="Push in navigation controller"/>
+                                <connections>
+                                    <segue destination="g5i-dy-ptG" kind="show" id="1Gf-Qv-t0W"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="9d4-0J-wJU" firstAttribute="top" secondItem="a75-mM-1BM" secondAttribute="bottom" constant="8" id="9sF-sJ-srm"/>
+                            <constraint firstItem="9d4-0J-wJU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Jrt-jt-KQT"/>
+                            <constraint firstItem="a75-mM-1BM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="hXK-SE-PFF"/>
+                            <constraint firstItem="a75-mM-1BM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kQy-Rg-8X9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Lc-P3-mUx"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1699" y="-230"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="8No-44-geH">
+            <objects>
+                <viewController id="g5i-dy-ptG" customClass="PhotoViewController" customModule="CustomTransitionDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xV5-bO-Pmg"/>
+                        <viewControllerLayoutGuide type="bottom" id="ruc-mJ-pTT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NKl-3g-Yx9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Boats" translatesAutoresizingMaskIntoConstraints="NO" id="MpM-Pc-DIt">
+                                <rect key="frame" x="16" y="40" width="343" height="518"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQm-Nq-idd">
+                                <rect key="frame" x="160.5" y="598" width="54" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Yb5-nL-XsI"/>
+                                </constraints>
+                                <state key="normal" title="Dismiss"/>
+                                <connections>
+                                    <action selector="tappedDismissButton:" destination="g5i-dy-ptG" eventType="touchUpInside" id="om4-C9-RsR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="aQm-Nq-idd" firstAttribute="top" secondItem="MpM-Pc-DIt" secondAttribute="bottom" constant="40" id="63y-se-H8V"/>
+                            <constraint firstItem="MpM-Pc-DIt" firstAttribute="top" secondItem="NKl-3g-Yx9" secondAttribute="topMargin" constant="20" id="Atw-2U-YRH"/>
+                            <constraint firstItem="ruc-mJ-pTT" firstAttribute="top" secondItem="aQm-Nq-idd" secondAttribute="bottom" constant="29" id="GLi-rK-8AC"/>
+                            <constraint firstItem="MpM-Pc-DIt" firstAttribute="leading" secondItem="NKl-3g-Yx9" secondAttribute="leadingMargin" id="VSE-ZN-Hv3"/>
+                            <constraint firstItem="MpM-Pc-DIt" firstAttribute="trailing" secondItem="NKl-3g-Yx9" secondAttribute="trailingMargin" id="Xl9-qp-FFU"/>
+                            <constraint firstItem="aQm-Nq-idd" firstAttribute="centerX" secondItem="NKl-3g-Yx9" secondAttribute="centerX" id="p0K-LU-H4k"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="aQm-Nq-idd" id="FVZ-b8-CvN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dxz-Ht-ws0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2475" y="-230"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qem-MJ-YwO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7th-53-Px2" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3l1-7c-sM5">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cqg-j9-wtH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Df-aV-qfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="-230"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Boats" width="333" height="189"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="mKO-rp-Fkq"/>
+    </inferredMetricsTieBreakers>
+</document>

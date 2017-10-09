@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GVI-2S-g6p">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Initial View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="InitialViewController" customModule="CustomTransitionAppV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRf-nV-Mj0">
+                                <rect key="frame" x="101" y="214" width="173" height="30"/>
+                                <state key="normal" title="Show Oxtail Dish Modally"/>
+                                <connections>
+                                    <segue destination="NHm-Dc-6xg" kind="presentation" identifier="customViewControllerPhoto" id="WpQ-aQ-HgF"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmg-7W-eUf">
+                                <rect key="frame" x="99" y="294" width="177" height="30"/>
+                                <state key="normal" title="Show Oxtail Dish via Push"/>
+                                <connections>
+                                    <segue destination="NHm-Dc-6xg" kind="show" id="aVg-uQ-jVh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="NRf-nV-Mj0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="5e6-l3-CIA"/>
+                            <constraint firstItem="bmg-7W-eUf" firstAttribute="top" secondItem="NRf-nV-Mj0" secondAttribute="bottom" constant="50" id="tSL-y6-q9c"/>
+                            <constraint firstItem="bmg-7W-eUf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wIW-VK-De0"/>
+                            <constraint firstItem="NRf-nV-Mj0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zVF-6u-bnF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zaz-Gu-4wy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="376.80000000000001" y="32.833583208395808"/>
+        </scene>
+        <!--Ox Tail Photo-->
+        <scene sceneID="O3h-Et-9ns">
+            <objects>
+                <viewController id="NHm-Dc-6xg" customClass="OxTailPhoto" customModule="CustomTransitionAppV1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3xb-gf-del">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="oxtail" translatesAutoresizingMaskIntoConstraints="NO" id="r5J-za-I5d">
+                                <rect key="frame" x="0.0" y="120" width="375" height="375"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iV1-XZ-PIb">
+                                <rect key="frame" x="144" y="535" width="87" height="82"/>
+                                <state key="normal" title="Looks Good!"/>
+                                <connections>
+                                    <action selector="tapDismissButton:" destination="NHm-Dc-6xg" eventType="touchUpInside" id="HvF-nc-2OS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MRA-d7-VOn" firstAttribute="trailing" secondItem="r5J-za-I5d" secondAttribute="trailing" id="CUc-Fx-3dZ"/>
+                            <constraint firstItem="r5J-za-I5d" firstAttribute="leading" secondItem="MRA-d7-VOn" secondAttribute="leading" id="L6s-UQ-TTD"/>
+                            <constraint firstItem="r5J-za-I5d" firstAttribute="top" secondItem="MRA-d7-VOn" secondAttribute="top" constant="100" id="RRY-5G-qjJ"/>
+                            <constraint firstItem="iV1-XZ-PIb" firstAttribute="centerX" secondItem="3xb-gf-del" secondAttribute="centerX" id="mCl-Cx-Zv7"/>
+                            <constraint firstItem="iV1-XZ-PIb" firstAttribute="top" secondItem="r5J-za-I5d" secondAttribute="bottom" constant="40" id="miv-tp-FJc"/>
+                            <constraint firstItem="MRA-d7-VOn" firstAttribute="bottom" secondItem="iV1-XZ-PIb" secondAttribute="bottom" constant="50" id="zG9-qD-pva"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MRA-d7-VOn"/>
+                    </view>
+                    <connections>
+                        <outlet property="dismissButton" destination="iV1-XZ-PIb" id="X7N-aK-9FR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X9B-BY-Ucd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1220" y="33"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sHh-Jo-6A0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GVI-2S-g6p" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8sC-QD-Ygm">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="bGw-Tf-1fM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mhV-Rm-Dqc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-476" y="33"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="oxtail" width="500" height="375"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="WpQ-aQ-HgF"/>
+    </inferredMetricsTieBreakers>
+</document>
