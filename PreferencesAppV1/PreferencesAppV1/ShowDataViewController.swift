@@ -23,6 +23,9 @@ class ShowDataViewController: UIViewController {
         let username = userDefaults.object(forKey: "Username") as? String
         let password = userDefaults.object(forKey: "Password") as? String
         
+        let catToggle = userDefaults.object(forKey: "CatToggle") as? Bool
+        print(catToggle)
+        
         if email == nil || email!.isEmpty {
             showEmailData.text = "-No saved data-"
         } else {
