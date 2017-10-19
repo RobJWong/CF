@@ -33,6 +33,7 @@ class LogInViewController: UIViewController {
             }
             if let user = user {
                 AuthenticationManager.sharedInstance.didLogIn(user: user)
+                
                 self.performSegue(withIdentifier: "ShowUserList", sender: nil)
             }
         }

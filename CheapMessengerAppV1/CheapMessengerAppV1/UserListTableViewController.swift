@@ -11,14 +11,6 @@ import Firebase
 import FirebaseDatabase
 
 class UserListTableViewController: UITableViewController {
-    
-//    var mainRef: DatabaseReference {
-//        return Database.database().reference()
-//    }
-//    
-//    var usersRef: DatabaseReference {
-//        return mainRef.child("users")
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +20,6 @@ class UserListTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItems
-        
-        //print (usersRef)
     }
     
     override func viewWillAppear(_ animated: Bool) {

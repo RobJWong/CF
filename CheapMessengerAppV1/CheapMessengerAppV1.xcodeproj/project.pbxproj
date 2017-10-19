@@ -19,9 +19,6 @@
 		D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE98A1F804535001CF12C /* SignUpViewController.swift */; };
 		D9FEE98F1F804B59001CF12C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */; };
 		D9FEE9911F80AAC2001CF12C /* UserListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */; };
-		D9FEE9951F81E791001CF12C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9941F81E791001CF12C /* DataService.swift */; };
-		D9FEE9971F827C3F001CF12C /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */; };
-		D9FEE9991F82837A001CF12C /* ChatUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9981F82837A001CF12C /* ChatUsers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,9 +38,6 @@
 		D9FEE98A1F804535001CF12C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTableViewController.swift; sourceTree = "<group>"; };
-		D9FEE9941F81E791001CF12C /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ViewControllerTest.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/CheapMessengerAppV1/CheapMessengerAppV1/ViewControllerTest.swift"; sourceTree = "<absolute>"; };
-		D9FEE9981F82837A001CF12C /* ChatUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUsers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +95,7 @@
 				D9FEE9881F803E94001CF12C /* AlertBox.swift */,
 				D9FEE9721F803189001CF12C /* LogInViewController.swift */,
 				D9FEE98A1F804535001CF12C /* SignUpViewController.swift */,
-				D9FEE9961F827C3F001CF12C /* ViewControllerTest.swift */,
 				D9FEE9901F80AAC2001CF12C /* UserListTableViewController.swift */,
-				D9FEE9941F81E791001CF12C /* DataService.swift */,
-				D9FEE9981F82837A001CF12C /* ChatUsers.swift */,
 				D9FEE9741F803189001CF12C /* Main.storyboard */,
 				D9FEE98E1F804B56001CF12C /* GoogleService-Info.plist */,
 				D9FEE97A1F803189001CF12C /* Assets.xcassets */,
@@ -255,11 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9FEE9951F81E791001CF12C /* DataService.swift in Sources */,
 				D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */,
-				D9FEE9971F827C3F001CF12C /* ViewControllerTest.swift in Sources */,
 				D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */,
-				D9FEE9991F82837A001CF12C /* ChatUsers.swift in Sources */,
 				D9FEE9911F80AAC2001CF12C /* UserListTableViewController.swift in Sources */,
 				D9FEE9731F803189001CF12C /* LogInViewController.swift in Sources */,
 				D9FEE9871F803428001CF12C /* AuthenticationManager.swift in Sources */,
