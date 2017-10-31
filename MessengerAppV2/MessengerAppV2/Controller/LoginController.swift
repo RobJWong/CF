@@ -11,6 +11,8 @@ import Firebase
 
 class LoginController: UIViewController {
     
+    var messagesController: MessagesController?
+    
     let messageAppTitle: UILabel = {
        let label = UILabel()
         label.text = "Messenger App"
@@ -60,6 +62,7 @@ class LoginController: UIViewController {
                 print(error)
                 return
             }
+            self.messagesController?.fetchUserAndSetupNavBar()
             self.dismiss(animated: true, completion: nil)
         })
     }
@@ -97,13 +100,9 @@ class LoginController: UIViewController {
                     print(err)
                     return
                 }
+                self.messagesController?.fetchUserAndSetupNavBar()
                 self.dismiss(animated: true, completion: nil)
             })
-//            if let user = user {
-//                AuthenticationManager.sharedInstance.didLogIn(user: user)
-//
-//                self.performSegue(withIdentifier: "ShowUserList", sender: nil)
-//            }
         }
     }
     

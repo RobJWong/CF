@@ -18,6 +18,7 @@ class ChatViewController: JSQMessagesViewController {
     var ref: DatabaseReference!
     private var databaseHandle: DatabaseHandle!
     
+    //s
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -81,10 +82,6 @@ class ChatViewController: JSQMessagesViewController {
             return NSAttributedString(string: senderDisplayName)
             
         }
-    }
-    
-    override func collectionView(_ collectionView: JSQMessagesCollectionView!, layout collectionViewLayout: JSQMessagesCollectionViewFlowLayout!, heightForMessageBubbleTopLabelAt indexPath: IndexPath!) -> CGFloat {
-        return 20.0
     }
     
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
