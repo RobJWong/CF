@@ -14,7 +14,7 @@ class LinksViewController: UITableViewController, SFSafariViewControllerDelegate
     
     var links: Array<String> {
         get {
-            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtensionDemo")
+            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtensionAppGroupV2")
             if let links = userDefaults?.object(forKey: userDefaultsKey) as! Array<String>? {
                 return links
             }
@@ -22,7 +22,7 @@ class LinksViewController: UITableViewController, SFSafariViewControllerDelegate
             return []
         }
         set {
-            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtensionDemo")
+            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtensionAppGroupV2")
             userDefaults?.set(newValue, forKey: userDefaultsKey)
             userDefaults?.synchronize()
         }

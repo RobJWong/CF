@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="THM-me-i3d">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Exercises-->
+        <scene sceneID="cgf-l8-sFa">
+            <objects>
+                <collectionViewController id="XWF-fr-sXT" customClass="CollectionViewController" customModule="ExerciseCollectionApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="kqn-wT-y4A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Cm4-CH-Zhb">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="VWE-Gw-1zM" customClass="ExerciseItemCell" customModule="ExerciseCollectionApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exercise Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9N-1b-Ir6">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reps" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6E-Uf-R5h">
+                                            <rect key="frame" x="0.0" y="5" width="50" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="w6E-Uf-R5h" secondAttribute="trailing" id="4Ge-eX-uhB"/>
+                                    <constraint firstItem="w6E-Uf-R5h" firstAttribute="leading" secondItem="VWE-Gw-1zM" secondAttribute="leading" id="4Qt-B7-prs"/>
+                                    <constraint firstItem="w6E-Uf-R5h" firstAttribute="top" secondItem="VWE-Gw-1zM" secondAttribute="top" constant="5" id="6uE-LX-6JL"/>
+                                    <constraint firstAttribute="trailing" secondItem="W9N-1b-Ir6" secondAttribute="trailing" id="864-9N-o67"/>
+                                    <constraint firstItem="W9N-1b-Ir6" firstAttribute="leading" secondItem="VWE-Gw-1zM" secondAttribute="leading" id="ISC-CF-cCb"/>
+                                    <constraint firstItem="W9N-1b-Ir6" firstAttribute="top" secondItem="VWE-Gw-1zM" secondAttribute="top" id="dE4-Eb-6k3"/>
+                                    <constraint firstAttribute="bottom" secondItem="W9N-1b-Ir6" secondAttribute="bottom" id="nL2-WA-5dy"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="exerciseName" destination="W9N-1b-Ir6" id="Yif-Ja-ZMk"/>
+                                    <outlet property="exerciseRep" destination="w6E-Uf-R5h" id="eSj-BM-6EA"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SectionHeader" id="epm-6V-WfZ" customClass="ExerciseItemHeader" customModule="ExerciseCollectionApp" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwf-PQ-eJA">
+                                    <rect key="frame" x="8" y="8" width="359" height="34"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstItem="cwf-PQ-eJA" firstAttribute="leading" secondItem="epm-6V-WfZ" secondAttribute="leading" constant="8" id="2CJ-Ez-xcS"/>
+                                <constraint firstAttribute="trailing" secondItem="cwf-PQ-eJA" secondAttribute="trailing" constant="8" id="2hl-8s-M7v"/>
+                                <constraint firstItem="cwf-PQ-eJA" firstAttribute="top" secondItem="epm-6V-WfZ" secondAttribute="top" constant="8" id="dgE-9p-lx9"/>
+                                <constraint firstAttribute="bottom" secondItem="cwf-PQ-eJA" secondAttribute="bottom" constant="8" id="yFZ-fd-jGA"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="titleLabel" destination="cwf-PQ-eJA" id="5nA-F9-Fey"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="XWF-fr-sXT" id="aPB-nJ-XNs"/>
+                            <outlet property="delegate" destination="XWF-fr-sXT" id="BXc-kZ-85U"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Exercises" id="Lj7-YG-7lZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="CkU-gH-TkR">
+                            <connections>
+                                <action selector="addExerciseButton:" destination="XWF-fr-sXT" id="Jmw-mZ-p5N"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srm-lS-dKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="687.20000000000005" y="-114.69265367316342"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wNb-k2-UaW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="THM-me-i3d" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="NZY-tz-GCU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XWF-fr-sXT" kind="relationship" relationship="rootViewController" id="Kfu-8q-cwc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwn-lL-mcC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-252" y="-114.69265367316342"/>
+        </scene>
+    </scenes>
+</document>

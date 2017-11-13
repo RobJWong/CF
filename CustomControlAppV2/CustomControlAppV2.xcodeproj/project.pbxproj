@@ -13,7 +13,18 @@
 		D43907FE1F391083006B1EBF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D43907FD1F391083006B1EBF /* Assets.xcassets */; };
 		D43908011F391083006B1EBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43907FF1F391083006B1EBF /* LaunchScreen.storyboard */; };
 		D439080F1F3B5D27006B1EBF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = D439080E1F3B5D27006B1EBF /* Color.swift */; };
+		D925E8D21FBA41BA006784E4 /* CustomControlAppV2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D925E8D11FBA41BA006784E4 /* CustomControlAppV2UITests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D925E8D41FBA41BA006784E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D43907EB1F391083006B1EBF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D43907F21F391083006B1EBF;
+			remoteInfo = CustomControlAppV2;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		D43907F31F391083006B1EBF /* CustomControlAppV2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomControlAppV2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +35,20 @@
 		D43908001F391083006B1EBF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D43908021F391083006B1EBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D439080E1F3B5D27006B1EBF /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		D925E8CF1FBA41BA006784E4 /* CustomControlAppV2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomControlAppV2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D925E8D11FBA41BA006784E4 /* CustomControlAppV2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomControlAppV2UITests.swift; sourceTree = "<group>"; };
+		D925E8D31FBA41BA006784E4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		D43907F01F391083006B1EBF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D925E8CC1FBA41BA006784E4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				D43907F51F391083006B1EBF /* CustomControlAppV2 */,
+				D925E8D01FBA41BA006784E4 /* CustomControlAppV2UITests */,
 				D43907F41F391083006B1EBF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +71,7 @@
 			isa = PBXGroup;
 			children = (
 				D43907F31F391083006B1EBF /* CustomControlAppV2.app */,
+				D925E8CF1FBA41BA006784E4 /* CustomControlAppV2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +88,15 @@
 				D43908021F391083006B1EBF /* Info.plist */,
 			);
 			path = CustomControlAppV2;
+			sourceTree = "<group>";
+		};
+		D925E8D01FBA41BA006784E4 /* CustomControlAppV2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D925E8D11FBA41BA006784E4 /* CustomControlAppV2UITests.swift */,
+				D925E8D31FBA41BA006784E4 /* Info.plist */,
+			);
+			path = CustomControlAppV2UITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,19 +119,42 @@
 			productReference = D43907F31F391083006B1EBF /* CustomControlAppV2.app */;
 			productType = "com.apple.product-type.application";
 		};
+		D925E8CE1FBA41BA006784E4 /* CustomControlAppV2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D925E8D81FBA41BA006784E4 /* Build configuration list for PBXNativeTarget "CustomControlAppV2UITests" */;
+			buildPhases = (
+				D925E8CB1FBA41BA006784E4 /* Sources */,
+				D925E8CC1FBA41BA006784E4 /* Frameworks */,
+				D925E8CD1FBA41BA006784E4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D925E8D51FBA41BA006784E4 /* PBXTargetDependency */,
+			);
+			name = CustomControlAppV2UITests;
+			productName = CustomControlAppV2UITests;
+			productReference = D925E8CF1FBA41BA006784E4 /* CustomControlAppV2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D43907EB1F391083006B1EBF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Robert Wong";
 				TargetAttributes = {
 					D43907F21F391083006B1EBF = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
+					};
+					D925E8CE1FBA41BA006784E4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D43907F21F391083006B1EBF;
 					};
 				};
 			};
@@ -117,6 +172,7 @@
 			projectRoot = "";
 			targets = (
 				D43907F21F391083006B1EBF /* CustomControlAppV2 */,
+				D925E8CE1FBA41BA006784E4 /* CustomControlAppV2UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -129,6 +185,13 @@
 				D43908011F391083006B1EBF /* LaunchScreen.storyboard in Resources */,
 				D43907FE1F391083006B1EBF /* Assets.xcassets in Resources */,
 				D43907FC1F391083006B1EBF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D925E8CD1FBA41BA006784E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +208,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D925E8CB1FBA41BA006784E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D925E8D21FBA41BA006784E4 /* CustomControlAppV2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D925E8D51FBA41BA006784E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D43907F21F391083006B1EBF /* CustomControlAppV2 */;
+			targetProxy = D925E8D41FBA41BA006784E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		D43907FA1F391083006B1EBF /* Main.storyboard */ = {
@@ -286,6 +365,56 @@
 			};
 			name = Release;
 		};
+		D925E8D61FBA41BA006784E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CustomControlAppV2UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomControlAppV2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CustomControlAppV2;
+			};
+			name = Debug;
+		};
+		D925E8D71FBA41BA006784E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CustomControlAppV2UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CustomControlAppV2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CustomControlAppV2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -303,6 +432,15 @@
 			buildConfigurations = (
 				D43908061F391083006B1EBF /* Debug */,
 				D43908071F391083006B1EBF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D925E8D81FBA41BA006784E4 /* Build configuration list for PBXNativeTarget "CustomControlAppV2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D925E8D61FBA41BA006784E4 /* Debug */,
+				D925E8D71FBA41BA006784E4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

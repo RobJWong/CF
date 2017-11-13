@@ -34,9 +34,6 @@ class ListViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CellIdentifier", for: indexPath)
-        //print("indexPath.row value \(indexPath.row)")
-        //print("Item Array \(items)")
-        //print("items in subindex \(items[indexPath.row])")
         cell.textLabel?.text = items[indexPath.row]
         return cell
     }

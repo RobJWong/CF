@@ -2,7 +2,7 @@
 //  ShareViewController.swift
 //  ShareExtension
 //
-//  Created by Robert Wong on 10/15/17.
+//  Created by Robert Wong on 11/4/17.
 //  Copyright © 2017 CareerFoundry. All rights reserved.
 //
 
