@@ -1,0 +1,376 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C01FCF0F18008841DF /* AppDelegate.swift */; };
+		D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */; };
+		D95C00C91FCF0F18008841DF /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */; };
+		D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95C00CA1FCF0F18008841DF /* Assets.xcassets */; };
+		D95C00CE1FCF0F18008841DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */; };
+		D968E51E1FD9D8C30088967E /* Goku.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E51B1FD9C0390088967E /* Goku.ttf */; };
+		D968E5781FD9EB580088967E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D968E5761FD9EB580088967E /* Main.storyboard */; };
+		D968E57C1FD9EFD70088967E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */; };
+		D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */; };
+		D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */; };
+		D968E5861FDC90360088967E /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5851FDC90360088967E /* CityTableViewController.swift */; };
+		D968E5881FDD154C0088967E /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5871FDD154C0088967E /* Cities.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		D95C00BD1FCF0F18008841DF /* Wanderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wanderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D95C00C01FCF0F18008841DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
+		D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
+		D95C00CA1FCF0F18008841DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D95C00CD1FCF0F18008841DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D95C00CF1FCF0F18008841DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D968E51B1FD9C0390088967E /* Goku.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Goku.ttf; sourceTree = "<group>"; };
+		D968E5771FD9EB580088967E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
+		D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
+		D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
+		D968E5851FDC90360088967E /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		D968E5871FDD154C0088967E /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D95C00BA1FCF0F18008841DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D95C00B41FCF0F18008841DF = {
+			isa = PBXGroup;
+			children = (
+				D95C00BF1FCF0F18008841DF /* Wanderlist */,
+				D95C00BE1FCF0F18008841DF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D95C00BE1FCF0F18008841DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D95C00BD1FCF0F18008841DF /* Wanderlist.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D95C00BF1FCF0F18008841DF /* Wanderlist */ = {
+			isa = PBXGroup;
+			children = (
+				D968E51A1FD9C02A0088967E /* Fonts */,
+				D95C00C01FCF0F18008841DF /* AppDelegate.swift */,
+				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
+				D968E5761FD9EB580088967E /* Main.storyboard */,
+				D968E5851FDC90360088967E /* CityTableViewController.swift */,
+				D968E5871FDD154C0088967E /* Cities.swift */,
+				D95C00CA1FCF0F18008841DF /* Assets.xcassets */,
+				D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */,
+				D95C00CF1FCF0F18008841DF /* Info.plist */,
+				D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */,
+			);
+			path = Wanderlist;
+			sourceTree = "<group>";
+		};
+		D968E51A1FD9C02A0088967E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D968E51B1FD9C0390088967E /* Goku.ttf */,
+				D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */,
+				D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */,
+				D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D95C00BC1FCF0F18008841DF /* Wanderlist */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D95C00D21FCF0F18008841DF /* Build configuration list for PBXNativeTarget "Wanderlist" */;
+			buildPhases = (
+				D95C00B91FCF0F18008841DF /* Sources */,
+				D95C00BA1FCF0F18008841DF /* Frameworks */,
+				D95C00BB1FCF0F18008841DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Wanderlist;
+			productName = Wanderlist;
+			productReference = D95C00BD1FCF0F18008841DF /* Wanderlist.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D95C00B51FCF0F18008841DF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Robert Wong";
+				TargetAttributes = {
+					D95C00BC1FCF0F18008841DF = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D95C00B81FCF0F18008841DF /* Build configuration list for PBXProject "Wanderlist" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D95C00B41FCF0F18008841DF;
+			productRefGroup = D95C00BE1FCF0F18008841DF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D95C00BC1FCF0F18008841DF /* Wanderlist */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D95C00BB1FCF0F18008841DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */,
+				D95C00CE1FCF0F18008841DF /* LaunchScreen.storyboard in Resources */,
+				D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */,
+				D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */,
+				D968E51E1FD9D8C30088967E /* Goku.ttf in Resources */,
+				D968E5781FD9EB580088967E /* Main.storyboard in Resources */,
+				D968E57C1FD9EFD70088967E /* Montserrat-SemiBold.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D95C00B91FCF0F18008841DF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D968E5861FDC90360088967E /* CityTableViewController.swift in Sources */,
+				D968E5881FDD154C0088967E /* Cities.swift in Sources */,
+				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
+				D95C00C91FCF0F18008841DF /* Wanderlist.xcdatamodeld in Sources */,
+				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D95C00CD1FCF0F18008841DF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D968E5761FD9EB580088967E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D968E5771FD9EB580088967E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D95C00D01FCF0F18008841DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D95C00D11FCF0F18008841DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D95C00D31FCF0F18008841DF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Wanderlist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Wanderlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D95C00D41FCF0F18008841DF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Wanderlist/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Wanderlist;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D95C00B81FCF0F18008841DF /* Build configuration list for PBXProject "Wanderlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95C00D01FCF0F18008841DF /* Debug */,
+				D95C00D11FCF0F18008841DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D95C00D21FCF0F18008841DF /* Build configuration list for PBXNativeTarget "Wanderlist" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D95C00D31FCF0F18008841DF /* Debug */,
+				D95C00D41FCF0F18008841DF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */,
+			);
+			currentVersion = D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */;
+			path = Wanderlist.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D95C00B51FCF0F18008841DF /* Project object */;
+}
