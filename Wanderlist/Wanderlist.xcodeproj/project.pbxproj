@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C01FCF0F18008841DF /* AppDelegate.swift */; };
 		D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */; };
-		D95C00C91FCF0F18008841DF /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */; };
 		D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95C00CA1FCF0F18008841DF /* Assets.xcassets */; };
 		D95C00CE1FCF0F18008841DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */; };
 		D968E51E1FD9D8C30088967E /* Goku.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E51B1FD9C0390088967E /* Goku.ttf */; };
@@ -17,15 +16,20 @@
 		D968E57C1FD9EFD70088967E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */; };
 		D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */; };
 		D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */; };
-		D968E5861FDC90360088967E /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5851FDC90360088967E /* CityTableViewController.swift */; };
-		D968E5881FDD154C0088967E /* Cities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5871FDD154C0088967E /* Cities.swift */; };
+		D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */; };
+		D968E58C1FDF0B280088967E /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E58B1FDF0B280088967E /* CityTableViewController.swift */; };
+		D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E58E1FDF16240088967E /* CityDetailViewController.swift */; };
+		D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5901FDF61D50088967E /* InitalViewController.swift */; };
+		D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */; };
+		D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */; };
+		D9C5CE9D1FE02A07001FBC04 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */; };
+		D9C5CE9E1FE02A07001FBC04 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D95C00BD1FCF0F18008841DF /* Wanderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wanderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95C00C01FCF0F18008841DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
-		D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
 		D95C00CA1FCF0F18008841DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D95C00CD1FCF0F18008841DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D95C00CF1FCF0F18008841DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -34,8 +38,14 @@
 		D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		D968E5851FDC90360088967E /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
-		D968E5871FDD154C0088967E /* Cities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cities.swift; sourceTree = "<group>"; };
+		D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewControllerDefunct.swift; sourceTree = "<group>"; };
+		D968E58B1FDF0B280088967E /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		D968E58E1FDF16240088967E /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
+		D968E5901FDF61D50088967E /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
+		D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsViewController.swift; sourceTree = "<group>"; };
+		D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
+		D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,16 +78,17 @@
 		D95C00BF1FCF0F18008841DF /* Wanderlist */ = {
 			isa = PBXGroup;
 			children = (
+				D9C5CE971FE02794001FBC04 /* Controllers */,
+				D968E58D1FDF0B370088967E /* Defunct */,
 				D968E51A1FD9C02A0088967E /* Fonts */,
 				D95C00C01FCF0F18008841DF /* AppDelegate.swift */,
-				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
+				D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */,
+				D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */,
 				D968E5761FD9EB580088967E /* Main.storyboard */,
-				D968E5851FDC90360088967E /* CityTableViewController.swift */,
-				D968E5871FDD154C0088967E /* Cities.swift */,
 				D95C00CA1FCF0F18008841DF /* Assets.xcassets */,
 				D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */,
 				D95C00CF1FCF0F18008841DF /* Info.plist */,
-				D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */,
+				D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */,
 			);
 			path = Wanderlist;
 			sourceTree = "<group>";
@@ -91,6 +102,26 @@
 				D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D968E58D1FDF0B370088967E /* Defunct */ = {
+			isa = PBXGroup;
+			children = (
+				D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */,
+			);
+			path = Defunct;
+			sourceTree = "<group>";
+		};
+		D9C5CE971FE02794001FBC04 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
+				D968E58B1FDF0B280088967E /* CityTableViewController.swift */,
+				D968E58E1FDF16240088967E /* CityDetailViewController.swift */,
+				D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */,
+				D968E5901FDF61D50088967E /* InitalViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,11 +200,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D968E5861FDC90360088967E /* CityTableViewController.swift in Sources */,
-				D968E5881FDD154C0088967E /* Cities.swift in Sources */,
+				D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */,
+				D968E58C1FDF0B280088967E /* CityTableViewController.swift in Sources */,
+				D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
-				D95C00C91FCF0F18008841DF /* Wanderlist.xcdatamodeld in Sources */,
+				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
+				D9C5CE9D1FE02A07001FBC04 /* User+CoreDataClass.swift in Sources */,
+				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
 				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
+				D9C5CE9E1FE02A07001FBC04 /* User+CoreDataProperties.swift in Sources */,
+				D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,12 +396,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D95C00C71FCF0F18008841DF /* Wanderlist.xcdatamodeld */ = {
+		D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */,
+				D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */,
 			);
-			currentVersion = D95C00C81FCF0F18008841DF /* Wanderlist.xcdatamodel */;
+			currentVersion = D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */;
 			path = Wanderlist.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

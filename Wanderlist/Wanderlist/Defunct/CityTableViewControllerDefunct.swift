@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityTableViewController: UITableViewController, UIViewControllerTransitioningDelegate {
+class CityTableViewControllerDefunct: UITableViewController, UIViewControllerTransitioningDelegate {
     
     var cities: [String] = ["New York City", "Montreal", "San Francisco", "Paris", "Lisbon", "London", "Philadelphia", "Los Angeles", "Boston", "Atlanta"]
     
