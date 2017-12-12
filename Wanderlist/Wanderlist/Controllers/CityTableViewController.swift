@@ -105,7 +105,7 @@ class CityTableViewController: UITableViewController {
                 let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
                 
                 let userData = User(entity: entity!, insertInto: context)
-                userData.firstTimeUser = false
+                userData.returningUser = true
                 appDelegate.saveContext()
                 userSettings.append(userData)
             }

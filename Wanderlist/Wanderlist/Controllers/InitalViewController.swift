@@ -30,18 +30,23 @@ class InitalViewController: UIViewController {
             userSettings = results as! [User]
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
 
-            if (userSettings[0].firstTimeUser == false) {
-                let vc = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
-                self.present(vc, animated: true, completion: nil)
+            if userSettings.isEmpty {
+                print("new user")
+                let onboardVC = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
+                self.present(onboardVC, animated: true, completion: nil)
             } else {
-                let vc2 = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
-                self.present(vc2, animated: true, completion: nil)
+                let savedLocationsVC = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
+                self.present(savedLocationsVC, animated: true, completion: nil)
+                print("returning user")
             }
-            //print(user.firstTimeUser)
+//            if isValidIndex == true {
+//                print("returning user")
+//            } else {
+//                print("new user")
+//            }
         } catch let error as NSError {
             print("Fetching Error: \(error.userInfo)")
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,3 +66,20 @@ class InitalViewController: UIViewController {
     */
 
 }
+
+//do {
+//                let userData = try userSettings[0].firstTimeUser
+//                let savedLocationsVC = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
+//                self.present(savedLocationsVC, animated: true, completion: nil)
+//            } catch {
+//                let onboardVC = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
+//                self.present(onboardVC, animated: true, completion: nil)
+//            }
+//            if (userSettings[0].firstTimeUser == false) {
+//            if (userSettings == nil || userSettings[0].firstTimeUser != false) {
+//                let vc2 = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
+//                self.present(vc2, animated: true, completion: nil)
+//            } else {
+//                let vc = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
+//                self.present(vc, animated: true, completion: nil)
+//}

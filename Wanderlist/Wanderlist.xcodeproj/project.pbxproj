@@ -22,8 +22,8 @@
 		D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5901FDF61D50088967E /* InitalViewController.swift */; };
 		D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */; };
 		D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */; };
-		D9C5CE9D1FE02A07001FBC04 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */; };
-		D9C5CE9E1FE02A07001FBC04 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */; };
+		D9C5CEA11FE09228001FBC04 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */; };
+		D9C5CEA21FE09228001FBC04 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +44,8 @@
 		D968E5901FDF61D50088967E /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
 		D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsViewController.swift; sourceTree = "<group>"; };
 		D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
-		D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,12 +78,12 @@
 		D95C00BF1FCF0F18008841DF /* Wanderlist */ = {
 			isa = PBXGroup;
 			children = (
-				D9C5CE971FE02794001FBC04 /* Controllers */,
-				D968E58D1FDF0B370088967E /* Defunct */,
 				D968E51A1FD9C02A0088967E /* Fonts */,
+				D968E58D1FDF0B370088967E /* Defunct */,
+				D9C5CE971FE02794001FBC04 /* Controllers */,
+				D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */,
+				D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */,
 				D95C00C01FCF0F18008841DF /* AppDelegate.swift */,
-				D9C5CE9B1FE02A07001FBC04 /* User+CoreDataClass.swift */,
-				D9C5CE9C1FE02A07001FBC04 /* User+CoreDataProperties.swift */,
 				D968E5761FD9EB580088967E /* Main.storyboard */,
 				D95C00CA1FCF0F18008841DF /* Assets.xcassets */,
 				D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */,
@@ -205,10 +205,10 @@
 				D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
 				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
-				D9C5CE9D1FE02A07001FBC04 /* User+CoreDataClass.swift in Sources */,
+				D9C5CEA11FE09228001FBC04 /* User+CoreDataClass.swift in Sources */,
 				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
 				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
-				D9C5CE9E1FE02A07001FBC04 /* User+CoreDataProperties.swift in Sources */,
+				D9C5CEA21FE09228001FBC04 /* User+CoreDataProperties.swift in Sources */,
 				D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

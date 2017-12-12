@@ -17,6 +17,6 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
-    @NSManaged public var firstTimeUser: Bool
+    @NSManaged public var returningUser: Bool
 
 }
