@@ -11,7 +11,7 @@ import CoreData
 
 class CityTableViewController: UITableViewController {
     
-    var userSettings = [User]()
+    //var userSettings = [User]()
     var cities: [String] = ["New York City", "San Francisco", "Montreal" , "Paris", "Lisbon"]
 
     @IBAction func dismissAddCity(_ sender: UIBarButtonItem) {
@@ -91,25 +91,25 @@ class CityTableViewController: UITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        if (segue.identifier == "CityPlanning") {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let selectedCity = cities[indexPath.row]
-                let controller = segue.destination as! CityDetailViewController
-                controller.citySelect = selectedCity
-                
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                let context = appDelegate.persistentContainer.viewContext
-                let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-                
-                let userData = User(entity: entity!, insertInto: context)
-                userData.returningUser = true
-                appDelegate.saveContext()
-                userSettings.append(userData)
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        if (segue.identifier == "CityPlanning") {
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                let selectedCity = cities[indexPath.row]
+//                let controller = segue.destination as! CityDetailViewController
+//                controller.citySelect = selectedCity
+//
+//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                let context = appDelegate.persistentContainer.viewContext
+//                let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
+//
+//                let userData = User(entity: entity!, insertInto: context)
+//                userData.returningUser = true
+//                appDelegate.saveContext()
+//                userSettings.append(userData)
+//            }
+//        }
+//    }
 
 }

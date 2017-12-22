@@ -1,0 +1,6 @@
+framework module Pods_WanderlistTestArea {
+  umbrella header "Pods-WanderlistTestArea-umbrella.h"
+
+  export *
+  module * { export * }
+}

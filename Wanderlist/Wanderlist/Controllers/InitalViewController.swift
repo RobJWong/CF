@@ -7,79 +7,76 @@
 //
 
 import UIKit
-import CoreData
+import FBSDKLoginKit
+import Firebase
+import GoogleSignIn
 
-class InitalViewController: UIViewController {
+class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
-    var userSettings = [User]()
+    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
+        self.present(InitalViewController(), animated: true, completion: nil)
+    }
     
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        self.dismiss(animated: true, completion: nil)
+        self.present(OnBoardingViewController(), animated: true, completion: nil)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
+        
+        let loginButton = FBSDKLoginButton()
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        loginButton.delegate = self
+        loginButton.readPermissions = ["email", "public_profile"]
+        
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x:16, y: 116 + 66, width: view.frame.width - 32, height: 50)
+        view.addSubview(googleButton)
+        GIDSignIn.sharedInstance().uiDelegate = self
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super .viewDidAppear(true)
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedContext = appDelegate.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
-        do {
-            let results = try managedContext.fetch(fetchRequest)
-            userSettings = results as! [User]
-            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-
-            if userSettings.isEmpty {
-                print("new user")
-                let onboardVC = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
-                self.present(onboardVC, animated: true, completion: nil)
-            } else {
-                let savedLocationsVC = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
-                self.present(savedLocationsVC, animated: true, completion: nil)
-                print("returning user")
-            }
-//            if isValidIndex == true {
-//                print("returning user")
-//            } else {
-//                print("new user")
-//            }
-        } catch let error as NSError {
-            print("Fetching Error: \(error.userInfo)")
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil {
+            print(error)
+            return
         }
+        showEmailAddress()
+    }
+    
+    func showEmailAddress() {
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString else { return }
+        let credentials = FacebookAuthProvider.credential(withAccessToken: accessTokenString)
+        Auth.auth().signIn(with: credentials, completion: {(user, error) in
+            if error != nil {
+                print("Access token error", error ?? "")
+                return
+            }
+            print("Logged in with facebook user")
+        })
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: {(connection, results, err) in
+            if err != nil {
+                print("Failed to start graph request", err ?? "")
+                return
+            }
+            print(results ?? "")
+        })
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        print("logged out")
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-//do {
-//                let userData = try userSettings[0].firstTimeUser
-//                let savedLocationsVC = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
-//                self.present(savedLocationsVC, animated: true, completion: nil)
-//            } catch {
-//                let onboardVC = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
-//                self.present(onboardVC, animated: true, completion: nil)
-//            }
-//            if (userSettings[0].firstTimeUser == false) {
-//            if (userSettings == nil || userSettings[0].firstTimeUser != false) {
-//                let vc2 = storyboard.instantiateViewController(withIdentifier: "OnBoardingViewController") as! OnBoardingViewController
-//                self.present(vc2, animated: true, completion: nil)
-//            } else {
-//                let vc = storyboard.instantiateViewController(withIdentifier: "SavedLocationsViewController") as! SavedLocationsViewController
-//                self.present(vc, animated: true, completion: nil)
-//}

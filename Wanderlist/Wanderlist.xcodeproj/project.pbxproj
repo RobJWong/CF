@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CB52B1CDA16ACBD927FEE56D /* Pods_Wanderlist.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451C03E9DEDA503FB1394447 /* Pods_Wanderlist.framework */; };
 		D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C01FCF0F18008841DF /* AppDelegate.swift */; };
 		D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */; };
 		D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D95C00CA1FCF0F18008841DF /* Assets.xcassets */; };
@@ -21,12 +22,13 @@
 		D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E58E1FDF16240088967E /* CityDetailViewController.swift */; };
 		D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5901FDF61D50088967E /* InitalViewController.swift */; };
 		D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */; };
+		D96BC88A1FEB90300083CBAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */; };
 		D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */; };
-		D9C5CEA11FE09228001FBC04 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */; };
-		D9C5CEA21FE09228001FBC04 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		451C03E9DEDA503FB1394447 /* Pods_Wanderlist.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Wanderlist.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93C7F995FB9FA02D79242CFC /* Pods-Wanderlist.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist.debug.xcconfig"; sourceTree = "<group>"; };
 		D95C00BD1FCF0F18008841DF /* Wanderlist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wanderlist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D95C00C01FCF0F18008841DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
@@ -43,9 +45,10 @@
 		D968E58E1FDF16240088967E /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		D968E5901FDF61D50088967E /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
 		D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsViewController.swift; sourceTree = "<group>"; };
+		D96BC8881FEB58850083CBAF /* Wanderlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wanderlist.entitlements; sourceTree = "<group>"; };
+		D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
-		D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,17 +56,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB52B1CDA16ACBD927FEE56D /* Pods_Wanderlist.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F4CF2E527C1BAE07308976F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93C7F995FB9FA02D79242CFC /* Pods-Wanderlist.debug.xcconfig */,
+				F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C93B21E8837C2754749EAC0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				451C03E9DEDA503FB1394447 /* Pods_Wanderlist.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D95C00B41FCF0F18008841DF = {
 			isa = PBXGroup;
 			children = (
 				D95C00BF1FCF0F18008841DF /* Wanderlist */,
 				D95C00BE1FCF0F18008841DF /* Products */,
+				6F4CF2E527C1BAE07308976F /* Pods */,
+				C93B21E8837C2754749EAC0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,16 +101,16 @@
 		D95C00BF1FCF0F18008841DF /* Wanderlist */ = {
 			isa = PBXGroup;
 			children = (
+				D96BC8881FEB58850083CBAF /* Wanderlist.entitlements */,
 				D968E51A1FD9C02A0088967E /* Fonts */,
 				D968E58D1FDF0B370088967E /* Defunct */,
 				D9C5CE971FE02794001FBC04 /* Controllers */,
-				D9C5CE9F1FE09228001FBC04 /* User+CoreDataClass.swift */,
-				D9C5CEA01FE09228001FBC04 /* User+CoreDataProperties.swift */,
 				D95C00C01FCF0F18008841DF /* AppDelegate.swift */,
 				D968E5761FD9EB580088967E /* Main.storyboard */,
 				D95C00CA1FCF0F18008841DF /* Assets.xcassets */,
 				D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */,
 				D95C00CF1FCF0F18008841DF /* Info.plist */,
+				D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */,
 				D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */,
 			);
 			path = Wanderlist;
@@ -131,9 +154,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D95C00D21FCF0F18008841DF /* Build configuration list for PBXNativeTarget "Wanderlist" */;
 			buildPhases = (
+				B7958661FE4E12E1368F3D4B /* [CP] Check Pods Manifest.lock */,
 				D95C00B91FCF0F18008841DF /* Sources */,
 				D95C00BA1FCF0F18008841DF /* Frameworks */,
 				D95C00BB1FCF0F18008841DF /* Resources */,
+				E10B2A0150467EE6D72D49B3 /* [CP] Embed Pods Frameworks */,
+				2370FB25749E3B32AAC1ED82 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -157,6 +183,11 @@
 					D95C00BC1FCF0F18008841DF = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -184,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */,
+				D96BC88A1FEB90300083CBAF /* GoogleService-Info.plist in Resources */,
 				D95C00CE1FCF0F18008841DF /* LaunchScreen.storyboard in Resources */,
 				D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */,
 				D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */,
@@ -195,6 +227,79 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2370FB25749E3B32AAC1ED82 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B7958661FE4E12E1368F3D4B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Wanderlist-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E10B2A0150467EE6D72D49B3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D95C00B91FCF0F18008841DF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -205,10 +310,8 @@
 				D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
 				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
-				D9C5CEA11FE09228001FBC04 /* User+CoreDataClass.swift in Sources */,
 				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
 				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
-				D9C5CEA21FE09228001FBC04 /* User+CoreDataProperties.swift in Sources */,
 				D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -344,9 +447,12 @@
 		};
 		D95C00D31FCF0F18008841DF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93C7F995FB9FA02D79242CFC /* Pods-Wanderlist.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wanderlist/Wanderlist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = Wanderlist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,9 +465,12 @@
 		};
 		D95C00D41FCF0F18008841DF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Wanderlist/Wanderlist.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = Wanderlist/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
