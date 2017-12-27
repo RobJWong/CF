@@ -33,7 +33,7 @@
                     </view>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="OnboardingSegue" id="Gje-9q-VbH"/>
-                        <segue destination="rIW-xJ-Dxq" kind="show" id="MRS-J0-zjs"/>
+                        <segue destination="rIW-xJ-Dxq" kind="show" identifier="test" id="7QG-Tt-NeR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y6a-cp-5oP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,17 +74,34 @@
             </objects>
             <point key="canvasLocation" x="-717" y="-638"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Save Location Table View Controller-->
         <scene sceneID="hvq-Q8-91Z">
             <objects>
-                <tableViewController id="rIW-xJ-Dxq" sceneMemberID="viewController">
+                <tableViewController id="rIW-xJ-Dxq" customClass="SaveLocationTableViewController" customModule="Wanderlist" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ONh-Gj-9et">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="XLu-Be-Npt">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P0y-Be-tui">
+                                    <rect key="frame" x="162" y="95.666666666666671" width="90.333333333333314" height="18.666666666666671"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="P0y-Be-tui" firstAttribute="top" secondItem="XLu-Be-Npt" secondAttribute="top" constant="95.700000000000003" id="NTy-ge-Lzi"/>
+                                <constraint firstItem="P0y-Be-tui" firstAttribute="centerX" secondItem="XLu-Be-Npt" secondAttribute="centerX" id="sxP-jl-AfW"/>
+                            </constraints>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pYc-Bm-2oW">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SavedCities" id="pYc-Bm-2oW">
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pYc-Bm-2oW" id="NZI-NS-iMi">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>

@@ -12,6 +12,8 @@ import Firebase
 import GoogleSignIn
 
 class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
+    
+    var userID : String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,17 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
         GIDSignIn.sharedInstance().delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.destination is SavedLocationsViewController {
+//            let savedLocationsVC = segue.destination as? SavedLocationsViewController
+//            savedLocationsVC?.userID = userID
+//        }
+        if segue.destination is SaveLocationTableViewController {
+            let saveLocationTVC = segue.destination as? SaveLocationTableViewController
+            saveLocationTVC?.userID = userID
+        }
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         //display error message
         if let err = error {
@@ -49,16 +62,20 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
             }
             guard let uid = user?.uid, let email = user?.email else { return }
             print("Logged in with ", uid ?? "" )
+            self.userID = uid
             let firebaseRef = Database.database()
-            let values = ["email": email]
-            let userReference = firebaseRef.reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("users").child(uid)
+            let values = ["Email": email]
+            let userReference = firebaseRef.reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Users").child(uid)
             firebaseRef.reference().observeSingleEvent(of: .value, with: {(snapshot) in
-                let userDataString = "users/" + uid
+                let userDataString = "Users/" + uid
                 print(userDataString)
                 if snapshot.hasChild(userDataString) {
                     print("user was created before")
+                    //let savedSearchesVC = SavedLocationsViewController()
+                    //savedSearchesVC.userID = uid
+                    //print(uid)
                     //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                    self.performSegue(withIdentifier: "SavedSearches", sender: nil)
+                    self.performSegue(withIdentifier: "test", sender: nil)
                 }
                 else {
                     userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in

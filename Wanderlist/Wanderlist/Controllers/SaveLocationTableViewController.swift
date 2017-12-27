@@ -7,17 +7,48 @@
 //
 
 import UIKit
+import Firebase
 
 class SaveLocationTableViewController: UITableViewController {
+    
+    var userID: String?
+    var savedLocations: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        setupSavedLocations() { (savedData) in
+            DispatchQueue.main.async(execute: {
+                self.testCompletion(locations: savedData)
+            })
+        }
+    }
+    
+    func testCompletion(locations:[String]) {
+        print("Show updated locations: \(locations)")
+        self.savedLocations = locations
+        self.tableView.reloadData()
+    }
+    
+    func setupSavedLocations(completion: @escaping ([String]) -> ()) {
+        guard let user = userID else { return }
+        let databaseRef = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/Users/pPXlAljzhDRDwn7OTtzYetMg3sk2/City")
+        var dataTest : [String] = []
+        databaseRef.observeSingleEvent(of: .value, with: {(snapshot) in
+            let childString = "Users/" + user + "/City"
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key
+                dataTest.append(key)
+            }
+            completion(dataTest)
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +60,23 @@ class SaveLocationTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return savedLocations.count
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SavedCities", for: indexPath)
+        cell.textLabel?.text = savedLocations[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Goku", size: 33.9)
+        cell.textLabel?.textAlignment = .center
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

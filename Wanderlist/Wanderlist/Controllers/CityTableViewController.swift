@@ -93,8 +93,8 @@ class CityTableViewController: UITableViewController {
                 //let uid = Auth.auth().currentUser?.uid
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 let ref = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/")
-                let userReference = ref.child("users").child(uid)
-                let values = ["city": selectedCity]
+                let userReference = ref.child("Users").child(uid).child("Cities")
+                let values = ["City": selectedCity]
                 userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
                     if err != nil {
                         print(err)
