@@ -18,69 +18,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TQe-hy-tBA">
-                                <rect key="frame" x="139" y="120" width="97" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZp-vU-3Re">
-                                <rect key="frame" x="152.5" y="170" width="69" height="30"/>
-                                <state key="normal" title="Save Data"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kb5-DY-Nze">
+                                <rect key="frame" x="164.5" y="318" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="saveCoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jtx-nF-rOJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i9e-8z-cBF">
-                                <rect key="frame" x="150" y="220" width="74" height="30"/>
-                                <state key="normal" title="Show Data"/>
-                                <connections>
-                                    <action selector="showCoreData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5XV-dS-07I"/>
+                                    <segue destination="jje-06-nb0" kind="show" id="P3X-4e-L0C"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="i9e-8z-cBF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="B7c-HN-UP1"/>
-                            <constraint firstItem="i9e-8z-cBF" firstAttribute="top" secondItem="AZp-vU-3Re" secondAttribute="bottom" constant="20" id="BdP-OE-gmq"/>
-                            <constraint firstItem="AZp-vU-3Re" firstAttribute="top" secondItem="TQe-hy-tBA" secondAttribute="bottom" constant="20" id="Lhk-f5-QTu"/>
-                            <constraint firstItem="TQe-hy-tBA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="bCB-9B-n3U"/>
-                            <constraint firstItem="AZp-vU-3Re" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u6M-ip-3o7"/>
+                            <constraint firstItem="Kb5-DY-Nze" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Snf-Ta-tqw"/>
+                            <constraint firstItem="Kb5-DY-Nze" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pAr-Gk-7hg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="706" y="33"/>
+            <point key="canvasLocation" x="402" y="39"/>
         </scene>
-        <!--Test Table View Controller-->
-        <scene sceneID="fC7-iX-gkm">
+        <!--Second View Controller-->
+        <scene sceneID="0Mc-F9-OIZ">
             <objects>
-                <tableViewController id="SIn-jf-clD" customClass="TestTableViewController" customModule="TestField" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="wWa-ha-40g">
+                <viewController id="jje-06-nb0" customClass="SecondViewController" customModule="TestField" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K9T-93-M5Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="TLi-1g-USU">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TLi-1g-USU" id="FcT-Qg-jP6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="SIn-jf-clD" id="VGW-lh-jqM"/>
-                            <outlet property="delegate" destination="SIn-jf-clD" id="IL5-i1-IFZ"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1iP-3P-JUe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <viewLayoutGuide key="safeArea" id="Kga-T9-RC0"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqZ-kw-ZJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1486" y="33"/>
+            <point key="canvasLocation" x="1342" y="38"/>
         </scene>
     </scenes>
 </document>

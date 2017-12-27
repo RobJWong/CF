@@ -11,22 +11,12 @@ import FBSDKLoginKit
 import Firebase
 import GoogleSignIn
 
-class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
-    
-    func sign(_ signIn: GIDSignIn!, present viewController: UIViewController!) {
-        self.present(InitalViewController(), animated: true, completion: nil)
-    }
-    
-    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
-        self.dismiss(animated: true, completion: nil)
-        self.present(OnBoardingViewController(), animated: true, completion: nil)
-    }
+class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view
-        
         let loginButton = FBSDKLoginButton()
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
@@ -39,6 +29,52 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
         googleButton.frame = CGRect(x:16, y: 116 + 66, width: view.frame.width - 32, height: 50)
         view.addSubview(googleButton)
         GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().delegate = self
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        //display error message
+        if let err = error {
+            print("Failed to log into google", err ?? "")
+        }
+        //if no error create token to authenticate user
+        print("Logged in with google", user ?? "")
+        guard let idToken = user.authentication.idToken else { return }
+        guard let accessToken = user.authentication.accessToken else { return }
+        //log in with user credenitals to google
+        let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+            if let err = error {
+                print ("Failed to create a Firebase user with Google credentials" , err ?? "")
+            }
+            guard let uid = user?.uid, let email = user?.email else { return }
+            print("Logged in with ", uid ?? "" )
+            let firebaseRef = Database.database()
+            let values = ["email": email]
+            let userReference = firebaseRef.reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("users").child(uid)
+            firebaseRef.reference().observeSingleEvent(of: .value, with: {(snapshot) in
+                let userDataString = "users/" + uid
+                print(userDataString)
+                if snapshot.hasChild(userDataString) {
+                    print("user was created before")
+                    //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                    self.performSegue(withIdentifier: "SavedSearches", sender: nil)
+                }
+                else {
+                    userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                        if err != nil {
+                            print(err)
+                            return
+                        }
+                        if let user = user {
+                            let changeRequest = user.createProfileChangeRequest()
+                            //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                            self.performSegue(withIdentifier: "OnboardingSegue", sender: nil)
+                        }
+                    })
+                }
+            })
+        })
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {

@@ -1,19 +1,23 @@
 //
-//  SavedLocationsViewController.swift
-//  Wanderlist
+//  SecondViewController.swift
+//  TestField
 //
-//  Created by Robert Wong on 12/11/17.
+//  Created by Robert Wong on 12/26/17.
 //  Copyright © 2017 Robert Wong. All rights reserved.
 //
 
 import UIKit
 
-class SavedLocationsViewController: UIViewController {
+class SecondViewController: UIViewController {
+    
+    var secondTestData = User()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        print(secondTestData.email)
+        print(secondTestData.testData)
     }
 
     override func didReceiveMemoryWarning() {

@@ -23,6 +23,7 @@
 		D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5901FDF61D50088967E /* InitalViewController.swift */; };
 		D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */; };
 		D96BC88A1FEB90300083CBAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */; };
+		D96BC8941FF3AAD80083CBAF /* SaveLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */; };
 		D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsViewController.swift; sourceTree = "<group>"; };
 		D96BC8881FEB58850083CBAF /* Wanderlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wanderlist.entitlements; sourceTree = "<group>"; };
 		D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationTableViewController.swift; sourceTree = "<group>"; };
 		D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
 		F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,6 +132,7 @@
 		D968E58D1FDF0B370088967E /* Defunct */ = {
 			isa = PBXGroup;
 			children = (
+				D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */,
 				D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */,
 			);
 			path = Defunct;
@@ -141,7 +144,7 @@
 				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
 				D968E58B1FDF0B280088967E /* CityTableViewController.swift */,
 				D968E58E1FDF16240088967E /* CityDetailViewController.swift */,
-				D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */,
+				D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */,
 				D968E5901FDF61D50088967E /* InitalViewController.swift */,
 			);
 			path = Controllers;
@@ -310,6 +313,7 @@
 				D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
 				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
+				D96BC8941FF3AAD80083CBAF /* SaveLocationTableViewController.swift in Sources */,
 				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
 				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
 				D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */,

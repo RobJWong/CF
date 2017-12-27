@@ -7,16 +7,13 @@
 //
 
 import UIKit
-import CoreData
+import Firebase
 
 class CityTableViewController: UITableViewController {
     
     //var userSettings = [User]()
     var cities: [String] = ["New York City", "San Francisco", "Montreal" , "Paris", "Lisbon"]
-
-    @IBAction func dismissAddCity(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
-    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -88,6 +85,26 @@ class CityTableViewController: UITableViewController {
         return true
     }
     */
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "CityPlanning" {
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                let selectedCity = cities[indexPath.row]
+                let controller = segue.destination as! CityDetailViewController
+                //let uid = Auth.auth().currentUser?.uid
+                guard let uid = Auth.auth().currentUser?.uid else { return }
+                let ref = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/")
+                let userReference = ref.child("users").child(uid)
+                let values = ["city": selectedCity]
+                userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
+                    if err != nil {
+                        print(err)
+                        return
+                    }
+                })
+                controller.citySelect = selectedCity
+            }
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
