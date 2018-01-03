@@ -12,7 +12,10 @@ import Firebase
 class SaveLocationTableViewController: UITableViewController {
     
     var userID: String?
+    var savedLocationsDict: [String:String] = [:]
     var savedLocations: [String] = []
+    var cityName: String?
+    var statusFlag : String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,31 +26,69 @@ class SaveLocationTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        setupSavedLocations() { (savedData) in
+        setupSavedLocations() { (savedData, savedLocationsDic) in
             DispatchQueue.main.async(execute: {
-                self.testCompletion(locations: savedData)
+                self.testCompletion(locations: savedData, cityStatus: savedLocationsDic)
             })
         }
     }
     
-    func testCompletion(locations:[String]) {
-        print("Show updated locations: \(locations)")
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is CityDetailViewController {
+            print("Status Flag: ", statusFlag, "City Name: ", cityName)
+            let cityDetailVCS = segue.destination as? CityDetailViewController
+            cityDetailVCS?.citySelect = cityName
+        }
+        if segue.destination is SavedInCityTableViewController {
+            print("Potation")
+        }
+    }
+    
+    //        if segue.destination is SaveLocationTableViewController {
+    //            let saveLocationTVC = segue.destination as? SaveLocationTableViewController
+    //            saveLocationTVC?.userID = userID
+    //        }
+
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.cityName = savedLocations[indexPath.row]
+        print(cityName)
+        self.statusFlag = savedLocationsDict[cityName!]
+        print(statusFlag)
+        if statusFlag == "Empty" {
+            performSegue(withIdentifier: "empty", sender: nil)
+        }
+        else {
+            performSegue(withIdentifier: "notEmpty", sender: nil)
+        }
+        
+    }
+    
+    func testCompletion(locations:[String], cityStatus: [String:String] ) {
+        //print("Show updated locations: \(locations)")
         self.savedLocations = locations
+        self.savedLocationsDict = cityStatus
+        print(savedLocations)
+        print(savedLocationsDict)
         self.tableView.reloadData()
     }
     
-    func setupSavedLocations(completion: @escaping ([String]) -> ()) {
-        guard let user = userID else { return }
-        let databaseRef = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/Users/pPXlAljzhDRDwn7OTtzYetMg3sk2/City")
+    func setupSavedLocations(completion: @escaping ([String], [String:String]) -> ()) {
+        guard let uid = userID else { return }
+        let databaseRef = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Users").child(uid).child("Cities")
         var dataTest : [String] = []
+        var dataTestDic : [String:String] = [:]
+        //var cityDictionary: [String:String]()
         databaseRef.observeSingleEvent(of: .value, with: {(snapshot) in
-            let childString = "Users/" + user + "/City"
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let key = snap.key
+                guard case let rawCityData as NSObject = snap.value else { return }
+                guard let value = rawCityData.value(forKey: "Status") else { return }
                 dataTest.append(key)
+                dataTestDic[key] = value as! String
             }
-            completion(dataTest)
+            completion(dataTest, dataTestDic)
         })
     }
 

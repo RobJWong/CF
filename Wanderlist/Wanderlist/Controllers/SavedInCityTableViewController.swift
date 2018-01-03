@@ -1,18 +1,17 @@
 //
-//  CityTableViewController.swift
+//  SavedInCityTableViewController.swift
 //  Wanderlist
 //
-//  Created by Robert Wong on 12/11/17.
+//  Created by Robert Wong on 12/29/17.
 //  Copyright © 2017 Robert Wong. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class CityTableViewController: UITableViewController {
-    
-    //var userSettings = [User]()
-    var cities: [String] = ["New York City", "San Francisco", "Montreal" , "Paris", "Lisbon"]
+class SavedInCityTableViewController: UITableViewController {
+
+    //@IBOutlet weak var backgroundImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +21,17 @@ class CityTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        let backgroundImage = UIImage(named: "Background")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,23 +43,23 @@ class CityTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return cities.count
+        return 0
     }
 
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CityCell", for: indexPath)
-        cell.textLabel?.text = cities[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Goku", size: 33.9)
-        cell.textLabel?.textAlignment = .center
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
         // Configure the cell...
 
         return cell
     }
+    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,48 +95,15 @@ class CityTableViewController: UITableViewController {
         return true
     }
     */
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "CityPlanning" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                let selectedCity = cities[indexPath.row]
-                let controller = segue.destination as! CityDetailViewController
-                //let uid = Auth.auth().currentUser?.uid
-                guard let uid = Auth.auth().currentUser?.uid else { return }
-                let ref = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/")
-                let userReference = ref.child("Users").child(uid).child("Cities").child(selectedCity)
-                let values = ["Status": "Empty"]
-                userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
-                    if err != nil {
-                        print(err)
-                        return
-                    }
-                })
-                controller.citySelect = selectedCity
-            }
-        }
-    }
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        // Get the new view controller using segue.destinationViewController.
-//        // Pass the selected object to the new view controller.
-//        if (segue.identifier == "CityPlanning") {
-//            if let indexPath = self.tableView.indexPathForSelectedRow {
-//                let selectedCity = cities[indexPath.row]
-//                let controller = segue.destination as! CityDetailViewController
-//                controller.citySelect = selectedCity
-//
-//                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//                let context = appDelegate.persistentContainer.viewContext
-//                let entity = NSEntityDescription.entity(forEntityName: "User", in: context)
-//
-//                let userData = User(entity: entity!, insertInto: context)
-//                userData.returningUser = true
-//                appDelegate.saveContext()
-//                userSettings.append(userData)
-//            }
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

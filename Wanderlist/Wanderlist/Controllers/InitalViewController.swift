@@ -93,6 +93,7 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
             })
         })
     }
+            
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
@@ -132,4 +133,3 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
     }
 
 }
-

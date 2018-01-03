@@ -17,14 +17,14 @@
 		D968E57C1FD9EFD70088967E /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */; };
 		D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */; };
 		D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */; };
-		D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */; };
 		D968E58C1FDF0B280088967E /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E58B1FDF0B280088967E /* CityTableViewController.swift */; };
 		D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E58E1FDF16240088967E /* CityDetailViewController.swift */; };
 		D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5901FDF61D50088967E /* InitalViewController.swift */; };
-		D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */; };
-		D96BC88A1FEB90300083CBAF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */; };
 		D96BC8941FF3AAD80083CBAF /* SaveLocationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */; };
 		D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */; };
+		D9D05E4D1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */; };
+		D9D05E531FF6FE7700FB3D2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D05E521FF6FE7700FB3D2B /* GoogleService-Info.plist */; };
+		D9D05E551FF7FE4100FB3D2B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,15 +41,15 @@
 		D968E5791FD9EFD70088967E /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
 		D968E57A1FD9EFD70088967E /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		D968E57B1FD9EFD70088967E /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
-		D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewControllerDefunct.swift; sourceTree = "<group>"; };
 		D968E58B1FDF0B280088967E /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		D968E58E1FDF16240088967E /* CityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityDetailViewController.swift; sourceTree = "<group>"; };
 		D968E5901FDF61D50088967E /* InitalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitalViewController.swift; sourceTree = "<group>"; };
-		D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationsViewController.swift; sourceTree = "<group>"; };
 		D96BC8881FEB58850083CBAF /* Wanderlist.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Wanderlist.entitlements; sourceTree = "<group>"; };
-		D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveLocationTableViewController.swift; sourceTree = "<group>"; };
 		D9C5CE991FE029BD001FBC04 /* Wanderlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Wanderlist.xcdatamodel; sourceTree = "<group>"; };
+		D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedInCityTableViewController.swift; sourceTree = "<group>"; };
+		D9D05E521FF6FE7700FB3D2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,8 +112,8 @@
 				D95C00CA1FCF0F18008841DF /* Assets.xcassets */,
 				D95C00CC1FCF0F18008841DF /* LaunchScreen.storyboard */,
 				D95C00CF1FCF0F18008841DF /* Info.plist */,
-				D96BC8891FEB90300083CBAF /* GoogleService-Info.plist */,
 				D9C5CE981FE029BD001FBC04 /* Wanderlist.xcdatamodeld */,
+				D9D05E521FF6FE7700FB3D2B /* GoogleService-Info.plist */,
 			);
 			path = Wanderlist;
 			sourceTree = "<group>";
@@ -132,8 +132,7 @@
 		D968E58D1FDF0B370088967E /* Defunct */ = {
 			isa = PBXGroup;
 			children = (
-				D968E5921FDF8FC60088967E /* SavedLocationsViewController.swift */,
-				D968E5851FDC90360088967E /* CityTableViewControllerDefunct.swift */,
+				D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */,
 			);
 			path = Defunct;
 			sourceTree = "<group>";
@@ -141,10 +140,11 @@
 		D9C5CE971FE02794001FBC04 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
+				D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */,
 				D968E58B1FDF0B280088967E /* CityTableViewController.swift */,
 				D968E58E1FDF16240088967E /* CityDetailViewController.swift */,
 				D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */,
+				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
 				D968E5901FDF61D50088967E /* InitalViewController.swift */,
 			);
 			path = Controllers;
@@ -218,7 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D968E57D1FD9EFD70088967E /* Montserrat-Regular.ttf in Resources */,
-				D96BC88A1FEB90300083CBAF /* GoogleService-Info.plist in Resources */,
+				D9D05E531FF6FE7700FB3D2B /* GoogleService-Info.plist in Resources */,
 				D95C00CE1FCF0F18008841DF /* LaunchScreen.storyboard in Resources */,
 				D95C00CB1FCF0F18008841DF /* Assets.xcassets in Resources */,
 				D968E57E1FD9EFD70088967E /* Montserrat-Medium.ttf in Resources */,
@@ -309,14 +309,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */,
+				D9D05E4D1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift in Sources */,
 				D968E58C1FDF0B280088967E /* CityTableViewController.swift in Sources */,
-				D968E5861FDC90360088967E /* CityTableViewControllerDefunct.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
 				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
 				D96BC8941FF3AAD80083CBAF /* SaveLocationTableViewController.swift in Sources */,
 				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
+				D9D05E551FF7FE4100FB3D2B /* TestViewController.swift in Sources */,
 				D95C00C11FCF0F18008841DF /* AppDelegate.swift in Sources */,
-				D968E5931FDF8FC60088967E /* SavedLocationsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
