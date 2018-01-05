@@ -25,6 +25,12 @@
 		D9D05E4D1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */; };
 		D9D05E531FF6FE7700FB3D2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9D05E521FF6FE7700FB3D2B /* GoogleService-Info.plist */; };
 		D9D05E551FF7FE4100FB3D2B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */; };
+		D9D05E5B1FFC8DD800FB3D2B /* ExploreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E5A1FFC8DD800FB3D2B /* ExploreTableViewController.swift */; };
+		D9D05E5D1FFC913F00FB3D2B /* TestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E5C1FFC913F00FB3D2B /* TestTableViewController.swift */; };
+		D9D05E621FFD612300FB3D2B /* PrepopulateTestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E611FFD612300FB3D2B /* PrepopulateTestData.swift */; };
+		D9D05E641FFD620000FB3D2B /* TestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E631FFD620000FB3D2B /* TestTableViewCell.swift */; };
+		D9D05E661FFD73AC00FB3D2B /* Test2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E651FFD73AC00FB3D2B /* Test2ViewController.swift */; };
+		D9D05E681FFD79B100FB3D2B /* PrepopulateTestData2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D05E671FFD79B100FB3D2B /* PrepopulateTestData2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedInCityTableViewController.swift; sourceTree = "<group>"; };
 		D9D05E521FF6FE7700FB3D2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D9D05E5A1FFC8DD800FB3D2B /* ExploreTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreTableViewController.swift; sourceTree = "<group>"; };
+		D9D05E5C1FFC913F00FB3D2B /* TestTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TestTableViewController.swift; path = Wanderlist/Defunct/TestTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		D9D05E611FFD612300FB3D2B /* PrepopulateTestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateTestData.swift; sourceTree = "<group>"; };
+		D9D05E631FFD620000FB3D2B /* TestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTableViewCell.swift; sourceTree = "<group>"; };
+		D9D05E651FFD73AC00FB3D2B /* Test2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2ViewController.swift; sourceTree = "<group>"; };
+		D9D05E671FFD79B100FB3D2B /* PrepopulateTestData2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepopulateTestData2.swift; sourceTree = "<group>"; };
 		F3D2CC37AC7C27BEA1217C27 /* Pods-Wanderlist.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wanderlist.release.xcconfig"; path = "Pods/Target Support Files/Pods-Wanderlist/Pods-Wanderlist.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				D96BC8881FEB58850083CBAF /* Wanderlist.entitlements */,
+				D9D05E601FFD60FD00FB3D2B /* Model */,
 				D968E51A1FD9C02A0088967E /* Fonts */,
 				D968E58D1FDF0B370088967E /* Defunct */,
 				D9C5CE971FE02794001FBC04 /* Controllers */,
@@ -132,7 +145,10 @@
 		D968E58D1FDF0B370088967E /* Defunct */ = {
 			isa = PBXGroup;
 			children = (
+				D9D05E5C1FFC913F00FB3D2B /* TestTableViewController.swift */,
+				D9D05E651FFD73AC00FB3D2B /* Test2ViewController.swift */,
 				D9D05E541FF7FE4100FB3D2B /* TestViewController.swift */,
+				D9D05E631FFD620000FB3D2B /* TestTableViewCell.swift */,
 			);
 			path = Defunct;
 			sourceTree = "<group>";
@@ -142,12 +158,22 @@
 			children = (
 				D9D05E4C1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift */,
 				D968E58B1FDF0B280088967E /* CityTableViewController.swift */,
+				D9D05E5A1FFC8DD800FB3D2B /* ExploreTableViewController.swift */,
 				D968E58E1FDF16240088967E /* CityDetailViewController.swift */,
 				D96BC8931FF3AAD80083CBAF /* SaveLocationTableViewController.swift */,
 				D95C00C21FCF0F18008841DF /* OnBoardingViewController.swift */,
 				D968E5901FDF61D50088967E /* InitalViewController.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D9D05E601FFD60FD00FB3D2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9D05E611FFD612300FB3D2B /* PrepopulateTestData.swift */,
+				D9D05E671FFD79B100FB3D2B /* PrepopulateTestData2.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,11 +334,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D05E5D1FFC913F00FB3D2B /* TestTableViewController.swift in Sources */,
+				D9D05E661FFD73AC00FB3D2B /* Test2ViewController.swift in Sources */,
+				D9D05E681FFD79B100FB3D2B /* PrepopulateTestData2.swift in Sources */,
+				D9D05E5B1FFC8DD800FB3D2B /* ExploreTableViewController.swift in Sources */,
 				D968E5911FDF61D50088967E /* InitalViewController.swift in Sources */,
 				D9D05E4D1FF6CB9000FB3D2B /* SavedInCityTableViewController.swift in Sources */,
 				D968E58C1FDF0B280088967E /* CityTableViewController.swift in Sources */,
 				D95C00C31FCF0F18008841DF /* OnBoardingViewController.swift in Sources */,
 				D9C5CE9A1FE029BD001FBC04 /* Wanderlist.xcdatamodeld in Sources */,
+				D9D05E641FFD620000FB3D2B /* TestTableViewCell.swift in Sources */,
+				D9D05E621FFD612300FB3D2B /* PrepopulateTestData.swift in Sources */,
 				D96BC8941FF3AAD80083CBAF /* SaveLocationTableViewController.swift in Sources */,
 				D968E58F1FDF16240088967E /* CityDetailViewController.swift in Sources */,
 				D9D05E551FF7FE4100FB3D2B /* TestViewController.swift in Sources */,

@@ -1,18 +1,14 @@
 //
-//  SavedInCityTableViewController.swift
-//  Wanderlist
+//  ExploreTableViewController.swift
+//  Bolts
 //
-//  Created by Robert Wong on 12/29/17.
-//  Copyright © 2017 Robert Wong. All rights reserved.
+//  Created by Robert Wong on 1/2/18.
 //
 
 import UIKit
-import Firebase
 
-class SavedInCityTableViewController: UITableViewController {
+class ExploreTableViewController: UITableViewController {
 
-    //@IBOutlet weak var backgroundImage: UIImageView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +17,7 @@ class SavedInCityTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        let backgroundImage = UIImage(named: "Background")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tableView.backgroundView = imageView
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        self.tableView.sectionHeaderHeight = 100
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,12 +29,12 @@ class SavedInCityTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 5
     }
 
     /*

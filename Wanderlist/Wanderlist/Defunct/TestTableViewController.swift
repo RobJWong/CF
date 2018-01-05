@@ -1,18 +1,17 @@
 //
-//  SavedInCityTableViewController.swift
+//  TestTableViewController.swift
 //  Wanderlist
 //
-//  Created by Robert Wong on 12/29/17.
-//  Copyright © 2017 Robert Wong. All rights reserved.
+//  Created by Robert Wong on 1/2/18.
+//  Copyright © 2018 Robert Wong. All rights reserved.
 //
 
 import UIKit
-import Firebase
 
-class SavedInCityTableViewController: UITableViewController {
-
-    //@IBOutlet weak var backgroundImage: UIImageView!
+class TestTableViewController: UITableViewController {
     
+    var testData = ["1","2","3","4","5"]
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -21,15 +20,6 @@ class SavedInCityTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        let backgroundImage = UIImage(named: "Background")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tableView.backgroundView = imageView
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,23 +31,23 @@ class SavedInCityTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return testData.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = testData[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Goku", size: 12)
+        cell.textLabel?.textAlignment = .center
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
