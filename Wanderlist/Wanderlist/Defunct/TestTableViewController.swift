@@ -10,7 +10,7 @@ import UIKit
 
 class TestTableViewController: UITableViewController {
     
-    var testData = ["1","2","3","4","5"]
+    var testObject  : [Any]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,26 @@ class TestTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        setupPresetData() { (testObject) in
+            DispatchQueue.main.async(execute: {
+                self.testCompletion(presetLocations: testObject)
+            })
+        }
     }
+    
+    func testCompletion(presetLocations: [Any]) {
+        self.testObject = presetLocations
+        print("Presetlocations: ", presetLocations)
+        self.tableView.reloadData()
+    }
+    
+    func setupPresetData(completion: @escaping([Any]) -> () ) {
+        let testObject2 = PrepopulateTestData.obtainData()
+        print("TestObject 2: ", testObject2)
+        completion(testObject2)
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -36,14 +55,15 @@ class TestTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return testData.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = testData[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Goku", size: 12)
-        cell.textLabel?.textAlignment = .center
+        print(testObject)
+        //cell.textLabel?.text = testData[indexPath.row]
+        //cell.textLabel?.font = UIFont(name: "Goku", size: 12)
+        //cell.textLabel?.textAlignment = .center
         // Configure the cell...
 
         return cell

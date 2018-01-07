@@ -7,15 +7,14 @@
 //
 
 import UIKit
+import Firebase
 
 class Test2ViewController: UIViewController {
+
+    //var testObject = PrepopulateTestData.obtainData()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //PrepopulationTestData.obtainFirebaseData()
-        PrepopulateTestData()
-        
-        // Do any additional setup after loading the view.
         
     }
 }

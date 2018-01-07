@@ -33,6 +33,15 @@ class SaveLocationTableViewController: UITableViewController {
         }
     }
     
+    func testCompletion(locations:[String], cityStatus: [String:String] ) {
+        //print("Show updated locations: \(locations)")
+        self.savedLocations = locations
+        self.savedLocationsDict = cityStatus
+        print(savedLocations)
+        print(savedLocationsDict)
+        self.tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is CityDetailViewController {
             print("Status Flag: ", statusFlag, "City Name: ", cityName)
@@ -62,15 +71,6 @@ class SaveLocationTableViewController: UITableViewController {
             performSegue(withIdentifier: "notEmpty", sender: nil)
         }
         
-    }
-    
-    func testCompletion(locations:[String], cityStatus: [String:String] ) {
-        //print("Show updated locations: \(locations)")
-        self.savedLocations = locations
-        self.savedLocationsDict = cityStatus
-        print(savedLocations)
-        print(savedLocationsDict)
-        self.tableView.reloadData()
     }
     
     func setupSavedLocations(completion: @escaping ([String], [String:String]) -> ()) {

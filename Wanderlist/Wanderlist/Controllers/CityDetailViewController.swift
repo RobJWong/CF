@@ -29,6 +29,12 @@ class CityDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.destination is ExploreListViewController {
+            let exploreTVC = segue.destination as? ExploreListViewController
+            exploreTVC?.selectedCity = citySelect
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import Firebase
+//import Firebase
 
 class PrepopulationTestData2 {
     
@@ -22,14 +22,14 @@ class PrepopulationTestData2 {
 //        self.notes = notes
 //    }
     
-    static func obtainFirebaseData () {
-        let storedData = [PrepopulationTestData2]()
-        let firebaseRef = Database.database()
-        let userReference = firebaseRef.reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Preset").child("New York City")
-        firebaseRef.reference().child("Preset").child("New York City").observeSingleEvent(of: .value, with: {(snapshot) in
-            if let dictionary = snapshot.value as? [String:AnyObject] {
-                print("inside firebase call: " , dictionary)
-            }
-        })
-    }
+//    static func obtainFirebaseData () {
+//        let storedData = [PrepopulationTestData2]()
+//        let firebaseRef = Database.database()
+//        let userReference = firebaseRef.reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Preset").child("New York City")
+//        firebaseRef.reference().child("Preset").child("New York City").observeSingleEvent(of: .value, with: {(snapshot) in
+//            if let dictionary = snapshot.value as? [String:AnyObject] {
+//                print("inside firebase call: " , dictionary)
+//            }
+//        })
+//    }
 }

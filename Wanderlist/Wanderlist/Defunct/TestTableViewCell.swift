@@ -10,9 +10,10 @@ import UIKit
 
 class TestTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var locationAdddress: UILabel!
+    //@IBOutlet weak var locationAdddress: UILabel!
     @IBOutlet weak var locationDescription: UILabel!
     @IBOutlet weak var locationImage: UIImageView!
-    @IBOutlet weak var locationName: UILabel!
-    @IBOutlet weak var locationNotes: UILabel!
+    //@IBOutlet weak var locationName: UILabel!
+    //@IBOutlet weak var locationNotes: UILabel!
+    //@IBOutlet weak var locationImage: UILabel!
 }
