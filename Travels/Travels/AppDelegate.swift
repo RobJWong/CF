@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Travels
 //
-//  Created by Robert Wong on 1/7/18.
+//  Created by Robert Wong on 1/9/18.
 //  Copyright © 2018 Robert Wong. All rights reserved.
 //
 
@@ -10,20 +10,23 @@ import UIKit
 import CoreData
 import Firebase
 import GoogleSignIn
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GMSPlacesClient.provideAPIKey("AIzaSyACgm_LCxPsUe5s0dvzCTEm9nZ8c6vHBmE")
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        
         return GIDSignIn.sharedInstance().handle(url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
     }
 

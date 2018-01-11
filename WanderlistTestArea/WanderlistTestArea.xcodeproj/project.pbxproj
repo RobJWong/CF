@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		15D78D1FEEA206D05995371D /* Pods_WanderlistTestArea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */; };
+		D9739EE62007AAAC000E12FD /* TransferImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9739EE52007AAAC000E12FD /* TransferImageViewController.swift */; };
 		D9C5CEB01FE0F629001FBC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */; };
-		D9C5CEB21FE0F629001FBC04 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEB11FE0F629001FBC04 /* ViewController.swift */; };
+		D9C5CEB21FE0F629001FBC04 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */; };
 		D9C5CEB51FE0F629001FBC04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C5CEB31FE0F629001FBC04 /* Main.storyboard */; };
 		D9C5CEB81FE0F629001FBC04 /* WanderlistTestArea.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEB61FE0F629001FBC04 /* WanderlistTestArea.xcdatamodeld */; };
 		D9C5CEBA1FE0F629001FBC04 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9C5CEB91FE0F629001FBC04 /* Assets.xcassets */; };
@@ -20,9 +21,10 @@
 /* Begin PBXFileReference section */
 		769151F5C4B0D1DC9B0E4FD3 /* Pods-WanderlistTestArea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTestArea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WanderlistTestArea/Pods-WanderlistTestArea.debug.xcconfig"; sourceTree = "<group>"; };
 		C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderlistTestArea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9739EE52007AAAC000E12FD /* TransferImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TransferImageViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/WanderlistTestArea/WanderlistTestArea/TransferImageViewController.swift"; sourceTree = "<absolute>"; };
 		D9C5CEAC1FE0F629001FBC04 /* WanderlistTestArea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WanderlistTestArea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9C5CEB11FE0F629001FBC04 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
 		D9C5CEB41FE0F629001FBC04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D9C5CEB71FE0F629001FBC04 /* WanderlistTestArea.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WanderlistTestArea.xcdatamodel; sourceTree = "<group>"; };
 		D9C5CEB91FE0F629001FBC04 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -83,7 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */,
-				D9C5CEB11FE0F629001FBC04 /* ViewController.swift */,
+				D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */,
+				D9739EE52007AAAC000E12FD /* TransferImageViewController.swift */,
 				D9C5CEB31FE0F629001FBC04 /* Main.storyboard */,
 				D9C5CEB91FE0F629001FBC04 /* Assets.xcassets */,
 				D9C5CEBB1FE0F629001FBC04 /* LaunchScreen.storyboard */,
@@ -226,7 +229,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9C5CEB21FE0F629001FBC04 /* ViewController.swift in Sources */,
+				D9C5CEB21FE0F629001FBC04 /* PhotoSelectorViewController.swift in Sources */,
+				D9739EE62007AAAC000E12FD /* TransferImageViewController.swift in Sources */,
 				D9C5CEB01FE0F629001FBC04 /* AppDelegate.swift in Sources */,
 				D9C5CEB81FE0F629001FBC04 /* WanderlistTestArea.xcdatamodeld in Sources */,
 			);

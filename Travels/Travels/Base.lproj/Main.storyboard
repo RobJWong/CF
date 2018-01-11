@@ -1,24 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Contoller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewContoller" customModule="Travels" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7an-zI-6jn">
+                                <rect key="frame" x="168" y="318" width="38" height="30"/>
+                                <state key="normal" title="Login"/>
+                                <connections>
+                                    <action selector="googleSignIn_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9FU-Fd-V3j"/>
+                                    <segue destination="48H-h8-TKe" kind="show" id="Y3b-1j-XaL"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login Using Google" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOP-vy-nzE">
+                                <rect key="frame" x="112.5" y="287" width="150" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vOP-vy-nzE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0qo-jM-C8Y"/>
+                            <constraint firstItem="7an-zI-6jn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="A7s-Ou-P9L"/>
+                            <constraint firstItem="7an-zI-6jn" firstAttribute="top" secondItem="vOP-vy-nzE" secondAttribute="bottom" constant="10" id="TbK-2t-f1S"/>
+                            <constraint firstItem="7an-zI-6jn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tPg-ld-Oxq"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="86" y="63"/>
+        </scene>
+        <!--Onboard City Select-->
+        <scene sceneID="nFm-QK-0MO">
+            <objects>
+                <viewController id="48H-h8-TKe" customClass="OnboardCitySelect" customModule="Travels" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2IG-aC-0IJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogR-1E-5Ax">
+                                <rect key="frame" x="138" y="318" width="98" height="30"/>
+                                <state key="normal" title="Google Places"/>
+                                <connections>
+                                    <action selector="autocompleteClicked:" destination="48H-h8-TKe" eventType="touchUpInside" id="RqR-nK-KXk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Google Places Page" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qce-1a-ty1">
+                                <rect key="frame" x="111.5" y="287" width="152.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ogR-1E-5Ax" firstAttribute="centerX" secondItem="2IG-aC-0IJ" secondAttribute="centerX" id="8Oj-Qw-5vf"/>
+                            <constraint firstItem="ogR-1E-5Ax" firstAttribute="centerY" secondItem="2IG-aC-0IJ" secondAttribute="centerY" id="EdN-ko-xCr"/>
+                            <constraint firstItem="qce-1a-ty1" firstAttribute="centerX" secondItem="2IG-aC-0IJ" secondAttribute="centerX" id="wnq-Xc-1Jy"/>
+                            <constraint firstItem="ogR-1E-5Ax" firstAttribute="top" secondItem="qce-1a-ty1" secondAttribute="bottom" constant="10" id="yv7-kZ-Uy2"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UxC-vG-ZyR"/>
+                    </view>
+                    <connections>
+                        <segue destination="zUX-md-0qD" kind="show" identifier="" id="Ln1-Wr-KcE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ba-0S-0av" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="961" y="63"/>
+        </scene>
+        <!--Empty List View Controller-->
+        <scene sceneID="akO-Tn-Amq">
+            <objects>
+                <viewController storyboardIdentifier="EmptyList" id="zUX-md-0qD" customClass="EmptyListViewController" customModule="Travels" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QEY-95-axn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a memory" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0s-UP-fGA">
+                                <rect key="frame" x="132" y="323" width="112" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG9-qt-ck3">
+                                <rect key="frame" x="104" y="364" width="72" height="30"/>
+                                <state key="normal" title="Add Photo"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fpH-WY-tRQ">
+                                <rect key="frame" x="226" y="364" width="65" height="30"/>
+                                <state key="normal" title="Add Note"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="oG9-qt-ck3" firstAttribute="top" secondItem="E0s-UP-fGA" secondAttribute="bottom" constant="20" id="6jL-9i-JNr"/>
+                            <constraint firstItem="E0s-UP-fGA" firstAttribute="centerY" secondItem="QEY-95-axn" secondAttribute="centerY" id="E5F-f0-u4c"/>
+                            <constraint firstItem="E0s-UP-fGA" firstAttribute="centerX" secondItem="QEY-95-axn" secondAttribute="centerX" id="HOy-s0-4RK"/>
+                            <constraint firstItem="oG9-qt-ck3" firstAttribute="leading" secondItem="nWv-KE-SaU" secondAttribute="leading" constant="104" id="VuV-qf-JTD"/>
+                            <constraint firstItem="fpH-WY-tRQ" firstAttribute="leading" secondItem="oG9-qt-ck3" secondAttribute="trailing" constant="50" id="mHQ-8q-jpR"/>
+                            <constraint firstItem="oG9-qt-ck3" firstAttribute="baseline" secondItem="fpH-WY-tRQ" secondAttribute="baseline" id="uJD-l4-TAd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="nWv-KE-SaU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X0i-H8-VEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1930" y="63"/>
         </scene>
     </scenes>
 </document>

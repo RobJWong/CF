@@ -73,7 +73,7 @@ class InitalViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignI
                     print("user was created before")
                     //let savedSearchesVC = SavedLocationsViewController()
                     //savedSearchesVC.userID = uid
-                    //print(uid)
+                    //print(uid)`
                     //let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
                     self.performSegue(withIdentifier: "test", sender: nil)
                 }
