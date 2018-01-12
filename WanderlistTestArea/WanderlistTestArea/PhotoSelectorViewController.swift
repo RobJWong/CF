@@ -11,6 +11,7 @@ import UIKit
 class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pickedImage: UIImageView!
+    var pickedImageVar: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,18 +33,47 @@ class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDele
         }
     }
     
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let xferImageVC = segue.destination as? XferImageViewController
+//        xferImageVC?.storedImage = pickedImage.image
+//        if segue.identifier == "xferImage" {
+//            let xferImageVC = segue.destination as? XferImageViewController
+//             print("Am I here?")
+//        }
+//            //xferImageVC.newImage = pickedImage.image
+//            //xferImageVC.browsingImage.image = pickedImage.image
+//        if segue.destination is XferImageViewController {
+//            let xferVC = segue.destination as? XferImageViewController
+//            print(pickedImage.image)
+//            //xferVC?.storedImage = pickedImage.image
+//            xferVC?.storedImage = pickedImageVar
+//        }
+//
+//    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "xferImage" {
-            let xferImageVC = segue.destination as! TransferImageViewController
-            xferImageVC.newImage = pickedImage.image
-        }
+//        if segue.destination is XferImageViewController {
+//            print("Test: ", pickedImage.image)
+//            let xferVC = segue.destination as? XferImageViewController
+//            xferVC?.storedImage = pickedImage.image
+//        }
+//        print("WHAT IS GOING ON")
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        print("Image picked: ", image)
-        pickedImage.image = image
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            pickedImage.image = image
+        } else {
+            print("Something went wrong")
+        }
+        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+        //pickedImage.image = image
         dismiss(animated:true, completion: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "xferImage") as! XferImageViewController
+        controller.storedImage = image
+        present(controller, animated: true, completion: nil)
+        //performSegue(withIdentifier: "xferImage", sender: self)
     }
 }
 

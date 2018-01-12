@@ -1,5 +1,5 @@
 //
-//  TransferImageViewController.swift
+//  XferImageViewController.swift
 //  
 //
 //  Created by Robert Wong on 1/11/18.
@@ -7,16 +7,15 @@
 
 import UIKit
 
-class TransferImageViewController: UIViewController {
+class XferImageViewController: UIViewController {
     
-    @IBOutlet weak var browsingImage: UIImageView!
-    var newImage :  UIImage!
-
+    @IBOutlet weak var xferImageView: UIImageView!
+    var storedImage : UIImage!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        xferImageView.image = storedImage
         // Do any additional setup after loading the view.
-        browsingImage.image = newImage
     }
 
     override func didReceiveMemoryWarning() {
