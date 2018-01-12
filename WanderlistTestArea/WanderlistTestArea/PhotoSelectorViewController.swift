@@ -11,7 +11,6 @@ import UIKit
 class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet weak var pickedImage: UIImageView!
-    var pickedImageVar: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,31 +33,12 @@ class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDele
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let xferImageVC = segue.destination as? XferImageViewController
-//        xferImageVC?.storedImage = pickedImage.image
-//        if segue.identifier == "xferImage" {
-//            let xferImageVC = segue.destination as? XferImageViewController
-//             print("Am I here?")
-//        }
-//            //xferImageVC.newImage = pickedImage.image
-//            //xferImageVC.browsingImage.image = pickedImage.image
-//        if segue.destination is XferImageViewController {
-//            let xferVC = segue.destination as? XferImageViewController
-//            print(pickedImage.image)
-//            //xferVC?.storedImage = pickedImage.image
-//            xferVC?.storedImage = pickedImageVar
-//        }
-//
-//    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.destination is XferImageViewController {
 //            print("Test: ", pickedImage.image)
 //            let xferVC = segue.destination as? XferImageViewController
 //            xferVC?.storedImage = pickedImage.image
 //        }
-//        print("WHAT IS GOING ON")
-    }
+//    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
