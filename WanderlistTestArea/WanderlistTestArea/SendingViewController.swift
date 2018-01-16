@@ -1,22 +1,14 @@
 //
-//  EmptyListViewController.swift
-//  Travels
+//  SendingViewController.swift
+//  WanderlistTestArea
 //
-//  Created by Robert Wong on 1/10/18.
+//  Created by Robert Wong on 1/15/18.
 //  Copyright © 2018 Robert Wong. All rights reserved.
 //
 
 import UIKit
 
-class EmptyListViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    @IBAction func openCameraButton(_sender: UIButton) {
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let photoPickerController = UIImagePickerController()
-            photoPickerController.delegate = self
-            photoPickerController.sourceType = .photoLibrary
-            EmptyListViewController.present(photoPickerController, animated: true, completion: nil)
-    }
+class SendingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

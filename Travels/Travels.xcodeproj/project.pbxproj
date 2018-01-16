@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */; };
+		D948D15320093B3200B5B411 /* OnboardingEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */; };
+		D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15020093B3200B5B411 /* LoginViewContoller.swift */; };
+		D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15120093B3200B5B411 /* OnboardCitySelect.swift */; };
+		D948D1582009405B00B5B411 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D1572009405B00B5B411 /* CityTableViewController.swift */; };
+		D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */; };
+		D948D15E200AAFCA00B5B411 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15D200AAFCA00B5B411 /* UserData.swift */; };
 		D9739ED820056FEF000E12FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9739ED720056FEF000E12FD /* GoogleService-Info.plist */; };
 		D9739EDA200573D3000E12FD /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9739ED9200573D3000E12FD /* AlertBox.swift */; };
-		D9739EDC20068CFE000E12FD /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9739EDB20068CFE000E12FD /* OnboardCitySelect.swift */; };
-		D9739EE02006B285000E12FD /* EmptyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9739EDF2006B285000E12FD /* EmptyListViewController.swift */; };
 		D988801120056D88000DEE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988801020056D88000DEE66 /* AppDelegate.swift */; };
-		D988801320056D88000DEE66 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988801220056D88000DEE66 /* LoginViewContoller.swift */; };
 		D988801620056D88000DEE66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988801420056D88000DEE66 /* Main.storyboard */; };
 		D988801920056D88000DEE66 /* Travels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D988801720056D88000DEE66 /* Travels.xcdatamodeld */; };
 		D988801B20056D88000DEE66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D988801A20056D88000DEE66 /* Assets.xcassets */; };
@@ -24,13 +28,17 @@
 		617972E8CEEC0ECD91D29957 /* Pods_Travels.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travels.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B151A75C493C31622BB0FA0E /* Pods-Travels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travels.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travels/Pods-Travels.release.xcconfig"; sourceTree = "<group>"; };
 		CD4A5A31DA48C51CBA889FC8 /* Pods-Travels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travels/Pods-Travels.debug.xcconfig"; sourceTree = "<group>"; };
+		D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserCityTableViewController.swift; sourceTree = "<group>"; };
+		D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingEmptyList.swift; sourceTree = "<group>"; };
+		D948D15020093B3200B5B411 /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
+		D948D15120093B3200B5B411 /* OnboardCitySelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
+		D948D1572009405B00B5B411 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
+		D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
+		D948D15D200AAFCA00B5B411 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D9739ED720056FEF000E12FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9739ED9200573D3000E12FD /* AlertBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
-		D9739EDB20068CFE000E12FD /* OnboardCitySelect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
-		D9739EDF2006B285000E12FD /* EmptyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListViewController.swift; sourceTree = "<group>"; };
 		D988800D20056D88000DEE66 /* Travels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988801020056D88000DEE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D988801220056D88000DEE66 /* LoginViewContoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		D988801520056D88000DEE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D988801820056D88000DEE66 /* Travels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Travels.xcdatamodel; sourceTree = "<group>"; };
 		D988801A20056D88000DEE66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,21 +66,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D9739EDD2006A881000E12FD /* Controller */ = {
+		D948D14E20093B3200B5B411 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D988801220056D88000DEE66 /* LoginViewContoller.swift */,
-				D9739EDB20068CFE000E12FD /* OnboardCitySelect.swift */,
-				D9739EDF2006B285000E12FD /* EmptyListViewController.swift */,
+				D948D15020093B3200B5B411 /* LoginViewContoller.swift */,
+				D948D15120093B3200B5B411 /* OnboardCitySelect.swift */,
+				D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */,
+				D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */,
+				D948D1572009405B00B5B411 /* CityTableViewController.swift */,
+				D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */,
 			);
 			name = Controller;
-			path = ..;
-			sourceTree = "<group>";
+			path = Travels/Controller;
+			sourceTree = SOURCE_ROOT;
 		};
 		D9739EDE2006A89C000E12FD /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				D9739ED9200573D3000E12FD /* AlertBox.swift */,
+				D948D15D200AAFCA00B5B411 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,7 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				D9739EDE2006A89C000E12FD /* Model */,
-				D9739EDD2006A881000E12FD /* Controller */,
+				D948D14E20093B3200B5B411 /* Controller */,
 				D988801020056D88000DEE66 /* AppDelegate.swift */,
 				D988801420056D88000DEE66 /* Main.storyboard */,
 				D988801A20056D88000DEE66 /* Assets.xcassets */,
@@ -262,11 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D988801320056D88000DEE66 /* LoginViewContoller.swift in Sources */,
+				D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */,
+				D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */,
 				D988801120056D88000DEE66 /* AppDelegate.swift in Sources */,
-				D9739EE02006B285000E12FD /* EmptyListViewController.swift in Sources */,
+				D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */,
+				D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */,
+				D948D1582009405B00B5B411 /* CityTableViewController.swift in Sources */,
 				D9739EDA200573D3000E12FD /* AlertBox.swift in Sources */,
-				D9739EDC20068CFE000E12FD /* OnboardCitySelect.swift in Sources */,
+				D948D15320093B3200B5B411 /* OnboardingEmptyList.swift in Sources */,
+				D948D15E200AAFCA00B5B411 /* UserData.swift in Sources */,
 				D988801920056D88000DEE66 /* Travels.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

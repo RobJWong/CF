@@ -11,6 +11,8 @@ import GooglePlaces
 
 class OnboardCitySelect: UIViewController {
     
+    var userData: UserData?
+    
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -24,6 +26,13 @@ class OnboardCitySelect: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        //print("User's ID: ", userData?.userID)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let onboardingEmptyListVC = segue.destination as? OnboardingEmptyList {
+            onboardingEmptyListVC.userData = userData
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,15 +57,14 @@ extension OnboardCitySelect: GMSAutocompleteViewControllerDelegate {
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         print("Place name: \(place.name)")
-        print("Place address: \(place.formattedAddress)")
-        print("Place attributions: \(place.attributions)")
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EmptyList")
-//        let filter = GMSAutocompleteFilter()
-//        filter.type = GMSPlacesAutocompleteTypeFilter.city
-        dismiss(animated: true, completion: nil)
-        //openVC()
-        self.present(controller, animated: true, completion: nil)
+        //let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        //let controller = storyboard.instantiateViewController(withIdentifier: "EmptyList") as! OnboardingEmptyList
+        self.userData?.currentCitySelection = place.name
+        //controller.selectedCity = place.name
+        dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
+        })
+        //present(controller, animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {

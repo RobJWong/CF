@@ -33,27 +33,38 @@ class PhotoSelectorViewController: UIViewController, UIImagePickerControllerDele
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.destination is XferImageViewController {
-//            print("Test: ", pickedImage.image)
-//            let xferVC = segue.destination as? XferImageViewController
-//            xferVC?.storedImage = pickedImage.image
+//        if let xferVC = segue.destination as? XferImageViewController {
+//            xferVC.storedImage = pickedImage.image
 //        }
 //    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            pickedImage.image = image
-        } else {
-            print("Something went wrong")
-        }
-        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
-        //pickedImage.image = image
-        dismiss(animated:true, completion: nil)
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "xferImage") as! XferImageViewController
-        controller.storedImage = image
-        present(controller, animated: true, completion: nil)
-        //performSegue(withIdentifier: "xferImage", sender: self)
+            print (image)
+            print("Am I in here?")
+    }
+        let imageURL = info[UIImagePickerControllerImageURL] as! NSURL
+        print("File location: ", imageURL)
+        dismiss(animated: true, completion: nil)
+        
+    
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            pickedImage.image = image
+//        } else {
+//            print("Something went wrong")
+//        }
+//        let image = info[UIImagePickerControllerOriginalImage] as? UIImage
+//        dismiss(animated: true, completion: {
+//            self.performSegue(withIdentifier: "xferImage", sender: self)
+//        })
+    
+        ////////orignal method working
+//        dismiss(animated:true, completion: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "xferImage") as! XferImageViewController
+//        controller.storedImage = image
+//        present(controller, animated: true, completion: nil)
     }
 }
 

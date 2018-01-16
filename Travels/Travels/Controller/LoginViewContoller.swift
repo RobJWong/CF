@@ -12,6 +12,8 @@ import Firebase
 
 class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate{
     
+    var userData = UserData()
+    
     @IBAction func googleSignIn(_sender: UIButton) {
         GIDSignIn.sharedInstance().signIn()
     }
@@ -29,6 +31,19 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newUser" {
+            let oVC = segue.destination as? OnboardCitySelect
+            oVC?.userData = userData
+        }
+//        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
+//            onboardCitySelectVC.userData = userData
+//        }
+//        if let returningUserSelectVC = segue.destination as? ReturningCityViewController {
+//            returningUserSelectVC.testString = "Potato Test"
+//        }
+    }
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
@@ -40,14 +55,20 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 AlertBox.sendAlert(boxMessage: "Error logging in with Google Credenitals" , presentingController: self)
                 return
             }
-            guard let uid = user?.uid, let email = user?.email else { return }
+            guard let uid = user?.uid, let email = user?.email, let user = user else { return }
             let firebaseRef = Database.database()
             let values = ["Email": email]
-            let userReference = firebaseRef.reference(fromURL: "https://travels-3ef98.firebaseio.com/").child("Users").child(uid)
+            //let userReference = firebaseRef.reference(fromURL: "https://travels-3ef98.firebaseio.com/").child("Users").child(uid)
+            let userReference = firebaseRef.reference().child("Users").child(uid)
             firebaseRef.reference().observeSingleEvent(of: .value, with: { (snapshot) in
                 let userDataString = "Users/" + uid
                 if snapshot.hasChild(userDataString) {
-                    print("Created user before")
+                    //send to returning page
+                    //UserData.sharedInstance.didLogin(user: user)
+                    self.userData.didLogin(user: user)
+                    //toggle for returning user section
+                    ///self.performSegue(withIdentifier: "returningUser", sender: self)
+                    self.performSegue(withIdentifier: "newUser", sender: self)
                 }
                 else {
                     userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in
@@ -55,11 +76,13 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                             AlertBox.sendAlert(boxMessage: "Error updating Firebase DB" , presentingController: self)
                             return
                         }
-                        if let user = user {
-                            //UserData.sharedInstance.didLogin(user: user)
-                            let changeRequest = user.createProfileChangeRequest()
-                            print("Created user profile")
-                        }
+                        //if let user = user {
+                        //UserData.sharedInstance.didLogin(user: user)
+                        self.userData.didLogin(user: user)
+                        let changeRequest = user.createProfileChangeRequest()
+                        self.performSegue(withIdentifier: "newUser", sender: self)
+                        print("Created user profile")
+                        //}
                     })
                 }
             })
