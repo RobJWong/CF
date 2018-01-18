@@ -22,7 +22,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        tableView.estimatedRowHeight = 100
+        tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         setupSavedData()
     }
@@ -109,6 +109,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         print(notes)
         cell.notes.delegate = self
         cell.notes.text = notes
+        //cell.storedImage.image = UIImage(named: "Stock")
         //cell.textLabel?.text = notes
         //print(tableCellData[indexPath.row]["Image"])
         //print(tableCellData[indexPath.row]["Notes"])
