@@ -22,8 +22,8 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 350
         setupSavedData()
     }
 
@@ -102,11 +102,14 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath) as! CityDetailTableViewCell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath) as! CityDetailTableViewCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath)
         guard let tableCellData = tableCellData else { return cell }
         guard let image = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
-        cell.textLabel?.text = notes
+        print(notes)
+        cell.notes.delegate = self
+        cell.notes.text = notes
+        //cell.textLabel?.text = notes
         //print(tableCellData[indexPath.row]["Image"])
         //print(tableCellData[indexPath.row]["Notes"])
         //guard let tableCellData = tableCellData![indexPath.row] else { return cell }
@@ -168,5 +171,11 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+}
 
+extension ReturingUserCityDetailTableViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        tableView.beginUpdates()
+        tableView.endUpdates()
+    }
 }

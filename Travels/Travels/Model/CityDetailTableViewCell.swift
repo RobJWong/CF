@@ -10,6 +10,6 @@ import UIKit
 
 class CityDetailTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var storedImage: UIImageView!
-    @IBOutlet weak var imageText: UITextView!
+    //@IBOutlet weak var storedImage: UIImageView!
+    @IBOutlet weak var notes: UITextView!
 }
