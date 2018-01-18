@@ -50,7 +50,7 @@ class AddMemoryViewController: UIViewController {
     func updateFirebase(imageURL: NSURL, city: String, userID: String) {
         let firebaseRef = Database.database()
         let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
-        let userReference = firebaseRef.reference().child("Users").child(userID).child(city).child("Day 1")
+        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child("Day 1")
         userReference.updateChildValues(values)
     }
     

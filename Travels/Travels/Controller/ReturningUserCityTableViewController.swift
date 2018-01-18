@@ -10,43 +10,91 @@ import UIKit
 import Firebase
 
 class ReturningUserCityTableViewController: UITableViewController {
+    
+    var userData : UserData?
+    var cities: [String]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupSavedLocations()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showCityDetail" {
+            let returningUserCityDetailVC = segue.destination as? ReturingUserCityDetailTableViewController
+            if let indexPath = self.tableView.indexPathForSelectedRow {
+                userData?.currentCitySelection = cities?[indexPath.row]
+                returningUserCityDetailVC?.userData = userData
+            }
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupSavedLocations() {
+        guard let uid = userData?.userID else {
+            print("uid is nil")
+            return
+        }
+        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities")
+        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var cityContainer : [String] = []
+            for city in snapshot.children {
+                let snap = city as! DataSnapshot
+                let key = snap.key
+                cityContainer.append(key)
+            }
+            self.cities = cityContainer
+            self.tableView.reloadData()
+        })
+    }
+    
+//    func setupSavedLocations(completion: @escaping ([String], [String:String]) -> ()) {
+//        guard let uid = userID else { return }
+//        let databaseRef = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Users").child(uid).child("Cities")
+//        var dataTest : [String] = []
+//        var dataTestDic : [String:String] = [:]
+//        //var cityDictionary: [String:String]()
+//        databaseRef.observeSingleEvent(of: .value, with: {(snapshot) in
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                let key = snap.key
+//                guard case let rawCityData as NSObject = snap.value else { return }
+//                guard let value = rawCityData.value(forKey: "Status") else { return }
+//                dataTest.append(key)
+//                dataTestDic[key] = value as! String
+//            }
+//            completion(dataTest, dataTestDic)
+//        })
+//    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let cities = cities else { return 1 }
+        return cities.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        cell.textLabel?.text = cities?[indexPath.row]
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.

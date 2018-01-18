@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="i27-Fx-pCQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rA8-bQ-yUA">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,70 +9,12 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WanderlistTestArea" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-vI-U8f">
-                                <rect key="frame" x="164" y="318" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="Kl6-cl-qgH" kind="show" id="qSd-Vx-x2e"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="Pwi-vI-U8f" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FaM-BO-whR"/>
-                            <constraint firstItem="Pwi-vI-U8f" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QWN-cg-DdD"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="8BX-dv-6JJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="556" y="132"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="vmk-UJ-QtS">
-            <objects>
-                <viewController id="Kl6-cl-qgH" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Xa-jm-ex3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.39208984375" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                        <viewLayoutGuide key="safeArea" id="fyv-CZ-TH9"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="3m5-p2-YbN"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cwv-pV-OSc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1522.4000000000001" y="132.68365817091455"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UYh-UA-Fno">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5vB-nP-ktH" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8cJ-0d-ld3">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FED-7L-mqD"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yiF-kX-3F2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-313.60000000000002" y="132.23388305847078"/>
-        </scene>
         <!--Photo Selector View Controller-->
         <scene sceneID="y1I-Tt-vPU">
             <objects>
@@ -105,16 +47,113 @@
                     </view>
                     <connections>
                         <outlet property="pickedImage" destination="ljo-Y7-Q1k" id="5pE-3M-Ecv"/>
+                        <segue destination="W0R-Qz-Zn4" kind="show" identifier="xferImage" id="OA7-hS-Tbx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2Q-M3-7Pe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-314" y="1026"/>
         </scene>
+        <!--Recieving View Controller-->
+        <scene sceneID="YRx-JP-SOF">
+            <objects>
+                <viewController id="rA8-bQ-yUA" customClass="RecievingViewController" customModule="WanderlistTestArea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HoZ-CL-PAd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the &quot;+&quot; button to add text and send text using delegates!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q53-dh-hoq">
+                                <rect key="frame" x="0.0" y="50" width="375" height="567"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vIw-mE-42o">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Receiving VC" id="68a-YB-92f">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vn3-hQ-tyh">
+                                            <connections>
+                                                <segue destination="jHS-WL-k3O" kind="show" identifier="showSendingVC" id="p2v-b8-k1e"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jav-cE-sbT" firstAttribute="bottom" secondItem="q53-dh-hoq" secondAttribute="bottom" constant="50" id="Ars-yM-OvA"/>
+                            <constraint firstItem="q53-dh-hoq" firstAttribute="centerX" secondItem="HoZ-CL-PAd" secondAttribute="centerX" id="CKd-Ng-Zjj"/>
+                            <constraint firstItem="q53-dh-hoq" firstAttribute="top" secondItem="vIw-mE-42o" secondAttribute="bottom" constant="-14" id="Fze-dr-Sbw"/>
+                            <constraint firstItem="q53-dh-hoq" firstAttribute="leading" secondItem="jav-cE-sbT" secondAttribute="leading" id="IMR-xu-Thw"/>
+                            <constraint firstItem="vIw-mE-42o" firstAttribute="leading" secondItem="q53-dh-hoq" secondAttribute="leading" id="QKy-CL-jBc"/>
+                            <constraint firstItem="jav-cE-sbT" firstAttribute="trailing" secondItem="q53-dh-hoq" secondAttribute="trailing" id="TuG-lC-uu6"/>
+                            <constraint firstItem="q53-dh-hoq" firstAttribute="centerY" secondItem="HoZ-CL-PAd" secondAttribute="centerY" id="UWf-b0-yrc"/>
+                            <constraint firstItem="vIw-mE-42o" firstAttribute="trailing" secondItem="q53-dh-hoq" secondAttribute="trailing" id="hGn-uY-Jd8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jav-cE-sbT"/>
+                    </view>
+                    <connections>
+                        <outlet property="receivingLabel" destination="q53-dh-hoq" id="yqP-bS-IvM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oH1-B1-lZP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-304.80000000000001" y="1919.1904047976013"/>
+        </scene>
+        <!--Sending View Controller-->
+        <scene sceneID="OMq-Ah-XGp">
+            <objects>
+                <viewController id="jHS-WL-k3O" customClass="SendingViewController" customModule="WanderlistTestArea" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="koC-sb-dNZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Test" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-8e-cPr">
+                                <rect key="frame" x="16" y="70" width="343" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="GXy-z5-EzV"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f9i-bU-1Ou">
+                                <rect key="frame" x="16" y="160" width="343" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.2475314670138889" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="SEND">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="sendButton:" destination="jHS-WL-k3O" eventType="touchUpInside" id="ceJ-sj-KCb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="f9i-bU-1Ou" firstAttribute="leading" secondItem="vDD-bb-tnC" secondAttribute="leading" constant="16" id="4DG-rz-gra"/>
+                            <constraint firstItem="wZe-8e-cPr" firstAttribute="top" secondItem="vDD-bb-tnC" secondAttribute="top" constant="50" id="G96-78-uiM"/>
+                            <constraint firstItem="wZe-8e-cPr" firstAttribute="leading" secondItem="vDD-bb-tnC" secondAttribute="leading" constant="16" id="P4A-T5-dbt"/>
+                            <constraint firstItem="vDD-bb-tnC" firstAttribute="trailing" secondItem="f9i-bU-1Ou" secondAttribute="trailing" constant="16" id="Xvm-Gi-JDi"/>
+                            <constraint firstItem="vDD-bb-tnC" firstAttribute="trailing" secondItem="wZe-8e-cPr" secondAttribute="trailing" constant="16" id="elW-F0-u0H"/>
+                            <constraint firstItem="f9i-bU-1Ou" firstAttribute="top" secondItem="wZe-8e-cPr" secondAttribute="bottom" constant="30" id="vHe-QT-ZKP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vDD-bb-tnC"/>
+                    </view>
+                    <connections>
+                        <outlet property="dataTextField" destination="wZe-8e-cPr" id="2yt-hk-z7p"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="79M-lN-j2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="628" y="1918.2908545727139"/>
+        </scene>
         <!--Xfer Image View Controller-->
         <scene sceneID="ORo-Kv-Ssw">
             <objects>
-                <viewController storyboardIdentifier="xferImage" id="W0R-Qz-Zn4" customClass="XferImageViewController" customModule="WanderlistTestArea" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="W0R-Qz-Zn4" customClass="XferImageViewController" customModule="WanderlistTestArea" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="t7h-Wj-lD9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

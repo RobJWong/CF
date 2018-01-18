@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */; };
+		D918A3DF200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */; };
+		D918A3E3200FD8CF00A686C0 /* CityDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */; };
+		D918A3E5200FFFD300A686C0 /* CityDataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E4200FFFD300A686C0 /* CityDataCell.swift */; };
 		D948D15320093B3200B5B411 /* OnboardingEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */; };
 		D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15020093B3200B5B411 /* LoginViewContoller.swift */; };
 		D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15120093B3200B5B411 /* OnboardCitySelect.swift */; };
-		D948D1582009405B00B5B411 /* CityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D1572009405B00B5B411 /* CityTableViewController.swift */; };
 		D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */; };
 		D948D15E200AAFCA00B5B411 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15D200AAFCA00B5B411 /* UserData.swift */; };
 		D9739ED820056FEF000E12FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9739ED720056FEF000E12FD /* GoogleService-Info.plist */; };
@@ -29,10 +31,12 @@
 		B151A75C493C31622BB0FA0E /* Pods-Travels.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travels.release.xcconfig"; path = "Pods/Target Support Files/Pods-Travels/Pods-Travels.release.xcconfig"; sourceTree = "<group>"; };
 		CD4A5A31DA48C51CBA889FC8 /* Pods-Travels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travels/Pods-Travels.debug.xcconfig"; sourceTree = "<group>"; };
 		D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserCityTableViewController.swift; sourceTree = "<group>"; };
+		D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReturingUserCityDetailTableViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/Travels/Travels/Controller/ReturingUserCityDetailTableViewController.swift"; sourceTree = "<absolute>"; };
+		D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityDetailTableViewCell.swift; path = Travels/Model/CityDetailTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D918A3E4200FFFD300A686C0 /* CityDataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityDataCell.swift; path = Travels/Model/CityDataCell.swift; sourceTree = SOURCE_ROOT; };
 		D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingEmptyList.swift; sourceTree = "<group>"; };
 		D948D15020093B3200B5B411 /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		D948D15120093B3200B5B411 /* OnboardCitySelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
-		D948D1572009405B00B5B411 /* CityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTableViewController.swift; sourceTree = "<group>"; };
 		D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMemoryViewController.swift; sourceTree = "<group>"; };
 		D948D15D200AAFCA00B5B411 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		D9739ED720056FEF000E12FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -73,8 +77,8 @@
 				D948D15120093B3200B5B411 /* OnboardCitySelect.swift */,
 				D948D14F20093B3200B5B411 /* OnboardingEmptyList.swift */,
 				D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */,
-				D948D1572009405B00B5B411 /* CityTableViewController.swift */,
 				D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */,
+				D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */,
 			);
 			name = Controller;
 			path = Travels/Controller;
@@ -85,6 +89,8 @@
 			children = (
 				D9739ED9200573D3000E12FD /* AlertBox.swift */,
 				D948D15D200AAFCA00B5B411 /* UserData.swift */,
+				D918A3E4200FFFD300A686C0 /* CityDataCell.swift */,
+				D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,16 +280,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D918A3E3200FD8CF00A686C0 /* CityDetailTableViewCell.swift in Sources */,
 				D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */,
 				D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */,
 				D988801120056D88000DEE66 /* AppDelegate.swift in Sources */,
 				D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */,
 				D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */,
-				D948D1582009405B00B5B411 /* CityTableViewController.swift in Sources */,
 				D9739EDA200573D3000E12FD /* AlertBox.swift in Sources */,
 				D948D15320093B3200B5B411 /* OnboardingEmptyList.swift in Sources */,
 				D948D15E200AAFCA00B5B411 /* UserData.swift in Sources */,
+				D918A3DF200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift in Sources */,
 				D988801920056D88000DEE66 /* Travels.xcdatamodeld in Sources */,
+				D918A3E5200FFFD300A686C0 /* CityDataCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

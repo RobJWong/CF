@@ -8,8 +8,14 @@
 
 import UIKit
 
-class RecievingViewController: UIViewController {
-
+class RecievingViewController: UIViewController, DataSentDelegate {
+    
+    @IBOutlet weak var receivingLabel: UILabel!
+    
+    func userDidEnterData(data: String) {
+        receivingLabel.text = data
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +25,13 @@ class RecievingViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showSendingVC" {
+            let sendingVC: SendingViewController = segue.destination as! SendingViewController
+            sendingVC.delegate = self
+        }
     }
     
 

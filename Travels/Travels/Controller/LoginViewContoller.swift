@@ -36,6 +36,11 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             let oVC = segue.destination as? OnboardCitySelect
             oVC?.userData = userData
         }
+        
+        if segue.identifier == "returningUser" {
+            let rVC = segue.destination as? ReturningUserCityTableViewController
+            rVC?.userData = userData
+        }
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
 //            onboardCitySelectVC.userData = userData
 //        }
@@ -68,7 +73,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                     self.userData.didLogin(user: user)
                     //toggle for returning user section
                     ///self.performSegue(withIdentifier: "returningUser", sender: self)
-                    self.performSegue(withIdentifier: "newUser", sender: self)
+                    self.performSegue(withIdentifier: "returningUser", sender: self)
                 }
                 else {
                     userReference.updateChildValues(values, withCompletionBlock: { (err, ref) in

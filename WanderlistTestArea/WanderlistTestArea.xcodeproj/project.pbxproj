@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		15D78D1FEEA206D05995371D /* Pods_WanderlistTestArea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */; };
 		D948D14B2007FED100B5B411 /* XferImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14A2007FED100B5B411 /* XferImageViewController.swift */; };
+		D948D163200D0F1600B5B411 /* RecievingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D162200D0F1600B5B411 /* RecievingViewController.swift */; };
+		D948D165200D0F5E00B5B411 /* SendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D164200D0F5E00B5B411 /* SendingViewController.swift */; };
+		D948D167200D426800B5B411 /* TestObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D166200D426800B5B411 /* TestObject.swift */; };
 		D9C5CEB01FE0F629001FBC04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */; };
 		D9C5CEB21FE0F629001FBC04 /* PhotoSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */; };
 		D9C5CEB51FE0F629001FBC04 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9C5CEB31FE0F629001FBC04 /* Main.storyboard */; };
@@ -21,7 +24,10 @@
 /* Begin PBXFileReference section */
 		769151F5C4B0D1DC9B0E4FD3 /* Pods-WanderlistTestArea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTestArea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WanderlistTestArea/Pods-WanderlistTestArea.debug.xcconfig"; sourceTree = "<group>"; };
 		C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderlistTestArea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D948D14A2007FED100B5B411 /* XferImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XferImageViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/WanderlistTestArea/WanderlistTestArea/XferImageViewController.swift"; sourceTree = "<absolute>"; };
+		D948D14A2007FED100B5B411 /* XferImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XferImageViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/WanderlistTestArea/WanderlistTestArea/Old/XferImageViewController.swift"; sourceTree = "<absolute>"; };
+		D948D162200D0F1600B5B411 /* RecievingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievingViewController.swift; sourceTree = "<group>"; };
+		D948D164200D0F5E00B5B411 /* SendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingViewController.swift; sourceTree = "<group>"; };
+		D948D166200D426800B5B411 /* TestObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestObject.swift; sourceTree = "<group>"; };
 		D9C5CEAC1FE0F629001FBC04 /* WanderlistTestArea.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WanderlistTestArea.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +69,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D948D161200D0EC400B5B411 /* Old */ = {
+			isa = PBXGroup;
+			children = (
+				D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */,
+				D948D14A2007FED100B5B411 /* XferImageViewController.swift */,
+			);
+			path = Old;
+			sourceTree = "<group>";
+		};
 		D9C5CEA31FE0F629001FBC04 = {
 			isa = PBXGroup;
 			children = (
@@ -84,10 +99,12 @@
 		D9C5CEAE1FE0F629001FBC04 /* WanderlistTestArea */ = {
 			isa = PBXGroup;
 			children = (
+				D948D161200D0EC400B5B411 /* Old */,
 				D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */,
-				D9C5CEB11FE0F629001FBC04 /* PhotoSelectorViewController.swift */,
-				D948D14A2007FED100B5B411 /* XferImageViewController.swift */,
 				D9C5CEB31FE0F629001FBC04 /* Main.storyboard */,
+				D948D164200D0F5E00B5B411 /* SendingViewController.swift */,
+				D948D162200D0F1600B5B411 /* RecievingViewController.swift */,
+				D948D166200D426800B5B411 /* TestObject.swift */,
 				D9C5CEB91FE0F629001FBC04 /* Assets.xcassets */,
 				D9C5CEBB1FE0F629001FBC04 /* LaunchScreen.storyboard */,
 				D9C5CEBE1FE0F629001FBC04 /* Info.plist */,
@@ -233,6 +250,9 @@
 				D9C5CEB01FE0F629001FBC04 /* AppDelegate.swift in Sources */,
 				D9C5CEB81FE0F629001FBC04 /* WanderlistTestArea.xcdatamodeld in Sources */,
 				D948D14B2007FED100B5B411 /* XferImageViewController.swift in Sources */,
+				D948D163200D0F1600B5B411 /* RecievingViewController.swift in Sources */,
+				D948D165200D0F5E00B5B411 /* SendingViewController.swift in Sources */,
+				D948D167200D426800B5B411 /* TestObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

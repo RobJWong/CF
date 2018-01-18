@@ -8,11 +8,29 @@
 
 import UIKit
 
-class SendingViewController: UIViewController {
+protocol DataSentDelegate {
+    func userDidEnterData(data: String)
+}
 
+class SendingViewController: UIViewController {
+    
+    @IBOutlet weak var dataTextField: UITextField!
+    var user = TestObject()
+    var delegate: DataSentDelegate? = nil
+
+    @IBAction func sendButton(_ sender: Any) {
+        if delegate != nil {
+            if dataTextField.text != nil {
+                let data = dataTextField.text
+                delegate?.userDidEnterData(data: data!)
+                dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        user.setup(email: "123@gmail.com", name: "Test")
         // Do any additional setup after loading the view.
     }
 
