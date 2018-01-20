@@ -14,6 +14,9 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     //var cityData: [CellData]?
     var tableCellData : [[String:String]]?
 
+    @IBAction func addMemory(_ sender: UIBarButtonItem) {
+         performSegue(withIdentifier: "AddMemory", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +35,12 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addMemoryVC = segue.destination as? OnboardingEmptyList {
+            addMemoryVC.userData = userData
+        }
+    }
+    
     func setupSavedData() {
         guard let uid = userData?.userID, let selectedCity = userData?.currentCitySelection else {
             AlertBox.sendAlert(boxMessage: "UID or selectedCity is nil", presentingController: self)
@@ -39,7 +48,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         }
         var temp = [String:String]()
         var temp2 = [[String:String]]()
-        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(selectedCity).child("Day 1")
+        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(selectedCity).child("Alps")
         databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for dataSet in snapshot.children {
                 let snap = dataSet as! DataSnapshot
@@ -105,8 +114,9 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath) as! CityDetailTableViewCell
         //let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath)
         guard let tableCellData = tableCellData else { return cell }
-        guard let image = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
-        print(notes)
+        guard let imageIncomplete = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
+        let storage = Storage.storage()
+        let storageRef = storage.reference(forURL: imageIncomplete)
         cell.notes.delegate = self
         cell.notes.text = notes
         //cell.storedImage.image = UIImage(named: "Stock")

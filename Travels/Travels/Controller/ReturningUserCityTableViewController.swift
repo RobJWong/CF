@@ -13,7 +13,7 @@ class ReturningUserCityTableViewController: UITableViewController {
     
     var userData : UserData?
     var cities: [String]?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxu-wb-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="612" y="2669"/>
+            <point key="canvasLocation" x="-92" y="2669"/>
         </scene>
         <!--Onboard City Select-->
         <scene sceneID="nFm-QK-0MO">
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ba-0S-0av" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="931"/>
+            <point key="canvasLocation" x="-689" y="931"/>
         </scene>
         <!--Returning User City Table View Controller-->
         <scene sceneID="DVM-AS-BuB">
@@ -179,7 +179,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0i-H8-VEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="1835"/>
+            <point key="canvasLocation" x="-690" y="1835"/>
         </scene>
         <!--Returing User City Detail Table View Controller-->
         <scene sceneID="Nly-9x-Ht2">
@@ -189,24 +189,37 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="9ds-6d-sXQ">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="City Memories" id="nhJ-Pk-qQX">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="NqA-4M-wiy">
+                                        <connections>
+                                            <action selector="addMemory:" destination="rtn-eU-Xza" id="mLQ-4q-oeh"/>
+                                            <segue destination="zUX-md-0qD" kind="show" id="28F-ym-AmF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cityData" rowHeight="350" id="Fii-dk-T5f" customClass="CityDetailTableViewCell" customModule="Travels" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="350"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fii-dk-T5f" id="byx-hr-sLU">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="349.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stock" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-fz-1Ke">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-fz-1Ke">
                                             <rect key="frame" x="16" y="11" width="343" height="262"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="262" id="Bs6-JW-cJY"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
                                             <rect key="frame" x="16" y="273" width="343" height="66"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
@@ -264,16 +277,31 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3lH-F7-hdQ">
                                 <rect key="frame" x="0.0" y="20" width="375" height="250"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mFG-DZ-063">
+                                <rect key="frame" x="215" y="477" width="97" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Section Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84X-ZJ-gBr">
+                                <rect key="frame" x="72" y="478" width="108" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ces-Ye-Wuu" firstAttribute="centerY" secondItem="HHY-RK-OfY" secondAttribute="centerY" id="4Ev-1e-zVg"/>
+                            <constraint firstItem="84X-ZJ-gBr" firstAttribute="top" secondItem="daD-ca-ImD" secondAttribute="bottom" constant="25" id="6M1-LW-4t6"/>
                             <constraint firstItem="daD-ca-ImD" firstAttribute="top" secondItem="Ces-Ye-Wuu" secondAttribute="bottom" constant="25" id="IrA-OD-46H"/>
                             <constraint firstItem="daD-ca-ImD" firstAttribute="centerX" secondItem="3lH-F7-hdQ" secondAttribute="centerX" id="OUY-WG-Mmp"/>
                             <constraint firstItem="S1p-g7-bLH" firstAttribute="trailing" secondItem="3lH-F7-hdQ" secondAttribute="trailing" id="Saw-eG-AMQ"/>
+                            <constraint firstItem="mFG-DZ-063" firstAttribute="leading" secondItem="84X-ZJ-gBr" secondAttribute="trailing" constant="35" id="XKI-3R-mLB"/>
                             <constraint firstItem="Ces-Ye-Wuu" firstAttribute="top" secondItem="3lH-F7-hdQ" secondAttribute="bottom" id="e66-Kf-YLC"/>
                             <constraint firstItem="Ces-Ye-Wuu" firstAttribute="centerX" secondItem="HHY-RK-OfY" secondAttribute="centerX" id="fmo-ld-ayL"/>
                             <constraint firstItem="Ces-Ye-Wuu" firstAttribute="leading" secondItem="HHY-RK-OfY" secondAttribute="leading" id="jsR-X1-wVS"/>
+                            <constraint firstItem="mFG-DZ-063" firstAttribute="top" secondItem="daD-ca-ImD" secondAttribute="bottom" constant="24" id="mOa-Cu-Xk1"/>
                             <constraint firstItem="3lH-F7-hdQ" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" id="orY-uc-s5g"/>
                             <constraint firstItem="Ces-Ye-Wuu" firstAttribute="centerX" secondItem="3lH-F7-hdQ" secondAttribute="centerX" id="rmN-dy-0nx"/>
                             <constraint firstItem="3lH-F7-hdQ" firstAttribute="top" secondItem="S1p-g7-bLH" secondAttribute="top" id="udp-hn-IeB"/>
@@ -283,15 +311,18 @@
                     </view>
                     <connections>
                         <outlet property="imageText" destination="Ces-Ye-Wuu" id="62b-gQ-Ahw"/>
+                        <outlet property="sectionName" destination="mFG-DZ-063" id="GBD-LC-QIo"/>
                         <outlet property="viewImage" destination="3lH-F7-hdQ" id="DDS-e0-pw9"/>
+                        <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="10J-6W-hea"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8g-5q-PXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-342" y="2669"/>
+            <point key="canvasLocation" x="-1391" y="2669"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="Stock" width="3000" height="2002"/>
-    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="10J-6W-hea"/>
+        <segue reference="28F-ym-AmF"/>
+    </inferredMetricsTieBreakers>
 </document>

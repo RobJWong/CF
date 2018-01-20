@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15D78D1FEEA206D05995371D /* Pods_WanderlistTestArea.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */; };
+		D918A3E720127B1700A686C0 /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E620127B1700A686C0 /* PickerViewController.swift */; };
 		D948D14B2007FED100B5B411 /* XferImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14A2007FED100B5B411 /* XferImageViewController.swift */; };
 		D948D163200D0F1600B5B411 /* RecievingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D162200D0F1600B5B411 /* RecievingViewController.swift */; };
 		D948D165200D0F5E00B5B411 /* SendingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D164200D0F5E00B5B411 /* SendingViewController.swift */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		769151F5C4B0D1DC9B0E4FD3 /* Pods-WanderlistTestArea.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WanderlistTestArea.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WanderlistTestArea/Pods-WanderlistTestArea.debug.xcconfig"; sourceTree = "<group>"; };
 		C12C096DFE5C108CE82117F5 /* Pods_WanderlistTestArea.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WanderlistTestArea.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D918A3E620127B1700A686C0 /* PickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		D948D14A2007FED100B5B411 /* XferImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = XferImageViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/WanderlistTestArea/WanderlistTestArea/Old/XferImageViewController.swift"; sourceTree = "<absolute>"; };
 		D948D162200D0F1600B5B411 /* RecievingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecievingViewController.swift; sourceTree = "<group>"; };
 		D948D164200D0F5E00B5B411 /* SendingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendingViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				D948D161200D0EC400B5B411 /* Old */,
 				D9C5CEAF1FE0F629001FBC04 /* AppDelegate.swift */,
 				D9C5CEB31FE0F629001FBC04 /* Main.storyboard */,
+				D918A3E620127B1700A686C0 /* PickerViewController.swift */,
 				D948D164200D0F5E00B5B411 /* SendingViewController.swift */,
 				D948D162200D0F1600B5B411 /* RecievingViewController.swift */,
 				D948D166200D426800B5B411 /* TestObject.swift */,
@@ -248,6 +251,7 @@
 			files = (
 				D9C5CEB21FE0F629001FBC04 /* PhotoSelectorViewController.swift in Sources */,
 				D9C5CEB01FE0F629001FBC04 /* AppDelegate.swift in Sources */,
+				D918A3E720127B1700A686C0 /* PickerViewController.swift in Sources */,
 				D9C5CEB81FE0F629001FBC04 /* WanderlistTestArea.xcdatamodeld in Sources */,
 				D948D14B2007FED100B5B411 /* XferImageViewController.swift in Sources */,
 				D948D163200D0F1600B5B411 /* RecievingViewController.swift in Sources */,

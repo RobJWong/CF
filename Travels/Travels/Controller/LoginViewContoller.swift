@@ -41,11 +41,12 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             let rVC = segue.destination as? ReturningUserCityTableViewController
             rVC?.userData = userData
         }
+        
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
 //            onboardCitySelectVC.userData = userData
 //        }
-//        if let returningUserSelectVC = segue.destination as? ReturningCityViewController {
-//            returningUserSelectVC.testString = "Potato Test"
+//        if let returningUserSelectVC = segue.destination as? ReturningUserCityTableViewController {
+//            returningUserSelectVC.userData = userData
 //        }
     }
     
@@ -64,6 +65,8 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             let firebaseRef = Database.database()
             let values = ["Email": email]
             //let userReference = firebaseRef.reference(fromURL: "https://travels-3ef98.firebaseio.com/").child("Users").child(uid)
+            let testData = Database.database().reference()
+            print("TestData: ", testData)
             let userReference = firebaseRef.reference().child("Users").child(uid)
             firebaseRef.reference().observeSingleEvent(of: .value, with: { (snapshot) in
                 let userDataString = "Users/" + uid

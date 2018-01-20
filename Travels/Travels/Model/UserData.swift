@@ -16,10 +16,13 @@ class UserData {
     var userID : String?
     var email: String?
     var currentCitySelection: String?
+    var currentDate: [String]?
+    var currentCityData: [NSObject]?
     
     func didLogin(user: User){
         self.userID = user.uid
         self.loggedIn = true
         self.email = user.email
     }
+    
 }
