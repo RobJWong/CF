@@ -73,6 +73,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 if snapshot.hasChild(userDataString) {
                     //send to returning page
                     //UserData.sharedInstance.didLogin(user: user)
+                    print("returning user")
                     self.userData.didLogin(user: user)
                     //toggle for returning user section
                     ///self.performSegue(withIdentifier: "returningUser", sender: self)

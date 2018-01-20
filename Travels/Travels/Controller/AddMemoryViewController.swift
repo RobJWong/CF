@@ -21,14 +21,13 @@ class AddMemoryViewController: UIViewController {
     var userData: UserData?
     
     @IBAction func saveToDB(_ sender: UIButton) {
-        //print("imageURL: ",imageURL!)
-        //print("city: ", userData?.currentCitySelection)
-//        print("city: ", userData?.currentCitySelection)
-//        print("imageURL: ", imageURL)
-//        print("userID: ", userData?.userID)
-//        print("email: ", userData?.email)
+        print("selected City: ", userData?.currentCitySelection)
+        print("image url string: ", imageURL)
+        print("user id: ", userData?.userID)
+        print("section name: ", sectionName.text)
+        print("imageURLPath: ", imageURL?.lastPathComponent)
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let sectionName = sectionName.text, let imageURLPath = imageURL?.lastPathComponent else {
-            print("Something is null please check")
+            //print("Something is null please check")
             return
         }
         let date = NSDate()

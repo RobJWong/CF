@@ -14,6 +14,10 @@ class ReturningUserCityTableViewController: UITableViewController {
     var userData : UserData?
     var cities: [String]?
     
+    @IBAction func addCity(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addCity", sender: self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,6 +36,10 @@ class ReturningUserCityTableViewController: UITableViewController {
                 userData?.currentCitySelection = cities?[indexPath.row]
                 returningUserCityDetailVC?.userData = userData
             }
+        }
+        if segue.identifier == "addCity" {
+            let addCityVC = segue.destination as? OnboardCitySelect
+            addCityVC?.userData = userData
         }
     }
 

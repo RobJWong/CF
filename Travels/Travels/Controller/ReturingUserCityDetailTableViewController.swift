@@ -17,6 +17,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     @IBAction func addMemory(_ sender: UIBarButtonItem) {
          performSegue(withIdentifier: "AddMemory", sender: self)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +41,16 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
             addMemoryVC.userData = userData
         }
     }
+    
+    //    func checkDayChild(userID: String, city: String) {
+    //        let databaseFirebase = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+    //        databaseFirebase.observeSingleEvent(of: .value, with: { (snapshot) in
+    //            for subChild in snapshot.children {
+    //                let snap = subChild as! DataSnapshot
+    //                print("Key: ", snap.key)
+    //            }
+    //        })
+    //    }
     
     func setupSavedData() {
         guard let uid = userData?.userID, let selectedCity = userData?.currentCitySelection else {

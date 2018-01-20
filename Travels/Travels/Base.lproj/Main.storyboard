@@ -113,9 +113,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="LGI-Fq-H4z">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Title" id="yBD-CE-Lbx">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="LdP-V3-gFy">
+                                        <connections>
+                                            <action selector="addCity:" destination="c5I-LU-Pkc" id="1ev-mT-oR5"/>
+                                            <segue destination="48H-h8-TKe" kind="show" id="MSZ-4f-3H9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="4ye-HF-mqa">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4ye-HF-mqa" id="7j0-ut-ov5">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -322,7 +336,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="10J-6W-hea"/>
+        <segue reference="JIe-Bg-xHv"/>
         <segue reference="28F-ym-AmF"/>
+        <segue reference="MSZ-4f-3H9"/>
     </inferredMetricsTieBreakers>
 </document>

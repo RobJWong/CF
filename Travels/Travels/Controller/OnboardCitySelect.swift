@@ -56,6 +56,7 @@ extension OnboardCitySelect: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        print("Place: \(place.addressComponents![0])")
         print("Place name: \(place.name)")
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let controller = storyboard.instantiateViewController(withIdentifier: "EmptyList") as! OnboardingEmptyList
