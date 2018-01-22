@@ -14,12 +14,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var userID: String?
     var selectedCity: String?
     var tableData = [[String:Any]]()
-    //var sectionSelection = [String]()
-    //var cityData: [CellData]?
-    //////////have sectionSelection be a var type string of value of drop down selection
-    //var sectionSelection = [String]()
-    //var testContainer : [[String:Any]] = []
-    //var testContainer = [[String:Any]]()
 
     @IBAction func addMemory(_ sender: UIBarButtonItem) {
          performSegue(withIdentifier: "AddMemory", sender: self)
@@ -82,70 +76,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
             completion(indexDataArray)
         })
     }
-    
-//    func getSectionName(userID: String, city: String) {
-//        var temp = [String]()
-//        let databaseFirebase = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-//        databaseFirebase.observeSingleEvent(of: .value, with: { (snapshot ) in
-//            for subChild in snapshot.children {
-//                let snap = subChild as! DataSnapshot
-//                print(snap.key)
-//                temp.append(snap.key)
-//            }
-//            self.sectionSelection = temp
-//            self.tableView.reloadData()
-//        })
-//    }
-    
-//    func setupSavedData(userID: String, city: String) {
-//        var indexData = [String:Any]()
-//        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child("Wow")
-//        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            for dataSet in snapshot.children {
-//                let snap = dataSet as! DataSnapshot
-//                let k = snap.key
-//                let v = snap.value
-//                for (key, value) in v as! [String: Any] {
-//                    indexData[key] = value
-//                }
-//                self.testContainer.append(indexData)
-//            }
-//            self.tableView.reloadData()
-//        })
-//    }
-    
-//           if let dictionary = snapshot.value as? [String: Any] {
-//                for (key, value) in dictionary {
-//                    temp[key] = value
-//                }
-//            self.tableCellData?.append(temp)
-//            self.tableView.reloadData()
-//            }
-//        })
-//                    guard let imageURL = value.value(forKey: "Image"), let imageNotes = value.value(forKey: "Notes") else { return }
-//                    let dataSet = ["ImageURL":imageURL, "Notes": imageNotes]
-//                    self.cellData?.append(dataSet)
-//                    self.tableView.reloadData()
-//            guard let imageString = snapshot.childSnapshot(forPath: "Image").value, let imageNotes = snapshot.childSnapshot(forPath: "Notes").value else { return }
-//            temp.append(["Image": imageString, "Notes":imageNotes])
-//            //let storedCityData = ["Image": imageString, "Notes":imageNotes]
-//            self.tableCellData = temp
-//            self.tableView.reloadData()
-//        })
-            //var dataSet : [String: Any] = [:]
-            //print("snapshot data: ",snapshot.childSnapshot(forPath:"Image"))
-            //    for data in snapshot.children {
-            //        let snap = data as! DataSnapshot
-            //        let key = snap.key
-            //        let value = snap.value
-                    //print("Key: ", key)
-                    //print("Value: ", value)
-                    //let storedValue = CityDataCell(imageURL: <#T##String#>, imageText: <#T##String#>)
-                    //cityData.append(storedValue)
-            //    }
-            //self.cellData = cityData
-            //self.tableView.reloadData()
-            //})
 
     // MARK: - Table view data source
 
@@ -180,47 +110,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
                 cell.storedImage.image = image
             }
         }
-        
-//        pathReference.getData(maxSize: 1*1024*1024, completion: data, error in
-//        if let error = error {
-//            print(error)
-//        } else {
-//            let image = UIImage(data: data!)
-//            cell.storedImage.image = image
-//        })
-        
-//        let imageURL = Storage.storage().reference(forURL: imageURLString)
-//        imageURL.downloadURL(completion: { (url, error) in
-//            if error != nil {
-//                print("Problem downloading image ", error?.localizedDescription)
-//                return
-//            }
-//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
-//
-//                if error != nil {
-//                    print(error)
-//                    return
-//                }
-//
-//                guard let imageData = UIImage(data: data!) else { return }
-//
-//                DispatchQueue.main.async {
-//                    cell.storedImage.image = imageData
-//                    cell.notes.text = self.tableData[indexPath.row]["Notes"] as! String
-//                }
-//
-//            }).resume()
-//        })
-        //print(testContainer[0]["Image"])
-        //let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath)
-        //guard let tableCellData = tableCellData else { return cell }
-        //guard let imageIncomplete = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
-        //let storage = Storage.storage().reference().child(<#T##path: String##String#>)
-        //let storage = Storage.storage().reference(forURL: "Users/0SNIwGemwHdcwjvHzBLqyKPBLdk2/Cities/Lisbon/dasdasdasdasdasfdsfds/1516439382/A06B87CB-1D8E-45B2-90FE-3165E59EB820.jpeg")
-        //image string "Users/0SNIwGemwHdcwjvHzBLqyKPBLdk2/Cities/Lisbon/dasdasdasdasdasfdsfds/1516439382/A06B87CB-1D8E-45B2-90FE-3165E59EB820.jpeg"
-        //let storageRef = storage.reference(forURL: imageIncomplete)
-        //cell.notes.delegate = self
-        //cell.notes.text = notes
 
         return cell
     }

@@ -35,8 +35,11 @@ class AddMemoryViewController: UIViewController {
         let timeStampString = String(timeStamp)
         //checkDayChild(userID: userID, city: selectedCity)
         updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
-        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
-        performSegue(withIdentifier: "showMemoryTable", sender: self)
+        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
+            DispatchQueue.main.async(execute: {
+                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+            })
+        }
     }
 
     override func viewDidLoad() {
@@ -74,7 +77,7 @@ class AddMemoryViewController: UIViewController {
         let firebaseRef = Database.database()
         //let imagePath = "Users/" + userID + "/Cities/" + city + "/"
         //let imagePath = "Users/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
-        let imagePath = "gs://travels-3ef98.appspot.com/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
         print(imagePath)
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": imageText.text] as [String : Any]
@@ -83,12 +86,13 @@ class AddMemoryViewController: UIViewController {
         userReference.updateChildValues(values)
     }
     
-    func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String) {
+    func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String, completion: @escaping () -> () ) {
         let timeStampString = String(timeStamp)
         let storage = Storage.storage()
         let storageRef = storage.reference()
         let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
         let uploadTask = uploadSite.putFile(from: imageURL as URL)
+        completion()
     }
     /*
     // MARK: - Navigation
