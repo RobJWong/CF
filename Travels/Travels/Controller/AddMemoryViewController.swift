@@ -73,7 +73,8 @@ class AddMemoryViewController: UIViewController {
     func updateFirebase(imageURL: String, city: String, userID: String, sectionName: String, timeStamp: String){
         let firebaseRef = Database.database()
         //let imagePath = "Users/" + userID + "/Cities/" + city + "/"
-        let imagePath = "Users/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        //let imagePath = "Users/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        let imagePath = "gs://travels-3ef98.appspot.com/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
         print(imagePath)
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": imageText.text] as [String : Any]

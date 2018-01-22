@@ -36,9 +36,9 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             let oVC = segue.destination as? OnboardCitySelect
             oVC?.userData = userData
         }
-        
         if segue.identifier == "returningUser" {
             let rVC = segue.destination as? ReturningUserCityTableViewController
+            print(userData.userID)
             rVC?.userData = userData
         }
         

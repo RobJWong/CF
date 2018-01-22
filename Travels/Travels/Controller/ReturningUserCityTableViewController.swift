@@ -37,9 +37,8 @@ class ReturningUserCityTableViewController: UITableViewController {
                 returningUserCityDetailVC?.userData = userData
             }
         }
-        if segue.identifier == "addCity" {
-            let addCityVC = segue.destination as? OnboardCitySelect
-            addCityVC?.userData = userData
+        if let addMemoryVC = segue.destination as? OnboardCitySelect {
+            addMemoryVC.userData = userData
         }
     }
 

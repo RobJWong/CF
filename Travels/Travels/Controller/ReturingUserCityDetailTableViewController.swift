@@ -11,8 +11,15 @@ import Firebase
 class ReturingUserCityDetailTableViewController: UITableViewController {
     
     var userData: UserData?
+    var userID: String?
+    var selectedCity: String?
+    var tableData = [[String:Any]]()
+    //var sectionSelection = [String]()
     //var cityData: [CellData]?
-    var tableCellData : [[String:String]]?
+    //////////have sectionSelection be a var type string of value of drop down selection
+    //var sectionSelection = [String]()
+    //var testContainer : [[String:Any]] = []
+    //var testContainer = [[String:Any]]()
 
     @IBAction func addMemory(_ sender: UIBarButtonItem) {
          performSegue(withIdentifier: "AddMemory", sender: self)
@@ -28,7 +35,18 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
-        setupSavedData()
+        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
+        self.userID = userID
+        self.selectedCity = selectedCity
+        
+        //Invoke after drop down selection has been changed
+        //getSectionName(userID: userID, city: selectedCity)
+        //setupSavedData(userID: userID, city: selectedCity)
+        setupSavedData(userID: userID, city: selectedCity) { (tableData) in
+            DispatchQueue.main.async(execute: {
+                self.setupTableData(tableDataHolder: tableData)
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,36 +60,60 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         }
     }
     
-    //    func checkDayChild(userID: String, city: String) {
-    //        let databaseFirebase = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-    //        databaseFirebase.observeSingleEvent(of: .value, with: { (snapshot) in
-    //            for subChild in snapshot.children {
-    //                let snap = subChild as! DataSnapshot
-    //                print("Key: ", snap.key)
-    //            }
-    //        })
-    //    }
+    func setupTableData(tableDataHolder: [[String:Any]]) {
+        self.tableData = tableDataHolder
+        self.tableView.reloadData()
+    }
     
-    func setupSavedData() {
-        guard let uid = userData?.userID, let selectedCity = userData?.currentCitySelection else {
-            AlertBox.sendAlert(boxMessage: "UID or selectedCity is nil", presentingController: self)
-            return
-        }
-        var temp = [String:String]()
-        var temp2 = [[String:String]]()
-        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(selectedCity).child("Alps")
+    func setupSavedData(userID: String, city: String, completion: @escaping ([[String:Any]]) -> ()) {
+        var indexData = [String:Any]()
+        var indexDataArray = [[String:Any]]()
+        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child("Wow")
         databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for dataSet in snapshot.children {
                 let snap = dataSet as! DataSnapshot
-                let key = snap.key
-                let value = snap.value
-                temp[key] = value as! String
+                let k = snap.key
+                let v = snap.value
+                for (key, value) in v as! [String: Any] {
+                    indexData[key] = value
+                }
+                indexDataArray.append(indexData)
             }
-            temp2.append(temp)
-            self.tableCellData = temp2
-            self.tableView.reloadData()
+            completion(indexDataArray)
         })
     }
+    
+//    func getSectionName(userID: String, city: String) {
+//        var temp = [String]()
+//        let databaseFirebase = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+//        databaseFirebase.observeSingleEvent(of: .value, with: { (snapshot ) in
+//            for subChild in snapshot.children {
+//                let snap = subChild as! DataSnapshot
+//                print(snap.key)
+//                temp.append(snap.key)
+//            }
+//            self.sectionSelection = temp
+//            self.tableView.reloadData()
+//        })
+//    }
+    
+//    func setupSavedData(userID: String, city: String) {
+//        var indexData = [String:Any]()
+//        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child("Wow")
+//        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            for dataSet in snapshot.children {
+//                let snap = dataSet as! DataSnapshot
+//                let k = snap.key
+//                let v = snap.value
+//                for (key, value) in v as! [String: Any] {
+//                    indexData[key] = value
+//                }
+//                self.testContainer.append(indexData)
+//            }
+//            self.tableView.reloadData()
+//        })
+//    }
+    
 //           if let dictionary = snapshot.value as? [String: Any] {
 //                for (key, value) in dictionary {
 //                    temp[key] = value
@@ -114,37 +156,71 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let tableCellData = tableCellData else { return 1 }
+        //guard let tableDataTest = tableData else { return 1 }
         //print(tableCellData)
         //return tableCellData.count
         //print(tableCellData?.count)
-        return tableCellData.count
+        //return 1
+        return tableData.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath) as! CityDetailTableViewCell
+        cell.notes.text = tableData[indexPath.row]["Notes"] as! String
+        guard let imageFirebasePath = tableData[indexPath.row]["Image"] else { return cell }
+        let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
+        
+        pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+            if let error = error {
+                print(error)
+                // Uh-oh, an error occurred!
+            } else {
+                // Data for "images/island.jpg" is returned
+                let image = UIImage(data: data!)
+                cell.storedImage.image = image
+            }
+        }
+        
+//        pathReference.getData(maxSize: 1*1024*1024, completion: data, error in
+//        if let error = error {
+//            print(error)
+//        } else {
+//            let image = UIImage(data: data!)
+//            cell.storedImage.image = image
+//        })
+        
+//        let imageURL = Storage.storage().reference(forURL: imageURLString)
+//        imageURL.downloadURL(completion: { (url, error) in
+//            if error != nil {
+//                print("Problem downloading image ", error?.localizedDescription)
+//                return
+//            }
+//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//
+//                if error != nil {
+//                    print(error)
+//                    return
+//                }
+//
+//                guard let imageData = UIImage(data: data!) else { return }
+//
+//                DispatchQueue.main.async {
+//                    cell.storedImage.image = imageData
+//                    cell.notes.text = self.tableData[indexPath.row]["Notes"] as! String
+//                }
+//
+//            }).resume()
+//        })
+        //print(testContainer[0]["Image"])
         //let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath)
-        guard let tableCellData = tableCellData else { return cell }
-        guard let imageIncomplete = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
-        let storage = Storage.storage()
-        let storageRef = storage.reference(forURL: imageIncomplete)
-        cell.notes.delegate = self
-        cell.notes.text = notes
-        //cell.storedImage.image = UIImage(named: "Stock")
-        //cell.textLabel?.text = notes
-        //print(tableCellData[indexPath.row]["Image"])
-        //print(tableCellData[indexPath.row]["Notes"])
-        //guard let tableCellData = tableCellData![indexPath.row] else { return cell }
-        //print(tableCellData["Image"])
-        //let cellData = tableCellData![indexPath.row]
-        //cell.imageText.text = cellData["Notes"] as! String
-//        guard let uid = userData?.userID, let selectedCity = userData?.currentCitySelection, let dataCell = cellData[indexPath.row] else {
-//            AlertBox.sendAlert(boxMessage: "UID, selectedCity or cellData is nil", presentingController: self)
-//            return cell
-//        }
-        //let imageRef = Database.database().reference().child("Users").child(uid).child("Cities").child(selectedCity).child("Day 1")
-        //cell.imageText = dataCell.values("ImageNotes")
-        // Configure the cell...
+        //guard let tableCellData = tableCellData else { return cell }
+        //guard let imageIncomplete = tableCellData[indexPath.row]["Image"], let notes = tableCellData[indexPath.row]["Notes"] else { return cell}
+        //let storage = Storage.storage().reference().child(<#T##path: String##String#>)
+        //let storage = Storage.storage().reference(forURL: "Users/0SNIwGemwHdcwjvHzBLqyKPBLdk2/Cities/Lisbon/dasdasdasdasdasfdsfds/1516439382/A06B87CB-1D8E-45B2-90FE-3165E59EB820.jpeg")
+        //image string "Users/0SNIwGemwHdcwjvHzBLqyKPBLdk2/Cities/Lisbon/dasdasdasdasdasfdsfds/1516439382/A06B87CB-1D8E-45B2-90FE-3165E59EB820.jpeg"
+        //let storageRef = storage.reference(forURL: imageIncomplete)
+        //cell.notes.delegate = self
+        //cell.notes.text = notes
 
         return cell
     }
