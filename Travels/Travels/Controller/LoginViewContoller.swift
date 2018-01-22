@@ -69,7 +69,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             print("TestData: ", testData)
             let userReference = firebaseRef.reference().child("Users").child(uid)
             firebaseRef.reference().observeSingleEvent(of: .value, with: { (snapshot) in
-                let userDataString = "Users/" + uid
+                let userDataString = "Users/" + uid + "/Cities"
                 if snapshot.hasChild(userDataString) {
                     //send to returning page
                     //UserData.sharedInstance.didLogin(user: user)

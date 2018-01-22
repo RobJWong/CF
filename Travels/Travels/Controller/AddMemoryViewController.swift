@@ -92,7 +92,9 @@ class AddMemoryViewController: UIViewController {
         let storageRef = storage.reference()
         let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
         let uploadTask = uploadSite.putFile(from: imageURL as URL)
-        completion()
+        uploadTask.observe(.success) { snapshot in
+            completion()
+        }
     }
     /*
     // MARK: - Navigation
