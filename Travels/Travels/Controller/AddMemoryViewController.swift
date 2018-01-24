@@ -75,14 +75,13 @@ class AddMemoryViewController: UIViewController {
     
     func updateFirebase(imageURL: String, city: String, userID: String, sectionName: String, timeStamp: String){
         let firebaseRef = Database.database()
-        //let imagePath = "Users/" + userID + "/Cities/" + city + "/"
-        //let imagePath = "Users/\(userID)/Cities/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
-        let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        //let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        let imagePath = "\(userID)/\(city)/\("Wow")/\(timeStamp)/\(imageURL)"
         print(imagePath)
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": imageText.text] as [String : Any]
         //print(imageText.text)
-        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
+        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child("Wow").child(timeStamp)
         userReference.updateChildValues(values)
     }
     
@@ -90,7 +89,7 @@ class AddMemoryViewController: UIViewController {
         let timeStampString = String(timeStamp)
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
+        let uploadSite = storageRef.child(userID).child(city).child("Wow").child(timeStampString).child(imageURL.lastPathComponent!)
         let uploadTask = uploadSite.putFile(from: imageURL as URL)
         uploadTask.observe(.success) { snapshot in
             completion()

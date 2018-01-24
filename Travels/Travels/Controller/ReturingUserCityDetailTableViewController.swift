@@ -14,7 +14,8 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var userID: String?
     var selectedCity: String?
     var tableData = [[String:Any]]()
-
+    @IBOutlet weak var cityName: UILabel!
+    
     @IBAction func addMemory(_ sender: UIBarButtonItem) {
          performSegue(withIdentifier: "AddMemory", sender: self)
     }
@@ -27,12 +28,17 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        let backgroundImage = UIImage(named: "greenBG")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         self.userID = userID
         self.selectedCity = selectedCity
-        
+        cityName?.text = selectedCity
         //Invoke after drop down selection has been changed
         //getSectionName(userID: userID, city: selectedCity)
         //setupSavedData(userID: userID, city: selectedCity)
