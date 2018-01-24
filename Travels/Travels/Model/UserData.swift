@@ -17,12 +17,14 @@ class UserData {
     var email: String?
     var currentCitySelection: String?
     var currentDate: [String]?
+    var userName: String?
     //var currentCityData: [NSObject]?
     
     func didLogin(user: User){
         self.userID = user.uid
         self.loggedIn = true
         self.email = user.email
+        self.userName = user.displayName
     }
     
 }

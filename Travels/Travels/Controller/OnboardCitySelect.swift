@@ -12,6 +12,7 @@ import GooglePlaces
 class OnboardCitySelect: UIViewController {
     
     var userData: UserData?
+    @IBOutlet weak var welcomeMsg: UILabel!
     
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -24,9 +25,10 @@ class OnboardCitySelect: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        //print("User's ID: ", userData?.userID)
+        guard let nameString = userData?.userName else { return }
+        welcomeMsg.text = "Hi  \(nameString)! \nWhat city are you starting with?"
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,7 +41,6 @@ class OnboardCitySelect: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation

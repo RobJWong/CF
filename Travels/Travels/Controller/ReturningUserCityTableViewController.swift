@@ -21,6 +21,7 @@ class ReturningUserCityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        print("User's name?: ", userData?.userName)
         setupSavedLocations()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
