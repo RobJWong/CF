@@ -9,23 +9,23 @@
 import UIKit
 import Firebase
 
-class AddMemoryViewController: UIViewController {
+class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
-    @IBOutlet weak var imageText: UITextView!
+    @IBOutlet weak var memoryNotes: UITextView!
     @IBOutlet weak var viewImage: UIImageView!
-    @IBOutlet weak var sectionName: UITextField!
+    @IBOutlet weak var sectionName: UILabel!
     
     var storedImage: UIImage?
     var imageURL: NSURL?
-    //var selectedCity: String?
+
     var userData: UserData?
     
     @IBAction func saveToDB(_ sender: UIButton) {
-        print("selected City: ", userData?.currentCitySelection)
-        print("image url string: ", imageURL)
-        print("user id: ", userData?.userID)
-        print("section name: ", sectionName.text)
-        print("imageURLPath: ", imageURL?.lastPathComponent)
+//        print("selected City: ", userData?.currentCitySelection)
+//        print("image url string: ", imageURL)
+//        print("user id: ", userData?.userID)
+//        print("section name: ", sectionName.text)
+//        print("imageURLPath: ", imageURL?.lastPathComponent)
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let sectionName = sectionName.text, let imageURLPath = imageURL?.lastPathComponent else {
             //print("Something is null please check")
             return
@@ -41,18 +41,57 @@ class AddMemoryViewController: UIViewController {
             })
         }
     }
+    
+    @IBAction func showSelectionVC(_ sender: UIButton) {
+        let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
+        sectionNameVC.selectionNameDelegate = self
+        present(sectionNameVC, animated: true, completion: nil)
+    }
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
 
+        memoryNotes.delegate = self
+        memoryNotes.text = "Add notes!"
+        memoryNotes.textColor = UIColor.lightGray
+        //memoryNotes.becomeFirstResponder()
+        
         viewImage.image = storedImage
         // Do any additional setup after loading the view.
+        let border = CALayer()
+        let width = CGFloat(1)
+        //border.borderColor = UIColor.darkGray.cgColor
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
+        border.borderWidth = width
+        sectionName.layer.addSublayer(border)
+        sectionName.layer.masksToBounds = true
+        
+        let yourBackImage = UIImage(named: "icon_back")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        //self.navigationItem.backBarButtonItem?.title = ""
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add notes!"
+            textView.textColor = UIColor.lightGray
+        }
     }
     
     //THIS GETS ME THE DAY
@@ -79,7 +118,7 @@ class AddMemoryViewController: UIViewController {
         let imagePath = "\(userID)/\(city)/\("Wow")/\(timeStamp)/\(imageURL)"
         print(imagePath)
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
-        let values = ["Image": imagePath, "Notes": imageText.text] as [String : Any]
+        let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
         //print(imageText.text)
         let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child("Wow").child(timeStamp)
         userReference.updateChildValues(values)
@@ -105,4 +144,10 @@ class AddMemoryViewController: UIViewController {
     }
     */
 
+}
+
+extension AddMemoryViewController: SelectionStringDelegate {
+    func setupSelectionString(selection: String) {
+        sectionName.text = selection
+    }
 }

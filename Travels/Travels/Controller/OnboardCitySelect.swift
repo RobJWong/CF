@@ -28,8 +28,6 @@ class OnboardCitySelect: UIViewController {
         // Do any additional setup after loading the view.
         guard let nameString = userData?.userName else { return }
         welcomeMsg.text = "Hi  \(nameString)! \nWhat city are you starting with?"
-        let backButton = UIImage(named: "icon_back")
-        self.navigationController?.navigationBar.backIndicatorImage = backButton
         
     }
     

@@ -37,9 +37,12 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             oVC?.userData = userData
         }
         if segue.identifier == "returningUser" {
-            let rVC = segue.destination as? ReturningUserCityTableViewController
-            print(userData.userID)
-            rVC?.userData = userData
+            let navVC = segue.destination as? UINavigationController
+            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+            rVC.userData = userData
+//            let rVC = segue.destination as? ReturningUserCityTableViewController
+//            print(userData.userID)
+//            rVC?.userData = userData
         }
         
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
@@ -53,6 +56,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
+            return
         }
         guard let idToken = user.authentication.idToken, let accessToken = user.authentication.accessToken else { return }
         let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
@@ -100,6 +104,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     @IBAction func didTapSignOut(sender: AnyObject) {
         GIDSignIn.sharedInstance().signOut()
+        AlertBox.sendAlert(boxMessage: "Signed out", presentingController: self)
     }
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,

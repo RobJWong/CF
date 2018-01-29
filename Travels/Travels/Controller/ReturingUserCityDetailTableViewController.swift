@@ -33,6 +33,13 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
+        let yourBackImage = UIImage(named: "icon_back")
+        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+        //        self.navigationItem.backBarButtonItem?.title = ""
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
+        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
