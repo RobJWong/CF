@@ -12,7 +12,13 @@ import GooglePlaces
 class OnboardCitySelect: UIViewController {
     
     var userData: UserData?
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var welcomeMsg: UILabel!
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -26,20 +32,29 @@ class OnboardCitySelect: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupBackButton()
         guard let nameString = userData?.userName else { return }
         welcomeMsg.text = "Hi  \(nameString)! \nWhat city are you starting with?"
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let onboardingEmptyListVC = segue.destination as? OnboardingEmptyList {
-            onboardingEmptyListVC.userData = userData
+        if let onboardEmptyListVC = segue.destination as? OnboardEmptyList {
+            onboardEmptyListVC.userData = userData
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupBackButton() {
+        if userData?.newUser == false {
+            backButton.alpha = 1
+        } else {
+            backButton.alpha = 0
+        }
     }
 
     /*

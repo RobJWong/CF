@@ -33,11 +33,11 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        let yourBackImage = UIImage(named: "icon_back")
-        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
-        //        self.navigationItem.backBarButtonItem?.title = ""
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+//        let yourBackImage = UIImage(named: "icon_back")
+//        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
+//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
+//        //        self.navigationItem.backBarButtonItem?.title = ""
+//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
         
         tableView.estimatedRowHeight = 200
@@ -62,7 +62,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addMemoryVC = segue.destination as? OnboardingEmptyList {
+        if let addMemoryVC = segue.destination as? OnboardEmptyList {
             addMemoryVC.userData = userData
         }
     }

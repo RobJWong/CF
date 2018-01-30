@@ -37,12 +37,12 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             oVC?.userData = userData
         }
         if segue.identifier == "returningUser" {
-            let navVC = segue.destination as? UINavigationController
-            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
-            rVC.userData = userData
-//            let rVC = segue.destination as? ReturningUserCityTableViewController
-//            print(userData.userID)
-//            rVC?.userData = userData
+//            let navVC = segue.destination as? UINavigationController
+//            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+//            rVC.userData = userData
+            let rVC = segue.destination as? ReturningUserCityTableViewController
+            print(userData.userID)
+            rVC?.userData = userData
         }
         
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
@@ -78,7 +78,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                     //send to returning page
                     //UserData.sharedInstance.didLogin(user: user)
                     print("returning user")
-                    self.userData.didLogin(user: user)
+                    self.userData.didLogin(user: user, newUser: false)
                     //toggle for returning user section
                     ///self.performSegue(withIdentifier: "returningUser", sender: self)
                     self.performSegue(withIdentifier: "returningUser", sender: self)
@@ -91,7 +91,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                         }
                         //if let user = user {
                         //UserData.sharedInstance.didLogin(user: user)
-                        self.userData.didLogin(user: user)
+                        self.userData.didLogin(user: user, newUser: true)
                         let changeRequest = user.createProfileChangeRequest()
                         self.performSegue(withIdentifier: "newUser", sender: self)
                         print("Created user profile")
@@ -102,10 +102,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         })
     }
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-        AlertBox.sendAlert(boxMessage: "Signed out", presentingController: self)
-    }
+
     
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {

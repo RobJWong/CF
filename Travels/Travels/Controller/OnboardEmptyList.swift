@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class OnboardingEmptyList: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     var storedImage: UIImage?
     //var selectedCity: String?

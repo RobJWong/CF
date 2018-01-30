@@ -67,12 +67,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         border.borderWidth = width
         sectionName.layer.addSublayer(border)
         sectionName.layer.masksToBounds = true
-        
-        let yourBackImage = UIImage(named: "icon_back")
-        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
-        //self.navigationItem.backBarButtonItem?.title = ""
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
 
     override func didReceiveMemoryWarning() {
