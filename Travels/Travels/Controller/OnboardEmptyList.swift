@@ -10,12 +10,16 @@ import UIKit
 import Firebase
 
 class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     var storedImage: UIImage?
     //var selectedCity: String?
     var storedImageURL: NSURL?
     
     var userData: UserData?
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func openCameraButton(_sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -30,8 +34,6 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-//        print("userID: ", userData?.userID)
-//        print("email: ", userData?.email)
     }
 
     override func didReceiveMemoryWarning() {

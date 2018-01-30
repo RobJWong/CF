@@ -16,6 +16,14 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var tableData = [[String:Any]]()
     @IBOutlet weak var cityName: UILabel!
     
+    @IBAction func backButton(_ sender: UIButton) {
+        //dismiss(animated: true, completion: nil)
+        let homeVC = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! ReturningUserCityTableViewController
+        homeVC.userData = userData
+        dismiss(animated: true, completion: nil)
+        present(homeVC, animated: true, completion: nil)
+    }
+    
     @IBAction func addMemory(_ sender: UIBarButtonItem) {
          performSegue(withIdentifier: "AddMemory", sender: self)
     }
@@ -99,11 +107,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //guard let tableDataTest = tableData else { return 1 }
-        //print(tableCellData)
-        //return tableCellData.count
-        //print(tableCellData?.count)
-        //return 1
+
         return tableData.count
     }
 

@@ -21,13 +21,12 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     var userData: UserData?
     
     @IBAction func saveToDB(_ sender: UIButton) {
-//        print("selected City: ", userData?.currentCitySelection)
-//        print("image url string: ", imageURL)
-//        print("user id: ", userData?.userID)
-//        print("section name: ", sectionName.text)
-//        print("imageURLPath: ", imageURL?.lastPathComponent)
+        if sectionName.text == "Choose category" {
+            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
+            return
+        }
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let sectionName = sectionName.text, let imageURLPath = imageURL?.lastPathComponent else {
-            //print("Something is null please check")
+            //print("Something is null please    check")
             return
         }
         let date = NSDate()
@@ -42,9 +41,14 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func showSelectionVC(_ sender: UIButton) {
         let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
         sectionNameVC.selectionNameDelegate = self
+        sectionNameVC.userData = userData
         present(sectionNameVC, animated: true, completion: nil)
     }
 
@@ -114,7 +118,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
         //print(imageText.text)
-        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child("Wow").child(timeStamp)
+        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
         userReference.updateChildValues(values)
     }
     
@@ -122,7 +126,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let timeStampString = String(timeStamp)
         let storage = Storage.storage()
         let storageRef = storage.reference()
-        let uploadSite = storageRef.child(userID).child(city).child("Wow").child(timeStampString).child(imageURL.lastPathComponent!)
+        let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
         let uploadTask = uploadSite.putFile(from: imageURL as URL)
         uploadTask.observe(.success) { snapshot in
             completion()

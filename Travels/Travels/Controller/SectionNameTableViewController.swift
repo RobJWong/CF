@@ -16,11 +16,16 @@ protocol SelectionStringDelegate {
 class SectionNameTableViewController: UITableViewController {
     
     @IBOutlet weak var textField: UITextField!
-    
     var selectionNameDelegate : SelectionStringDelegate!
+    var userData: UserData?
+    var sectionNames: [String]?
 
     @IBAction func saveData(_ sender: UIButton) {
-        savePressed()
+        savePressed(fromRow: false)
+    }
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -31,13 +36,27 @@ class SectionNameTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        let saveButton: UIButton = UIButton(type: UIButtonType.custom)
-        saveButton.setImage(UIImage(named: "icon_checkmark"), for: .normal)
-        saveButton.addTarget(self, action: Selector(("savePressed")), for: UIControlEvents.touchUpInside)
-        saveButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-        let barButton = UIBarButtonItem(customView: saveButton)
-        self.navigationItem.rightBarButtonItem = barButton
+//        let saveButton: UIButton = UIButton(type: UIButtonType.custom)
+//        saveButton.setImage(UIImage(named: "icon_checkmark"), for: .normal)
+//        saveButton.addTarget(self, action: Selector(("savePressed")), for: UIControlEvents.touchUpInside)
+//        saveButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
+//        let barButton = UIBarButtonItem(customView: saveButton)
+//        self.navigationItem.rightBarButtonItem = barButton
         
+//        let border = CALayer()
+//        let width = CGFloat(1)
+//        //border.borderColor = UIColor.darkGray.cgColor
+//        border.borderColor = UIColor.lightGray.cgColor
+//        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+//
+//        border.borderWidth = width
+//        textField.layer.addSublayer(border)
+//        textField.layer.masksToBounds = true
+        guard let userID = userData?.userID, let city = userData?.currentCitySelection else { return }
+        setupSavedData(userID: userID, city: city)
+    }
+    
+    func setupTextbox() {
         let border = CALayer()
         let width = CGFloat(1)
         //border.borderColor = UIColor.darkGray.cgColor
@@ -49,12 +68,30 @@ class SectionNameTableViewController: UITableViewController {
         textField.layer.masksToBounds = true
     }
     
-    func savePressed() {
-        guard let stringInput = textField.text else { return }
-        print(stringInput)
-        selectionNameDelegate.setupSelectionString(selection: stringInput)
-        dismiss(animated: true , completion: nil)
-        
+    func savePressed(fromRow: Bool) {
+        if fromRow == false {
+            guard let stringInput = textField.text else { return }
+            selectionNameDelegate.setupSelectionString(selection: stringInput)
+            dismiss(animated: true , completion: nil)
+        } else if fromRow == true {
+            guard let indexPath = self.tableView.indexPathForSelectedRow, let sectionNames = sectionNames else { return }
+            selectionNameDelegate.setupSelectionString(selection: sectionNames[indexPath.row])
+            dismiss(animated: true , completion: nil)
+        }
+    }
+    
+    func setupSavedData(userID: String, city: String) {
+        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+            databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                var sectionContainer : [String] = []
+                for city in snapshot.children {
+                    let snap = city as! DataSnapshot
+                    let key = snap.key
+                    sectionContainer.append(key)
+        }
+            self.sectionNames = sectionContainer
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,23 +103,27 @@ class SectionNameTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        guard let sectionNames = sectionNames else { return 1}
+        return sectionNames.count
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "sectionNames", for: indexPath)
+        cell.textLabel?.text = sectionNames?[indexPath.row]
+        cell.textLabel?.font = UIFont(name: "Goku", size: 33.9)
+        cell.textLabel?.textAlignment = .center
         // Configure the cell...
-
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        savePressed(fromRow: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
