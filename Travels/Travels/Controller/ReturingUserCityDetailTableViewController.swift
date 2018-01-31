@@ -27,8 +27,15 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         present(homeVC, animated: true, completion: nil)
     }
     
-    @IBAction func addMemory(_ sender: UIBarButtonItem) {
-         performSegue(withIdentifier: "AddMemory", sender: self)
+//    @IBAction func addMemory(_ sender: UIBarButtonItem) {
+//         performSegue(withIdentifier: "AddMemory", sender: self)
+//    }
+    
+    @IBAction func switchSections(_ sender: UIButton) {
+        let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
+        //changeSectionVC.selectionNameDelegate = self
+        changeSectionVC.userData = userData
+        present(changeSectionVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -79,11 +86,14 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     func setupButtonText() {
         if userData?.sectionName == nil {
             print("section name nil")
-            print(sectionNameContainer![0])
+            //print(sectionNameContainer![0])
             changeSections.setTitle(sectionNameContainer![0], for: .normal)
+            selectedSection = sectionNameContainer![0]
+            
         } else {
-            print("somerthing else")
+            print("something else")
             changeSections.setTitle(userData?.sectionName, for: .normal)
+            selectedSection = userData?.sectionName
         }
     }
     
@@ -97,7 +107,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
                 sectionContainer.append(key)
             }
             self.sectionNameContainer = sectionContainer
-            self.reloadInputViews()
         })
     }
     
@@ -109,7 +118,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     func setupSavedData(userID: String, city: String, completion: @escaping ([[String:Any]]) -> ()) {
         var indexData = [String:Any]()
         var indexDataArray = [[String:Any]]()
-        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child("Wow")
+        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child("Spring falls")
         databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for dataSet in snapshot.children {
                 let snap = dataSet as! DataSnapshot
@@ -203,9 +212,10 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     */
 }
 
-extension ReturingUserCityDetailTableViewController: UITextViewDelegate {
-    func textViewDidChange(_ textView: UITextView) {
-        tableView.beginUpdates()
-        tableView.endUpdates()
-    }
-}
+//extension ReturingUserCityDetailTableViewController: UITextViewDelegate {
+//    func textViewDidChange(_ textView: UITextView) {
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
+//    }
+//}
+

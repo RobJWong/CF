@@ -108,7 +108,7 @@ class SectionNameTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        guard let sectionNames = sectionNames else { return 1}
+        guard let sectionNames = sectionNames else { return 1 }
         return sectionNames.count
     }
 
