@@ -13,19 +13,22 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var memoryNotes: UITextView!
     @IBOutlet weak var viewImage: UIImageView!
-    @IBOutlet weak var sectionName: UILabel!
+    //@IBOutlet weak var sectionName: UILabel!
+    @IBOutlet weak var sectionName: UITextField!
     
     var storedImage: UIImage?
     var imageURL: NSURL?
-
     var userData: UserData?
     
     @IBAction func saveToDB(_ sender: UIButton) {
-        if sectionName.text == "Choose category" {
+        guard let sectionName = sectionName.text else {
+            return
+        }
+        if sectionName == "" {
             AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
             return
         }
-        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let sectionName = sectionName.text, let imageURLPath = imageURL?.lastPathComponent else {
+        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
             //print("Something is null please    check")
             return
         }
@@ -36,6 +39,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
+                self.userData?.sectionName = sectionName
                 self.performSegue(withIdentifier: "showMemoryTable", sender: self)
             })
         }
@@ -63,14 +67,13 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         
         viewImage.image = storedImage
         // Do any additional setup after loading the view.
-        let border = CALayer()
-        let width = CGFloat(1)
-        //border.borderColor = UIColor.darkGray.cgColor
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
-        border.borderWidth = width
-        sectionName.layer.addSublayer(border)
-        sectionName.layer.masksToBounds = true
+//        let border = CALayer()
+//        let width = CGFloat(1)
+//        border.borderColor = UIColor.lightGray.cgColor
+//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
+//        border.borderWidth = width
+//        sectionName.layer.addSublayer(border)
+//        sectionName.layer.masksToBounds = true
     }
 
     override func didReceiveMemoryWarning() {

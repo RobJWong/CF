@@ -14,13 +14,16 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var userID: String?
     var selectedCity: String?
     var tableData = [[String:Any]]()
+    var selectedSection: String?
+    var sectionNameContainer: [String]?
+    
     @IBOutlet weak var cityName: UILabel!
+    @IBOutlet weak var changeSections: UIButton!
     
     @IBAction func backButton(_ sender: UIButton) {
         //dismiss(animated: true, completion: nil)
         let homeVC = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! ReturningUserCityTableViewController
         homeVC.userData = userData
-        dismiss(animated: true, completion: nil)
         present(homeVC, animated: true, completion: nil)
     }
     
@@ -47,18 +50,16 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 //        //        self.navigationItem.backBarButtonItem?.title = ""
 //        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
         
-        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         self.userID = userID
         self.selectedCity = selectedCity
         cityName?.text = selectedCity
-        //Invoke after drop down selection has been changed
-        //getSectionName(userID: userID, city: selectedCity)
-        //setupSavedData(userID: userID, city: selectedCity)
+        setupSectionData(userID: userID, city: selectedCity)
         setupSavedData(userID: userID, city: selectedCity) { (tableData) in
             DispatchQueue.main.async(execute: {
+                self.setupButtonText()
                 self.setupTableData(tableDataHolder: tableData)
             })
         }
@@ -73,6 +74,31 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         if let addMemoryVC = segue.destination as? OnboardEmptyList {
             addMemoryVC.userData = userData
         }
+    }
+    
+    func setupButtonText() {
+        if userData?.sectionName == nil {
+            print("section name nil")
+            print(sectionNameContainer![0])
+            changeSections.setTitle(sectionNameContainer![0], for: .normal)
+        } else {
+            print("somerthing else")
+            changeSections.setTitle(userData?.sectionName, for: .normal)
+        }
+    }
+    
+    func setupSectionData(userID: String, city: String) {
+        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            var sectionContainer : [String] = []
+            for city in snapshot.children {
+                let snap = city as! DataSnapshot
+                let key = snap.key
+                sectionContainer.append(key)
+            }
+            self.sectionNameContainer = sectionContainer
+            self.reloadInputViews()
+        })
     }
     
     func setupTableData(tableDataHolder: [[String:Any]]) {

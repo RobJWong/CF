@@ -19,7 +19,7 @@ class UserData {
     var currentDate: [String]?
     var userName: String?
     var newUser: Bool?
-    //var currentCityData: [NSObject]?
+    var sectionName: String?
     
     func didLogin(user: User, newUser: Bool){
         self.userID = user.uid
