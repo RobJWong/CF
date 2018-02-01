@@ -30,8 +30,8 @@ class ChangeSectionsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let addMemoryVC = segue.destination as? OnboardEmptyList {
-            addMemoryVC.userData = userData
+        if let returningToMemoriesVC = segue.destination as? ReturingUserCityDetailTableViewController {
+            returningToMemoriesVC.userData = userData
         }
     }
 
@@ -57,7 +57,7 @@ class ChangeSectionsTableViewController: UITableViewController {
     func sectionChange() {
         guard let indexPath = self.tableView.indexPathForSelectedRow, let sectionNames = sectionNameContainer else { return }
         userData?.sectionName = sectionNameContainer?[indexPath.row]
-        dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "newSectionPicked", sender: self)
     }
 
     // MARK: - Table view data source

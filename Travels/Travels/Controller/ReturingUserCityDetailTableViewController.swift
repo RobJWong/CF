@@ -15,7 +15,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var userID: String?
     var selectedCity: String?
     var tableData = [[String:Any]]()
-    var sectionName: String?
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var changeSections: UIButton!
@@ -60,21 +59,31 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
-        if userData?.sectionName != nil {
-            sectionName = userData?.sectionName
-        } else {
-            getSectionData(userID: userID, city: selectedCity) { (sectionString) in
-                //DispatchQueue.main.async(execute: {
-                self.sectionName = sectionString
-                self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
-                    DispatchQueue.main.async(execute:{
-                        self.cityName?.text = selectedCity
-                        self.changeSections.setTitle(self.sectionName, for: .normal)
-                        self.setupTableData(tableDataHolder: tableData)
-                    })
-                }
+        getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
+            self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
+                DispatchQueue.main.async(execute:  {
+                    self.cityName?.text = selectedCity
+                    self.changeSections.setTitle(sectionString, for: .normal)
+                    self.setupTableData(tableDataHolder: tableData)
+                })
             }
-        }
+        })
+//        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
+//        if userData?.sectionName != nil {
+//            sectionName = userData?.sectionName
+//        } else {
+//            getSectionData(userID: userID, city: selectedCity) { (sectionString) in
+//                //DispatchQueue.main.async(execute: {
+//                self.sectionName = sectionString
+//                self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
+//                    DispatchQueue.main.async(execute:{
+//                        self.cityName?.text = selectedCity
+//                        self.changeSections.setTitle(self.sectionName, for: .normal)
+//                        self.setupTableData(tableDataHolder: tableData)
+//                    })
+//                }
+//            }
+//        }
     }
     
     
@@ -96,18 +105,37 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         })
     }
     
-    func getSectionData(userID: String, city: String, completion: @escaping (String) -> ()) {
-        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
-            //var sectionContainer : [String] = []
-            for city in snapshot.children {
-                let snap = city as! DataSnapshot
-                let key = snap.key
-                completion(key)
-                //sectionContainer.append(key)
-            }
-        })
+    func getSectionData(userID: String, city:String, completion: @escaping(String) -> ()) {
+        if userData?.sectionName != nil {
+            guard let sectionName = userData?.sectionName else { return }
+            completion(sectionName)
+        } else {
+            let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+            databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                for idx in snapshot.children {
+                    let snap = idx as! DataSnapshot
+                    let key = snap.key
+                    completion(key)
+                    break
+                }
+            })
+        }
     }
+    
+//    func getSectionData(userID: String, city: String, completion: @escaping (String) -> ()) {
+//        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+//        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
+//            //var sectionContainer : [String] = []
+//            for city in snapshot.children {
+//                let snap = city as! DataSnapshot
+//                let key = snap.key
+//                print("key: ", key)
+//                completion(key)
+//                break
+//                //sectionContainer.append(key)
+//            }
+//        })
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
