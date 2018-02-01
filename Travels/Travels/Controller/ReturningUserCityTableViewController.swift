@@ -9,14 +9,24 @@
 import UIKit
 import Firebase
 import GoogleSignIn
+import GooglePlaces
 
 class ReturningUserCityTableViewController: UITableViewController {
     
     var userData : UserData?
     var cities: [String]?
     
-    @IBAction func addCity(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "addCity", sender: self)
+//    @IBAction func addCity(_ sender: UIBarButtonItem) {
+//        performSegue(withIdentifier: "addCity", sender: self)
+//    }
+    
+    @IBAction func autocompleteClicked(_ sender: UIButton) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        present(autocompleteController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
@@ -59,8 +69,8 @@ class ReturningUserCityTableViewController: UITableViewController {
                 returningUserCityDetailVC?.userData = userData
             }
         }
-        if let addMemoryVC = segue.destination as? OnboardCitySelect {
-            addMemoryVC.userData = userData
+        if let addNewCity = segue.destination as? OnboardEmptyList {
+            addNewCity.userData = userData
         }
     }
 
@@ -86,25 +96,6 @@ class ReturningUserCityTableViewController: UITableViewController {
             self.tableView.reloadData()
         })
     }
-    
-//    func setupSavedLocations(completion: @escaping ([String], [String:String]) -> ()) {
-//        guard let uid = userID else { return }
-//        let databaseRef = Database.database().reference(fromURL: "https://wanderlist-67ec0.firebaseio.com/").child("Users").child(uid).child("Cities")
-//        var dataTest : [String] = []
-//        var dataTestDic : [String:String] = [:]
-//        //var cityDictionary: [String:String]()
-//        databaseRef.observeSingleEvent(of: .value, with: {(snapshot) in
-//            for child in snapshot.children {
-//                let snap = child as! DataSnapshot
-//                let key = snap.key
-//                guard case let rawCityData as NSObject = snap.value else { return }
-//                guard let value = rawCityData.value(forKey: "Status") else { return }
-//                dataTest.append(key)
-//                dataTestDic[key] = value as! String
-//            }
-//            completion(dataTest, dataTestDic)
-//        })
-//    }
 
     // MARK: - Table view data source
 
@@ -172,4 +163,35 @@ class ReturningUserCityTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDelegate {
+    
+    // Handle the user's selection.
+    func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
+        self.userData?.currentCitySelection = place.formattedAddress
+        dismiss(animated: true, completion: {
+            self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
+        })
+    }
+    
+    func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
+        // TODO: handle the error.
+        print("Error: ", error.localizedDescription)
+    }
+    
+    // User canceled the operation.
+    func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    // Turn the network activity indicator on and off again.
+    func didRequestAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+    }
+    
+    func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
+    }
+    
 }

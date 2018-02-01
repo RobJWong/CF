@@ -233,7 +233,7 @@ What city are you starting with?</string>
                                 <color key="titleColor" red="0.094117647058823528" green="0.40784313725490196" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="addCity:" destination="c5I-LU-Pkc" eventType="touchUpInside" id="1Ar-Rn-z1b"/>
+                                <action selector="autocompleteClicked:" destination="c5I-LU-Pkc" eventType="touchUpInside" id="2Vm-6D-sLN"/>
                             </connections>
                         </button>
                         <prototypes>
@@ -257,7 +257,7 @@ What city are you starting with?</string>
                     </tableView>
                     <navigationItem key="navigationItem" id="ptx-3f-A3u"/>
                     <connections>
-                        <segue destination="48H-h8-TKe" kind="show" identifier="addCity" id="aNF-5p-T6M"/>
+                        <segue destination="zUX-md-0qD" kind="show" identifier="OnboardingEmptyList" id="rCh-h6-zjA"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wZ1-BS-JRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -312,6 +312,9 @@ What city are you starting with?</string>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PJX-dN-wMs">
                                     <rect key="frame" x="34" y="34" width="25" height="25"/>
                                     <state key="normal" image="icon_back"/>
+                                    <connections>
+                                        <action selector="backButton:" destination="67T-0z-CuD" eventType="touchUpInside" id="906-VN-Ioa"/>
+                                    </connections>
                                 </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -471,7 +474,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zit-CJ-MkF">
-                                    <rect key="frame" x="106.99999999999999" y="111.66666666666667" width="200.66666666666663" height="46.666666666666671"/>
+                                    <rect key="frame" x="107.33333333333333" y="111.66666666666667" width="200.66666666666669" height="46.666666666666671"/>
                                     <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="46.400001525878906"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -490,15 +493,24 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                         <action selector="switchSections:" destination="rtn-eU-Xza" eventType="touchUpInside" id="ws9-Hx-pPD"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKX-gD-gp9">
+                                    <rect key="frame" x="355" y="34" width="25" height="25"/>
+                                    <state key="normal" image="icon_add_solo"/>
+                                    <connections>
+                                        <segue destination="zUX-md-0qD" kind="show" identifier="addMemory" id="7rS-M2-ysJ"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="Ode-bm-v0n" firstAttribute="top" secondItem="zit-CJ-MkF" secondAttribute="bottom" constant="18.699999999999999" id="4T5-Nb-nwJ"/>
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="4iR-mY-R6S"/>
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="111.3" id="6fV-jd-3zs"/>
+                                <constraint firstAttribute="trailing" secondItem="OKX-gD-gp9" secondAttribute="trailing" constant="34" id="8Bt-Zh-f0R"/>
                                 <constraint firstItem="Ode-bm-v0n" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="VJk-n2-m4n"/>
                                 <constraint firstItem="fge-I4-TDc" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="34" id="dgJ-Bj-rEH"/>
                                 <constraint firstItem="fge-I4-TDc" firstAttribute="leading" secondItem="8fp-zf-5hg" secondAttribute="leading" constant="34" id="h56-Sz-4S1"/>
+                                <constraint firstItem="OKX-gD-gp9" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="34" id="uym-OX-Bqr"/>
                             </constraints>
                         </view>
                         <prototypes>
@@ -553,7 +565,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjg-PT-WkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="1811"/>
+            <point key="canvasLocation" x="598.55072463768124" y="1810.5978260869567"/>
         </scene>
         <!--Section Name Table View Controller-->
         <scene sceneID="djZ-QM-9OR">
@@ -753,7 +765,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
         <image name="pinkGB" width="375" height="1570"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="10J-6W-hea"/>
-        <segue reference="aNF-5p-T6M"/>
+        <segue reference="JIe-Bg-xHv"/>
+        <segue reference="7rS-M2-ysJ"/>
     </inferredMetricsTieBreakers>
 </document>

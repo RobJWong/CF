@@ -13,7 +13,10 @@ class ChangeSectionsTableViewController: UITableViewController {
     
     var userData: UserData?
     var sectionNameContainer: [String]?
-
+    
+    @IBAction func backButton(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +27,12 @@ class ChangeSectionsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         setupSectionData(userID: userID, city: selectedCity)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addMemoryVC = segue.destination as? OnboardEmptyList {
+            addMemoryVC.userData = userData
+        }
     }
 
     override func didReceiveMemoryWarning() {
