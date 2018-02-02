@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class AddNotesViewController: UIViewController {
+    
+    @IBOutlet weak var sectionName: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,4 +35,10 @@ class AddNotesViewController: UIViewController {
     }
     */
 
+}
+
+extension AddNotesViewController: SelectionStringDelegate {
+    func setupSelectionString(selection: String) {
+        sectionName.text = selection
+    }
 }
