@@ -53,9 +53,10 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
 //        }
     }
     
+    
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
-            AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
+            //AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
             return
         }
         guard let idToken = user.authentication.idToken, let accessToken = user.authentication.accessToken else { return }
@@ -68,7 +69,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             guard let uid = user?.uid, let email = user?.email, let user = user else { return }
             let firebaseRef = Database.database()
             let values = ["Email": email]
-            //let userReference = firebaseRef.reference(fromURL: "https://travels-3ef98.firebaseio.com/").child("Users").child(uid)
             let testData = Database.database().reference()
             print("TestData: ", testData)
             let userReference = firebaseRef.reference().child("Users").child(uid)

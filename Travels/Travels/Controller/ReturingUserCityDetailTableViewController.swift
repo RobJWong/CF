@@ -50,12 +50,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-//        let yourBackImage = UIImage(named: "icon_back")
-//        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
-//        //        self.navigationItem.backBarButtonItem?.title = ""
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
@@ -68,22 +62,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
                 })
             }
         })
-//        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
-//        if userData?.sectionName != nil {
-//            sectionName = userData?.sectionName
-//        } else {
-//            getSectionData(userID: userID, city: selectedCity) { (sectionString) in
-//                //DispatchQueue.main.async(execute: {
-//                self.sectionName = sectionString
-//                self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
-//                    DispatchQueue.main.async(execute:{
-//                        self.cityName?.text = selectedCity
-//                        self.changeSections.setTitle(self.sectionName, for: .normal)
-//                        self.setupTableData(tableDataHolder: tableData)
-//                    })
-//                }
-//            }
-//        }
     }
     
     

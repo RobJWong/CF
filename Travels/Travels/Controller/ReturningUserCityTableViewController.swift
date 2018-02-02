@@ -41,13 +41,6 @@ class ReturningUserCityTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-    @IBAction func didTapSignOut(sender: AnyObject) {
-        GIDSignIn.sharedInstance().signOut()
-        let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! LoginViewContoller
-        present(homeVC, animated: true, completion: nil)
-        AlertBox.sendAlert(boxMessage: "Signed out", presentingController: self)
-    }
-    
 //    func setupNavbar () {
 //        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
 //        self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -71,6 +64,9 @@ class ReturningUserCityTableViewController: UITableViewController {
         }
         if let addNewCity = segue.destination as? OnboardEmptyList {
             addNewCity.userData = userData
+        }
+        if let userProfileVC = segue.destination as? UserProfileViewController {
+            userProfileVC.userData = userData
         }
     }
 
