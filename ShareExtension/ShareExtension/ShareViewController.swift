@@ -12,7 +12,7 @@ import MobileCoreServices
 
 class ShareViewController: SLComposeServiceViewController {
     
-    let userDefaultsKey = "LinksUserDefaultsKey"
+    var userDefaultsKey = "LinksUserDefaultsKey"
     var userList = [ListContainer]()
     var selectedList: ListContainer?
     
@@ -48,6 +48,12 @@ class ShareViewController: SLComposeServiceViewController {
     }
 
     override func didSelectPost() {
+        
+        userDefaultsKey = "LinksUserDefaultsKey"
+        if selectedList?.title == "List 2" {
+            userDefaultsKey = "LinksUserDefaultsKey2"
+        }
+        
         let contentType = kUTTypeURL as String
         let content = extensionContext!.inputItems.first as! NSExtensionItem
         
