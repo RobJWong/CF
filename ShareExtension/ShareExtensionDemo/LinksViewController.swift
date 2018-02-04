@@ -1,26 +1,59 @@
 //
+//  Created by Robert Wong on 2/3/18.
+//  Copyright © 2018 CareerFoundry. All rights reserved.
+//
 //  ViewController.swift
 //  ShareExtensionDemo
-//
-//  Created by Hesham Abd-Elmegid on 7/4/16.
-//  Copyright © 2016 CareerFoundry. All rights reserved.
-//
+
 
 import UIKit
 import SafariServices
 
 class LinksViewController: UITableViewController, SFSafariViewControllerDelegate {
-    let userDefaultsKey = "LinksUserDefaultsKey"
+    
+    @IBOutlet weak var watchListButton: UIBarButtonItem!
+    
+    @IBAction func changeListButton(_ sender: Any) {
+        if watchListButton.title == "List 2" {
+            userDefaultsKey = "LinksUserDefaultsKey2"
+            watchListButton.title = "List 1"
+            self.title = "List 2"
+            tableView.reloadData()
+        } else {
+            userDefaultsKey = "LinksUserDefaultsKey"
+            watchListButton.title = "List 2"
+            self.title = "List 1"
+            tableView.reloadData()
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "List 1"
+        NotificationCenter.default.addObserver(self, selector: #selector(LinksViewController.appBecomeActive), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil )
+        
+    }
+    
+    @objc func appBecomeActive() {
+        
+        tableView.reloadData()
+    }
+    
+    var userDefaultsKey = "LinksUserDefaultsKey"
     
     var links: Array<String> {
         get {
-            if let linksFromUserDefaults = UserDefaults.standard.object(forKey: userDefaultsKey) {
-                return linksFromUserDefaults as! Array<String>
+            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtDemo")
+            if let links = userDefaults?.object(forKey: userDefaultsKey) as! Array<String>? {
+                return links
             }
+            
             return []
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: userDefaultsKey)
+            let userDefaults = UserDefaults(suiteName: "group.com.careerfoundry.ShareExtDemo")
+            userDefaults?.set(newValue, forKey: userDefaultsKey)
+            userDefaults?.synchronize()
         }
     }
     
@@ -44,7 +77,7 @@ class LinksViewController: UITableViewController, SFSafariViewControllerDelegate
         }
         
         present(alertController, animated: true, completion: nil)
-   
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -70,10 +103,11 @@ class LinksViewController: UITableViewController, SFSafariViewControllerDelegate
         guard let url = URL(string: urlString) , urlString.lowercased().hasPrefix("http://") || urlString.lowercased().hasPrefix("https://") else {
             return
         }
-   
+        
         let safariViewController = SFSafariViewController(url: url)
         safariViewController.delegate = self
         self.present(safariViewController, animated: true, completion: nil)
     }
+    
 }
 
