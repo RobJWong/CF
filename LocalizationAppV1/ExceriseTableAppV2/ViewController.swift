@@ -32,19 +32,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Set #\(section + 1)"
+        let setString = NSLocalizedString("Set", comment: "")
+        return "\(setString) #\(section + 1)"
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if indexPath.row >= allItems[indexPath.section].count, isEditing{
-            cell.textLabel?.text = "Add Random Exercise"
+            cell.textLabel?.text = NSLocalizedString("Add Random Exercise", comment: "")
             cell.detailTextLabel?.text = nil
         } else {
             let item = allItems[indexPath.section][indexPath.row]
             
-            cell.textLabel?.text = item.exceriseName
+            //cell.textLabel?.text = item.exceriseName
+            cell.textLabel?.text = NSLocalizedString(item.exceriseName, comment: "")
             cell.detailTextLabel?.text = String(item.reps)
     
         }

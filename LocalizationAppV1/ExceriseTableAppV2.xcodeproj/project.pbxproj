@@ -13,6 +13,7 @@
 		D48B233B1F1290B800FFE257 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D48B233A1F1290B800FFE257 /* Assets.xcassets */; };
 		D48B233E1F1290B800FFE257 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D48B233C1F1290B800FFE257 /* LaunchScreen.storyboard */; };
 		D48B23461F12918800FFE257 /* ExceriseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D48B23451F12918800FFE257 /* ExceriseSet.swift */; };
+		D94CD3472026E1C800EFA555 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D94CD3492026E1C800EFA555 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,10 @@
 		D48B233D1F1290B800FFE257 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D48B233F1F1290B800FFE257 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D48B23451F12918800FFE257 /* ExceriseSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExceriseSet.swift; sourceTree = "<group>"; };
+		D94CD3432026E0CA00EFA555 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		D94CD3442026E0CA00EFA555 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		D94CD3482026E1C800EFA555 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		D94CD34A2026E1D800EFA555 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +64,7 @@
 				D48B23331F1290B800FFE257 /* AppDelegate.swift */,
 				D48B23351F1290B800FFE257 /* ViewController.swift */,
 				D48B23451F12918800FFE257 /* ExceriseSet.swift */,
+				D94CD3492026E1C800EFA555 /* Localizable.strings */,
 				D48B23371F1290B800FFE257 /* Main.storyboard */,
 				D48B233A1F1290B800FFE257 /* Assets.xcassets */,
 				D48B233C1F1290B800FFE257 /* LaunchScreen.storyboard */,
@@ -99,6 +105,7 @@
 				TargetAttributes = {
 					D48B232F1F1290B800FFE257 = {
 						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = S8U5C9WC7P;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -110,6 +117,7 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = D48B23271F1290B800FFE257;
 			productRefGroup = D48B23311F1290B800FFE257 /* Products */;
@@ -127,6 +135,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D48B233E1F1290B800FFE257 /* LaunchScreen.storyboard in Resources */,
+				D94CD3472026E1C800EFA555 /* Localizable.strings in Resources */,
 				D48B233B1F1290B800FFE257 /* Assets.xcassets in Resources */,
 				D48B23391F1290B800FFE257 /* Main.storyboard in Resources */,
 			);
@@ -152,6 +161,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				D48B23381F1290B800FFE257 /* Base */,
+				D94CD3432026E0CA00EFA555 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -160,8 +170,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				D48B233D1F1290B800FFE257 /* Base */,
+				D94CD3442026E0CA00EFA555 /* es */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		D94CD3492026E1C800EFA555 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D94CD3482026E1C800EFA555 /* en */,
+				D94CD34A2026E1D800EFA555 /* es */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -171,6 +191,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -222,6 +243,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -266,7 +288,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = ExceriseTableAppV2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ExceriseTableAppV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -278,7 +302,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = ExceriseTableAppV2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ExceriseTableAppV2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,6 +331,7 @@
 				D48B23441F1290B800FFE257 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

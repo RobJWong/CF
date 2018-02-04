@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  ExceriseTableAppV2
+
+  Created by Robert Wong on 2/4/18.
+  Copyright © 2018 Robert Wong. All rights reserved.
+*/
+"Add Random Exercise" = "Agregar ejercicio al azar";
+"Set" = "Conjunto";
+"Squats" = "Sentadillas";
+"Jumping Jacks" = "Saltos de tijera";
+"Push Ups" = " Flexión";
+"Crunches" = "Crujidos";
+"Bicycle Kicks" = "Patadas de bicicleta";
+"Lunges" = "Estocadas";
+"Burpies" = "Burpees";
+"Knee Jumps" = "Saltos de rodilla";
+"Pull Ups" = "Dominada";
+"Hip Raise" = "Aumentos de cadera";
