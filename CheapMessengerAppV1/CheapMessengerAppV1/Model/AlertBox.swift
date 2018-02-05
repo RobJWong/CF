@@ -15,8 +15,6 @@ class AlertBox {
         static let applicationName = "Messenger"
         static let applicationDismiss = "Ok"
     }
-//    var applicationName: String = "Messenger"
-//    var option: String = "Ok"
     
     class func sendAlert(boxMessage: String, presentingController: UIViewController) {
         let alertController = UIAlertController(title: alertBoxProperties.applicationName, message: boxMessage, preferredStyle: .alert)
@@ -24,21 +22,4 @@ class AlertBox {
         presentingController.present(alertController, animated: true, completion: nil)
     }
 }
-
-
-//class AlertViews {
-//    struct Properties {
-//        static let applicationName = "Chatterbox"
-//        static let dismissButton = "Dismiss"
-//    }
-//
-//    class func showAlert(message: String, on presentingController: UIViewController) {
-//        let alertController = UIAlertController(title: Properties.applicationName,
-//                                                message: message, preferredStyle: .alert)
-//        alertController.addAction(UIAlertAction(title: Properties.dismissButton,
-//                                                style: .default, handler: nil))
-//        presentingController.present(alertController, animated: true, completion: nil)
-//    }
-//
-//}
 

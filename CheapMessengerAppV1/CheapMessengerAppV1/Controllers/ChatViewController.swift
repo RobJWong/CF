@@ -94,19 +94,10 @@ class ChatViewController: JSQMessagesViewController {
     
     //need to fix
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-//        Flurry.logEvent("Sent message")
         let parameters = ["Sent" : senderDisplayName]
         Flurry.logEvent("Sent message", withParameters: parameters)
         //get reference to database
         let messageRef = ref.child("messages").childByAutoId()
-        
-        //create a message
-//        let message = [
-//            "text": text!,
-//            "senderId": senderId!,
-//            "senderDisplayName": senderDisplayName!
-//        ]
-        
         let message = [
             "text": text!,
             "to" : users?.userIdKey,
@@ -144,11 +135,6 @@ class ChatViewController: JSQMessagesViewController {
         let message = JSQMessage(senderId: id, displayName: name, text: text)
         messages.append(message!)
     }
-    
-//    func addMessage(text: String) {
-//        let message = JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text)
-//        messages.append(message!)
-//    }
     
     private func setupMessageBubbles() {
         let factory = JSQMessagesBubbleImageFactory()
