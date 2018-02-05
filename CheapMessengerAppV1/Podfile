@@ -7,6 +7,8 @@ target 'CheapMessengerAppV1' do
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod 'JSQMessagesViewController'
+pod 'Flurry-iOS-SDK/FlurrySDK'
+pod 'Flurry-iOS-SDK/FlurryAds'
 
   # Pods for CheapMessengerAppV1
 

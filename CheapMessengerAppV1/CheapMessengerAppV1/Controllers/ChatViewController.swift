@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import JSQMessagesViewController
+import Flurry_iOS_SDK
 
 class ChatViewController: JSQMessagesViewController {
     
@@ -93,7 +94,9 @@ class ChatViewController: JSQMessagesViewController {
     
     //need to fix
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
-        
+//        Flurry.logEvent("Sent message")
+        let parameters = ["Sent" : senderDisplayName]
+        Flurry.logEvent("Sent message", withParameters: parameters)
         //get reference to database
         let messageRef = ref.child("messages").childByAutoId()
         

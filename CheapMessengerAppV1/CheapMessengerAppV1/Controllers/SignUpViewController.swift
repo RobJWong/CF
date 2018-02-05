@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Flurry_iOS_SDK
 
 class SignUpViewController: UIViewController {
     
@@ -26,6 +27,7 @@ class SignUpViewController: UIViewController {
                 return
         }
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+            Flurry.logEvent("User signed in")
             if let error = error {
                 if error._code == AuthErrorCode.invalidEmail.rawValue {
                     AlertBox.sendAlert(boxMessage:"Enter a valid email.", presentingController: self)

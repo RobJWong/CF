@@ -21,6 +21,7 @@
 		D9FEE97E1F803189001CF12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */; };
 		D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9881F803E94001CF12C /* AlertBox.swift */; };
 		D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE98A1F804535001CF12C /* SignUpViewController.swift */; };
+		E6BE5403B96C6D305CF6195D /* Pods_CheapMessengerAppV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		15B48EE81485A4DD87E0F5B9 /* Pods-CheapMessengerAppV1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapMessengerAppV1.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1.release.xcconfig"; sourceTree = "<group>"; };
+		4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapMessengerAppV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A75A82907E82AC2F9DF6F0AD /* Pods-CheapMessengerAppV1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapMessengerAppV1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1.debug.xcconfig"; sourceTree = "<group>"; };
 		D951D1201FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheapMessengerAppV1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D951D1221FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapMessengerAppV1UITests.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6BE5403B96C6D305CF6195D /* Pods_CheapMessengerAppV1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +80,7 @@
 		C1C8DAC550D8535E63C68AC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -266,6 +270,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
@@ -275,6 +280,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
