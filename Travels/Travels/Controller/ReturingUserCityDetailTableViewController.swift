@@ -45,6 +45,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
         let backgroundImage = UIImage(named: "greenBG")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView

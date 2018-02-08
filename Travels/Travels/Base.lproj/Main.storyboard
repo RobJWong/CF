@@ -522,7 +522,8 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                 <rect key="frame" x="226" y="304.33333333333331" width="138" height="170"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZf-8U-AR8">
-                                        <rect key="frame" x="20" y="114.66666666666669" width="98" height="30"/>
+                                        <rect key="frame" x="20" y="114.66666666666669" width="98" height="31"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                         <state key="normal" title="Add Note"/>
                                         <connections>
                                             <segue destination="j96-5C-6Id" kind="show" id="h95-Cw-CC8"/>
@@ -615,6 +616,10 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                         <segue destination="zUX-md-0qD" kind="show" identifier="addMemory" id="7rS-M2-ysJ"/>
                                     </connections>
                                 </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8wA-kl-wrp">
+                                    <rect key="frame" x="299" y="34" width="25" height="25"/>
+                                    <state key="normal" image="icon_edit"/>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -622,6 +627,8 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="4iR-mY-R6S"/>
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="111.3" id="6fV-jd-3zs"/>
                                 <constraint firstAttribute="trailing" secondItem="OKX-gD-gp9" secondAttribute="trailing" constant="34" id="8Bt-Zh-f0R"/>
+                                <constraint firstItem="OKX-gD-gp9" firstAttribute="leading" secondItem="8wA-kl-wrp" secondAttribute="trailing" constant="31" id="Gkz-mx-LNm"/>
+                                <constraint firstItem="8wA-kl-wrp" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="34" id="IIB-vv-K7J"/>
                                 <constraint firstItem="Ode-bm-v0n" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="VJk-n2-m4n"/>
                                 <constraint firstItem="fge-I4-TDc" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="34" id="dgJ-Bj-rEH"/>
                                 <constraint firstItem="fge-I4-TDc" firstAttribute="leading" secondItem="8fp-zf-5hg" secondAttribute="leading" constant="34" id="h56-Sz-4S1"/>
@@ -643,7 +650,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                                 <constraint firstAttribute="height" constant="262" id="Bs6-JW-cJY"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
                                             <rect key="frame" x="20" y="273" width="374" height="66"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -674,10 +681,14 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="349.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
                                             <rect key="frame" x="69.666666666666657" y="58" width="274.66666666666674" height="234"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="234" id="csL-ZS-zbO"/>
+                                                <constraint firstAttribute="width" constant="274.67000000000002" id="yTs-hE-CmU"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="19.200000762939453"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                     </subviews>
@@ -900,6 +911,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
         <image name="icon_back" width="25" height="25"/>
         <image name="icon_camera" width="40" height="40"/>
         <image name="icon_checkmark" width="25" height="25"/>
+        <image name="icon_edit" width="25" height="25"/>
         <image name="icon_settings" width="25" height="25"/>
         <image name="icon_text" width="40" height="40"/>
         <image name="magicDust" width="11" height="27"/>
