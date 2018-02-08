@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */; };
 		D918A3DF200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */; };
-		D918A3E3200FD8CF00A686C0 /* CityDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */; };
+		D918A3E3200FD8CF00A686C0 /* ImageNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */; };
+		D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B4573202B488000A5FEE1 /* NotesCell.swift */; };
 		D948D15320093B3200B5B411 /* OnboardEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */; };
 		D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15020093B3200B5B411 /* LoginViewContoller.swift */; };
 		D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15120093B3200B5B411 /* OnboardCitySelect.swift */; };
@@ -39,7 +40,8 @@
 		CD4A5A31DA48C51CBA889FC8 /* Pods-Travels.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Travels.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Travels/Pods-Travels.debug.xcconfig"; sourceTree = "<group>"; };
 		D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturningUserCityTableViewController.swift; sourceTree = "<group>"; };
 		D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReturingUserCityDetailTableViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/Travels/Travels/Controller/ReturingUserCityDetailTableViewController.swift"; sourceTree = "<absolute>"; };
-		D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CityDetailTableViewCell.swift; path = Travels/Model/CityDetailTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageNotesCell.swift; path = Travels/Model/ImageNotesCell.swift; sourceTree = SOURCE_ROOT; };
+		D91B4573202B488000A5FEE1 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesCell.swift; path = Travels/Model/NotesCell.swift; sourceTree = SOURCE_ROOT; };
 		D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardEmptyList.swift; sourceTree = "<group>"; };
 		D948D15020093B3200B5B411 /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		D948D15120093B3200B5B411 /* OnboardCitySelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
@@ -118,7 +120,8 @@
 			children = (
 				D9739ED9200573D3000E12FD /* AlertBox.swift */,
 				D948D15D200AAFCA00B5B411 /* UserData.swift */,
-				D918A3E2200FD8CF00A686C0 /* CityDetailTableViewCell.swift */,
+				D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */,
+				D91B4573202B488000A5FEE1 /* NotesCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,9 +316,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D918A3E3200FD8CF00A686C0 /* CityDetailTableViewCell.swift in Sources */,
+				D918A3E3200FD8CF00A686C0 /* ImageNotesCell.swift in Sources */,
 				D94CD2F7202424C800EFA555 /* UserProfileViewController.swift in Sources */,
 				D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */,
+				D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */,
 				D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */,
 				D988801120056D88000DEE66 /* AppDelegate.swift in Sources */,
 				D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */,

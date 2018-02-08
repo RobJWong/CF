@@ -67,12 +67,10 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 return
             }
             guard let uid = user?.uid, let email = user?.email, let user = user else { return }
-            let firebaseRef = Database.database()
+            //let firebaseRef = Database.database()
             let values = ["Email": email]
-            let testData = Database.database().reference()
-            print("TestData: ", testData)
-            let userReference = firebaseRef.reference().child("Users").child(uid)
-            firebaseRef.reference().observeSingleEvent(of: .value, with: { (snapshot) in
+            let userReference = Database.database().reference().child("Users").child(uid)
+            Database.database().reference().observeSingleEvent(of: .value, with: { (snapshot) in
                 let userDataString = "Users/" + uid + "/Cities"
                 if snapshot.hasChild(userDataString) {
                     //send to returning page

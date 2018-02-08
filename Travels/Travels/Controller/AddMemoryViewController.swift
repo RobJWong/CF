@@ -117,7 +117,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let firebaseRef = Database.database()
         let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
         //let imagePath = "\(userID)/\(city)/\("Wow")/\(timeStamp)/\(imageURL)"
-        print(imagePath)
+        //print(imagePath)
         //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
         //print(imageText.text)

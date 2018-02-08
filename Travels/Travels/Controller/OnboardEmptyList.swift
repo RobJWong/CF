@@ -47,6 +47,9 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
             uploadPhotoVC.imageURL = storedImageURL
             uploadPhotoVC.userData = userData
         }
+        if let uploadNotesVC = segue.destination as? AddNotesViewController {
+            uploadNotesVC.userData = userData
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

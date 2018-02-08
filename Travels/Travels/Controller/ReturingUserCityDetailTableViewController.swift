@@ -50,7 +50,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
@@ -74,10 +74,17 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
                 let snap = dataSet as! DataSnapshot
                 let k = snap.key
                 let v = snap.value
+                //print("k snap:", k)
+                //print("v snap:", v)
+                indexData = [:]
                 for (key, value) in v as! [String: Any] {
                     indexData[key] = value
+                    //print("key: ", key)
+                    //print("value: ", value)
+                    //print("indexData[key]: ",[indexData[key]])
                 }
                 indexDataArray.append(indexData)
+                //print("IDA: ", indexDataArray)
             }
             completion(indexDataArray)
         })
@@ -145,23 +152,34 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cityData", for: indexPath) as! CityDetailTableViewCell
-        cell.notes.text = tableData[indexPath.row]["Notes"] as! String
-        guard let imageFirebasePath = tableData[indexPath.row]["Image"] else { return cell }
-        let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
-        
-        pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
-            if let error = error {
-                print(error)
-                // Uh-oh, an error occurred!
-            } else {
-                // Data for "images/island.jpg" is returned
-                let image = UIImage(data: data!)
-                cell.storedImage.image = image
+        if let imageCheck = tableData[indexPath.row]["Image"] {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "imageNotesData", for: indexPath) as! ImageNotesCell
+            cell.notes.text = tableData[indexPath.row]["Notes"] as! String
+            guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
+                return cell }
+            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
+            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+                if let error = error {
+                    print(error)
+                } else {
+                    let image = UIImage(data: data!)
+                    cell.storedImage.image = image
+                }
             }
+            return cell
         }
-
-        return cell
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "notesData", for: indexPath) as! NotesCell
+            let noteString = tableData[indexPath.row]["Notes"] as! String
+            print("NS: ",noteString)
+            cell.notes.text = tableData[indexPath.row]["Notes"] as! String
+            print("cell.notes: ",cell.notes)
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(tableData[indexPath.row]["Notes"])
     }
 
     /*

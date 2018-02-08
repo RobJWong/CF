@@ -1,5 +1,5 @@
 //
-//  CityDetailTableViewCell.swift
+//  ImageNotesCell.swift
 //  Travels
 //
 //  Created by Robert Wong on 1/17/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CityDetailTableViewCell: UITableViewCell {
+class ImageNotesCell: UITableViewCell {
     
     @IBOutlet weak var storedImage: UIImageView!
     @IBOutlet weak var notes: UITextView!

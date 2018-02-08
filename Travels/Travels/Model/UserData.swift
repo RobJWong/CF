@@ -16,7 +16,7 @@ class UserData {
     var userID : String?
     var email: String?
     var currentCitySelection: String?
-    var currentDate: [String]?
+    //var currentDate: [String]?
     var userName: String?
     var newUser: Bool?
     var sectionName: String?
