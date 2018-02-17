@@ -15,9 +15,37 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     var userID: String?
     var selectedCity: String?
     var tableData = [[String:Any]]()
+    var currentSectionString: String?
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var changeSections: UIButton!
+    
+    var notesCell = NotesCell()
+    
+    @IBAction func editTable(_ sender: UIButton) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        if tableView.isEditing {
+            tableView.reloadData()
+        }
+        if !tableView.isEditing {
+            
+             guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
+            let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
+            deleteInfo.removeValue()
+            let count = tableData.count
+            for idx in 0...count - 1 {
+                let idxString = String(idx)
+                let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
+                let values = tableData[idx]
+                firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
+                    if err != nil {
+                        print(err)
+                        return
+                    }
+                })
+            }
+        }
+    }
     
     @IBAction func backButton(_ sender: UIButton) {
         //dismiss(animated: true, completion: nil)
@@ -25,10 +53,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         homeVC.userData = userData
         present(homeVC, animated: true, completion: nil)
     }
-    
-//    @IBAction func addMemory(_ sender: UIButton) {
-//         performSegue(withIdentifier: "AddMemory", sender: self)
-//    }
     
     @IBAction func switchSections(_ sender: UIButton) {
         let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
@@ -53,12 +77,14 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         
         tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.allowsSelectionDuringEditing = true
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
             self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
                 DispatchQueue.main.async(execute:  {
                     self.cityName?.text = selectedCity
                     self.changeSections.setTitle(sectionString, for: .normal)
+                    self.currentSectionString = sectionString
                     self.setupTableData(tableDataHolder: tableData)
                 })
             }
@@ -75,17 +101,11 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
                 let snap = dataSet as! DataSnapshot
                 let k = snap.key
                 let v = snap.value
-                //print("k snap:", k)
-                //print("v snap:", v)
                 indexData = [:]
                 for (key, value) in v as! [String: Any] {
                     indexData[key] = value
-                    //print("key: ", key)
-                    //print("value: ", value)
-                    //print("indexData[key]: ",[indexData[key]])
                 }
                 indexDataArray.append(indexData)
-                //print("IDA: ", indexDataArray)
             }
             completion(indexDataArray)
         })
@@ -107,21 +127,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
             })
         }
     }
-    
-//    func getSectionData(userID: String, city: String, completion: @escaping (String) -> ()) {
-//        let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-//        databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
-//            //var sectionContainer : [String] = []
-//            for city in snapshot.children {
-//                let snap = city as! DataSnapshot
-//                let key = snap.key
-//                print("key: ", key)
-//                completion(key)
-//                break
-//                //sectionContainer.append(key)
-//            }
-//        })
-//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -172,51 +177,46 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "notesData", for: indexPath) as! NotesCell
             let noteString = tableData[indexPath.row]["Notes"] as! String
-            print("NS: ",noteString)
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
-            print("cell.notes: ",cell.notes)
+            //cell.notes.delegate = self as! UITextViewDelegate
+            cell.notes.tag = indexPath.row
+            if tableView.isEditing {
+                cell.notes.isEditable = true
+            } else {
+                cell.notes.isEditable = false
+            }
             return cell
         }
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("sadadasdasdassdSA")
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(tableData[indexPath.row]["Notes"])
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        let sectionItems = tableData[indexPath.section]
+        if indexPath.row >= sectionItems.count && isEditing {
+            return false
+        }
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+            tableData.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
+    
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let tempObj = self.tableData[fromIndexPath.row]
+        tableData.remove(at: fromIndexPath.row)
+        tableData.insert(tempObj, at: to.row)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation

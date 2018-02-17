@@ -66,14 +66,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             tableView.insertRows(at: [indexPath], with: .fade)
         }
     }
-    
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
-        let sectionItems = allItems[indexPath.section]
-        if indexPath.row >= sectionItems.count {
-            return .insert
-        } else {
-            return .delete
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let title = "          "
+        let deleteAction = UITableViewRowAction(style: .default, title: title) { (action, indexpath) in
         }
+        let image = UIImage(named: "icon_trash")
+        if let im = image {
+            deleteAction.backgroundColor = UIColor(patternImage: im)
+        }
+        return [deleteAction]
+    }
+    
+    @available(iOS 11.0, *)
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(style: .normal, title:  "", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            success(true)
+        })
+        deleteAction.image = UIImage(named: "icon_trash")
+        deleteAction.backgroundColor = .red
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
     
     func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
