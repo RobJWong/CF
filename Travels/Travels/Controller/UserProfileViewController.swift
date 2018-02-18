@@ -51,6 +51,7 @@ class UserProfileViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        setupNavBarItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,6 +59,23 @@ class UserProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(UserProfileViewController.buttonAction(_:)))
+        backButton.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = backButton
+        
+    }
+    
+    
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
 
     /*
     // MARK: - Navigation

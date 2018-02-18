@@ -17,9 +17,9 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     
     var userData: UserData?
     
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
+//    }
     
     @IBAction func openCameraButton(_sender: UIButton) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -34,11 +34,31 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setupNavBarItems()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
+        
+    }
+    
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        //let onboardCitySelectVC = OnboardCitySelect()
+        //self.navigationController?.popToViewController(onboardCitySelectVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "userSettings", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

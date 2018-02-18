@@ -40,9 +40,9 @@ class AddNotesViewController: UIViewController {
         updateFirebase(city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString, notes: noteText)
     }
     
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

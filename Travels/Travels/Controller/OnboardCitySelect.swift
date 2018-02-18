@@ -13,12 +13,12 @@ class OnboardCitySelect: UIViewController {
     
     var userData: UserData?
     
-    @IBOutlet weak var backButton: UIButton!
+    //@IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var welcomeMsg: UILabel!
     
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
+//    }
     
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
@@ -32,9 +32,10 @@ class OnboardCitySelect: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupBackButton()
+        //setupBackButton()
         guard let nameString = userData?.userName else { return }
         welcomeMsg.text = "Hi  \(nameString)! \nWhat city are you starting with?"
+        setupNavBarItems()
         
     }
     
@@ -42,6 +43,11 @@ class OnboardCitySelect: UIViewController {
         if let onboardEmptyListVC = segue.destination as? OnboardEmptyList {
             onboardEmptyListVC.userData = userData
         }
+//        if segue.identifier == "OnboardingEmptyList" {
+//            let navVC = segue.destination as? UINavigationController
+//            let onboardingEmptyListVC = navVC?.viewControllers.first as! OnboardEmptyList
+//            onboardingEmptyListVC.userData = userData
+//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,13 +55,32 @@ class OnboardCitySelect: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func setupBackButton() {
-        if userData?.newUser == false {
-            backButton.alpha = 1
-        } else {
-            backButton.alpha = 0
-        }
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        //let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        //self.navigationItem.leftBarButtonItem = backButton
+        
     }
+    
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        //let onboardCitySelectVC = OnboardCitySelect()
+        //self.navigationController?.popToViewController(onboardCitySelectVC, animated: true)
+        //self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "userSettings", sender: self)
+    }
+    
+//    func setupBackButton() {
+//        if userData?.newUser == false {
+//            backButton.alpha = 1
+//        } else {
+//            backButton.alpha = 0
+//        }
+//    }
 
     /*
     // MARK: - Navigation

@@ -98,12 +98,12 @@
 				D948D15120093B3200B5B411 /* OnboardCitySelect.swift */,
 				D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */,
 				D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */,
+				D94CD2F42023B94900EFA555 /* AddNotesViewController.swift */,
 				D94CD24B201A596800EFA555 /* SectionNameTableViewController.swift */,
 				D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */,
 				D918A3DE200F0A4400A686C0 /* ReturingUserCityDetailTableViewController.swift */,
 				D939B178202E0C9200523C93 /* FeedbackBugsViewController.swift */,
 				D94CD2CF2022399500EFA555 /* ChangeSectionsTableViewController.swift */,
-				D94CD2F42023B94900EFA555 /* AddNotesViewController.swift */,
 			);
 			name = Controller;
 			path = Travels/Controller;

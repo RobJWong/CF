@@ -20,7 +20,32 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     var imageURL: NSURL?
     var userData: UserData?
     
-    @IBAction func saveToDB(_ sender: UIButton) {
+//    @IBAction func saveToDB(_ sender: UIButton) {
+//        guard let sectionName = sectionName.text else {
+//            return
+//        }
+//        if sectionName == "" {
+//            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
+//            return
+//        }
+//        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
+//            //print("Something is null please    check")
+//            return
+//        }
+//        let date = NSDate()
+//        let timeStamp = UInt64(floor(date.timeIntervalSince1970))
+//        let timeStampString = String(timeStamp)
+//        //checkDayChild(userID: userID, city: selectedCity)
+//        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
+//        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
+//            DispatchQueue.main.async(execute: {
+//                self.userData?.sectionName = sectionName
+//                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+//            })
+//        }
+//    }
+    
+    func saveToDB() {
         guard let sectionName = sectionName.text else {
             return
         }
@@ -64,7 +89,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         memoryNotes.text = "Add notes!"
         memoryNotes.textColor = UIColor.lightGray
         //memoryNotes.becomeFirstResponder()
-        
+        setupNavBarItems()
         viewImage.image = storedImage
         // Do any additional setup after loading the view.
 //        let border = CALayer()
@@ -95,16 +120,32 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    //THIS GETS ME THE DAY
-//    func checkDayChild(userID: String, city: String) {
-//        let databaseFirebase = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-//        databaseFirebase.observeSingleEvent(of: .value, with: { (snapshot) in
-//            for subChild in snapshot.children {
-//                let snap = subChild as! DataSnapshot
-//                print("Key: ", snap.key)
-//            }
-//        })
-//    }
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(AddMemoryViewController.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(AddMemoryViewController.saveButtonAction(_:)))
+        //backButton.tintColor = UIColor.whte
+        self.navigationItem.rightBarButtonItem = saveButton
+        
+    }
+    
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "userSettings", sender: self)
+    }
+    
+    @objc func saveButtonAction(_ sender: UIBarButtonItem) {
+        //self.navigationController?.popViewController(animated: true)
+        //self.performSegue(withIdentifier: "userSettings", sender: self)
+        saveToDB()
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMemoryTable" {

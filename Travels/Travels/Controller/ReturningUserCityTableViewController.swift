@@ -33,7 +33,7 @@ class ReturningUserCityTableViewController: UITableViewController {
         super.viewDidLoad()
 
         setupSavedLocations()
-        //setupNavbar()
+        setupNavBarItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -41,18 +41,22 @@ class ReturningUserCityTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
-//    func setupNavbar () {
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let settingsButton = UIBarButtonItem(image:UIImage(named:"icon_settings"), style:.plain, target:self, action:#selector(ReturningUserCityTableViewController.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.rightBarButtonItem = settingsButton
+        
+    }
     
-//        let yourBackImage = UIImage(named: "icon_back")
-//        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
-//        //        self.navigationItem.backBarButtonItem?.title = ""
-//        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
-//    }
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        //self.navigationController?.popViewController(animated: true)
+        self.performSegue(withIdentifier: "userSettings", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCityDetail" {

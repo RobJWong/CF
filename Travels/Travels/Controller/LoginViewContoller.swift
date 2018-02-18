@@ -33,16 +33,19 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newUser" {
-            let oVC = segue.destination as? OnboardCitySelect
-            oVC?.userData = userData
+//            let oVC = segue.destination as? OnboardCitySelect
+//            oVC?.userData = userData
+            let navVC = segue.destination as? UINavigationController
+            let oVC = navVC?.viewControllers.first as! OnboardCitySelect
+            oVC.userData = userData
         }
         if segue.identifier == "returningUser" {
-//            let navVC = segue.destination as? UINavigationController
-//            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
-//            rVC.userData = userData
-            let rVC = segue.destination as? ReturningUserCityTableViewController
-            print(userData.userID)
-            rVC?.userData = userData
+            let navVC = segue.destination as? UINavigationController
+            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+            rVC.userData = userData
+//            let rVC = segue.destination as? ReturningUserCityTableViewController
+//            print(userData.userID)
+//            rVC?.userData = userData
         }
         
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
@@ -53,8 +56,14 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
 //        }
     }
     
+    func offlineFunctionOnly() {
+        self.performSegue(withIdentifier: "returningUser", sender: self)
+    }
+    
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        //offlineFunctionOnly()
+        //return
         if let err = error {
             //AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
             return
