@@ -43,17 +43,42 @@ class SectionNameTableViewController: UITableViewController {
 //        let barButton = UIBarButtonItem(customView: saveButton)
 //        self.navigationItem.rightBarButtonItem = barButton
         
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        //border.borderColor = UIColor.darkGray.cgColor
-//        border.borderColor = UIColor.lightGray.cgColor
-//        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
-//
-//        border.borderWidth = width
-//        textField.layer.addSublayer(border)
-//        textField.layer.masksToBounds = true
+        let border = CALayer()
+        let width = CGFloat(1)
+        //border.borderColor = UIColor.darkGray.cgColor
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+        border.borderWidth = width
+        textField.layer.addSublayer(border)
+        textField.layer.masksToBounds = true
+        
+        setupNavBarItems()
         guard let userID = userData?.userID, let city = userData?.currentCitySelection else { return }
         setupSavedData(userID: userID, city: city)
+    }
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(SectionNameTableViewController.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(SectionNameTableViewController.checkmarkAction(_:)))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popToRootViewController(animated: true)
+        //self.performSegue(withIdentifier: "userSettings", sender: self)
+    }
+    
+    @objc func checkmarkAction(_ sender: UIBarButtonItem) {
+        savePressed(fromRow: false)
     }
     
     func setupTextbox() {
@@ -72,11 +97,13 @@ class SectionNameTableViewController: UITableViewController {
         if fromRow == false {
             guard let stringInput = textField.text else { return }
             selectionNameDelegate.setupSelectionString(selection: stringInput)
-            dismiss(animated: true , completion: nil)
+            //dismiss(animated: true , completion: nil)
+            navigationController?.popViewController(animated: true)
         } else if fromRow == true {
             guard let indexPath = self.tableView.indexPathForSelectedRow, let sectionNames = sectionNames else { return }
             selectionNameDelegate.setupSelectionString(selection: sectionNames[indexPath.row])
-            dismiss(animated: true , completion: nil)
+            navigationController?.popViewController(animated: true)
+            //dismiss(animated: true , completion: nil)
         }
     }
     

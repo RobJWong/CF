@@ -60,7 +60,7 @@ class ReturningUserCityTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showCityDetail" {
-            let returningUserCityDetailVC = segue.destination as? ReturingUserCityDetailTableViewController
+            let returningUserCityDetailVC = segue.destination as? ReturningUserCityDetailTableViewController
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 userData?.currentCitySelection = cities?[indexPath.row]
                 returningUserCityDetailVC?.userData = userData

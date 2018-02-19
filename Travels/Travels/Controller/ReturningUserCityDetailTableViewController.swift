@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GooglePlaces
 
-class ReturingUserCityDetailTableViewController: UITableViewController {
+class ReturningUserCityDetailTableViewController: UITableViewController {
     
     var userData: UserData?
     var userID: String?
@@ -19,8 +19,6 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var changeSections: UIButton!
-    
-    var notesCell = NotesCell()
     
     @IBAction func editTable(_ sender: UIButton) {
         tableView.setEditing(!tableView.isEditing, animated: true)
@@ -47,12 +45,12 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         }
     }
     
-    @IBAction func backButton(_ sender: UIButton) {
-        //dismiss(animated: true, completion: nil)
-        let homeVC = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! ReturningUserCityTableViewController
-        homeVC.userData = userData
-        present(homeVC, animated: true, completion: nil)
-    }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        //dismiss(animated: true, completion: nil)
+//        let homeVC = storyboard?.instantiateViewController(withIdentifier: "homeVC") as! ReturningUserCityTableViewController
+//        homeVC.userData = userData
+//        present(homeVC, animated: true, completion: nil)
+//    }
     
     @IBAction func switchSections(_ sender: UIButton) {
         let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
@@ -74,6 +72,7 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
+        setupNavBarItems()
         
         tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -91,6 +90,28 @@ class ReturingUserCityDetailTableViewController: UITableViewController {
         })
     }
     
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
+        backButton.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        let addButton = UIBarButtonItem(image:UIImage(named:"icon_add_solo"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.addAction(_:)))
+        addButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = addButton
+    }
+    
+    @objc func backAction(_ sender: UIBarButtonItem) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func addAction(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: "addMemory", sender: self)
+    }
     
     func setupTableView(userID: String, city: String, section: String, completion: @escaping ([[String:Any]]) -> () ) {
         let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(section)

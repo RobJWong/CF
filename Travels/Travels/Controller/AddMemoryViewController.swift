@@ -13,76 +13,25 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var memoryNotes: UITextView!
     @IBOutlet weak var viewImage: UIImageView!
-    //@IBOutlet weak var sectionName: UILabel!
-    @IBOutlet weak var sectionName: UITextField!
+    @IBOutlet weak var sectionName: UILabel!
+    //@IBOutlet weak var sectionName: UITextField!
     
     var storedImage: UIImage?
     var imageURL: NSURL?
     var userData: UserData?
     
-//    @IBAction func saveToDB(_ sender: UIButton) {
-//        guard let sectionName = sectionName.text else {
-//            return
-//        }
-//        if sectionName == "" {
-//            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
-//            return
-//        }
-//        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
-//            //print("Something is null please    check")
-//            return
-//        }
-//        let date = NSDate()
-//        let timeStamp = UInt64(floor(date.timeIntervalSince1970))
-//        let timeStampString = String(timeStamp)
-//        //checkDayChild(userID: userID, city: selectedCity)
-//        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
-//        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
-//            DispatchQueue.main.async(execute: {
-//                self.userData?.sectionName = sectionName
-//                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-//            })
-//        }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
 //    }
     
-    func saveToDB() {
-        guard let sectionName = sectionName.text else {
-            return
-        }
-        if sectionName == "" {
-            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
-            return
-        }
-        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
-            //print("Something is null please    check")
-            return
-        }
-        let date = NSDate()
-        let timeStamp = UInt64(floor(date.timeIntervalSince1970))
-        let timeStampString = String(timeStamp)
-        //checkDayChild(userID: userID, city: selectedCity)
-        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
-        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
-            DispatchQueue.main.async(execute: {
-                self.userData?.sectionName = sectionName
-                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-            })
-        }
-    }
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func showSelectionVC(_ sender: UIButton) {
-        let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
-        sectionNameVC.selectionNameDelegate = self
-        sectionNameVC.userData = userData
-        present(sectionNameVC, animated: true, completion: nil)
-    }
+//    @IBAction func showSelectionVC(_ sender: UIButton) {
+//        let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
+//        sectionNameVC.selectionNameDelegate = self
+//        sectionNameVC.userData = userData
+//        present(sectionNameVC, animated: true, completion: nil)
+//    }
 
     override func viewDidLoad() {
-
         super.viewDidLoad()
 
         memoryNotes.delegate = self
@@ -92,13 +41,17 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         setupNavBarItems()
         viewImage.image = storedImage
         // Do any additional setup after loading the view.
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        border.borderColor = UIColor.lightGray.cgColor
-//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
-//        border.borderWidth = width
-//        sectionName.layer.addSublayer(border)
-//        sectionName.layer.masksToBounds = true
+        let border = CALayer()
+        let width = CGFloat(1)
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
+        border.borderWidth = width
+        sectionName.layer.addSublayer(border)
+        sectionName.layer.masksToBounds = true
+        
+        let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        sectionName.isUserInteractionEnabled = true
+        sectionName.addGestureRecognizer(sectionLabelTap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,6 +89,15 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
+        let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
+        sectionNameVC.selectionNameDelegate = self
+        sectionNameVC.userData = userData
+        self.navigationController?.pushViewController(sectionNameVC, animated: true)    
+        //let naviagtionController = UINavigationController(rootViewController: sectionNameVC)
+        //present(naviagtionController, animated: true, completion: nil)
+    }
+    
     @objc func buttonAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
         //self.performSegue(withIdentifier: "userSettings", sender: self)
@@ -149,8 +111,40 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMemoryTable" {
-             let memoryListVC = segue.destination as? ReturingUserCityDetailTableViewController
+             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
+        }
+//        if segue.identifier == "sectionSelection" {
+//            //let sectionNameVC = segue.destination as! SectionNameTableViewController
+//            let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
+//                sectionNameVC.selectionNameDelegate = self
+//                sectionNameVC.userData = userData
+//                present(sectionNameVC, animated: true, completion: nil)
+//        }
+    }
+    
+    func saveToDB() {
+        guard let sectionName = sectionName.text else {
+            return
+        }
+        if sectionName == "" {
+            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
+            return
+        }
+        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
+            //print("Something is null please    check")
+            return
+        }
+        let date = NSDate()
+        let timeStamp = UInt64(floor(date.timeIntervalSince1970))
+        let timeStampString = String(timeStamp)
+        //checkDayChild(userID: userID, city: selectedCity)
+        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
+        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
+            DispatchQueue.main.async(execute: {
+                self.userData?.sectionName = sectionName
+                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+            })
         }
     }
     

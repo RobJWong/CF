@@ -30,7 +30,7 @@ class ChangeSectionsTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let returningToMemoriesVC = segue.destination as? ReturingUserCityDetailTableViewController {
+        if let returningToMemoriesVC = segue.destination as? ReturningUserCityDetailTableViewController {
             returningToMemoriesVC.userData = userData
         }
     }
