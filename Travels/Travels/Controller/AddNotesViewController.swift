@@ -14,16 +14,75 @@ class AddNotesViewController: UIViewController {
     var userData: UserData?
     
     @IBOutlet weak var notesSection: UITextView!
-    @IBOutlet weak var sectionName: UITextField!
+    //@IBOutlet weak var sectionName: UITextField!
+    @IBOutlet weak var sectionName: UILabel!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        setupNavBarItems()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    @IBAction func showSelectionVC(_ sender: UIButton) {
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        notesSection.setContentOffset(CGPoint.zero, animated: false)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showMemoryTable" {
+            let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
+            memoryListVC?.userData = userData
+        }
+    }
+    
+    @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
         sectionNameVC.selectionNameDelegate = self
         sectionNameVC.userData = userData
-        present(sectionNameVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(sectionNameVC, animated: true)
     }
     
-    @IBAction func saveToDB(_ sender: UIButton) {
+    @objc func buttonAction(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func saveButtonAction(_ sender: UIBarButtonItem) {
+        saveToDB()
+    }
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(AddNotesViewController.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
+        
+        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(AddNotesViewController.saveButtonAction(_:)))
+        //backButton.tintColor = UIColor.whte
+        self.navigationItem.rightBarButtonItem = saveButton
+        
+        let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        sectionName.isUserInteractionEnabled = true
+        sectionName.addGestureRecognizer(sectionLabelTap)
+    }
+    
+    func updateFirebase(city: String, userID: String, sectionName: String, timeStamp: String, notes: String) {
+        let firebaseRef = Database.database()
+        let values = ["Notes": notes]
+        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
+        userReference.updateChildValues(values)
+    }
+    
+    func saveToDB() {
         guard let sectionName = sectionName.text, let selectedCity = userData?.currentCitySelection, let userID = userData?.userID else { return }
         if sectionName == "" {
             AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
@@ -38,33 +97,7 @@ class AddNotesViewController: UIViewController {
         let timeStampString = String(timeStamp)
         
         updateFirebase(city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString, notes: noteText)
-    }
-    
-//    @IBAction func backButton(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
-//    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        notesSection.setContentOffset(CGPoint.zero, animated: false)
-    }
-    
-    func updateFirebase(city: String, userID: String, sectionName: String, timeStamp: String, notes: String) {
-        let firebaseRef = Database.database()
-        let values = ["Notes": notes]
-        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
-        userReference.updateChildValues(values)
+        self.performSegue(withIdentifier: "showMemoryTable", sender: self)
     }
 
     /*

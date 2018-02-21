@@ -74,9 +74,9 @@ class ReturningUserCityDetailTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         setupNavBarItems()
         
-        tableView.estimatedRowHeight = 350
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.allowsSelectionDuringEditing = true
+            tableView.estimatedRowHeight = 350
+            tableView.rowHeight = UITableViewAutomaticDimension
+            tableView.allowsSelectionDuringEditing = true
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
             self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
@@ -106,7 +106,9 @@ class ReturningUserCityDetailTableViewController: UITableViewController {
     }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
-        navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: true)
+        //navigationController?.popToRootViewController(animated: true)
+        //navigationController?.popToViewController(ReturningUserCityTableViewController(), animated: true)
     }
     
     @objc func addAction(_ sender: UIBarButtonItem) {

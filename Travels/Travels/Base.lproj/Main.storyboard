@@ -122,26 +122,19 @@
                                 <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="21.600000381469727"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27U-Pu-iui">
-                                <rect key="frame" x="335" y="514" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="icon_add_solo"/>
-                                <connections>
-                                    <action selector="showSelectionVC:" destination="j96-5C-6Id" eventType="touchUpInside" id="YeY-u8-dh7"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kop-Mq-x1U">
-                                <rect key="frame" x="40" y="518" width="287" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fag-9M-AB2">
+                                <rect key="frame" x="40" y="518" width="334" height="18.666666666666629"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pVV-8O-32D" firstAttribute="top" secondItem="nlH-Pe-WEC" secondAttribute="top" constant="106.33" id="1ub-Rt-Qp7"/>
-                            <constraint firstItem="Kop-Mq-x1U" firstAttribute="top" secondItem="cVy-7B-Met" secondAttribute="bottom" constant="41" id="7NT-XZ-rR8"/>
+                            <constraint firstItem="fag-9M-AB2" firstAttribute="leading" secondItem="cd5-1m-6R5" secondAttribute="leading" constant="40" id="33Z-Uw-Xjq"/>
                             <constraint firstItem="cd5-1m-6R5" firstAttribute="trailing" secondItem="cVy-7B-Met" secondAttribute="trailing" constant="59.850000000000001" id="7l6-UH-oof"/>
+                            <constraint firstItem="cd5-1m-6R5" firstAttribute="trailing" secondItem="fag-9M-AB2" secondAttribute="trailing" constant="40" id="7lx-sF-NCY"/>
                             <constraint firstItem="Drp-nj-QAv" firstAttribute="top" secondItem="nlH-Pe-WEC" secondAttribute="top" id="Ar5-m9-Esm"/>
                             <constraint firstItem="cd5-1m-6R5" firstAttribute="trailing" secondItem="Drp-nj-QAv" secondAttribute="trailing" id="Asc-tO-4rp"/>
                             <constraint firstItem="pVV-8O-32D" firstAttribute="centerX" secondItem="nlH-Pe-WEC" secondAttribute="centerX" id="EqO-Wd-ZZV"/>
@@ -149,18 +142,20 @@
                             <constraint firstItem="cVy-7B-Met" firstAttribute="leading" secondItem="cd5-1m-6R5" secondAttribute="leading" constant="59.850000000000001" id="N60-fC-cim"/>
                             <constraint firstItem="cVy-7B-Met" firstAttribute="top" secondItem="nlH-Pe-WEC" secondAttribute="top" constant="169" id="dkR-kF-eew"/>
                             <constraint firstItem="Drp-nj-QAv" firstAttribute="leading" secondItem="cd5-1m-6R5" secondAttribute="leading" id="eky-ds-z9b"/>
-                            <constraint firstItem="Kop-Mq-x1U" firstAttribute="leading" secondItem="cd5-1m-6R5" secondAttribute="leading" constant="39.700000000000003" id="ksf-1G-V8E"/>
+                            <constraint firstItem="fag-9M-AB2" firstAttribute="top" secondItem="cVy-7B-Met" secondAttribute="bottom" constant="41" id="hdA-qy-00v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cd5-1m-6R5"/>
                     </view>
                     <connections>
                         <outlet property="notesSection" destination="cVy-7B-Met" id="1zk-Nt-JYz"/>
-                        <outlet property="sectionName" destination="Kop-Mq-x1U" id="D4a-w8-Ufa"/>
+                        <outlet property="sectionName" destination="fag-9M-AB2" id="euJ-RE-Ppv"/>
+                        <segue destination="anA-rm-bjN" kind="show" identifier="sectionSelection" id="SCW-R9-qzk"/>
+                        <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="mq5-TX-Ijz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxu-wb-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-117.39130434782609" y="2667.3913043478265"/>
+            <point key="canvasLocation" x="139" y="2777"/>
         </scene>
         <!--Onboard City Select-->
         <scene sceneID="nFm-QK-0MO">
@@ -421,7 +416,7 @@ What city are you starting with?</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Woi-Xy-Bp4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907.2463768115942" y="1812.2282608695652"/>
+            <point key="canvasLocation" x="1697" y="1811"/>
         </scene>
         <!--Onboard Empty List-->
         <scene sceneID="akO-Tn-Amq">
@@ -660,7 +655,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jjg-PT-WkJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="1810.5978260869567"/>
+            <point key="canvasLocation" x="871" y="1811"/>
         </scene>
         <!--Section Name Table View Controller-->
         <scene sceneID="djZ-QM-9OR">
@@ -718,7 +713,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-z6-knF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-617" y="3595"/>
+            <point key="canvasLocation" x="-309" y="3613"/>
         </scene>
         <!--Add Memory View Controller-->
         <scene sceneID="v53-ZS-HHf">
@@ -743,13 +738,6 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                     <constraint firstAttribute="height" constant="322" id="u48-c0-XYv"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TqU-ar-Tks">
-                                <rect key="frame" x="40" y="535" width="334" height="17"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="oU5-1t-F3M">
                                 <rect key="frame" x="40" y="560" width="334" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -758,11 +746,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rh-2o-s3p">
-                                <rect key="frame" x="40" y="535" width="334" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="GSo-U5-RJL"/>
-                                    <constraint firstAttribute="width" constant="334" id="tMx-85-aff"/>
-                                </constraints>
+                                <rect key="frame" x="40" y="535" width="334" height="18.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -772,25 +756,19 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                         <constraints>
                             <constraint firstItem="5Rh-2o-s3p" firstAttribute="top" secondItem="3lH-F7-hdQ" secondAttribute="bottom" constant="41" id="6J5-QI-5JG"/>
                             <constraint firstItem="oNZ-FB-7Cc" firstAttribute="centerX" secondItem="maM-bZ-Va4" secondAttribute="centerX" id="91d-6N-yEI"/>
-                            <constraint firstItem="TqU-ar-Tks" firstAttribute="top" secondItem="3lH-F7-hdQ" secondAttribute="bottom" constant="41" id="Ay1-k2-fJC"/>
+                            <constraint firstItem="S1p-g7-bLH" firstAttribute="trailing" secondItem="5Rh-2o-s3p" secondAttribute="trailing" constant="40" id="N6f-bp-eeN"/>
                             <constraint firstItem="maM-bZ-Va4" firstAttribute="top" secondItem="HHY-RK-OfY" secondAttribute="top" id="PcW-70-vJf"/>
                             <constraint firstItem="oNZ-FB-7Cc" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" constant="40" id="SNq-At-Oxk"/>
                             <constraint firstItem="3lH-F7-hdQ" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" constant="40" id="Sjk-pk-dnP"/>
                             <constraint firstItem="S1p-g7-bLH" firstAttribute="bottom" secondItem="maM-bZ-Va4" secondAttribute="bottom" id="TUc-Sv-6HE"/>
-                            <constraint firstItem="5Rh-2o-s3p" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" constant="39.899999999999999" id="TdN-ym-4uE"/>
+                            <constraint firstItem="5Rh-2o-s3p" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" constant="40" id="TdN-ym-4uE"/>
                             <constraint firstItem="3lH-F7-hdQ" firstAttribute="top" secondItem="oNZ-FB-7Cc" secondAttribute="bottom" constant="32" id="Toi-26-dmV"/>
                             <constraint firstItem="S1p-g7-bLH" firstAttribute="trailing" secondItem="maM-bZ-Va4" secondAttribute="trailing" id="Y74-3H-A5n"/>
-                            <constraint firstItem="TqU-ar-Tks" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" constant="39.700000000000003" id="Zqi-gI-rZf"/>
                             <constraint firstItem="oNZ-FB-7Cc" firstAttribute="top" secondItem="HHY-RK-OfY" secondAttribute="top" constant="106" id="dUZ-L1-sD0"/>
                             <constraint firstItem="maM-bZ-Va4" firstAttribute="leading" secondItem="S1p-g7-bLH" secondAttribute="leading" id="n9z-ee-hfG"/>
                             <constraint firstItem="S1p-g7-bLH" firstAttribute="trailing" secondItem="3lH-F7-hdQ" secondAttribute="trailing" constant="40" id="vWD-0b-2tS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S1p-g7-bLH"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="TqU-ar-Tks"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="memoryNotes" destination="oU5-1t-F3M" id="zYb-9c-hYl"/>
@@ -802,7 +780,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8g-5q-PXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1033.3333333333335" y="2668.2065217391305"/>
+            <point key="canvasLocation" x="-709" y="2777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="s1e-f2-Ktb">
@@ -843,7 +821,6 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
     </scenes>
     <resources>
         <image name="greenBG" width="375" height="778"/>
-        <image name="icon_add_solo" width="25" height="25"/>
         <image name="icon_back" width="25" height="25"/>
         <image name="icon_camera" width="40" height="40"/>
         <image name="icon_text" width="40" height="40"/>
@@ -852,7 +829,8 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
         <image name="pinkBG" width="375" height="1570"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="10J-6W-hea"/>
+        <segue reference="SCW-R9-qzk"/>
+        <segue reference="u5j-kz-Arp"/>
         <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>

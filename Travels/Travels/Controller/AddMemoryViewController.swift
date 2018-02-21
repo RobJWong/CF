@@ -19,17 +19,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     var storedImage: UIImage?
     var imageURL: NSURL?
     var userData: UserData?
-    
-//    @IBAction func backButton(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
-//    }
-    
-//    @IBAction func showSelectionVC(_ sender: UIButton) {
-//        let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
-//        sectionNameVC.selectionNameDelegate = self
-//        sectionNameVC.userData = userData
-//        present(sectionNameVC, animated: true, completion: nil)
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +26,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         memoryNotes.delegate = self
         memoryNotes.text = "Add notes!"
         memoryNotes.textColor = UIColor.lightGray
-        //memoryNotes.becomeFirstResponder()
         setupNavBarItems()
         viewImage.image = storedImage
         // Do any additional setup after loading the view.
@@ -52,6 +40,29 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
         sectionName.addGestureRecognizer(sectionLabelTap)
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        view.addGestureRecognizer(tapScreen)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        memoryNotes.resignFirstResponder()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -60,6 +71,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.becomeFirstResponder()
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
@@ -70,7 +82,13 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         if textView.text.isEmpty {
             textView.text = "Add notes!"
             textView.textColor = UIColor.lightGray
+            textView.resignFirstResponder()
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
     }
     
     func setupNavBarItems() {
@@ -86,26 +104,37 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(AddMemoryViewController.saveButtonAction(_:)))
         //backButton.tintColor = UIColor.whte
         self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func keyboardWillChange(notification: NSNotification) {
         
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if memoryNotes.isFirstResponder {
+                self.view.frame.origin.y = -keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
         sectionNameVC.selectionNameDelegate = self
         sectionNameVC.userData = userData
-        self.navigationController?.pushViewController(sectionNameVC, animated: true)    
-        //let naviagtionController = UINavigationController(rootViewController: sectionNameVC)
-        //present(naviagtionController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(sectionNameVC, animated: true)
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
-        //self.performSegue(withIdentifier: "userSettings", sender: self)
     }
     
     @objc func saveButtonAction(_ sender: UIBarButtonItem) {
-        //self.navigationController?.popViewController(animated: true)
-        //self.performSegue(withIdentifier: "userSettings", sender: self)
         saveToDB()
     }
     
@@ -114,13 +143,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
              let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
         }
-//        if segue.identifier == "sectionSelection" {
-//            //let sectionNameVC = segue.destination as! SectionNameTableViewController
-//            let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
-//                sectionNameVC.selectionNameDelegate = self
-//                sectionNameVC.userData = userData
-//                present(sectionNameVC, animated: true, completion: nil)
-//        }
     }
     
     func saveToDB() {
@@ -132,13 +154,11 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             return
         }
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
-            //print("Something is null please    check")
             return
         }
         let date = NSDate()
         let timeStamp = UInt64(floor(date.timeIntervalSince1970))
         let timeStampString = String(timeStamp)
-        //checkDayChild(userID: userID, city: selectedCity)
         updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
@@ -151,11 +171,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     func updateFirebase(imageURL: String, city: String, userID: String, sectionName: String, timeStamp: String){
         let firebaseRef = Database.database()
         let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
-        //let imagePath = "\(userID)/\(city)/\("Wow")/\(timeStamp)/\(imageURL)"
-        //print(imagePath)
-        //let values = ["Image": imageURL.lastPathComponent, "Notes": imageText.text]
         let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
-        //print(imageText.text)
         let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
         userReference.updateChildValues(values)
     }
