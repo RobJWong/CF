@@ -14,14 +14,31 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     var storedImage: UIImage?
     //var selectedCity: String?
     var storedImageURL: NSURL?
-    
     var userData: UserData?
     
-//    @IBAction func backButton(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    @IBOutlet weak var photoSection: UIView!
+    @IBOutlet weak var notesSection: UIView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        setupNavBarItems()
+        
+        let photoSectionTap = UITapGestureRecognizer(target: self, action: #selector(photoTapped(_:)))
+        photoSection.isUserInteractionEnabled = true
+        photoSection.addGestureRecognizer(photoSectionTap)
+        
+        let notesSectionTap = UITapGestureRecognizer(target: self, action: #selector(notesTapped(_:)))
+        notesSection.isUserInteractionEnabled = true
+        notesSection.addGestureRecognizer(notesSectionTap)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
-    @IBAction func openCameraButton(_sender: UIButton) {
+    @objc func photoTapped(_ sender: UITapGestureRecognizer) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -30,28 +47,9 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setupNavBarItems()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-    func setupNavBarItems() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
-        
-        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
-        self.navigationItem.leftBarButtonItem = backButton
-        
+    @objc func notesTapped(_ sender: UITapGestureRecognizer) {
+        self.performSegue(withIdentifier: "notesVC", sender: self)
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
@@ -67,9 +65,25 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
             uploadPhotoVC.imageURL = storedImageURL
             uploadPhotoVC.userData = userData
         }
-        if let uploadNotesVC = segue.destination as? AddNotesViewController {
-            uploadNotesVC.userData = userData
+        if segue.identifier == "notesVC" {
+            let notesVC = segue.destination as? AddNotesViewController
+            notesVC?.userData = userData
         }
+//        if let uploadNotesVC = segue.destination as? AddNotesViewController {
+//            uploadNotesVC.userData = userData
+//        }
+    }
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
+        //backButton.tintColor = UIColor.white
+        self.navigationItem.leftBarButtonItem = backButton
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -79,19 +93,9 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
         }
         storedImageURL = imageURL
         storedImage = image
-        //sendImage(imageURL: imageURL)
-        //updateFirebase(imageURL: imageURL)
         dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "xferImage", sender: self)
         })
-//        dismiss(animated: true, completion: {
-//        })
-        ////////orignal method working
-        //        dismiss(animated:true, completion: nil)
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //        let controller = storyboard.instantiateViewController(withIdentifier: "xferImage") as! XferImageViewController
-        //        controller.storedImage = image
-        //        present(controller, animated: true, completion: nil)
     }
 
 

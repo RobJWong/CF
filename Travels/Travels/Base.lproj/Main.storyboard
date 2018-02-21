@@ -441,14 +441,6 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XBP-k5-fd5">
                                 <rect key="frame" x="50" y="304.33333333333331" width="138" height="170"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oG9-qt-ck3">
-                                        <rect key="frame" x="13" y="114.66666666666669" width="112" height="31"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
-                                        <state key="normal" title="Add Photo"/>
-                                        <connections>
-                                            <action selector="openCameraButtonWith_sender:" destination="zUX-md-0qD" eventType="touchUpInside" id="mDm-K8-6z9"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_camera" translatesAutoresizingMaskIntoConstraints="NO" id="iD9-Gk-7zD">
                                         <rect key="frame" x="53" y="56" width="32" height="40"/>
                                         <constraints>
@@ -456,30 +448,28 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                             <constraint firstAttribute="width" constant="32" id="ad0-Wc-AuK"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJP-DN-WUL">
+                                        <rect key="frame" x="8" y="114.66666666666669" width="122" height="19"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="1Qk-jm-flR"/>
                                     <constraint firstItem="iD9-Gk-7zD" firstAttribute="top" secondItem="XBP-k5-fd5" secondAttribute="top" constant="56" id="384-gy-5Gw"/>
-                                    <constraint firstAttribute="trailing" secondItem="oG9-qt-ck3" secondAttribute="trailing" constant="13" id="4C1-rc-Vlh"/>
-                                    <constraint firstItem="oG9-qt-ck3" firstAttribute="top" secondItem="iD9-Gk-7zD" secondAttribute="bottom" constant="18.699999999999999" id="JeC-jR-AoM"/>
                                     <constraint firstAttribute="trailing" secondItem="iD9-Gk-7zD" secondAttribute="trailing" constant="53" id="PI5-Nk-o1y"/>
-                                    <constraint firstItem="oG9-qt-ck3" firstAttribute="leading" secondItem="XBP-k5-fd5" secondAttribute="leading" constant="13" id="Ygd-7y-d3f"/>
+                                    <constraint firstItem="QJP-DN-WUL" firstAttribute="trailing" secondItem="XBP-k5-fd5" secondAttribute="trailingMargin" id="aes-K6-22P"/>
+                                    <constraint firstItem="QJP-DN-WUL" firstAttribute="leading" secondItem="XBP-k5-fd5" secondAttribute="leadingMargin" id="fwA-22-gfm"/>
                                     <constraint firstItem="iD9-Gk-7zD" firstAttribute="leading" secondItem="XBP-k5-fd5" secondAttribute="leading" constant="53" id="kj5-pn-SLn"/>
                                     <constraint firstAttribute="height" constant="170" id="mxp-8X-wDc"/>
+                                    <constraint firstItem="QJP-DN-WUL" firstAttribute="top" secondItem="iD9-Gk-7zD" secondAttribute="bottom" constant="18.699999999999999" id="wsx-0I-MqE"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lQP-Do-A6j">
                                 <rect key="frame" x="226" y="304.33333333333331" width="138" height="170"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZf-8U-AR8">
-                                        <rect key="frame" x="20" y="114.66666666666669" width="98" height="31"/>
-                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
-                                        <state key="normal" title="Add Note"/>
-                                        <connections>
-                                            <segue destination="j96-5C-6Id" kind="show" id="h95-Cw-CC8"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_text" translatesAutoresizingMaskIntoConstraints="NO" id="ft9-w5-GGA">
                                         <rect key="frame" x="53" y="64" width="26" height="23"/>
                                         <constraints>
@@ -487,16 +477,22 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                             <constraint firstAttribute="width" constant="26" id="VzM-NN-3aP"/>
                                         </constraints>
                                     </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Note" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQj-7S-jh1">
+                                        <rect key="frame" x="8" y="114.66666666666669" width="122" height="19"/>
+                                        <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
+                                        <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="4ZT-eC-kEx"/>
+                                    <constraint firstItem="AQj-7S-jh1" firstAttribute="top" secondItem="ft9-w5-GGA" secondAttribute="bottom" constant="27.600000000000001" id="6GE-DQ-ZgN"/>
                                     <constraint firstAttribute="height" constant="170" id="74b-Ti-wYR"/>
-                                    <constraint firstAttribute="trailing" secondItem="LZf-8U-AR8" secondAttribute="trailing" constant="20" id="FVM-Vz-qWw"/>
                                     <constraint firstItem="ft9-w5-GGA" firstAttribute="top" secondItem="lQP-Do-A6j" secondAttribute="top" constant="64" id="TR6-ln-T0x"/>
+                                    <constraint firstItem="AQj-7S-jh1" firstAttribute="leading" secondItem="lQP-Do-A6j" secondAttribute="leadingMargin" id="dK8-M1-mT5"/>
                                     <constraint firstItem="ft9-w5-GGA" firstAttribute="leading" secondItem="lQP-Do-A6j" secondAttribute="leading" constant="53" id="q1n-xu-WHZ"/>
-                                    <constraint firstItem="LZf-8U-AR8" firstAttribute="leading" secondItem="lQP-Do-A6j" secondAttribute="leading" constant="20" id="sNm-fS-0zc"/>
-                                    <constraint firstItem="LZf-8U-AR8" firstAttribute="top" secondItem="ft9-w5-GGA" secondAttribute="bottom" constant="27" id="y2K-hv-BmW"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="AQj-7S-jh1" secondAttribute="trailing" id="ze1-Ke-FBx"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -519,7 +515,10 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                     </view>
                     <navigationItem key="navigationItem" id="NfM-hk-sKc"/>
                     <connections>
+                        <outlet property="notesSection" destination="lQP-Do-A6j" id="Gts-pn-JGe"/>
+                        <outlet property="photoSection" destination="XBP-k5-fd5" id="Uvq-Oz-U21"/>
                         <segue destination="OOk-om-aC5" kind="show" identifier="xferImage" id="d9C-E5-qdA"/>
+                        <segue destination="j96-5C-6Id" kind="show" identifier="notesVC" id="TyS-nq-577"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X0i-H8-VEK" userLabel="First Responder" sceneMemberID="firstResponder"/>
