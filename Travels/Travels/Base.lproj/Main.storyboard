@@ -575,7 +575,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                                 <constraint firstAttribute="height" constant="262" id="Bs6-JW-cJY"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
                                             <rect key="frame" x="20" y="273" width="374" height="66"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
@@ -606,7 +606,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="349.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
                                             <rect key="frame" x="70" y="57.666666666666671" width="275" height="234.33333333333331"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
@@ -830,6 +830,6 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
     <inferredMetricsTieBreakers>
         <segue reference="SCW-R9-qzk"/>
         <segue reference="u5j-kz-Arp"/>
-        <segue reference="VPg-Ba-LhS"/>
+        <segue reference="Idf-9m-scS"/>
     </inferredMetricsTieBreakers>
 </document>
