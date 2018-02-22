@@ -16,6 +16,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     var selectedCity: String?
     var tableData = [[String:Any]]()
     var currentSectionString: String?
+    var indexPathForEdit: Int?
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var changeSections: UIButton!
@@ -230,7 +231,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
     
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        print(textView.text); //the textView parameter is the textView where text was changed
+        //print(textView.text); //the textView parameter is the textView where text was changed
+        //print(indexPathForEdit)
+        guard let indexPath = indexPathForEdit else {return }
+        tableData[indexPath]["Notes"] = textView.text
     }
     
 //    func textViewDidBeginEditing(_ textView: UITextView) {
@@ -252,13 +256,23 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let cell = try tableView.dequeueReusableCell(withIdentifier: "Cell1") as! ImageNotesCell
-//        cell.notes.isEditable = true
-        let cell = tableView.cellForRow(at: indexPath)
-        if cell is ImageNotesCell {
-            print("ImageNotesCell")
-        } else if cell is NotesCell {
-            print("NotesCell")
+        let cellCheck = tableView.cellForRow(at: indexPath)
+        if cellCheck is ImageNotesCell {
+            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
+            if tableView.isEditing {
+                cellImageNotes.notes.isEditable = true
+                indexPathForEdit = indexPath.row
+            } else {
+                tableView.isEditing = false
+            }
+        } else if cellCheck is NotesCell {
+            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
+            if tableView.isEditing {
+                cellNotes.notes.isEditable =  true
+                indexPathForEdit = indexPath.row
+            } else {
+                tableView.isEditing = false
+            }
         }
     }
     
