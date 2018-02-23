@@ -17,34 +17,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     var tableData = [[String:Any]]()
     var currentSectionString: String?
     var indexPathForEdit: Int?
+    var endEditing: Bool?
     
     @IBOutlet weak var cityName: UILabel!
     @IBOutlet weak var changeSections: UIButton!
-    
-//    @IBAction func editTable(_ sender: UIButton) {
-//        tableView.setEditing(!tableView.isEditing, animated: true)
-//        if tableView.isEditing {
-//            tableView.reloadData()
-//        }
-//        if !tableView.isEditing {
-//
-//             guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
-//            let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
-//            deleteInfo.removeValue()
-//            let count = tableData.count
-//            for idx in 0...count - 1 {
-//                let idxString = String(idx)
-//                let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
-//                let values = tableData[idx]
-//                firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
-//                    if err != nil {
-//                        print(err)
-//                        return
-//                    }
-//                })
-//            }
-//        }
-//    }
     
     @IBAction func switchSections(_ sender: UIButton) {
         let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
@@ -97,12 +73,12 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         let addButton = UIBarButtonItem(image:UIImage(named:"icon_add_solo"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.addAction(_:)))
         addButton.tintColor = UIColor.black
-        //self.navigationItem.rightBarButtonItem = addButton
+        self.navigationItem.rightBarButtonItem = addButton
         
-        let editButton = UIBarButtonItem(image:UIImage(named:"icon_edit"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.editAction(_:)))
-        editButton.tintColor = UIColor.black
-        //self.navigationItem.rightBarButtonItem = editButton
-        self.navigationItem.setRightBarButtonItems([addButton,editButton], animated: true)
+//        let editButton = UIBarButtonItem(image:UIImage(named:"icon_edit"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.editAction(_:)))
+//        editButton.tintColor = UIColor.black
+//        //self.navigationItem.rightBarButtonItem = editButton
+//        self.navigationItem.setRightBarButtonItems([addButton,editButton], animated: true)
     
     }
     
@@ -116,27 +92,38 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         performSegue(withIdentifier: "addMemory", sender: self)
     }
     
-    @objc func editAction(_ sender: UIBarButtonItem) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        if !tableView.isEditing {
-            
-            guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
-            let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
-            deleteInfo.removeValue()
-            let count = tableData.count
-            for idx in 0...count - 1 {
-                let idxString = String(idx)
-                let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
-                let values = tableData[idx]
-                firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
-                    if err != nil {
-                        print(err)
-                        return
-                    }
-                })
-            }
-        }
-    }
+//    @objc func editAction(_ sender: UIBarButtonItem) {
+//        tableView.setEditing(!tableView.isEditing, animated: true)
+//        if tableView.isEditing {
+//            endEditing = false
+//        }
+//        if !tableView.isEditing {
+////            for textField in self.view.subviews where textField is UITextField {
+////                textField.resignFirstResponder()
+////            }
+//            view.endEditing(true)
+//            view.resignFirstResponder()
+//            if let indexPath = self.tableView.indexPathForSelectedRow {
+//                endEditing = true
+//                self.tableView.deselectRow(at: indexPath, animated: true)
+//            }
+//            guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
+//            let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
+//            deleteInfo.removeValue()
+//            let count = tableData.count
+//            for idx in 0...count - 1 {
+//                let idxString = String(idx)
+//                let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
+//                let values = tableData[idx]
+//                firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
+//                    if err != nil {
+//                        print(err)
+//                        return
+//                    }
+//                })
+//            }
+//        }
+//    }
     
     func setupTableView(userID: String, city: String, section: String, completion: @escaping ([[String:Any]]) -> () ) {
         let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(section)
@@ -239,42 +226,68 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
 //    func textViewDidBeginEditing(_ textView: UITextView) {
 //        textView.becomeFirstResponder()
-//        print("In here")
-//        if textView.textColor == UIColor.lightGray {
-//            textView.text = nil
-//            textView.textColor = UIColor.black
-//        }
 //    }
-//
 //    func textViewDidEndEditing(_ textView: UITextView) {
-//        print("Left")
-//        if textView.text.isEmpty {
-//            textView.text = "Add notes!"
-//            textView.textColor = UIColor.lightGray
-//            textView.resignFirstResponder()
-//        }
+//        textView.resignFirstResponder()
 //    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        //print("dsadsadsafdgfdshsa")
+        return true;
+    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellCheck = tableView.cellForRow(at: indexPath)
         if cellCheck is ImageNotesCell {
             let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
             if tableView.isEditing {
-                cellImageNotes.notes.isEditable = true
+                //cellImageNotes.isUserInteractionEnabled = true
+                print(tableData[indexPath.row]["Notes"])
+                //cellImageNotes.notes.isEditable = true
+                cellImageNotes.notes.isUserInteractionEnabled = true
+                cellImageNotes.becomeFirstResponder()
                 indexPathForEdit = indexPath.row
-            } else {
-                tableView.isEditing = false
             }
+//            else {
+//                tableView.isEditing = false
+//            }
         } else if cellCheck is NotesCell {
             let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
             if tableView.isEditing {
-                cellNotes.notes.isEditable =  true
+                 print(tableData[indexPath.row]["Notes"])
+                //cellNotes.isUserInteractionEnabled = true
+                //cellNotes.notes.isEditable =  true
+                cellNotes.notes.isUserInteractionEnabled = true
+                cellNotes.becomeFirstResponder()
                 indexPathForEdit = indexPath.row
-            } else {
-                tableView.isEditing = false
             }
+//            else {
+//                tableView.isEditing = false
+//            }
         }
     }
+    
+//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        let cellCheck = tableView.cellForRow(at: indexPath)
+//        if cellCheck is ImageNotesCell {
+//            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
+//            print("Triggered for index: ", indexPath.row)
+//            if endEditing == true {
+//                cellImageNotes.notes.isEditable = false
+//            } else {
+//                cellImageNotes.notes.isEditable = true
+//            }
+//        } else if cellCheck is NotesCell {
+//            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
+//            print("Triggered for index: ", indexPath.row)
+//            if endEditing == true {
+//                cellNotes.notes.isEditable = false
+//            } else {
+//                cellNotes.notes.isEditable = true
+//            }
+//        }
+//    }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         let sectionItems = tableData[indexPath.section]
