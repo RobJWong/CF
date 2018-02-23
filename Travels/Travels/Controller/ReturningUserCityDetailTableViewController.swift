@@ -38,10 +38,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        let backgroundImage = UIImage(named: "greenBG")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tableView.backgroundView = imageView
-        tableView.tableFooterView = UIView(frame: CGRect.zero)
+        setupTableView()
         setupNavBarItems()
         
         tableView.estimatedRowHeight = 350
@@ -61,6 +58,13 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         })
     }
     
+    func setupTableView() {
+        let backgroundImage = UIImage(named: "greenBG")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -73,12 +77,12 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         let addButton = UIBarButtonItem(image:UIImage(named:"icon_add_solo"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.addAction(_:)))
         addButton.tintColor = UIColor.black
-        self.navigationItem.rightBarButtonItem = addButton
+        //self.navigationItem.rightBarButtonItem = addButton
         
-//        let editButton = UIBarButtonItem(image:UIImage(named:"icon_edit"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.editAction(_:)))
-//        editButton.tintColor = UIColor.black
-//        //self.navigationItem.rightBarButtonItem = editButton
-//        self.navigationItem.setRightBarButtonItems([addButton,editButton], animated: true)
+        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.saveAction(_:)))
+        saveButton.tintColor = UIColor.black
+        //self.navigationItem.rightBarButtonItem = editButton
+        self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
     
     }
     
@@ -90,6 +94,24 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     @objc func addAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addMemory", sender: self)
+    }
+    
+    @objc func saveAction(_ sender: UIBarButtonItem) {
+        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
+        let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
+                deleteInfo.removeValue()
+        let count = tableData.count
+        for idx in 0...count - 1 {
+            let idxString = String(idx)
+            let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
+            let values = tableData[idx]
+                    firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+            })
+        }
     }
     
 //    @objc func editAction(_ sender: UIBarButtonItem) {
@@ -194,6 +216,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         if let imageCheck = tableData[indexPath.row]["Image"] {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageNotesData", for: indexPath) as! ImageNotesCell
             cell.notes.delegate = self
+            cell.notes.tag = indexPath.row
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
                 return cell }
@@ -213,81 +236,45 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             //let noteString = tableData[indexPath.row]["Notes"] as! String
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             cell.notes.delegate = self
+            cell.notes.tag = indexPath.row
             return cell
         }
     }
     
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        //print(textView.text); //the textView parameter is the textView where text was changed
-        //print(indexPathForEdit)
-        guard let indexPath = indexPathForEdit else {return }
+        //guard let indexPath = indexPathForEdit else {return }
+        //tableData[indexPath]["Notes"] = textView.text
+        print("Am I ever here?")
+        let indexPath = textView.tag
         tableData[indexPath]["Notes"] = textView.text
+        tableView.beginUpdates()
+        tableView.endUpdates()
     }
     
-//    func textViewDidBeginEditing(_ textView: UITextView) {
-//        textView.becomeFirstResponder()
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        view.endEditing(true)
+//        return true
 //    }
-//    func textViewDidEndEditing(_ textView: UITextView) {
-//        textView.resignFirstResponder()
-//    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        //print("dsadsadsafdgfdshsa")
-        return true;
-    }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellCheck = tableView.cellForRow(at: indexPath)
+        print("dasdadas")
+        for textField in self.view.subviews where textField is UITextField {
+            textField.resignFirstResponder()
+        }
+
         if cellCheck is ImageNotesCell {
             let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
-            if tableView.isEditing {
-                //cellImageNotes.isUserInteractionEnabled = true
-                print(tableData[indexPath.row]["Notes"])
-                //cellImageNotes.notes.isEditable = true
-                cellImageNotes.notes.isUserInteractionEnabled = true
-                cellImageNotes.becomeFirstResponder()
+                //cellImageNotes.becomeFirstResponder()
+                //cellImageNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
-            }
-//            else {
-//                tableView.isEditing = false
-//            }
         } else if cellCheck is NotesCell {
             let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
-            if tableView.isEditing {
-                 print(tableData[indexPath.row]["Notes"])
-                //cellNotes.isUserInteractionEnabled = true
-                //cellNotes.notes.isEditable =  true
-                cellNotes.notes.isUserInteractionEnabled = true
-                cellNotes.becomeFirstResponder()
+                //cellNotes.becomeFirstResponder()
+                //cellNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
-            }
-//            else {
-//                tableView.isEditing = false
-//            }
         }
     }
-    
-//    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        let cellCheck = tableView.cellForRow(at: indexPath)
-//        if cellCheck is ImageNotesCell {
-//            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
-//            print("Triggered for index: ", indexPath.row)
-//            if endEditing == true {
-//                cellImageNotes.notes.isEditable = false
-//            } else {
-//                cellImageNotes.notes.isEditable = true
-//            }
-//        } else if cellCheck is NotesCell {
-//            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
-//            print("Triggered for index: ", indexPath.row)
-//            if endEditing == true {
-//                cellNotes.notes.isEditable = false
-//            } else {
-//                cellNotes.notes.isEditable = true
-//            }
-//        }
-//    }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         let sectionItems = tableData[indexPath.section]

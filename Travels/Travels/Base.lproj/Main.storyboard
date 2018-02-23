@@ -561,11 +561,11 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageNotesData" rowHeight="350" id="Fii-dk-T5f" customClass="ImageNotesCell" customModule="Travels" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="247" width="414" height="350"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="imageNotesData" rowHeight="600" id="Fii-dk-T5f" customClass="ImageNotesCell" customModule="Travels" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="247" width="414" height="600"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Fii-dk-T5f" id="byx-hr-sLU">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="349.66666666666669"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="599.66666666666663"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aIQ-fz-1Ke">
@@ -576,7 +576,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                             </constraints>
                                         </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="xAU-mA-cId">
-                                            <rect key="frame" x="20" y="273" width="374" height="66"/>
+                                            <rect key="frame" x="20" y="273" width="374" height="316"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -600,39 +600,35 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notesData" rowHeight="350" id="lT9-tm-3Wc" customClass="NotesCell" customModule="Travels" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="597" width="414" height="350"/>
+                                <rect key="frame" x="0.0" y="847" width="414" height="350"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lT9-tm-3Wc" id="kI2-ud-eXR">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="349.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
-                                            <rect key="frame" x="70" y="57.666666666666671" width="275" height="234.33333333333331"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="234.33000000000001" id="HA3-lL-U7Q"/>
-                                                <constraint firstAttribute="width" constant="275" id="Yuw-Td-T0Y"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="19.200000762939453"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jb7-Eh-t6Y">
-                                            <rect key="frame" x="191" y="31.333333333333329" width="33.333333333333343" height="6"/>
+                                            <rect key="frame" x="190.33333333333334" y="31.333333333333329" width="33.333333333333343" height="6"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="33.329999999999998" id="1OC-WX-ddW"/>
                                                 <constraint firstAttribute="height" constant="6" id="5LT-IW-xE6"/>
                                             </constraints>
                                         </imageView>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="OOl-fs-YTH">
+                                            <rect key="frame" x="0.0" y="37.333333333333329" width="414" height="245.33333333333337"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="19.200000762939453"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="jb7-Eh-t6Y" firstAttribute="centerX" secondItem="kI2-ud-eXR" secondAttribute="centerX" id="7RQ-CS-m4K"/>
-                                        <constraint firstItem="OOl-fs-YTH" firstAttribute="top" secondItem="jb7-Eh-t6Y" secondAttribute="bottom" constant="20.300000000000001" id="9zG-Tt-rPE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="OOl-fs-YTH" secondAttribute="bottom" constant="47" id="XWd-AX-wSf"/>
-                                        <constraint firstItem="OOl-fs-YTH" firstAttribute="leading" secondItem="kI2-ud-eXR" secondAttribute="leadingMargin" constant="49.649999999999999" id="b95-l3-ZV0"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="OOl-fs-YTH" secondAttribute="trailing" constant="49.649999999999999" id="nod-qw-R75"/>
-                                        <constraint firstItem="jb7-Eh-t6Y" firstAttribute="top" secondItem="kI2-ud-eXR" secondAttribute="topMargin" constant="20.300000000000001" id="qyP-5a-wMw"/>
+                                        <constraint firstAttribute="trailing" secondItem="OOl-fs-YTH" secondAttribute="trailing" id="7IG-xY-I1c"/>
+                                        <constraint firstItem="OOl-fs-YTH" firstAttribute="top" secondItem="jb7-Eh-t6Y" secondAttribute="bottom" id="7qd-Xp-NoS"/>
+                                        <constraint firstAttribute="bottom" secondItem="OOl-fs-YTH" secondAttribute="bottom" constant="67" id="C8V-dT-AXg"/>
+                                        <constraint firstItem="jb7-Eh-t6Y" firstAttribute="centerX" secondItem="kI2-ud-eXR" secondAttribute="centerX" id="CLg-9x-uuh"/>
+                                        <constraint firstItem="jb7-Eh-t6Y" firstAttribute="top" secondItem="kI2-ud-eXR" secondAttribute="topMargin" constant="21" id="CQy-pf-w8s"/>
+                                        <constraint firstItem="OOl-fs-YTH" firstAttribute="leading" secondItem="kI2-ud-eXR" secondAttribute="leading" id="qeJ-sX-HKR"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
