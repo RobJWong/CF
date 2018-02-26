@@ -39,6 +39,13 @@ class AddNotesViewController: UIViewController {
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
         }
+        
+//        if segue.identifier == "newUser" {
+//            userData?.newUser = false
+//            let navVC = segue.destination as? UINavigationController
+//            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+//            rVC.userData = userData
+//        }
     }
     
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
@@ -98,6 +105,11 @@ class AddNotesViewController: UIViewController {
         
         updateFirebase(city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString, notes: noteText)
         self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+//        if userData?.newUser == true {
+//            self.performSegue(withIdentifier: "newUser", sender: self)
+//        } else {
+//            self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+//        }
     }
 
     /*

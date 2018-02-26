@@ -41,6 +41,16 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         setupTableView()
         setupNavBarItems()
         
+        if userData?.newUser == true {
+            userData?.newUser = false
+            setupNavStack()
+        }
+        
+        if userData?.addedNewItem == true {
+            userData?.addedNewItem = false
+            fixNavStack()
+        }
+        
         tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelectionDuringEditing = true
@@ -56,6 +66,23 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 })
             }
         })
+    }
+    
+    func fixNavStack() {
+        var stackArray = navigationController?.viewControllers ?? [Any]()
+        print(stackArray)
+        stackArray.remove(at: 2)
+        stackArray.remove(at: 3)
+        print(stackArray)
+        navigationController?.viewControllers = (stackArray as? [UIViewController])!
+    }
+    
+    func setupNavStack() {
+        let stack = self.navigationController?.viewControllers
+        print(stack)
+//        var navigationArray = navigationController?.viewControllers ?? [Any]()
+//        navigationArray.remove(at: 2)
+//        navigationController?.viewControllers = navigationArray as? [UIViewController]
     }
     
     func setupTableView() {
@@ -87,8 +114,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
+//        var navigationArray = navigationController?.viewControllers ?? [Any]()        navigationArray.remove(at: 2)
+//        navigationController?.viewControllers = (navigationArray as? [UIViewController])!
+
         //navigationController?.popViewController(animated: true)
-        //navigationController?.popToRootViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
         //navigationController?.popToViewController(ReturningUserCityTableViewController(), animated: true)
     }
     

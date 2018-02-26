@@ -46,6 +46,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
 //            let rVC = segue.destination as? ReturningUserCityTableViewController
 //            print(userData.userID)
 //            rVC?.userData = userData
+        
         }
         
 //        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {

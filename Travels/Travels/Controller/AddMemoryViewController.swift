@@ -139,11 +139,42 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newUser" {
+            let navVC = segue.destination as? UINavigationController
+            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+            rVC.userData = userData
+        }
         if segue.identifier == "showMemoryTable" {
-             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
+            let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
+            
+//        var navigationArray = navigationController?.viewControllers ?? [Any]()
+//        navigationArray.remove(at: 2)
+//        navigationController?.viewControllers = navigationArray as? [UIViewController]
+            
+            //let firstVC = ReturningUserCityDetailTableViewController()
+//            let firstVC = segue.destination as? ReturningUserCityDetailTableViewController
+            //firstVC.userData = userData
+//            let checkNavigationStack = self.navigationController?.viewControllers
+//            print(checkNavigationStack)
+            //self.navigationController?.setViewControllers([firstVC], animated: false)
         }
     }
+    
+    //let firstVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReturningUserCityDetailTableViewController") as! ReturningUserCityDetailTableViewController
+    ///userData?.newUser = false
+    //let firstVC = UserProfileViewController()
+    //firstVC.userData = userData
+    //var testVC = self.navigationController?.viewControllers
+    //        testVC![0] = firstVC
+    //        testVC![1] = firstVC
+    //        testVC![2] = firstVC
+    //self.navigationController?.viewControllers = testVC!
+    //self.navigationController?.setViewControllers(testVC!, animated: false)
+    //let secondVC = ReturningUserCityDetailTableViewController()
+    //self.navigationController?.setViewControllers([firstVC], animated: false)
+    //self.navigationController?.viewControllers = [firstVC]
+    //tableView.reloadData()
     
     func saveToDB() {
         guard let sectionName = sectionName.text else {
@@ -163,7 +194,13 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
                 self.userData?.sectionName = sectionName
-                self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+                //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+                
+                if self.userData?.newUser == true {
+                    self.performSegue(withIdentifier: "newUser", sender: self)
+                } else {
+                    self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+                }
             })
         }
     }
