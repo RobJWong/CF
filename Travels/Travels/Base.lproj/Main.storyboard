@@ -894,16 +894,71 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RLt-Dj-BhZ">
+                                    <rect key="frame" x="40" y="38" width="240" height="128"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dt1-jo-o4R">
+                                            <rect key="frame" x="8" y="8" width="224" height="112"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <string key="text" base64-UTF8="YES">
+TGV04oCZcyBuYW1lIHlvdXIgA25ldyBjYXRlZ29yeQ
+</string>
+                                            <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottomMargin" secondItem="dt1-jo-o4R" secondAttribute="bottom" id="DxN-ZR-uR7"/>
+                                        <constraint firstItem="dt1-jo-o4R" firstAttribute="leading" secondItem="RLt-Dj-BhZ" secondAttribute="leadingMargin" id="a3o-fM-WA3"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dt1-jo-o4R" secondAttribute="trailing" id="pga-Vi-xh6"/>
+                                        <constraint firstItem="dt1-jo-o4R" firstAttribute="top" secondItem="RLt-Dj-BhZ" secondAttribute="topMargin" id="wG2-6l-i4E"/>
+                                        <constraint firstAttribute="width" secondItem="RLt-Dj-BhZ" secondAttribute="height" multiplier="15:8" id="yaL-zv-Gwx"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EMu-P2-sGk">
+                                    <rect key="frame" x="40" y="191" width="240" height="30.5"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="81a-ur-4nZ">
+                                            <rect key="frame" x="0.0" y="-0.5" width="240" height="30.5"/>
+                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" secondItem="EMu-P2-sGk" secondAttribute="height" multiplier="10:1" constant="-65" id="9AU-IX-dTZ"/>
+                                        <constraint firstItem="81a-ur-4nZ" firstAttribute="centerY" secondItem="EMu-P2-sGk" secondAttribute="centerY" id="ZDP-Qd-rhD"/>
+                                        <constraint firstItem="81a-ur-4nZ" firstAttribute="height" secondItem="EMu-P2-sGk" secondAttribute="height" id="fF5-Iz-Iqi"/>
+                                        <constraint firstItem="81a-ur-4nZ" firstAttribute="centerX" secondItem="EMu-P2-sGk" secondAttribute="centerX" id="fSH-q9-o7C"/>
+                                        <constraint firstItem="81a-ur-4nZ" firstAttribute="width" secondItem="EMu-P2-sGk" secondAttribute="width" id="yqG-Ar-GHo"/>
+                                    </constraints>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="EMu-P2-sGk" firstAttribute="width" secondItem="udQ-6N-Jvn" secondAttribute="width" multiplier="0.75" id="2te-K3-mwy"/>
+                                <constraint firstItem="EMu-P2-sGk" firstAttribute="centerX" secondItem="udQ-6N-Jvn" secondAttribute="centerX" id="57I-wI-YlW"/>
                                 <constraint firstItem="RLl-m5-xjn" firstAttribute="top" secondItem="udQ-6N-Jvn" secondAttribute="top" constant="105" id="5j1-KB-6WP"/>
+                                <constraint firstItem="EMu-P2-sGk" firstAttribute="top" secondItem="RLt-Dj-BhZ" secondAttribute="bottom" constant="25" id="6d8-kn-k6a"/>
                                 <constraint firstItem="FIJ-zv-cBZ" firstAttribute="top" secondItem="RLl-m5-xjn" secondAttribute="bottom" constant="90" id="6fp-hV-xqg"/>
+                                <constraint firstItem="RLt-Dj-BhZ" firstAttribute="top" secondItem="udQ-6N-Jvn" secondAttribute="topMargin" constant="30" id="RM8-Rz-Tn2"/>
                                 <constraint firstItem="FIJ-zv-cBZ" firstAttribute="leading" secondItem="udQ-6N-Jvn" secondAttribute="leadingMargin" constant="40" id="SGp-2g-FKt"/>
+                                <constraint firstItem="RLt-Dj-BhZ" firstAttribute="centerX" secondItem="udQ-6N-Jvn" secondAttribute="centerX" id="SxN-Oc-Yuu"/>
                                 <constraint firstAttribute="trailingMargin" secondItem="FIJ-zv-cBZ" secondAttribute="trailing" constant="40" id="ePg-iS-7AP"/>
                                 <constraint firstItem="RLl-m5-xjn" firstAttribute="leading" secondItem="udQ-6N-Jvn" secondAttribute="leading" constant="79" id="j1A-CI-P6l"/>
+                                <constraint firstItem="RLt-Dj-BhZ" firstAttribute="width" secondItem="udQ-6N-Jvn" secondAttribute="height" multiplier="240:329" id="vFS-jB-8IJ"/>
                                 <constraint firstAttribute="trailing" secondItem="RLl-m5-xjn" secondAttribute="trailing" constant="79" id="xIk-HV-UIM"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="RLl-m5-xjn"/>
+                                    <exclude reference="FIJ-zv-cBZ"/>
+                                </mask>
+                            </variation>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sectionNames" id="wtC-LK-010">
@@ -926,7 +981,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P81-z6-knF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309" y="3613"/>
+            <point key="canvasLocation" x="-309.375" y="3612.676056338028"/>
         </scene>
         <!--Add Memory View Controller-->
         <scene sceneID="v53-ZS-HHf">
@@ -1117,9 +1172,9 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
         <image name="pinkBG" width="375" height="1570"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="43W-sG-Gaf"/>
-        <segue reference="SCW-R9-qzk"/>
-        <segue reference="XRv-ee-uG1"/>
+        <segue reference="Bh6-hz-hMB"/>
+        <segue reference="mwW-iQ-vzn"/>
+        <segue reference="JIe-Bg-xHv"/>
         <segue reference="Idf-9m-scS"/>
     </inferredMetricsTieBreakers>
 </document>
