@@ -14,9 +14,11 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     var userData = UserData()
     
-    @IBAction func googleSignIn(_sender: UIButton) {
-        GIDSignIn.sharedInstance().signIn()
-    }
+    @IBOutlet weak var googleLoginView: UIView!
+    
+//    @IBAction func googleSignIn(_sender: UIButton) {
+//        GIDSignIn.sharedInstance().signIn()
+//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,18 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
+        
+//        let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+//        sectionName.isUserInteractionEnabled = true
+//        sectionName.addGestureRecognizer(sectionLabelTap)
+        
+        let googleLogin = UITapGestureRecognizer(target: self, action: #selector(googleLoginTapped(_:)))
+        googleLoginView.isUserInteractionEnabled = true
+        googleLoginView.addGestureRecognizer(googleLogin)
+    }
+    
+    @objc func googleLoginTapped(_ sender: UITapGestureRecognizer) {
+        GIDSignIn.sharedInstance().signIn()
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,8 +124,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
         })
     }
     
-
-    
     func signIn(signIn: GIDSignIn!, didDisconnectWithUser user:GIDGoogleUser!,
                 withError error: NSError!) {
         // Perform any operations when the user disconnects from app here.
@@ -120,7 +132,5 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             print(Error.self)
         }
     }
-
-
 }
 

@@ -14,29 +14,25 @@ class OnboardCitySelect: UIViewController {
     var userData: UserData?
     
     //@IBOutlet weak var backButton: UIButton!
-    @IBOutlet weak var welcomeMsg: UILabel!
+    @IBOutlet weak var welcomeName: UILabel!
+    @IBOutlet weak var googlePlacesView: UIView!
     
-//    @IBAction func backButton(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
+//    @IBAction func autocompleteClicked(_ sender: UIButton) {
+//        let autocompleteController = GMSAutocompleteViewController()
+//        autocompleteController.delegate = self
+//        let filter = GMSAutocompleteFilter()
+//        filter.type = .city
+//        autocompleteController.autocompleteFilter = filter
+//        present(autocompleteController, animated: true, completion: nil)
 //    }
-    
-    @IBAction func autocompleteClicked(_ sender: UIButton) {
-        let autocompleteController = GMSAutocompleteViewController()
-        autocompleteController.delegate = self
-        let filter = GMSAutocompleteFilter()
-        filter.type = .city
-        autocompleteController.autocompleteFilter = filter
-        present(autocompleteController, animated: true, completion: nil)
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         //setupBackButton()
         guard let nameString = userData?.userName else { return }
-        welcomeMsg.text = "Hi  \(nameString)! \nWhat city are you starting with?"
+        welcomeName.text = "Hi  \(nameString)! \nWhat city are you starting with?"
         setupNavBarItems()
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,6 +61,18 @@ class OnboardCitySelect: UIViewController {
         //backButton.tintColor = UIColor.white
         //self.navigationItem.leftBarButtonItem = backButton
         
+        let googlePlacesSearch = UITapGestureRecognizer(target: self, action: #selector(googlePlacesTapped(_:)))
+        googlePlacesView.isUserInteractionEnabled = true
+        googlePlacesView.addGestureRecognizer(googlePlacesSearch)
+    }
+    
+    @objc func googlePlacesTapped(_ sender: UITapGestureRecognizer) {
+        let autocompleteController = GMSAutocompleteViewController()
+        autocompleteController.delegate = self
+        let filter = GMSAutocompleteFilter()
+        filter.type = .city
+        autocompleteController.autocompleteFilter = filter
+        present(autocompleteController, animated: true, completion: nil)
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
