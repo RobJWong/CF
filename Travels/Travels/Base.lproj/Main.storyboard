@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8l-b7-8eV">
-                                        <rect key="frame" x="85" y="97" width="150" height="34"/>
+                                        <rect key="frame" x="85" y="53" width="150" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -894,7 +894,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-7V-Nbb">
-                                        <rect key="frame" x="77" y="97" width="167" height="34"/>
+                                        <rect key="frame" x="77" y="53" width="167" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1020,9 +1020,9 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
         <image name="onboardingImage" width="305" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="43W-sG-Gaf"/>
-        <segue reference="SCW-R9-qzk"/>
-        <segue reference="XRv-ee-uG1"/>
-        <segue reference="Ngr-JE-4YG"/>
+        <segue reference="Bh6-hz-hMB"/>
+        <segue reference="mwW-iQ-vzn"/>
+        <segue reference="oVn-3s-UoQ"/>
+        <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>

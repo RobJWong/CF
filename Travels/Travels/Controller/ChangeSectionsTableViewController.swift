@@ -9,14 +9,20 @@
 import UIKit
 import Firebase
 
+protocol ChangeSectionNameDelegate {
+    func changeSectionString(selection: String)
+}
+
 class ChangeSectionsTableViewController: UITableViewController {
     
     var userData: UserData?
     var sectionNameContainer: [String]?
+    var changeSectionNameDelegate : ChangeSectionNameDelegate!
     
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
+//    @IBAction func backButton(_ sender: UIButton) {
+//        dismiss(animated: true, completion: nil)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,11 +35,11 @@ class ChangeSectionsTableViewController: UITableViewController {
         setupSectionData(userID: userID, city: selectedCity)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let returningToMemoriesVC = segue.destination as? ReturningUserCityDetailTableViewController {
-            returningToMemoriesVC.userData = userData
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let returningToMemoriesVC = segue.destination as? ReturningUserCityDetailTableViewController {
+//            returningToMemoriesVC.userData = userData
+//        }
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -56,8 +62,13 @@ class ChangeSectionsTableViewController: UITableViewController {
     
     func sectionChange() {
         guard let indexPath = self.tableView.indexPathForSelectedRow, let sectionNames = sectionNameContainer else { return }
-        userData?.sectionName = sectionNameContainer?[indexPath.row]
-        performSegue(withIdentifier: "newSectionPicked", sender: self)
+        userData?.sectionName = sectionNames[indexPath.row]
+        changeSectionNameDelegate.changeSectionString(selection: sectionNames[indexPath.row])
+        navigationController?.popViewController(animated: true)
+        //userData?.sectionName = sectionNameContainer?[indexPath.row]
+        //changeSectionNameDelegate.changeSectionString(selection: sectionNameContainer?[indexPath.row])
+        
+        //performSegue(withIdentifier: "newSectionPicked", sender: self)
     }
 
     // MARK: - Table view data source

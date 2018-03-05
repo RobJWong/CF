@@ -31,14 +31,21 @@ class ReturningUserCityTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupSavedLocations()
-        setupNavBarItems()
+        
+//        setupSavedLocations()
+//        setupNavBarItems()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        setupSavedLocations()
+        setupNavBarItems()
     }
     
     func setupNavBarItems() {
@@ -92,6 +99,7 @@ class ReturningUserCityTableViewController: UITableViewController {
                 let key = snap.key
                 cityContainer.append(key)
             }
+            print(cityContainer)
             self.cities = cityContainer
             self.tableView.reloadData()
         })
@@ -182,7 +190,10 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
+        //navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
         dismiss(animated: true, completion: nil)
+        
     }
     
     // Turn the network activity indicator on and off again.

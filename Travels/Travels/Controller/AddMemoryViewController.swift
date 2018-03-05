@@ -186,9 +186,9 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
+                ///this
                 self.userData?.sectionName = sectionName
                 //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-                
                 if self.userData?.newUser == true {
                     self.performSegue(withIdentifier: "newUser", sender: self)
                 } else {

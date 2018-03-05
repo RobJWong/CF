@@ -24,17 +24,19 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     @IBAction func switchSections(_ sender: UIButton) {
         let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
-        //changeSectionVC.selectionNameDelegate = self
+//        changeSectionVC.selectionNameDelegate = self
+        changeSectionVC.changeSectionNameDelegate = self
         changeSectionVC.userData = userData
-        present(changeSectionVC, animated: true, completion: nil)
+        self.navigationController?.pushViewController(changeSectionVC, animated: true)
+        //present(changeSectionVC, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
-
+        
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
@@ -68,6 +70,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+    }
+    
     func fixNavStack() {
         var stackArray = navigationController?.viewControllers ?? [Any]()
         print(stackArray)
@@ -79,10 +85,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     func setupNavStack() {
         let stack = self.navigationController?.viewControllers
-        print(stack)
-//        var navigationArray = navigationController?.viewControllers ?? [Any]()
-//        navigationArray.remove(at: 2)
-//        navigationController?.viewControllers = navigationArray as? [UIViewController]
     }
     
     func setupTableView() {
@@ -110,7 +112,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //        saveButton.tintColor = UIColor.black
         //self.navigationItem.rightBarButtonItem = editButton
         //self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
-    
     }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
@@ -118,6 +119,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //        navigationController?.viewControllers = (navigationArray as? [UIViewController])!
 
         //navigationController?.popViewController(animated: true)
+        userData?.sectionName = nil
         navigationController?.popToRootViewController(animated: true)
         //navigationController?.popToViewController(ReturningUserCityTableViewController(), animated: true)
     }
@@ -184,7 +186,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for dataSet in snapshot.children {
                 let snap = dataSet as! DataSnapshot
-                let k = snap.key
+                //let k = snap.key
                 let v = snap.value
                 indexData = [:]
                 for (key, value) in v as! [String: Any] {
@@ -202,11 +204,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             completion(sectionName)
         } else {
             let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
+            print("DB Ref: ",databaseRef)
             databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 for idx in snapshot.children {
                     let snap = idx as! DataSnapshot
                     let key = snap.key
-                    completion(key)
                     break
                 }
             })
@@ -336,6 +338,13 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         // Pass the selected object to the new view controller.
     }
     */
+}
+
+extension ReturningUserCityDetailTableViewController: ChangeSectionNameDelegate {
+    func changeSectionString(selection: String) {
+        changeSections.titleLabel?.text = selection
+        userData?.sectionName = selection
+    }
 }
 
 //extension ReturingUserCityDetailTableViewController: UITextViewDelegate {
