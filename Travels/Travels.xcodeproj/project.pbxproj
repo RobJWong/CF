@@ -11,7 +11,6 @@
 		D918A3DF200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DE200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift */; };
 		D918A3E3200FD8CF00A686C0 /* ImageNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */; };
 		D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B4573202B488000A5FEE1 /* NotesCell.swift */; };
-		D939B179202E0C9200523C93 /* FeedbackBugsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D939B178202E0C9200523C93 /* FeedbackBugsViewController.swift */; };
 		D948D15320093B3200B5B411 /* OnboardEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */; };
 		D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15020093B3200B5B411 /* LoginViewContoller.swift */; };
 		D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15120093B3200B5B411 /* OnboardCitySelect.swift */; };
@@ -43,7 +42,6 @@
 		D918A3DE200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReturningUserCityDetailTableViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/Travels/Travels/Controller/ReturningUserCityDetailTableViewController.swift"; sourceTree = "<absolute>"; };
 		D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageNotesCell.swift; path = Travels/Model/ImageNotesCell.swift; sourceTree = SOURCE_ROOT; };
 		D91B4573202B488000A5FEE1 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesCell.swift; path = Travels/Model/NotesCell.swift; sourceTree = SOURCE_ROOT; };
-		D939B178202E0C9200523C93 /* FeedbackBugsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackBugsViewController.swift; sourceTree = "<group>"; };
 		D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardEmptyList.swift; sourceTree = "<group>"; };
 		D948D15020093B3200B5B411 /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		D948D15120093B3200B5B411 /* OnboardCitySelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 				D94CD24B201A596800EFA555 /* SectionNameTableViewController.swift */,
 				D918A3DC200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift */,
 				D918A3DE200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift */,
-				D939B178202E0C9200523C93 /* FeedbackBugsViewController.swift */,
 				D94CD2CF2022399500EFA555 /* ChangeSectionsTableViewController.swift */,
 			);
 			name = Controller;
@@ -322,7 +319,6 @@
 				D918A3E3200FD8CF00A686C0 /* ImageNotesCell.swift in Sources */,
 				D94CD2F7202424C800EFA555 /* UserProfileViewController.swift in Sources */,
 				D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */,
-				D939B179202E0C9200523C93 /* FeedbackBugsViewController.swift in Sources */,
 				D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */,
 				D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */,
 				D988801120056D88000DEE66 /* AppDelegate.swift in Sources */,

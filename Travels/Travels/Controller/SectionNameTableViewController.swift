@@ -43,15 +43,25 @@ class SectionNameTableViewController: UITableViewController {
 //        let barButton = UIBarButtonItem(customView: saveButton)
 //        self.navigationItem.rightBarButtonItem = barButton
         
+//        let border = CALayer()
+//        let width = CGFloat(1)
+//        //border.borderColor = UIColor.darkGray.cgColor
+//        border.borderColor = UIColor.lightGray.cgColor
+//        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+//        border.borderWidth = width
+//        textField.layer.addSublayer(border)
+//        textField.layer.masksToBounds = true
+        
         let border = CALayer()
-        let width = CGFloat(1)
-        //border.borderColor = UIColor.darkGray.cgColor
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.darkGray.cgColor
+        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width * 1.25, height: textField.frame.size.height)
+        
         border.borderWidth = width
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
         
+        //textField.addBottomBorderWithColorSection(color: UIColor.black, width: 1)
         setupNavBarItems()
         guard let userID = userData?.userID, let city = userData?.currentCitySelection else { return }
         setupSavedData(userID: userID, city: city)
@@ -198,3 +208,15 @@ class SectionNameTableViewController: UITableViewController {
     */
 
 }
+
+//extension UIView {
+//    func addBottomBorderWithColorSection(color: UIColor, width: CGFloat) {
+//        let border = CALayer()
+//        border.backgroundColor = color.cgColor
+//        print(frame.size.width)
+//        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25, height: width)
+//        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
+//        self.layer.addSublayer(border)
+//    }
+//}
+

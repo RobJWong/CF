@@ -26,16 +26,11 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         memoryNotes.delegate = self
         memoryNotes.text = "Add notes!"
         memoryNotes.textColor = UIColor.lightGray
-        setupNavBarItems()
         viewImage.image = storedImage
-        // Do any additional setup after loading the view.
-        let border = CALayer()
-        let width = CGFloat(1)
-        border.borderColor = UIColor.lightGray.cgColor
-        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width, height: sectionName.frame.size.height)
-        border.borderWidth = width
-        sectionName.layer.addSublayer(border)
-        sectionName.layer.masksToBounds = true
+        
+        setupNavBarItems()
+        //setupSectionBorder()
+        sectionName.addBottomBorderWithColorMemory(color: UIColor.black, width: 1)
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
@@ -69,6 +64,19 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    //func setupSectionBorder() {
+    //Do any additional setup after loading the view.
+//        let border = CALayer()
+//        let width = CGFloat(1)
+//        //border.borderColor = UIColor.lightGray.cgColor
+//        border.borderColor = UIColor.black.cgColor
+//        print(sectionName.frame.size.width)
+//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width * 1.8, height: sectionName.frame.size.height)
+//        border.borderWidth = width
+//        sectionName.layer.addSublayer(border)
+//        sectionName.layer.masksToBounds = true
+    //}
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.becomeFirstResponder()
@@ -161,21 +169,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    //let firstVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ReturningUserCityDetailTableViewController") as! ReturningUserCityDetailTableViewController
-    ///userData?.newUser = false
-    //let firstVC = UserProfileViewController()
-    //firstVC.userData = userData
-    //var testVC = self.navigationController?.viewControllers
-    //        testVC![0] = firstVC
-    //        testVC![1] = firstVC
-    //        testVC![2] = firstVC
-    //self.navigationController?.viewControllers = testVC!
-    //self.navigationController?.setViewControllers(testVC!, animated: false)
-    //let secondVC = ReturningUserCityDetailTableViewController()
-    //self.navigationController?.setViewControllers([firstVC], animated: false)
-    //self.navigationController?.viewControllers = [firstVC]
-    //tableView.reloadData()
-    
     func saveToDB() {
         guard let sectionName = sectionName.text else {
             return
@@ -238,5 +231,29 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
 extension AddMemoryViewController: SelectionStringDelegate {
     func setupSelectionString(selection: String) {
         sectionName.text = selection
+    }
+}
+
+//func setupSectionBorder() {
+//Do any additional setup after loading the view.
+//        let border = CALayer()
+//        let width = CGFloat(1)
+//        //border.borderColor = UIColor.lightGray.cgColor
+//        border.borderColor = UIColor.black.cgColor
+//        print(sectionName.frame.size.width)
+//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width * 1.8, height: sectionName.frame.size.height)
+//        border.borderWidth = width
+//        sectionName.layer.addSublayer(border)
+//        sectionName.layer.masksToBounds = true
+//}
+
+extension UIView {
+    func addBottomBorderWithColorMemory(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        print(frame.size.width)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25, height: width)
+        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
+        self.layer.addSublayer(border)
     }
 }

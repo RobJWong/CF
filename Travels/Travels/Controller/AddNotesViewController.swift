@@ -22,6 +22,7 @@ class AddNotesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
+        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,3 +130,15 @@ extension AddNotesViewController: SelectionStringDelegate {
         sectionName.text = selection
     }
 }
+
+extension UIView {
+    func addBottomBorderWithColorNotes(color: UIColor, width: CGFloat) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        print(frame.size.width)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25 + 8, height: width)
+        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
+        self.layer.addSublayer(border)
+    }
+}
+

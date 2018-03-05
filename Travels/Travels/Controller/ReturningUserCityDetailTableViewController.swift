@@ -99,17 +99,17 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
-        backButton.tintColor = UIColor.black
+        //backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
         let addButton = UIBarButtonItem(image:UIImage(named:"icon_add_solo"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.addAction(_:)))
-        addButton.tintColor = UIColor.black
-        //self.navigationItem.rightBarButtonItem = addButton
+        //addButton.tintColor = UIColor.black
+        self.navigationItem.rightBarButtonItem = addButton
         
-        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.saveAction(_:)))
-        saveButton.tintColor = UIColor.black
+//        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.saveAction(_:)))
+//        saveButton.tintColor = UIColor.black
         //self.navigationItem.rightBarButtonItem = editButton
-        self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
+        //self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
     
     }
     
