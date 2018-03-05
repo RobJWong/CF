@@ -179,7 +179,7 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         self.userData?.currentCitySelection = place.formattedAddress
         dismiss(animated: true, completion: {
-            self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
+            //self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
         })
     }
     
@@ -191,8 +191,9 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         //navigationController?.popViewController(animated: true)
-        navigationController?.popToRootViewController(animated: true)
+        //navigationController?.popToRootViewController(animated: true)
         dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
         
     }
     
