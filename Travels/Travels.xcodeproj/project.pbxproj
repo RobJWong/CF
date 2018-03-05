@@ -11,6 +11,7 @@
 		D918A3DF200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3DE200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift */; };
 		D918A3E3200FD8CF00A686C0 /* ImageNotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */; };
 		D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D91B4573202B488000A5FEE1 /* NotesCell.swift */; };
+		D91D6D86204DF84C00E4C481 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D91D6D85204DF84B00E4C481 /* GoogleService-Info.plist */; };
 		D948D15320093B3200B5B411 /* OnboardEmptyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */; };
 		D948D15420093B3200B5B411 /* LoginViewContoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15020093B3200B5B411 /* LoginViewContoller.swift */; };
 		D948D15520093B3200B5B411 /* OnboardCitySelect.swift in Sources */ = {isa = PBXBuildFile; fileRef = D948D15120093B3200B5B411 /* OnboardCitySelect.swift */; };
@@ -25,7 +26,6 @@
 		D96F1E152017C02800793B23 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E112017C02700793B23 /* Montserrat-Medium.ttf */; };
 		D96F1E162017C02800793B23 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E122017C02700793B23 /* Montserrat-Regular.ttf */; };
 		D96F1E172017C02800793B23 /* Montserrat-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E132017C02700793B23 /* Montserrat-SemiBold.ttf */; };
-		D9739ED820056FEF000E12FD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9739ED720056FEF000E12FD /* GoogleService-Info.plist */; };
 		D9739EDA200573D3000E12FD /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9739ED9200573D3000E12FD /* AlertBox.swift */; };
 		D988801120056D88000DEE66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D988801020056D88000DEE66 /* AppDelegate.swift */; };
 		D988801620056D88000DEE66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988801420056D88000DEE66 /* Main.storyboard */; };
@@ -42,6 +42,7 @@
 		D918A3DE200F0A4400A686C0 /* ReturningUserCityDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ReturningUserCityDetailTableViewController.swift; path = "/Users/robertwong/Documents/iOS-Apps/CF/Travels/Travels/Controller/ReturningUserCityDetailTableViewController.swift"; sourceTree = "<absolute>"; };
 		D918A3E2200FD8CF00A686C0 /* ImageNotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ImageNotesCell.swift; path = Travels/Model/ImageNotesCell.swift; sourceTree = SOURCE_ROOT; };
 		D91B4573202B488000A5FEE1 /* NotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NotesCell.swift; path = Travels/Model/NotesCell.swift; sourceTree = SOURCE_ROOT; };
+		D91D6D85204DF84B00E4C481 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardEmptyList.swift; sourceTree = "<group>"; };
 		D948D15020093B3200B5B411 /* LoginViewContoller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewContoller.swift; sourceTree = "<group>"; };
 		D948D15120093B3200B5B411 /* OnboardCitySelect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardCitySelect.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		D96F1E112017C02700793B23 /* Montserrat-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Medium.ttf"; sourceTree = "<group>"; };
 		D96F1E122017C02700793B23 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Regular.ttf"; sourceTree = "<group>"; };
 		D96F1E132017C02700793B23 /* Montserrat-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.ttf"; sourceTree = "<group>"; };
-		D9739ED720056FEF000E12FD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D9739ED9200573D3000E12FD /* AlertBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
 		D988800D20056D88000DEE66 /* Travels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Travels.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D988801020056D88000DEE66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				D988801C20056D88000DEE66 /* LaunchScreen.storyboard */,
 				D988801F20056D88000DEE66 /* Info.plist */,
 				D988801720056D88000DEE66 /* Travels.xcdatamodeld */,
-				D9739ED720056FEF000E12FD /* GoogleService-Info.plist */,
+				D91D6D85204DF84B00E4C481 /* GoogleService-Info.plist */,
 			);
 			path = Travels;
 			sourceTree = "<group>";
@@ -233,9 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D988801E20056D88000DEE66 /* LaunchScreen.storyboard in Resources */,
+				D91D6D86204DF84C00E4C481 /* GoogleService-Info.plist in Resources */,
 				D96F1E142017C02700793B23 /* Goku.ttf in Resources */,
 				D96F1E162017C02800793B23 /* Montserrat-Regular.ttf in Resources */,
-				D9739ED820056FEF000E12FD /* GoogleService-Info.plist in Resources */,
 				D96F1DF82017BD6D00793B23 /* Assets.xcassets in Resources */,
 				D96F1E152017C02800793B23 /* Montserrat-Medium.ttf in Resources */,
 				D96F1E172017C02800793B23 /* Montserrat-SemiBold.ttf in Resources */,

@@ -204,11 +204,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             completion(sectionName)
         } else {
             let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city)
-            print("DB Ref: ",databaseRef)
             databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
                 for idx in snapshot.children {
                     let snap = idx as! DataSnapshot
                     let key = snap.key
+                    completion(key)
                     break
                 }
             })
