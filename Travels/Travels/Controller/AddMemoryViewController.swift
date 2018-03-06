@@ -147,6 +147,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(userData?.newUser)
         if segue.identifier == "newUser" {
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController

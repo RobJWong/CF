@@ -179,7 +179,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8l-b7-8eV">
-                                        <rect key="frame" x="85" y="97" width="150" height="34"/>
+                                        <rect key="frame" x="85" y="53" width="150" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -189,9 +189,8 @@
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l3-iw-IpA">
                                                 <rect key="frame" x="2" y="2" width="250" height="295"/>
-                                                <color key="backgroundColor" red="0.71764705880000002" green="0.83529411760000005" blue="0.71764705880000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </string>
-                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="17"/>
+                                                <color key="backgroundColor" red="0.90980392156862744" green="0.95294117647058818" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="21.600000381469727"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>
@@ -207,7 +206,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="74k-fR-dOr">
                                         <rect key="frame" x="35" y="445" width="250" height="115"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbh-z0-lKO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vbh-z0-lKO">
                                                 <rect key="frame" x="8" y="8" width="242" height="19"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                                 <nil key="textColor"/>
@@ -706,8 +705,8 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                             <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zit-CJ-MkF">
-                                    <rect key="frame" x="59.5" y="111.5" width="201" height="47"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zit-CJ-MkF">
+                                    <rect key="frame" x="0.0" y="111.5" width="320" height="47"/>
                                     <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="46.400001525878906"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -726,6 +725,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                 <constraint firstItem="Ode-bm-v0n" firstAttribute="top" secondItem="zit-CJ-MkF" secondAttribute="bottom" constant="18.699999999999999" id="4T5-Nb-nwJ"/>
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="4iR-mY-R6S"/>
                                 <constraint firstItem="zit-CJ-MkF" firstAttribute="top" secondItem="8fp-zf-5hg" secondAttribute="top" constant="111.3" id="6fV-jd-3zs"/>
+                                <constraint firstItem="zit-CJ-MkF" firstAttribute="width" secondItem="8fp-zf-5hg" secondAttribute="width" id="MJS-yw-qQy"/>
                                 <constraint firstItem="Ode-bm-v0n" firstAttribute="centerX" secondItem="8fp-zf-5hg" secondAttribute="centerX" id="VJk-n2-m4n"/>
                             </constraints>
                         </view>
@@ -842,10 +842,10 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="snX-bg-98f">
-                                    <rect key="frame" x="40.5" y="200" width="240" height="17"/>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category Name" adjustsFontForContentSizeCategory="YES" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="snX-bg-98f">
+                                    <rect key="frame" x="40.5" y="200" width="240" height="19"/>
                                     <nil key="textColor"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
                             </subviews>
@@ -894,7 +894,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-7V-Nbb">
-                                        <rect key="frame" x="77" y="97" width="167" height="34"/>
+                                        <rect key="frame" x="77" y="53" width="167" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1021,8 +1021,8 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="SVq-zN-0MS"/>
-        <segue reference="mwW-iQ-vzn"/>
-        <segue reference="JIe-Bg-xHv"/>
-        <segue reference="Idf-9m-scS"/>
+        <segue reference="SCW-R9-qzk"/>
+        <segue reference="XRv-ee-uG1"/>
+        <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>

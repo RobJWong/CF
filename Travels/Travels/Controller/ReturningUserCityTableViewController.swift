@@ -177,7 +177,18 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        self.userData?.currentCitySelection = place.formattedAddress
+        //print(place.name)
+        //print(place.formattedAddress)
+//        let parseLocation = place.formattedAddress?.components(separatedBy: ",")
+//        guard let location = parseLocation else { return }
+//        print(location)
+//        let parseCount = location.count
+//        self.userData?.currentCitySelection = location[0] + location[parseCount]
+        let parseLocation = place.formattedAddress?.components(separatedBy: ",")
+        guard let location = parseLocation else { return }
+        print(location)
+        let parseCount = location.count
+        self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {
             //self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
         })

@@ -84,21 +84,25 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
     
     func setupNavStack() {
-        let stack = self.navigationController?.viewControllers
+        //let stack = self.navigationController?.viewControllers
     }
     
     func setupTableView() {
-        let backgroundImage = UIImage(named: "greenBG")
-        let imageView = UIImageView(image: backgroundImage)
-        self.tableView.backgroundView = imageView
+        cityName.adjustsFontSizeToFitWidth = true
+        //        let backgroundImage = UIImage(named: "greenBG")
+//        let imageView = UIImageView(image: backgroundImage)
+//        self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func setupNavBarItems() {
+        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 232.0 / 255.0, green: 243.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
+        //self.navigationController?.view.backgroundColor = UIColor.init(red: 232.0 / 255.0, green: 243.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
         //backButton.tintColor = UIColor.black

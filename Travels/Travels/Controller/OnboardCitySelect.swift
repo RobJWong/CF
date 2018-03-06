@@ -105,13 +105,19 @@ extension OnboardCitySelect: GMSAutocompleteViewControllerDelegate {
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        print("Place: \(place.formattedAddress)")
-        print("Place name: \(place.name)")
+//        print("Place: \(place.formattedAddress)")
+//        print("Place name: \(place.name)")
+//        print(place.addressComponents)
         //let storyboard = UIStoryboard(name: "Main", bundle: nil)
         //let controller = storyboard.instantiateViewController(withIdentifier: "EmptyList") as! OnboardingEmptyList
         //self.userData?.currentCitySelection = place.name
-        self.userData?.currentCitySelection = place.formattedAddress
+        //self.userData?.currentCitySelection = place.formattedAddress
         //controller.selectedCity = place.name
+        let parseLocation = place.formattedAddress?.components(separatedBy: ",")
+        guard let location = parseLocation else { return }
+        print(location)
+        let parseCount = location.count
+        self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
         })

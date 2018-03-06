@@ -22,7 +22,12 @@ class AddNotesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
+        notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
     }
 
     override func didReceiveMemoryWarning() {
