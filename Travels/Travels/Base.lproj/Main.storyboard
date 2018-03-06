@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -179,7 +180,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8l-b7-8eV">
-                                        <rect key="frame" x="85" y="97" width="150" height="34"/>
+                                        <rect key="frame" x="85" y="53" width="150" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -346,7 +347,7 @@ starting with?</string>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Choose City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W3-pe-F9l">
-                                    <rect key="frame" x="115" y="96" width="91" height="19"/>
+                                    <rect key="frame" x="115.5" y="96" width="90.5" height="19"/>
                                     <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -820,16 +821,23 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                             <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="19.200000762939453"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-8w-X6w">
-                                            <rect key="frame" x="143.5" y="21" width="33.5" height="6"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3h-8w-X6w">
+                                            <rect key="frame" x="144" y="21" width="33.5" height="6"/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="d3h-8w-X6w" secondAttribute="height" multiplier="11:2" id="k0H-Ww-VET"/>
+                                                <constraint firstAttribute="height" constant="6" id="TAg-c3-g6g"/>
+                                                <constraint firstAttribute="width" constant="33.5" id="U5u-oZ-zff"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="55C-HT-Hdq">
+                                            <rect key="frame" x="8" y="47" width="304" height="225"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        </textView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tCY-b6-LMR">
                                             <rect key="frame" x="28" y="47" width="264" height="272"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -848,22 +856,26 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                                         <constraint firstAttribute="trailingMargin" secondItem="tCY-b6-LMR" secondAttribute="trailing" constant="20" id="EYb-37-JOh"/>
                                         <constraint firstItem="d3h-8w-X6w" firstAttribute="centerX" secondItem="kI2-ud-eXR" secondAttribute="centerX" id="JQf-rh-GAK"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="tCY-b6-LMR" secondAttribute="bottom" constant="20" id="Meq-MN-f5h"/>
-                                        <constraint firstItem="d3h-8w-X6w" firstAttribute="width" secondItem="kI2-ud-eXR" secondAttribute="height" multiplier="33:349" id="eFz-27-r8u"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="55C-HT-Hdq" secondAttribute="trailing" id="QQT-3k-u9Y"/>
+                                        <constraint firstItem="55C-HT-Hdq" firstAttribute="leading" secondItem="kI2-ud-eXR" secondAttribute="leadingMargin" id="T6U-cu-OXY"/>
                                         <constraint firstItem="d3h-8w-X6w" firstAttribute="top" secondItem="kI2-ud-eXR" secondAttribute="topMargin" constant="10" id="lXz-1j-4MR"/>
                                         <constraint firstItem="tCY-b6-LMR" firstAttribute="leading" secondItem="kI2-ud-eXR" secondAttribute="leadingMargin" constant="20" id="pqi-rZ-wRr"/>
                                         <constraint firstItem="OOl-fs-YTH" firstAttribute="leading" secondItem="kI2-ud-eXR" secondAttribute="leading" id="qeJ-sX-HKR"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="55C-HT-Hdq" secondAttribute="bottom" constant="67" id="tsa-uY-04h"/>
+                                        <constraint firstItem="55C-HT-Hdq" firstAttribute="top" secondItem="d3h-8w-X6w" secondAttribute="bottom" constant="20" id="vzN-qo-4dT"/>
                                         <constraint firstItem="tCY-b6-LMR" firstAttribute="top" secondItem="d3h-8w-X6w" secondAttribute="bottom" constant="20" id="wSA-H9-GvR"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="subviews">
                                             <exclude reference="jb7-Eh-t6Y"/>
                                             <exclude reference="OOl-fs-YTH"/>
+                                            <exclude reference="tCY-b6-LMR"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="notes" destination="tCY-b6-LMR" id="qUd-qy-uM6"/>
+                                    <outlet property="notes" destination="55C-HT-Hdq" id="dat-dn-IK8"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -955,7 +967,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-7V-Nbb">
-                                        <rect key="frame" x="77" y="97" width="167" height="34"/>
+                                        <rect key="frame" x="77" y="53" width="167" height="78"/>
                                         <fontDescription key="fontDescription" name="Goku" family="Goku" pointSize="33.900001525878906"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1083,7 +1095,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
     <inferredMetricsTieBreakers>
         <segue reference="SVq-zN-0MS"/>
         <segue reference="mwW-iQ-vzn"/>
-        <segue reference="JIe-Bg-xHv"/>
+        <segue reference="u5j-kz-Arp"/>
         <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>
