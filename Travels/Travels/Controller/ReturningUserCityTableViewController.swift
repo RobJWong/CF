@@ -121,6 +121,7 @@ class ReturningUserCityTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = cities?[indexPath.row]
+        cell.textLabel?.adjustsFontSizeToFitWidth = true
         cell.textLabel?.font = UIFont(name: "Goku", size: 33.9)
         cell.textLabel?.textAlignment = .center
         return cell
