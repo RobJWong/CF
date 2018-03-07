@@ -22,12 +22,19 @@ class AddNotesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
+        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
+        //notesSection.setContentOffset(CGPoint.zero, animated: false)
+        //notesSection.contentInset = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+        //notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        view.addGestureRecognizer(tapScreen)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
-        notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
+//        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
+//        notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
     }
 
     override func didReceiveMemoryWarning() {
@@ -54,6 +61,10 @@ class AddNotesViewController: UIViewController {
 //        }
     }
     
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
     @objc func labelTapped(_ sender: UITapGestureRecognizer) {
         let sectionNameVC = storyboard?.instantiateViewController(withIdentifier: "SectionName") as! SectionNameTableViewController
         sectionNameVC.selectionNameDelegate = self
@@ -66,7 +77,15 @@ class AddNotesViewController: UIViewController {
     }
     
     @objc func saveButtonAction(_ sender: UIBarButtonItem) {
-        saveToDB()
+        guard let sectionName = sectionName.text else {
+            return
+        }
+        if sectionName == "Choose Category" {
+            AlertBox.sendAlert(boxMessage: "Please select a section name", presentingController: self)
+            return
+        } else {
+            saveToDB()
+        }
     }
     
     func setupNavBarItems() {

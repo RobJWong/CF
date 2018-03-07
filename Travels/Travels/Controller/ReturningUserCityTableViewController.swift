@@ -189,7 +189,7 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
         let parseCount = location.count
         self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {
-            //self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
+            self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
         })
     }
     

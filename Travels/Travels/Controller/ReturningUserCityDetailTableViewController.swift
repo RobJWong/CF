@@ -35,6 +35,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         super.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        saveAction()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         // Uncomment the following line to preserve selection between presentations
@@ -55,6 +60,9 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             userData?.addedNewItem = false
             fixNavStack()
         }
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        view.addGestureRecognizer(tapScreen)
         
         tableView.estimatedRowHeight = 350
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -116,6 +124,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         //self.navigationItem.rightBarButtonItem = editButton
         //self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
     }
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        view.endEditing(true)
+        saveAction()
+    }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
 //        var navigationArray = navigationController?.viewControllers ?? [Any]()        navigationArray.remove(at: 2)
@@ -131,23 +143,23 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         performSegue(withIdentifier: "addMemory", sender: self)
     }
     
-    @objc func saveAction(_ sender: UIBarButtonItem) {
-        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
-        let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
-                deleteInfo.removeValue()
-        let count = tableData.count
-        for idx in 0...count - 1 {
-            let idxString = String(idx)
-            let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
-            let values = tableData[idx]
-                    firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
-                if err != nil {
-                    print(err)
-                    return
-                }
-            })
-        }
-    }
+//    @objc func saveAction(_ sender: UIBarButtonItem) {
+//        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
+//        let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
+//                deleteInfo.removeValue()
+//        let count = tableData.count
+//        for idx in 0...count - 1 {
+//            let idxString = String(idx)
+//            let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
+//            let values = tableData[idx]
+//                    firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
+//                if err != nil {
+//                    print(err)
+//                    return
+//                }
+//            })
+//        }
+//    }
     
 //    @objc func editAction(_ sender: UIBarButtonItem) {
 //        tableView.setEditing(!tableView.isEditing, animated: true)
@@ -181,6 +193,24 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //            }
 //        }
 //    }
+    
+    func saveAction() {
+        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
+        let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
+        deleteInfo.removeValue()
+        let count = tableData.count
+        for idx in 0...count - 1 {
+            let idxString = String(idx)
+            let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
+            let values = tableData[idx]
+            firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
+                if err != nil {
+                    print(err)
+                    return
+                }
+            })
+        }
+    }
     
     func setupTableView(userID: String, city: String, section: String, completion: @escaping ([[String:Any]]) -> () ) {
         let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(section)
@@ -279,7 +309,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
         //guard let indexPath = indexPathForEdit else {return }
         //tableData[indexPath]["Notes"] = textView.text
-        print("Am I ever here?")
+        //print("Am I ever here?")
         let indexPath = textView.tag
         tableData[indexPath]["Notes"] = textView.text
         tableView.beginUpdates()
@@ -311,19 +341,41 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         }
     }
     
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        let sectionItems = tableData[indexPath.section]
-        if indexPath.row >= sectionItems.count && isEditing {
-            return false
-        }
-        return true
-    }
+//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+//        let sectionItems = tableData[indexPath.section]
+//        if indexPath.row >= sectionItems.count && isEditing {
+//            return false
+//        }
+//        return true
+//    }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableData.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+    
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableData.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            saveAction()
+//        }
+//    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let more = UITableViewRowAction(style: .default, title: "More") { action, index in
+            print("more button tapped")
         }
+        more.backgroundColor = .lightGray
+        
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+            self.tableData.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            self.saveAction()
+        }
+        delete.backgroundColor = .red
+
+        return [delete, more]
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
@@ -331,6 +383,8 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         tableData.remove(at: fromIndexPath.row)
         tableData.insert(tempObj, at: to.row)
     }
+    
+    
 
     /*
     // MARK: - Navigation

@@ -100,10 +100,11 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     }
     
     func setupNavBarItems() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
+//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 252.0 / 255.0, green: 242.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(AddMemoryViewController.buttonAction(_:)))
         //backButton.tintColor = UIColor.white
@@ -174,8 +175,8 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         guard let sectionName = sectionName.text else {
             return
         }
-        if sectionName == "" {
-            AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
+        if sectionName == "Choose Category" {
+            AlertBox.sendAlert(boxMessage: "Please enter a section name", presentingController: self)
             return
         }
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
