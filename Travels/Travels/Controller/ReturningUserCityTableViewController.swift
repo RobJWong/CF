@@ -73,6 +73,11 @@ class ReturningUserCityTableViewController: UITableViewController {
                 returningUserCityDetailVC?.userData = userData
             }
         }
+//        if let addNewCity = segue.destination as? OnboardEmptyList {
+//            addNewCity.userData = userData
+//            let tempVC  = OnboardEmptyList()
+//            navigationController?.pushViewController(tempVC, animated: true)
+//        }
         if let addNewCity = segue.destination as? OnboardEmptyList {
             addNewCity.userData = userData
         }
@@ -178,16 +183,9 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     
     // Handle the user's selection.
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
-        //print(place.name)
-        //print(place.formattedAddress)
-//        let parseLocation = place.formattedAddress?.components(separatedBy: ",")
-//        guard let location = parseLocation else { return }
-//        print(location)
-//        let parseCount = location.count
-//        self.userData?.currentCitySelection = location[0] + location[parseCount]
         let parseLocation = place.formattedAddress?.components(separatedBy: ",")
         guard let location = parseLocation else { return }
-        print(location)
+        //print(location)
         let parseCount = location.count
         self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {
@@ -203,10 +201,9 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     // User canceled the operation.
     func wasCancelled(_ viewController: GMSAutocompleteViewController) {
         //navigationController?.popViewController(animated: true)
-        //navigationController?.popToRootViewController(animated: true)
-        dismiss(animated: true, completion: nil)
         navigationController?.popToRootViewController(animated: true)
-        
+        dismiss(animated: true, completion: nil)
+        //navigationController?.popToRootViewController(animated: true)
     }
     
     // Turn the network activity indicator on and off again.

@@ -33,6 +33,19 @@ class ChangeSectionsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         setupSectionData(userID: userID, city: selectedCity)
+        setupNavBarItems()
+    }
+    
+    func setupNavBarItems() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
+        //backButton.tintColor = UIColor.black
+        self.navigationItem.leftBarButtonItem = backButton
+        
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
