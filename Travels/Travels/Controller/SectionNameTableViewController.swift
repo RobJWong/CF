@@ -67,6 +67,7 @@ class SectionNameTableViewController: UITableViewController {
         setupSavedData(userID: userID, city: city)
     }
     
+    
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()

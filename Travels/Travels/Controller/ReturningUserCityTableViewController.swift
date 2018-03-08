@@ -39,6 +39,9 @@ class ReturningUserCityTableViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
+        //tableView.allowsSelectionDuringEditing = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +50,7 @@ class ReturningUserCityTableViewController: UITableViewController {
         setupSavedLocations()
         setupNavBarItems()
     }
+    
     
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -57,7 +61,6 @@ class ReturningUserCityTableViewController: UITableViewController {
         let settingsButton = UIBarButtonItem(image:UIImage(named:"icon_settings"), style:.plain, target:self, action:#selector(ReturningUserCityTableViewController.buttonAction(_:)))
         //backButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = settingsButton
-        
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
@@ -124,11 +127,12 @@ class ReturningUserCityTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = cities?[indexPath.row]
-        cell.textLabel?.adjustsFontSizeToFitWidth = true
-        cell.textLabel?.font = UIFont(name: "Goku", size: 33.9)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CityTableViewCell
+        //cell.textLabel?.text = cities?[indexPath.row]
+        //cell.textLabel?.adjustsFontSizeToFitWidth = true
+        //cell.textLabel?.font = UIFont(name: "Goku", size: 28)
         cell.textLabel?.textAlignment = .center
+        cell.cityName.text = cities?[indexPath.row]
         return cell
     }
 

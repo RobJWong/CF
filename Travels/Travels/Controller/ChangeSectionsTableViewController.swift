@@ -42,10 +42,13 @@ class ChangeSectionsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
         
-        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
+        let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ChangeSectionsTableViewController.backAction(_:)))
         //backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
-        
+    }
+    
+    @objc func backAction(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

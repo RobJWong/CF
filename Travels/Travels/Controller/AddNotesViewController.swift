@@ -14,8 +14,9 @@ class AddNotesViewController: UIViewController {
     var userData: UserData?
     
     @IBOutlet weak var notesSection: UITextView!
-    //@IBOutlet weak var sectionName: UITextField!
     @IBOutlet weak var sectionName: UILabel!
+    
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +24,6 @@ class AddNotesViewController: UIViewController {
         // Do any additional setup after loading the view.
         setupNavBarItems()
         sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
-        //notesSection.setContentOffset(CGPoint.zero, animated: false)
-        //notesSection.contentInset = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-        //notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
         
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
@@ -48,17 +46,18 @@ class AddNotesViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newUser" {
+            stopAnimation()
+            let navVC = segue.destination as? UINavigationController
+            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
+            rVC.userData = userData
+        }
+        
         if segue.identifier == "showMemoryTable" {
+            stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
         }
-        
-//        if segue.identifier == "newUser" {
-//            userData?.newUser = false
-//            let navVC = segue.destination as? UINavigationController
-//            let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
-//            rVC.userData = userData
-//        }
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
@@ -85,7 +84,19 @@ class AddNotesViewController: UIViewController {
             return
         } else {
             saveToDB()
+            activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
+            activityIndicator.center = self.view.center
+            activityIndicator.hidesWhenStopped = true
+            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+            view.addSubview(activityIndicator)
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
         }
+    }
+    
+    func stopAnimation() {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     func setupNavBarItems() {
@@ -129,12 +140,12 @@ class AddNotesViewController: UIViewController {
         let timeStampString = String(timeStamp)
         
         updateFirebase(city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString, notes: noteText)
-        self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-//        if userData?.newUser == true {
-//            self.performSegue(withIdentifier: "newUser", sender: self)
-//        } else {
-//            self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-//        }
+        self.userData?.sectionName = sectionName
+        if self.userData?.newUser == true {
+            self.performSegue(withIdentifier: "newUser", sender: self)
+        } else {
+            self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+        }
     }
 
     /*
@@ -160,7 +171,7 @@ extension UIView {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         print(frame.size.width)
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25 + 8, height: width)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
         //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
         self.layer.addSublayer(border)
     }

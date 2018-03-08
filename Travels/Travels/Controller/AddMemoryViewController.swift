@@ -19,7 +19,9 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     var storedImage: UIImage?
     var imageURL: NSURL?
     var userData: UserData?
-
+    
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -145,16 +147,30 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     @objc func saveButtonAction(_ sender: UIBarButtonItem) {
         saveToDB()
+        activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+    }
+    
+    func stopAnimation() {
+        activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(userData?.newUser)
+        //print(userData?.newUser)
         if segue.identifier == "newUser" {
+            stopAnimation()
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
             rVC.userData = userData
         }
         if segue.identifier == "showMemoryTable" {
+            stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
             
@@ -206,6 +222,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
         let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
         userReference.updateChildValues(values)
+        print("updated DB")
     }
     
     func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String, completion: @escaping () -> () ) {
@@ -215,6 +232,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
         let uploadTask = uploadSite.putFile(from: imageURL as URL)
         uploadTask.observe(.success) { snapshot in
+            print("uploaded Image")
             completion()
         }
     }
@@ -253,8 +271,8 @@ extension UIView {
     func addBottomBorderWithColorMemory(color: UIColor, width: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
-        print(frame.size.width)
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25, height: width)
+        print(frame.width)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
         //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
         self.layer.addSublayer(border)
     }

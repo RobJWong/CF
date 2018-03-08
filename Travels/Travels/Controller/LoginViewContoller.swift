@@ -23,7 +23,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        print("test2")
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
