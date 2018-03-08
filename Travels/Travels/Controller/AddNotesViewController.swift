@@ -47,14 +47,14 @@ class AddNotesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newUser" {
-            stopAnimation()
+            //stopAnimation()
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
             rVC.userData = userData
         }
         
         if segue.identifier == "showMemoryTable" {
-            stopAnimation()
+            //stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
         }
@@ -84,20 +84,20 @@ class AddNotesViewController: UIViewController {
             return
         } else {
             saveToDB()
-            activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
-            activityIndicator.center = self.view.center
-            activityIndicator.hidesWhenStopped = true
-            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-            view.addSubview(activityIndicator)
-            activityIndicator.startAnimating()
-            UIApplication.shared.beginIgnoringInteractionEvents()
+//            activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
+//            activityIndicator.center = self.view.center
+//            activityIndicator.hidesWhenStopped = true
+//            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+//            view.addSubview(activityIndicator)
+//            activityIndicator.startAnimating()
+//            UIApplication.shared.beginIgnoringInteractionEvents()
         }
     }
     
-    func stopAnimation() {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
+//    func stopAnimation() {
+//        activityIndicator.stopAnimating()
+//        UIApplication.shared.endIgnoringInteractionEvents()
+//    }
     
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)

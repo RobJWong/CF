@@ -23,12 +23,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     @IBOutlet weak var changeSections: UIButton!
     
     @IBAction func switchSections(_ sender: UIButton) {
-        let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
-//        changeSectionVC.selectionNameDelegate = self
-        changeSectionVC.changeSectionNameDelegate = self
-        changeSectionVC.userData = userData
-        self.navigationController?.pushViewController(changeSectionVC, animated: true)
-        //present(changeSectionVC, animated: true, completion: nil)
+        self.performSegue(withIdentifier: "changeSectionName", sender: self)
     }
     
     override func viewDidLoad() {
@@ -112,17 +107,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         //self.navigationController?.view.backgroundColor = UIColor.init(red: 232.0 / 255.0, green: 243.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
-        //backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
         
         let addButton = UIBarButtonItem(image:UIImage(named:"icon_add_solo"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.addAction(_:)))
-        //addButton.tintColor = UIColor.black
         self.navigationItem.rightBarButtonItem = addButton
-        
-//        let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.saveAction(_:)))
-//        saveButton.tintColor = UIColor.black
-        //self.navigationItem.rightBarButtonItem = editButton
-        //self.navigationItem.setRightBarButtonItems([addButton,saveButton], animated: true)
     }
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
@@ -142,57 +130,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     @objc func addAction(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "addMemory", sender: self)
     }
-    
-//    @objc func saveAction(_ sender: UIBarButtonItem) {
-//        guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
-//        let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
-//                deleteInfo.removeValue()
-//        let count = tableData.count
-//        for idx in 0...count - 1 {
-//            let idxString = String(idx)
-//            let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
-//            let values = tableData[idx]
-//                    firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
-//                if err != nil {
-//                    print(err)
-//                    return
-//                }
-//            })
-//        }
-//    }
-    
-//    @objc func editAction(_ sender: UIBarButtonItem) {
-//        tableView.setEditing(!tableView.isEditing, animated: true)
-//        if tableView.isEditing {
-//            endEditing = false
-//        }
-//        if !tableView.isEditing {
-////            for textField in self.view.subviews where textField is UITextField {
-////                textField.resignFirstResponder()
-////            }
-//            view.endEditing(true)
-//            view.resignFirstResponder()
-//            if let indexPath = self.tableView.indexPathForSelectedRow {
-//                endEditing = true
-//                self.tableView.deselectRow(at: indexPath, animated: true)
-//            }
-//            guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
-//            let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
-//            deleteInfo.removeValue()
-//            let count = tableData.count
-//            for idx in 0...count - 1 {
-//                let idxString = String(idx)
-//                let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
-//                let values = tableData[idx]
-//                firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
-//                    if err != nil {
-//                        print(err)
-//                        return
-//                    }
-//                })
-//            }
-//        }
-//    }
     
     func saveAction() {
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection, let section = currentSectionString else { return }
@@ -257,6 +194,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         if let addMemoryVC = segue.destination as? OnboardEmptyList {
             addMemoryVC.userData = userData
         }
+        if let changeSectionNameVC = segue.destination as? ChangeSectionsTableViewController {
+            changeSectionNameVC.changeSectionNameDelegate = self
+            changeSectionNameVC.userData = userData
+        }
     }
     
     func setupTableData(tableDataHolder: [[String:Any]]) {
@@ -316,11 +257,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         tableView.endUpdates()
     }
     
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        view.endEditing(true)
-//        return true
-//    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellCheck = tableView.cellForRow(at: indexPath)
         print("dasdadas")
@@ -364,6 +300,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let more = UITableViewRowAction(style: .default, title: "More") { action, index in
             print("more button tapped")
+//            self.performSegue(withIdentifier: "modifyCell", sender: self)
+            
+//            let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
+//            changeSectionVC.changeSectionNameDelegate = self
+//            changeSectionVC.userData = userData
+//            self.navigationController?.pushViewController(changeSectionVC, animated: true)
+            
+            //let modifyDataVC = storyboard?.instantiateInitialViewController()
         }
         more.backgroundColor = .lightGray
         
@@ -403,11 +347,3 @@ extension ReturningUserCityDetailTableViewController: ChangeSectionNameDelegate 
         userData?.sectionName = selection
     }
 }
-
-//extension ReturingUserCityDetailTableViewController: UITextViewDelegate {
-//    func textViewDidChange(_ textView: UITextView) {
-//        tableView.beginUpdates()
-//        tableView.endUpdates()
-//    }
-//}
-
