@@ -106,7 +106,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                         //if let user = user {
                         //UserData.sharedInstance.didLogin(user: user)
                         self.userData.didLogin(user: user, newUser: true)
-                        let changeRequest = user.createProfileChangeRequest()
+                        //let changeRequest = user.createProfileChangeRequest()
                         self.performSegue(withIdentifier: "newUser", sender: self)
                         print("Created user profile")
                         //}

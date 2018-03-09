@@ -13,15 +13,17 @@ protocol ChangeSectionNameDelegate {
     func changeSectionString(selection: String)
 }
 
+protocol ReplaceSectionNameDelegate {
+    func replaceSectionString(newSection: String)
+}
+
 class ChangeSectionsTableViewController: UITableViewController {
     
     var userData: UserData?
     var sectionNameContainer: [String]?
-    var changeSectionNameDelegate : ChangeSectionNameDelegate!
     
-//    @IBAction func backButton(_ sender: UIButton) {
-//        dismiss(animated: true, completion: nil)
-//    }
+    var changeSectionNameDelegate : ChangeSectionNameDelegate!
+    var replaceSectionNameDelegate: ReplaceSectionNameDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +50,7 @@ class ChangeSectionsTableViewController: UITableViewController {
     }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
+        
         self.navigationController?.popViewController(animated: true)
     }
     
@@ -112,6 +115,28 @@ class ChangeSectionsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         sectionChange()
     }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+            guard let sectionNames = self.sectionNameContainer, let userID = self.self.userData?.userID, let selectedCity = self.userData?.currentCitySelection else { return }
+            let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(sectionNames[indexPath.row])
+            if sectionNames.count == 1 {
+                AlertBox.sendAlert(boxMessage: "Cannot delete the last section. Please delete the city in the city selection screen ", presentingController: self)
+            } else {
+                if self.userData?.sectionName == sectionNames[indexPath.row] {
+                    self.replaceSectionNameDelegate.replaceSectionString(newSection: sectionNames[indexPath.row + 1])
+                }
+                databaseRef.removeValue()
+                self.sectionNameContainer?.remove(at: indexPath.row)
+                self.tableView?.deleteRows(at: [indexPath], with: .fade)
+            }
+        }
+        delete.backgroundColor = .red
+        
+        return [delete]
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -122,13 +147,13 @@ class ChangeSectionsTableViewController: UITableViewController {
     */
 
     /*
-    // Override to support editing the table view.
+     Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
+             Delete the row from the data source
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+             Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     */

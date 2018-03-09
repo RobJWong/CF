@@ -88,11 +88,38 @@ class ReturningUserCityTableViewController: UITableViewController {
             userProfileVC.userData = userData
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let uid = self.userData?.userID, let citiesArray = cities else { return nil }
+        let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
+            print("delete button tapped")
+            let alert = UIAlertController(title: "Confrimation", message: "Do you want to delete all the data relating to this city?", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(citiesArray[indexPath.row])
+                databaseRef.removeValue()
+                self.cities?.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+            }))
+            self.present(alert, animated: true, completion: nil)
+        }
+        delete.backgroundColor = .red
+        
+        return [delete]
     }
+    
+//    func deleteCity(deleteCity: String) {
+//        guard let uid = userData?.userID else {
+//            print("uid is nil")
+//            return
+//        }
+//        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(deleteCity)
+//        databaseRef.removeValue()
+//        tableView.reloadData()
+//    }
     
     func setupSavedLocations() {
         guard let uid = userData?.userID else {
@@ -135,6 +162,12 @@ class ReturningUserCityTableViewController: UITableViewController {
         cell.cityName.text = cities?[indexPath.row]
         return cell
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -218,5 +251,4 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     func didUpdateAutocompletePredictions(_ viewController: GMSAutocompleteViewController) {
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
-    
 }

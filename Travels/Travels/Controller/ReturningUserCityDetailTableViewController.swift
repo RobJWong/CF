@@ -42,7 +42,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+    
         setupTableView()
         setupNavBarItems()
         
@@ -65,7 +65,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
-            self.setupTableView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
+            self.setupTableCellView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
                 DispatchQueue.main.async(execute:  {
                     self.cityName?.text = selectedCity
                     self.changeSections.setTitle(sectionString, for: .normal)
@@ -78,10 +78,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     func fixNavStack() {
         var stackArray = navigationController?.viewControllers ?? [Any]()
-        print(stackArray)
+        //print(stackArray)
         stackArray.remove(at: 2)
         stackArray.remove(at: 3)
-        print(stackArray)
+        //print(stackArray)
         navigationController?.viewControllers = (stackArray as? [UIViewController])!
     }
     
@@ -142,14 +142,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             let values = tableData[idx]
             firebaseDB.updateChildValues(values, withCompletionBlock: { ( err, ref) in
                 if err != nil {
-                    print(err)
+                    print("Error updating: ", err)
                     return
                 }
             })
         }
     }
     
-    func setupTableView(userID: String, city: String, section: String, completion: @escaping ([[String:Any]]) -> () ) {
+    func setupTableCellView(userID: String, city: String, section: String, completion: @escaping ([[String:Any]]) -> () ) {
         let databaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(section)
         var indexData = [String:Any]()
         var indexDataArray = [[String:Any]]()
@@ -219,7 +219,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let imageCheck = tableData[indexPath.row]["Image"] {
+        if tableData[indexPath.row]["Image"] != nil {
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageNotesData", for: indexPath) as! ImageNotesCell
             cell.notes.delegate = self
             cell.notes.tag = indexPath.row
@@ -265,12 +265,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         }
 
         if cellCheck is ImageNotesCell {
-            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
+//            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
+             //tableView.cellForRow(at: indexPath) as! ImageNotesCell
                 //cellImageNotes.becomeFirstResponder()
                 //cellImageNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
         } else if cellCheck is NotesCell {
-            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
+//            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
+            //tableView.cellForRow(at: indexPath) as! NotesCell
                 //cellNotes.becomeFirstResponder()
                 //cellNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
@@ -300,14 +302,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let more = UITableViewRowAction(style: .default, title: "More") { action, index in
             print("more button tapped")
-//            self.performSegue(withIdentifier: "modifyCell", sender: self)
-            
-//            let changeSectionVC = storyboard?.instantiateViewController(withIdentifier: "changeSection") as! ChangeSectionsTableViewController
-//            changeSectionVC.changeSectionNameDelegate = self
-//            changeSectionVC.userData = userData
-//            self.navigationController?.pushViewController(changeSectionVC, animated: true)
-            
-            //let modifyDataVC = storyboard?.instantiateInitialViewController()
         }
         more.backgroundColor = .lightGray
         
@@ -345,5 +339,11 @@ extension ReturningUserCityDetailTableViewController: ChangeSectionNameDelegate 
     func changeSectionString(selection: String) {
         changeSections.titleLabel?.text = selection
         userData?.sectionName = selection
+    }
+}
+
+extension ReturningUserCityDetailTableViewController: ReplaceSectionNameDelegate {
+    func replaceSectionString(newSection: String) {
+        userData?.sectionName = newSection
     }
 }
