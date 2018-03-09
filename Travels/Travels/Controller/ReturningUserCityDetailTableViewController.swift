@@ -160,11 +160,43 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 let v = snap.value
                 indexData = [:]
                 for (key, value) in v as! [String: Any] {
-                    indexData[key] = value
+                    //indexData[key] = value
+                    if key == "Image" {
+                        //let pathReference = Storage.storage().reference(withPath: value as! String)
+                        print("before getImageData call")
+                        self.getImageData(pathRef: value as! String, completion: {(someData) in
+                            print("before assigning indexData[key]")
+                            indexData[key] = someData
+                            print("after assigning indexData[key]")
+                        })
+//                        pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+//                            if let error = error {
+//                                print(error)
+//                            } else {
+//                                let image = UIImage(data: data!)
+//                                cell.storedImage.image = image
+//                            }
+//                        }
+                    } else {
+                        indexData[key] = value
+                    }
                 }
                 indexDataArray.append(indexData)
             }
             completion(indexDataArray)
+        })
+    }
+    
+    func getImageData(pathRef: String, completion: @escaping(UIImage) -> ()) {
+        let pathReference = Storage.storage().reference(withPath: pathRef as! String)
+        pathReference.getData(maxSize: 1 * 1614 * 1614, completion: { (data, error) in
+            if let error = error {
+                print(error)
+            } else {
+                let image = UIImage(data:data!)
+                print("called before completion handler w/ image")
+                completion(image!)
+            }
         })
     }
     
@@ -219,22 +251,24 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("inside cell call")
         if tableData[indexPath.row]["Image"] != nil {
+            print("inside image")
             let cell = tableView.dequeueReusableCell(withIdentifier: "imageNotesData", for: indexPath) as! ImageNotesCell
             cell.notes.delegate = self
             cell.notes.tag = indexPath.row
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
-            guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
-                return cell }
-            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
-            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
-                if let error = error {
-                    print(error)
-                } else {
-                    let image = UIImage(data: data!)
-                    cell.storedImage.image = image
-                }
-            }
+//            guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
+//                return cell }
+//            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
+//            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+//                if let error = error {
+//                    print(error)
+//                } else {
+//                    let image = UIImage(data: data!)
+//                    cell.storedImage.image = image
+//                }
+//            }
             return cell
         }
         else {
