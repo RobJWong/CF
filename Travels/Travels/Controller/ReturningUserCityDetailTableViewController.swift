@@ -65,13 +65,15 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         guard let userID = userData?.userID, let selectedCity = userData?.currentCitySelection else { return }
         getSectionData(userID: userID, city: selectedCity, completion: {(sectionString) in
+            print("Checkpoint 1")
             self.setupTableCellView(userID: userID, city: selectedCity, section: sectionString) { (tableData) in
-                DispatchQueue.main.async(execute:  {
+                //DispatchQueue.main.async(execute:  {
+                    print("checkpoint 9")
                     self.cityName?.text = selectedCity
                     self.changeSections.setTitle(sectionString, for: .normal)
                     self.currentSectionString = sectionString
                     self.setupTableData(tableDataHolder: tableData)
-                })
+                //})
             }
         })
     }
@@ -160,11 +162,45 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 let v = snap.value
                 indexData = [:]
                 for (key, value) in v as! [String: Any] {
-                    indexData[key] = value
+                    //original
+                    //indexData[key] = value
+                    
+                    //option 1.2
+                    if key == "Image" {
+                        print("Checkpoint 2")
+                        self.downloadImageFromStorage(imageLink: value) { (imageInfo) in
+                            //indexData[key] = imageInfo
+                            print("Checkpoint 7")
+                        }
+                    } else {
+                        indexData[key] = value
+                    }
+                    
+                    
                 }
                 indexDataArray.append(indexData)
             }
+            print("Checkpoint 8")
             completion(indexDataArray)
+        })
+    }
+    
+    //option 1.2
+    func downloadImageFromStorage(imageLink: Any, completion: @escaping(UIImage) -> ()) {
+        print("Checkpoint 3")
+        let pathReference = Storage.storage().reference(withPath: imageLink as! String)
+        pathReference.getData(maxSize: 1 * 1614 * 1614, completion: { (data, error) in
+            print("Checkpoint 4")
+        //pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+            if let error = error {
+                print(error)
+            } else {
+                let image = UIImage(data: data!)
+                print("Checkpoint 5")
+                //cell.storedImage.image = image
+                completion(image!)
+                print("Checkpoint 6")
+            }
         })
     }
     
@@ -226,29 +262,21 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
                 return cell }
-            let imageURL = imageFirebasePath as! String
-            print("image url: ", imageURL)
-            let url = NSURL(string: imageURL)
-//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//option 1.1
+//            let imageURL = imageFirebasePath as! String
+//            let url = NSURL(string: imageURL)
+//            URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
 //                if error != nil {
 //                    print(error)
 //                    return
 //                }
-//                DispatchQueue.main.async(execute:
-//                    cell.storedImage.image = UIImage(data: data!))
+//                DispatchQueue.main.async(execute: {
+//                    cell.storedImage.image = UIImage(data: data!)
+//
+//                })
 //            }).resume()
-            print("url check: " ,url)
-            URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
-                if error != nil {
-                    print(error)
-                    return
-                }
-                DispatchQueue.main.async(execute: {
-                    cell.storedImage.image = UIImage(data: data!)
-                    
-                })
-            }).resume()
             
+//original
 //            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
 //            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
 //                if let error = error {
@@ -258,6 +286,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //                    cell.storedImage.image = image
 //                }
 //            }
+            
+//option 1.2
+            print("checkpoint 7")
+            let memoryImage = tableData[indexPath.row]["Image"] as! UIImage
+            cell.storedImage.image = memoryImage
             
             return cell
         }
@@ -346,8 +379,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         tableData.insert(tempObj, at: to.row)
     }
     
-    
-
     /*
     // MARK: - Navigation
 

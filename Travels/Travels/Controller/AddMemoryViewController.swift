@@ -173,20 +173,60 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
-            
-//        var navigationArray = navigationController?.viewControllers ?? [Any]()
-//        navigationArray.remove(at: 2)
-//        navigationController?.viewControllers = navigationArray as? [UIViewController]
-            
-            //let firstVC = ReturningUserCityDetailTableViewController()
-//            let firstVC = segue.destination as? ReturningUserCityDetailTableViewController
-            //firstVC.userData = userData
-//            let checkNavigationStack = self.navigationController?.viewControllers
-//            print(checkNavigationStack)
-            //self.navigationController?.setViewControllers([firstVC], animated: false)
         }
     }
     
+//option 1.1
+//    func saveToDB() {
+//        guard let sectionName = sectionName.text else {
+//            return
+//        }
+//        if sectionName == "Choose Category" {
+//            AlertBox.sendAlert(boxMessage: "Please enter a section name", presentingController: self)
+//            return
+//        }
+//        guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
+//            return
+//        }
+//        let date = NSDate()
+//        let timeStamp = UInt64(floor(date.timeIntervalSince1970))
+//        let timeStampString = String(timeStamp)
+//
+//        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
+//            DispatchQueue.main.async(execute: {
+//                self.userData?.sectionName = sectionName
+//                if self.userData?.newUser == true {
+//                    self.performSegue(withIdentifier: "newUser", sender: self)
+//                } else {
+//                    self.performSegue(withIdentifier: "showMemoryTable", sender: self)
+//                }
+//            })
+//        }
+//    }
+//
+//    func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String, completion: @escaping () -> () ) {
+//        let uploadSite = Storage.storage().reference().child(userID).child(city).child(sectionName).child(timeStamp).child(imageURL.lastPathComponent!)
+//        if let uploadData = UIImagePNGRepresentation(self.viewImage.image!) {
+//        uploadSite.putData(uploadData, metadata: nil, completion: {(metadata, error) in
+//            if error != nil {
+//                print(error)
+//                return
+//            }
+//            let imageLink = metadata?.downloadURL()?.absoluteString
+//            let values = ["Image": imageLink, "Notes": self.memoryNotes.text] as [String: Any]
+//            self.updateFirebaseDB(userID: userID, city: city, sectionName: sectionName, timeStamp: timeStamp, values: values)
+//            completion()
+//            })
+//        }
+//    }
+//
+//    func updateFirebaseDB(userID: String, city: String, sectionName: String, timeStamp: String, values: [String:Any]) {
+//        let firebaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
+//        firebaseRef.updateChildValues(values)
+//    }
+//}
+
+//original
     func saveToDB() {
         guard let sectionName = sectionName.text else {
             return
@@ -202,9 +242,12 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         let timeStamp = UInt64(floor(date.timeIntervalSince1970))
         let timeStampString = String(timeStamp)
         
+        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
+                ///this
                 self.userData?.sectionName = sectionName
+                //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
                 if self.userData?.newUser == true {
                     self.performSegue(withIdentifier: "newUser", sender: self)
                 } else {
@@ -213,68 +256,29 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             })
         }
     }
-    
+
+    func updateFirebase(imageURL: String, city: String, userID: String, sectionName: String, timeStamp: String){
+        let firebaseRef = Database.database()
+        let imagePath = "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
+        let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
+        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
+        userReference.updateChildValues(values)
+        print("updated DB")
+    }
+
     func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String, completion: @escaping () -> () ) {
-        //let storageRef = Storage.storage().reference()
-        let uploadSite = Storage.storage().reference().child(userID).child(city).child(sectionName).child(timeStamp).child(imageURL.lastPathComponent!)
-        if let uploadData = UIImagePNGRepresentation(self.viewImage.image!) {
-        uploadSite.putData(uploadData, metadata: nil, completion: {(metadata, error) in
-            if error != nil {
-                print(error)
-                return
-            }
-            let imageLink = metadata?.downloadURL()?.absoluteString
-            let values = ["Image": imageLink, "Notes": self.memoryNotes.text] as [String: Any]
-            self.updateFirebaseDB(userID: userID, city: city, sectionName: sectionName, timeStamp: timeStamp, values: values)
-            print("checkpoint 2")
+        let timeStampString = String(timeStamp)
+        let storage = Storage.storage()
+        let storageRef = storage.reference()
+        let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
+        let uploadTask = uploadSite.putFile(from: imageURL as URL)
+        uploadTask.observe(.success) { snapshot in
+            print("uploaded Image")
             completion()
-            })
         }
     }
-    
-    func updateFirebaseDB(userID: String, city: String, sectionName: String, timeStamp: String, values: [String:Any]) {
-        let firebaseRef = Database.database().reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
-        firebaseRef.updateChildValues(values)
-        print("checkpoint 3")
-    }
 }
-        
-//        updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
-//        sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
-//            DispatchQueue.main.async(execute: {
-//                ///this
-//                self.userData?.sectionName = sectionName
-//                //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-//                if self.userData?.newUser == true {
-//                    self.performSegue(withIdentifier: "newUser", sender: self)
-//                } else {
-//                    self.performSegue(withIdentifier: "showMemoryTable", sender: self)
-//                }
-//            })
-//        }
-//    }
-//
-//    func updateFirebase(imageURL: String, city: String, userID: String, sectionName: String, timeStamp: String){
-//        let firebaseRef = Database.database()
-//        let imagePath = "gs://travels-3ef98.appspot.com/" + "\(userID)/\(city)/\(sectionName)/\(timeStamp)/\(imageURL)"
-//        let values = ["Image": imagePath, "Notes": memoryNotes.text] as [String : Any]
-//        let userReference = firebaseRef.reference().child("Users").child(userID).child("Cities").child(city).child(sectionName).child(timeStamp)
-//        userReference.updateChildValues(values)
-//        print("updated DB")
-//    }
-//
-//    func sendImage(imageURL: NSURL, city: String, userID: String, sectionName: String, timeStamp: String, completion: @escaping () -> () ) {
-//        let timeStampString = String(timeStamp)
-//        let storage = Storage.storage()
-//        let storageRef = storage.reference()
-//        let uploadSite = storageRef.child(userID).child(city).child(sectionName).child(timeStampString).child(imageURL.lastPathComponent!)
-//        let uploadTask = uploadSite.putFile(from: imageURL as URL)
-//        uploadTask.observe(.success) { snapshot in
-//            print("uploaded Image")
-//            completion()
-//        }
-//    }
-    
+
     /*
     // MARK: - Navigation
 
@@ -292,19 +296,6 @@ extension AddMemoryViewController: SelectionStringDelegate {
         sectionName.text = selection
     }
 }
-
-//func setupSectionBorder() {
-//Do any additional setup after loading the view.
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        //border.borderColor = UIColor.lightGray.cgColor
-//        border.borderColor = UIColor.black.cgColor
-//        print(sectionName.frame.size.width)
-//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width * 1.8, height: sectionName.frame.size.height)
-//        border.borderWidth = width
-//        sectionName.layer.addSublayer(border)
-//        sectionName.layer.masksToBounds = true
-//}
 
 extension UIView {
     func addBottomBorderWithColorMemory(color: UIColor, width: CGFloat) {
