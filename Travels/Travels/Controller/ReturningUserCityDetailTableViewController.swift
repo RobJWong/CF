@@ -226,15 +226,39 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
                 return cell }
-            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
-            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
-                if let error = error {
+            let imageURL = imageFirebasePath as! String
+            print("image url: ", imageURL)
+            let url = NSURL(string: imageURL)
+//            URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+//                if error != nil {
+//                    print(error)
+//                    return
+//                }
+//                DispatchQueue.main.async(execute:
+//                    cell.storedImage.image = UIImage(data: data!))
+//            }).resume()
+            print("url check: " ,url)
+            URLSession.shared.dataTask(with: url! as URL, completionHandler: { (data, response, error) in
+                if error != nil {
                     print(error)
-                } else {
-                    let image = UIImage(data: data!)
-                    cell.storedImage.image = image
+                    return
                 }
-            }
+                DispatchQueue.main.async(execute: {
+                    cell.storedImage.image = UIImage(data: data!)
+                    
+                })
+            }).resume()
+            
+//            let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
+//            pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
+//                if let error = error {
+//                    print(error)
+//                } else {
+//                    let image = UIImage(data: data!)
+//                    cell.storedImage.image = image
+//                }
+//            }
+            
             return cell
         }
         else {
