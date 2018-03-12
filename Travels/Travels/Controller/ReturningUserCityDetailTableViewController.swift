@@ -28,21 +28,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        saveAction()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    
         setupTableView()
         setupNavBarItems()
         
@@ -59,7 +45,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
         
-        tableView.estimatedRowHeight = 350
+        tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.allowsSelectionDuringEditing = true
         
@@ -74,6 +60,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 })
             }
         })
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        saveAction()
     }
     
     func fixNavStack() {
@@ -231,8 +222,47 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 if let error = error {
                     print(error)
                 } else {
+                    //original
                     let image = UIImage(data: data!)
                     cell.storedImage.image = image
+//option 1
+//                    let image = UIImage(data: data!)
+//                    tableView.beginUpdates()
+//                    let ratio = Float((image?.size.height)!) / Float((image?.size.width)!)
+//
+//                    let cellFrame = CGRect(x: 0, y: 0, width: tableView.contentSize.width, height: tableView.contentSize.width * CGFloat(ratio))
+//                    print(cell.storedImage.frame)
+//                    cell.storedImage.frame = cellFrame
+//                    cell.storedImage.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                    cell.storedImage.translatesAutoresizingMaskIntoConstraints = true
+//                    cell.storedImage.contentMode = .scaleAspectFit
+//                    cell.storedImage.image = image
+//                    tableView.endUpdates()
+                    
+                    //option 2
+//                    let containerView = UIView(frame: CGRect(x:0,y:0,width:self.view.frame.width
+//                        ,height:500))
+//                    let imageView = UIImageView()
+//                    if let image = UIImage(data:data!) {
+//                        let ratio = image.size.width / image.size.height
+//                        if containerView.frame.width > containerView.frame.height {
+//                            let newHeight = containerView.frame.width / ratio
+//                            imageView.frame.size = CGSize(width: containerView.frame.width, height: newHeight)
+//                            let frame = CGRect(x: cell.storedImage.frame.origin.x, y: cell.storedImage.frame.origin.y, width: cell.storedImage.frame.size.width, height: newHeight)
+//                            cell.storedImage.frame = frame
+//                        }
+//                        else{
+//                            let newWidth = containerView.frame.height * ratio
+//                            imageView.frame.size = CGSize(width: newWidth, height: containerView.frame.height)
+//                            let frame = CGRect(x: cell.storedImage.frame.origin.x, y: cell.storedImage.frame.origin.y, width: newWidth, height: cell.storedImage.frame.size.height)
+//                            cell.storedImage.frame = frame
+//                        }
+//                    }
+//                    let image = UIImage(data: data!)
+//                    cell.storedImage.bottomAnchor.constraint(equalTo: cell.notes.topAnchor)
+//                    cell.storedImage.image = image
+                    
+                    
                 }
             }
             return cell

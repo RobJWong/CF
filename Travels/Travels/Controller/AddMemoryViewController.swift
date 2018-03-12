@@ -22,6 +22,10 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     
+    override func viewDidLayoutSubviews() {
+        sectionName.addBottomBorderWithColorMemory(color: UIColor.black, height: 1)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -32,7 +36,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         
         setupNavBarItems()
         //setupSectionBorder()
-        sectionName.addBottomBorderWithColorMemory(color: UIColor.black, width: 1)
+        //sectionName.addBottomBorderWithColorMemory(color: UIColor.black, width: 1)
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
@@ -268,11 +272,11 @@ extension AddMemoryViewController: SelectionStringDelegate {
 //}
 
 extension UIView {
-    func addBottomBorderWithColorMemory(color: UIColor, width: CGFloat) {
+    func addBottomBorderWithColorMemory(color: UIColor, height: CGFloat) {
         let border = CALayer()
         border.backgroundColor = color.cgColor
         print(frame.width)
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
+        border.frame = CGRect(x: 0, y: self.frame.size.height - height, width: frame.size.width, height: height)
         //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
         self.layer.addSublayer(border)
     }
