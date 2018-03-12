@@ -1075,9 +1075,9 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
         <image name="onboardingImage" width="305" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SVq-zN-0MS"/>
+        <segue reference="Bh6-hz-hMB"/>
         <segue reference="mwW-iQ-vzn"/>
-        <segue reference="XRv-ee-uG1"/>
+        <segue reference="oVn-3s-UoQ"/>
         <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>

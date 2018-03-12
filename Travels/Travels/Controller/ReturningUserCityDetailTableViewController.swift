@@ -330,10 +330,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
 //    }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let more = UITableViewRowAction(style: .default, title: "More") { action, index in
-            print("more button tapped")
-        }
-        more.backgroundColor = .lightGray
+//        let more = UITableViewRowAction(style: .default, title: "More") { action, index in
+//            print("more button tapped")
+//        }
+//        more.backgroundColor = .lightGray
         
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             print("delete button tapped")
@@ -343,7 +343,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         }
         delete.backgroundColor = .red
 
-        return [delete, more]
+        return [delete]
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
