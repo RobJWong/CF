@@ -32,10 +32,10 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         setupTableView()
         setupNavBarItems()
         
-        if userData?.newUser == true {
-            userData?.newUser = false
-            setupNavStack()
-        }
+//        if userData?.newUser == true {
+//            userData?.newUser = false
+//            setupNavStack()
+//        }
         
         if userData?.addedNewItem == true {
             userData?.addedNewItem = false
@@ -69,16 +69,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     func fixNavStack() {
         var stackArray = navigationController?.viewControllers ?? [Any]()
-        //print(stackArray)
         stackArray.remove(at: 2)
         stackArray.remove(at: 3)
-        //print(stackArray)
         navigationController?.viewControllers = (stackArray as? [UIViewController])!
     }
     
-    func setupNavStack() {
-        //let stack = self.navigationController?.viewControllers
-    }
+//    func setupNavStack() {
+//        //let stack = self.navigationController?.viewControllers
+//    }
     
     func setupTableView() {
         cityName.adjustsFontSizeToFitWidth = true
@@ -228,6 +226,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     func textViewDidChange(_ textView: UITextView) {
         let indexPath = textView.tag
+        print(textView.text)
         tableData[indexPath]["Notes"] = textView.text
         tableView.beginUpdates()
         tableView.endUpdates()
@@ -235,7 +234,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cellCheck = tableView.cellForRow(at: indexPath)
-        print("dasdadas")
         for textField in self.view.subviews where textField is UITextField {
             textField.resignFirstResponder()
         }
@@ -260,11 +258,11 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         return [delete]
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let tempObj = self.tableData[fromIndexPath.row]
-        tableData.remove(at: fromIndexPath.row)
-        tableData.insert(tempObj, at: to.row)
-    }
+//    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+//        let tempObj = self.tableData[fromIndexPath.row]
+//        tableData.remove(at: fromIndexPath.row)
+//        tableData.insert(tempObj, at: to.row)
+//    }
 }
 
 extension ReturningUserCityDetailTableViewController: ChangeSectionNameDelegate {

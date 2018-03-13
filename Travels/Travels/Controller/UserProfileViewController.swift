@@ -14,15 +14,15 @@ class UserProfileViewController: UIViewController {
     
     var userData: UserData?
     
+    @IBAction func sendFeedback(_ sendeR: UIButton) {
+        self.performSegue(withIdentifier: "feedbackVC", sender: self)
+    }
+    
     @IBAction func logout(_ sender: UIButton) {
         GIDSignIn.sharedInstance().signOut()
         let homeVC = storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! LoginViewContoller
         present(homeVC, animated: true, completion: nil)
         AlertBox.sendAlert(boxMessage: "Signed out", presentingController: self)
-    }
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func deleteProfile(_ sender: UIButton) {
@@ -47,11 +47,19 @@ class UserProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let feedbackVC = segue.destination as? FeedbackTableViewController {
+            feedbackVC.userData = userData
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -68,9 +76,7 @@ class UserProfileViewController: UIViewController {
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(UserProfileViewController.buttonAction(_:)))
         backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
-        
     }
-    
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)

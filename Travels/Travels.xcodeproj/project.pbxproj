@@ -31,6 +31,7 @@
 		D988801620056D88000DEE66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988801420056D88000DEE66 /* Main.storyboard */; };
 		D988801920056D88000DEE66 /* Travels.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D988801720056D88000DEE66 /* Travels.xcdatamodeld */; };
 		D988801E20056D88000DEE66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D988801C20056D88000DEE66 /* LaunchScreen.storyboard */; };
+		D9E46B2420581E47007CFB37 /* FeedbackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9E46B2320581E47007CFB37 /* FeedbackTableViewController.swift */; };
 		D9FC3DDC2057102500C41EE4 /* ReturningUserCityDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FC3DDB2057102500C41EE4 /* ReturningUserCityDetailTableViewController.swift */; };
 		ED155A1AF83671B545EF2D79 /* Pods_Travels.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 617972E8CEEC0ECD91D29957 /* Pods_Travels.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		D988801820056D88000DEE66 /* Travels.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Travels.xcdatamodel; sourceTree = "<group>"; };
 		D988801D20056D88000DEE66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D988801F20056D88000DEE66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9E46B2320581E47007CFB37 /* FeedbackTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackTableViewController.swift; sourceTree = "<group>"; };
 		D9FC3DDB2057102500C41EE4 /* ReturningUserCityDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturningUserCityDetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,6 +95,7 @@
 			children = (
 				D948D15020093B3200B5B411 /* LoginViewContoller.swift */,
 				D94CD2F6202424C800EFA555 /* UserProfileViewController.swift */,
+				D9E46B2320581E47007CFB37 /* FeedbackTableViewController.swift */,
 				D948D15120093B3200B5B411 /* OnboardCitySelect.swift */,
 				D948D14F20093B3200B5B411 /* OnboardEmptyList.swift */,
 				D948D15B2009C98F00B5B411 /* AddMemoryViewController.swift */,
@@ -327,6 +330,7 @@
 				D9FC3DDC2057102500C41EE4 /* ReturningUserCityDetailTableViewController.swift in Sources */,
 				D94CD2F7202424C800EFA555 /* UserProfileViewController.swift in Sources */,
 				D984C1CF20510BA200B0A906 /* CityTableViewCell.swift in Sources */,
+				D9E46B2420581E47007CFB37 /* FeedbackTableViewController.swift in Sources */,
 				D918A3DD200EA8BB00A686C0 /* ReturningUserCityTableViewController.swift in Sources */,
 				D91B4574202B488000A5FEE1 /* NotesCell.swift in Sources */,
 				D948D15C2009C98F00B5B411 /* AddMemoryViewController.swift in Sources */,

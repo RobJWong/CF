@@ -29,6 +29,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         viewImage.image = storedImage
         
         setupNavBarItems()
+        setupSectionName()
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
@@ -60,6 +61,11 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setupSectionName() {
+        self.sectionName.textColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+        self.sectionName.text = "Select Category"
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -125,13 +131,17 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     }
     
     @objc func saveButtonAction(_ sender: UIBarButtonItem) {
-        saveToDB()
-        SVProgressHUD.show(withStatus: "Uploading memory")
-        SVProgressHUD.setDefaultMaskType(.black)
+        if sectionName.text == "Select Category" {
+            AlertBox.sendAlert(boxMessage: "Please enter a section name", presentingController: self)
+            return
+        } else {
+            saveToDB()
+            SVProgressHUD.show(withStatus: "Uploading memory")
+            SVProgressHUD.setDefaultMaskType(.black)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //print(userData?.newUser)
         if segue.identifier == "newUser" {
             SVProgressHUD.dismiss()
             let navVC = segue.destination as? UINavigationController
@@ -147,10 +157,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     func saveToDB() {
         guard let sectionName = sectionName.text else {
-            return
-        }
-        if sectionName == "Choose Category" {
-            AlertBox.sendAlert(boxMessage: "Please enter a section name", presentingController: self)
             return
         }
         guard let selectedCity = userData?.currentCitySelection, let imageURLString = imageURL, let userID = userData?.userID, let imageURLPath = imageURL?.lastPathComponent else {
@@ -198,5 +204,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
 extension AddMemoryViewController: SelectionStringDelegate {
     func setupSelectionString(selection: String) {
         sectionName.text = selection
+        sectionName.textColor = UIColor.black
     }
 }

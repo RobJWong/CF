@@ -39,11 +39,15 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     
     @objc func photoTapped(_ sender: UITapGestureRecognizer) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            photoSection.isUserInteractionEnabled = false
+            notesSection.isUserInteractionEnabled = false
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary;
             imagePicker.allowsEditing = true
             self.present(imagePicker, animated: true, completion: nil)
+            photoSection.isUserInteractionEnabled = true
+            notesSection.isUserInteractionEnabled = true
         }
     }
     

@@ -31,6 +31,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     @objc func googleLoginTapped(_ sender: UITapGestureRecognizer) {
         if NetworkReachabilityManager()!.isReachable {
             SVProgressHUD.show(withStatus: "Logging in")
+            googleLoginView.isUserInteractionEnabled = false
             GIDSignIn.sharedInstance().signIn()
         } else {
             AlertBox.sendAlert(boxMessage: "Unable to connect to the internet. Please check connectivity before using app", presentingController: self)
@@ -43,6 +44,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        SVProgressHUD.dismiss()
         if segue.identifier == "newUser" {
             let navVC = segue.destination as? UINavigationController
             let oVC = navVC?.viewControllers.first as! OnboardCitySelect
@@ -54,16 +56,10 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             rVC.userData = userData
         }
     }
-    
-    func offlineFunctionOnly() {
-        self.performSegue(withIdentifier: "returningUser", sender: self)
-    }
-    
-    
+
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             print("Error signing in: ", err)
-            //AlertBox.sendAlert(boxMessage: "Error logging in with Google" , presentingController: self)
             return
         }
         guard let idToken = user.authentication.idToken, let accessToken = user.authentication.accessToken else { return }
@@ -74,15 +70,12 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 AlertBox.sendAlert(boxMessage: "Error logging in with Google Credenitals" , presentingController: self)
                 return
             }
-            SVProgressHUD.dismiss()
             guard let uid = user?.uid, let email = user?.email, let user = user else { return }
             let values = ["Email": email]
             let userReference = Database.database().reference().child("Users").child(uid)
             Database.database().reference().observeSingleEvent(of: .value, with: { (snapshot) in
                 let userDataString = "Users/" + uid + "/Cities"
                 if snapshot.hasChild(userDataString) {
-                    //send to returning page
-                    //UserData.sharedInstance.didLogin(user: user)
                     print("returning user")
                     self.userData.didLogin(user: user, newUser: false)
                     self.performSegue(withIdentifier: "returningUser", sender: self)

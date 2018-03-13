@@ -15,17 +15,13 @@ class AddNotesViewController: UIViewController {
     
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var sectionName: UILabel!
-    
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
-        
-        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
-        view.addGestureRecognizer(tapScreen)
+        setupSectionName()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -103,12 +99,17 @@ class AddNotesViewController: UIViewController {
         guard let sectionName = sectionName.text else {
             return
         }
-        if sectionName == "Choose Category" {
+        if sectionName == "Select Category" {
             AlertBox.sendAlert(boxMessage: "Please select a section name", presentingController: self)
             return
         } else {
             saveToDB()
         }
+    }
+    
+    func setupSectionName() {
+        self.sectionName.textColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
+        self.sectionName.text = "Select Category"
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -147,6 +148,9 @@ class AddNotesViewController: UIViewController {
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
         sectionName.addGestureRecognizer(sectionLabelTap)
+        
+        let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
+        view.addGestureRecognizer(tapScreen)
     }
     
     func updateFirebase(city: String, userID: String, sectionName: String, timeStamp: String, notes: String) {
@@ -183,5 +187,6 @@ class AddNotesViewController: UIViewController {
 extension AddNotesViewController: SelectionStringDelegate {
     func setupSelectionString(selection: String) {
         sectionName.text = selection
+        sectionName.textColor = UIColor.black
     }
 }

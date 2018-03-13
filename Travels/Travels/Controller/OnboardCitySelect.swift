@@ -13,14 +13,12 @@ class OnboardCitySelect: UIViewController {
     
     var userData: UserData?
     
-    //@IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var welcomeName: UILabel!
     @IBOutlet weak var googlePlacesView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //setupBackButton()
         guard let nameString = userData?.userName else { return }
         welcomeName.text = "Hi  \(nameString)! \nWhat city are you starting with?"
         setupNavBarItems()
@@ -38,7 +36,7 @@ class OnboardCitySelect: UIViewController {
     }
     
     func setupNavBarItems() {
-    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
