@@ -11,4 +11,6 @@ pod 'Firebase/Storage'
 pod 'Firebase/Database'
 pod 'GoogleSignIn'
 pod 'GooglePlaces'
+pod 'SVProgressHUD'
+pod 'Alamofire'
 end

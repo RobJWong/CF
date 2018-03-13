@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
@@ -19,12 +20,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     var storedImage: UIImage?
     var imageURL: NSURL?
     var userData: UserData?
-    
-    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
-    
-    override func viewDidLayoutSubviews() {
-        sectionName.addBottomBorderWithColorMemory(color: UIColor.black, height: 1)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +54,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        memoryNotes.resignFirstResponder()
         NotificationCenter.default.removeObserver(self,
                                                   name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.removeObserver(self,
@@ -70,19 +64,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //func setupSectionBorder() {
-    //Do any additional setup after loading the view.
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        //border.borderColor = UIColor.lightGray.cgColor
-//        border.borderColor = UIColor.black.cgColor
-//        print(sectionName.frame.size.width)
-//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width * 1.8, height: sectionName.frame.size.height)
-//        border.borderWidth = width
-//        sectionName.layer.addSublayer(border)
-//        sectionName.layer.masksToBounds = true
-    //}
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.becomeFirstResponder()
@@ -129,7 +110,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if memoryNotes.isFirstResponder {
-                self.view.frame.origin.y = -keyboardSize.height
+                self.view.frame.origin.y = -keyboardSize.height / 1.25
             }
         }
     }
@@ -151,30 +132,34 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     @objc func saveButtonAction(_ sender: UIBarButtonItem) {
         saveToDB()
-        activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        SVProgressHUD.show(withStatus: "Uploading memory")
+        SVProgressHUD.setDefaultMaskType(.black)
+        //SVProgressHUDStyle.dark
+        //SVProgressHUDMaskType.black
+//        activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
+//        activityIndicator.center = self.view.center
+//        activityIndicator.hidesWhenStopped = true
+//        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+//        view.addSubview(activityIndicator)
+//        activityIndicator.startAnimating()
+//        UIApplication.shared.beginIgnoringInteractionEvents()
     }
     
-    func stopAnimation() {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
+//    func stopAnimation() {
+//        activityIndicator.stopAnimating()
+//        UIApplication.shared.endIgnoringInteractionEvents()
+//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //print(userData?.newUser)
         if segue.identifier == "newUser" {
-            stopAnimation()
+            SVProgressHUD.dismiss()
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
             rVC.userData = userData
         }
         if segue.identifier == "showMemoryTable" {
-            stopAnimation()
+            SVProgressHUD.dismiss()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
             
@@ -210,6 +195,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             DispatchQueue.main.async(execute: {
                 ///this
                 self.userData?.sectionName = sectionName
+                self.memoryNotes.resignFirstResponder()
                 //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
                 if self.userData?.newUser == true {
                     self.performSegue(withIdentifier: "newUser", sender: self)
@@ -258,26 +244,3 @@ extension AddMemoryViewController: SelectionStringDelegate {
     }
 }
 
-//func setupSectionBorder() {
-//Do any additional setup after loading the view.
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        //border.borderColor = UIColor.lightGray.cgColor
-//        border.borderColor = UIColor.black.cgColor
-//        print(sectionName.frame.size.width)
-//        border.frame = CGRect(x: 0, y: sectionName.frame.size.height - width, width:  sectionName.frame.size.width * 1.8, height: sectionName.frame.size.height)
-//        border.borderWidth = width
-//        sectionName.layer.addSublayer(border)
-//        sectionName.layer.masksToBounds = true
-//}
-
-extension UIView {
-    func addBottomBorderWithColorMemory(color: UIColor, height: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        print(frame.width)
-        border.frame = CGRect(x: 0, y: self.frame.size.height - height, width: frame.size.width, height: height)
-        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
-        self.layer.addSublayer(border)
-    }
-}

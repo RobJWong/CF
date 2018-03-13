@@ -9,6 +9,8 @@
 import UIKit
 import GoogleSignIn
 import Firebase
+import Alamofire
+import SVProgressHUD
 
 class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate{
     
@@ -19,7 +21,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        print("test2")
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
@@ -29,7 +30,12 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     }
     
     @objc func googleLoginTapped(_ sender: UITapGestureRecognizer) {
-        GIDSignIn.sharedInstance().signIn()
+        if NetworkReachabilityManager()!.isReachable {
+            SVProgressHUD.show(withStatus: "Logging in")
+            GIDSignIn.sharedInstance().signIn()
+        } else {
+            AlertBox.sendAlert(boxMessage: "Unable to connect to the internet. Please check connectivity before using app", presentingController: self)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,6 +88,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 AlertBox.sendAlert(boxMessage: "Error logging in with Google Credenitals" , presentingController: self)
                 return
             }
+            SVProgressHUD.dismiss()
             guard let uid = user?.uid, let email = user?.email, let user = user else { return }
             //let firebaseRef = Database.database()
             let values = ["Email": email]

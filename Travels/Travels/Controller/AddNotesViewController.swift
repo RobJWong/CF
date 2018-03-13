@@ -13,7 +13,7 @@ class AddNotesViewController: UIViewController {
     
     var userData: UserData?
     
-    @IBOutlet weak var notesSection: UITextView!
+    @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var sectionName: UILabel!
     
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
@@ -23,16 +23,30 @@ class AddNotesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
-        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
+        //sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
         
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-//        sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
-//        notesSection.contentInset = UIEdgeInsetsMake(40, 40, 40, 40)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChange(notification:)),
+                                               name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+                                               name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        notesTextView.resignFirstResponder()
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.removeObserver(self,
+                                                  name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,7 +56,7 @@ class AddNotesViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        notesSection.setContentOffset(CGPoint.zero, animated: false)
+        notesTextView.setContentOffset(CGPoint.zero, animated: false)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -57,6 +71,19 @@ class AddNotesViewController: UIViewController {
             //stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        self.view.frame.origin.y = 0
+    }
+    
+    @objc func keyboardWillChange(notification: NSNotification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if notesTextView.isFirstResponder {
+                self.view.frame.origin.y = -keyboardSize.height / 2
+            }
         }
     }
     
@@ -84,20 +111,29 @@ class AddNotesViewController: UIViewController {
             return
         } else {
             saveToDB()
-//            activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
-//            activityIndicator.center = self.view.center
-//            activityIndicator.hidesWhenStopped = true
-//            activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-//            view.addSubview(activityIndicator)
-//            activityIndicator.startAnimating()
-//            UIApplication.shared.beginIgnoringInteractionEvents()
         }
     }
     
-//    func stopAnimation() {
-//        activityIndicator.stopAnimating()
-//        UIApplication.shared.endIgnoringInteractionEvents()
-//    }
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        textView.becomeFirstResponder()
+        if textView.textColor == UIColor.lightGray {
+            textView.text = nil
+            textView.textColor = UIColor.black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.isEmpty {
+            textView.text = "Add notes!"
+            textView.textColor = UIColor.lightGray
+            textView.resignFirstResponder()
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true;
+    }
     
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
@@ -131,7 +167,7 @@ class AddNotesViewController: UIViewController {
             AlertBox.sendAlert(boxMessage: "Section name cannot be empty", presentingController: self)
             return
         }
-        guard let noteText = notesSection.text else {
+        guard let noteText = notesTextView.text else {
             AlertBox.sendAlert(boxMessage: "Note section should not be empty", presentingController: self)
             return
         }
@@ -165,15 +201,3 @@ extension AddNotesViewController: SelectionStringDelegate {
         sectionName.text = selection
     }
 }
-
-extension UIView {
-    func addBottomBorderWithColorNotes(color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        print(frame.size.width)
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width, height: width)
-        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
-        self.layer.addSublayer(border)
-    }
-}
-
