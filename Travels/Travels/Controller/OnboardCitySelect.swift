@@ -16,15 +16,6 @@ class OnboardCitySelect: UIViewController {
     //@IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var welcomeName: UILabel!
     @IBOutlet weak var googlePlacesView: UIView!
-    
-//    @IBAction func autocompleteClicked(_ sender: UIButton) {
-//        let autocompleteController = GMSAutocompleteViewController()
-//        autocompleteController.delegate = self
-//        let filter = GMSAutocompleteFilter()
-//        filter.type = .city
-//        autocompleteController.autocompleteFilter = filter
-//        present(autocompleteController, animated: true, completion: nil)
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +30,6 @@ class OnboardCitySelect: UIViewController {
         if let onboardEmptyListVC = segue.destination as? OnboardEmptyList {
             onboardEmptyListVC.userData = userData
         }
-//        if segue.identifier == "OnboardingEmptyList" {
-//            let navVC = segue.destination as? UINavigationController
-//            let onboardingEmptyListVC = navVC?.viewControllers.first as! OnboardEmptyList
-//            onboardingEmptyListVC.userData = userData
-//        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,10 +42,6 @@ class OnboardCitySelect: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
-        
-        //let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
-        //self.navigationItem.leftBarButtonItem = backButton
         
         let googlePlacesSearch = UITapGestureRecognizer(target: self, action: #selector(googlePlacesTapped(_:)))
         googlePlacesView.isUserInteractionEnabled = true
@@ -74,31 +56,6 @@ class OnboardCitySelect: UIViewController {
         autocompleteController.autocompleteFilter = filter
         present(autocompleteController, animated: true, completion: nil)
     }
-    
-    @objc func buttonAction(_ sender: UIBarButtonItem) {
-        //let onboardCitySelectVC = OnboardCitySelect()
-        //self.navigationController?.popToViewController(onboardCitySelectVC, animated: true)
-        //self.navigationController?.popViewController(animated: true)
-        //self.performSegue(withIdentifier: "userSettings", sender: self)
-    }
-    
-//    func setupBackButton() {
-//        if userData?.newUser == false {
-//            backButton.alpha = 1
-//        } else {
-//            backButton.alpha = 0
-//        }
-//    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension OnboardCitySelect: GMSAutocompleteViewControllerDelegate {
@@ -107,17 +64,14 @@ extension OnboardCitySelect: GMSAutocompleteViewControllerDelegate {
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         let parseLocation = place.formattedAddress?.components(separatedBy: ",")
         guard let location = parseLocation else { return }
-        //print(location)
         let parseCount = location.count
         self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {
             self.performSegue(withIdentifier: "OnboardingEmptyList", sender: self)
         })
-        //present(controller, animated: true, completion: nil)
     }
     
     func viewController(_ viewController: GMSAutocompleteViewController, didFailAutocompleteWithError error: Error) {
-        // TODO: handle the error.
         print("Error: ", error.localizedDescription)
     }
     

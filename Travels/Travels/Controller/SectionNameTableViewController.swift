@@ -19,39 +19,10 @@ class SectionNameTableViewController: UITableViewController {
     var selectionNameDelegate : SelectionStringDelegate!
     var userData: UserData?
     var sectionNames: [String]?
-
-    @IBAction func saveData(_ sender: UIButton) {
-        savePressed(fromRow: false)
-    }
-    
-    @IBAction func backButton(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-//        let saveButton: UIButton = UIButton(type: UIButtonType.custom)
-//        saveButton.setImage(UIImage(named: "icon_checkmark"), for: .normal)
-//        saveButton.addTarget(self, action: Selector(("savePressed")), for: UIControlEvents.touchUpInside)
-//        saveButton.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
-//        let barButton = UIBarButtonItem(customView: saveButton)
-//        self.navigationItem.rightBarButtonItem = barButton
-        
-//        let border = CALayer()
-//        let width = CGFloat(1)
-//        //border.borderColor = UIColor.darkGray.cgColor
-//        border.borderColor = UIColor.lightGray.cgColor
-//        border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
-//        border.borderWidth = width
-//        textField.layer.addSublayer(border)
-//        textField.layer.masksToBounds = true
-        
         let border = CALayer()
         let width = CGFloat(1.0)
         border.borderColor = UIColor.darkGray.cgColor
@@ -61,7 +32,6 @@ class SectionNameTableViewController: UITableViewController {
         textField.layer.addSublayer(border)
         textField.layer.masksToBounds = true
         
-        //textField.addBottomBorderWithColorSection(color: UIColor.black, width: 1)
         setupNavBarItems()
         guard let userID = userData?.userID, let city = userData?.currentCitySelection else { return }
         setupSavedData(userID: userID, city: city)
@@ -75,7 +45,6 @@ class SectionNameTableViewController: UITableViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(SectionNameTableViewController.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = backButton
         
         let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(SectionNameTableViewController.checkmarkAction(_:)))
@@ -84,8 +53,6 @@ class SectionNameTableViewController: UITableViewController {
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
-        //self.navigationController?.popToRootViewController(animated: true)
-        //self.performSegue(withIdentifier: "userSettings", sender: self)
     }
     
     @objc func checkmarkAction(_ sender: UIBarButtonItem) {
@@ -95,7 +62,6 @@ class SectionNameTableViewController: UITableViewController {
     func setupTextbox() {
         let border = CALayer()
         let width = CGFloat(1)
-        //border.borderColor = UIColor.darkGray.cgColor
         border.borderColor = UIColor.lightGray.cgColor
         border.frame = CGRect(x: 0, y: textField.frame.size.height - width, width:  textField.frame.size.width, height: textField.frame.size.height)
         
@@ -108,13 +74,11 @@ class SectionNameTableViewController: UITableViewController {
         if fromRow == false {
             guard let stringInput = textField.text else { return }
             selectionNameDelegate.setupSelectionString(selection: stringInput)
-            //dismiss(animated: true , completion: nil)
             navigationController?.popViewController(animated: true)
         } else if fromRow == true {
             guard let indexPath = self.tableView.indexPathForSelectedRow, let sectionNames = sectionNames else { return }
             selectionNameDelegate.setupSelectionString(selection: sectionNames[indexPath.row])
             navigationController?.popViewController(animated: true)
-            //dismiss(animated: true , completion: nil)
         }
     }
     
@@ -163,61 +127,6 @@ class SectionNameTableViewController: UITableViewController {
         savePressed(fromRow: true)
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
-//extension UIView {
-//    func addBottomBorderWithColorSection(color: UIColor, width: CGFloat) {
-//        let border = CALayer()
-//        border.backgroundColor = color.cgColor
-//        print(frame.size.width)
-//        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: frame.size.width * 1.25, height: width)
-//        //border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: (superview?.frame.size.width)!, height: width)
-//        self.layer.addSublayer(border)
-//    }
-//}
 

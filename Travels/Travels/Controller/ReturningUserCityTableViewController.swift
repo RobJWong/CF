@@ -16,10 +16,6 @@ class ReturningUserCityTableViewController: UITableViewController {
     var userData : UserData?
     var cities: [String]?
     
-//    @IBAction func addCity(_ sender: UIBarButtonItem) {
-//        performSegue(withIdentifier: "addCity", sender: self)
-//    }
-    
     @IBAction func autocompleteClicked(_ sender: UIButton) {
         let autocompleteController = GMSAutocompleteViewController()
         autocompleteController.delegate = self
@@ -32,16 +28,8 @@ class ReturningUserCityTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupSavedLocations()
-//        setupNavBarItems()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
-        //tableView.allowsSelectionDuringEditing = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,12 +47,10 @@ class ReturningUserCityTableViewController: UITableViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let settingsButton = UIBarButtonItem(image:UIImage(named:"icon_settings"), style:.plain, target:self, action:#selector(ReturningUserCityTableViewController.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
         self.navigationItem.rightBarButtonItem = settingsButton
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
-        //self.navigationController?.popViewController(animated: true)
         self.performSegue(withIdentifier: "userSettings", sender: self)
     }
     
@@ -76,11 +62,6 @@ class ReturningUserCityTableViewController: UITableViewController {
                 returningUserCityDetailVC?.userData = userData
             }
         }
-//        if let addNewCity = segue.destination as? OnboardEmptyList {
-//            addNewCity.userData = userData
-//            let tempVC  = OnboardEmptyList()
-//            navigationController?.pushViewController(tempVC, animated: true)
-//        }
         if let addNewCity = segue.destination as? OnboardEmptyList {
             addNewCity.userData = userData
         }
@@ -110,16 +91,6 @@ class ReturningUserCityTableViewController: UITableViewController {
         
         return [delete]
     }
-    
-//    func deleteCity(deleteCity: String) {
-//        guard let uid = userData?.userID else {
-//            print("uid is nil")
-//            return
-//        }
-//        let databaseRef = Database.database().reference().child("Users").child(uid).child("Cities").child(deleteCity)
-//        databaseRef.removeValue()
-//        tableView.reloadData()
-//    }
     
     func setupSavedLocations() {
         guard let uid = userData?.userID else {
@@ -155,9 +126,6 @@ class ReturningUserCityTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CityTableViewCell
-        //cell.textLabel?.text = cities?[indexPath.row]
-        //cell.textLabel?.adjustsFontSizeToFitWidth = true
-        //cell.textLabel?.font = UIFont(name: "Goku", size: 28)
         cell.textLabel?.textAlignment = .center
         cell.cityName.text = cities?[indexPath.row]
         return cell
@@ -167,52 +135,6 @@ class ReturningUserCityTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
@@ -222,7 +144,6 @@ extension ReturningUserCityTableViewController: GMSAutocompleteViewControllerDel
     func viewController(_ viewController: GMSAutocompleteViewController, didAutocompleteWith place: GMSPlace) {
         let parseLocation = place.formattedAddress?.components(separatedBy: ",")
         guard let location = parseLocation else { return }
-        //print(location)
         let parseCount = location.count
         self.userData?.currentCitySelection = location[0] + ", " + location[parseCount - 1]
         dismiss(animated: true, completion: {

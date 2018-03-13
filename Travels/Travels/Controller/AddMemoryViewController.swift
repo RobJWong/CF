@@ -15,7 +15,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var memoryNotes: UITextView!
     @IBOutlet weak var viewImage: UIImageView!
     @IBOutlet weak var sectionName: UILabel!
-    //@IBOutlet weak var sectionName: UITextField!
     
     var storedImage: UIImage?
     var imageURL: NSURL?
@@ -30,8 +29,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         viewImage.image = storedImage
         
         setupNavBarItems()
-        //setupSectionBorder()
-        //sectionName.addBottomBorderWithColorMemory(color: UIColor.black, width: 1)
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
@@ -91,14 +88,11 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.view.backgroundColor = UIColor.clear
-//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 252.0 / 255.0, green: 242.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(AddMemoryViewController.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = backButton
         
         let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(AddMemoryViewController.saveButtonAction(_:)))
-        //backButton.tintColor = UIColor.whte
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -134,21 +128,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         saveToDB()
         SVProgressHUD.show(withStatus: "Uploading memory")
         SVProgressHUD.setDefaultMaskType(.black)
-        //SVProgressHUDStyle.dark
-        //SVProgressHUDMaskType.black
-//        activityIndicator.frame = CGRect(x:0.0, y:0.0, width:40.0, height:40.0)
-//        activityIndicator.center = self.view.center
-//        activityIndicator.hidesWhenStopped = true
-//        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
-//        view.addSubview(activityIndicator)
-//        activityIndicator.startAnimating()
-//        UIApplication.shared.beginIgnoringInteractionEvents()
     }
-    
-//    func stopAnimation() {
-//        activityIndicator.stopAnimating()
-//        UIApplication.shared.endIgnoringInteractionEvents()
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //print(userData?.newUser)
@@ -162,17 +142,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             SVProgressHUD.dismiss()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
-            
-//        var navigationArray = navigationController?.viewControllers ?? [Any]()
-//        navigationArray.remove(at: 2)
-//        navigationController?.viewControllers = navigationArray as? [UIViewController]
-            
-            //let firstVC = ReturningUserCityDetailTableViewController()
-//            let firstVC = segue.destination as? ReturningUserCityDetailTableViewController
-            //firstVC.userData = userData
-//            let checkNavigationStack = self.navigationController?.viewControllers
-//            print(checkNavigationStack)
-            //self.navigationController?.setViewControllers([firstVC], animated: false)
         }
     }
     
@@ -193,10 +162,8 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         updateFirebase(imageURL: imageURLPath, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString)
         sendImage(imageURL: imageURLString, city: selectedCity, userID: userID, sectionName: sectionName, timeStamp: timeStampString) { () in
             DispatchQueue.main.async(execute: {
-                ///this
                 self.userData?.sectionName = sectionName
                 self.memoryNotes.resignFirstResponder()
-                //self.performSegue(withIdentifier: "showMemoryTable", sender: self)
                 if self.userData?.newUser == true {
                     self.performSegue(withIdentifier: "newUser", sender: self)
                 } else {
@@ -226,16 +193,6 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
             completion()
         }
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension AddMemoryViewController: SelectionStringDelegate {
@@ -243,4 +200,3 @@ extension AddMemoryViewController: SelectionStringDelegate {
         sectionName.text = selection
     }
 }
-

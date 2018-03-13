@@ -20,7 +20,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().delegate = self
         
@@ -45,8 +44,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newUser" {
-//            let oVC = segue.destination as? OnboardCitySelect
-//            oVC?.userData = userData
             let navVC = segue.destination as? UINavigationController
             let oVC = navVC?.viewControllers.first as! OnboardCitySelect
             oVC.userData = userData
@@ -55,18 +52,7 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
             rVC.userData = userData
-//            let rVC = segue.destination as? ReturningUserCityTableViewController
-//            print(userData.userID)
-//            rVC?.userData = userData
-        
         }
-        
-//        if let onboardCitySelectVC = segue.destination as? OnboardCitySelect {
-//            onboardCitySelectVC.userData = userData
-//        }
-//        if let returningUserSelectVC = segue.destination as? ReturningUserCityTableViewController {
-//            returningUserSelectVC.userData = userData
-//        }
     }
     
     func offlineFunctionOnly() {
@@ -90,7 +76,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
             }
             SVProgressHUD.dismiss()
             guard let uid = user?.uid, let email = user?.email, let user = user else { return }
-            //let firebaseRef = Database.database()
             let values = ["Email": email]
             let userReference = Database.database().reference().child("Users").child(uid)
             Database.database().reference().observeSingleEvent(of: .value, with: { (snapshot) in
@@ -100,8 +85,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                     //UserData.sharedInstance.didLogin(user: user)
                     print("returning user")
                     self.userData.didLogin(user: user, newUser: false)
-                    //toggle for returning user section
-                    ///self.performSegue(withIdentifier: "returningUser", sender: self)
                     self.performSegue(withIdentifier: "returningUser", sender: self)
                 }
                 else {
@@ -110,13 +93,9 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                             AlertBox.sendAlert(boxMessage: "Error updating Firebase DB" , presentingController: self)
                             return
                         }
-                        //if let user = user {
-                        //UserData.sharedInstance.didLogin(user: user)
                         self.userData.didLogin(user: user, newUser: true)
-                        //let changeRequest = user.createProfileChangeRequest()
                         self.performSegue(withIdentifier: "newUser", sender: self)
                         print("Created user profile")
-                        //}
                     })
                 }
             })
@@ -124,8 +103,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
         if (error != nil ) {
             print(Error.self)
         }

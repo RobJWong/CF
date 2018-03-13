@@ -23,7 +23,6 @@ class AddNotesViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
-        //sectionName.addBottomBorderWithColorNotes(color: UIColor.black, width: 1)
         
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
@@ -61,14 +60,12 @@ class AddNotesViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newUser" {
-            //stopAnimation()
             let navVC = segue.destination as? UINavigationController
             let rVC = navVC?.viewControllers.first as! ReturningUserCityTableViewController
             rVC.userData = userData
         }
         
         if segue.identifier == "showMemoryTable" {
-            //stopAnimation()
             let memoryListVC = segue.destination as? ReturningUserCityDetailTableViewController
             memoryListVC?.userData = userData
         }
@@ -142,11 +139,9 @@ class AddNotesViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(AddNotesViewController.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = backButton
         
         let saveButton = UIBarButtonItem(image:UIImage(named:"icon_checkmark"), style:.plain, target:self, action:#selector(AddNotesViewController.saveButtonAction(_:)))
-        //backButton.tintColor = UIColor.whte
         self.navigationItem.rightBarButtonItem = saveButton
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
@@ -183,17 +178,6 @@ class AddNotesViewController: UIViewController {
             self.performSegue(withIdentifier: "showMemoryTable", sender: self)
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension AddNotesViewController: SelectionStringDelegate {

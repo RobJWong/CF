@@ -12,7 +12,6 @@ import Firebase
 class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     var storedImage: UIImage?
-    //var selectedCity: String?
     var storedImageURL: NSURL?
     var userData: UserData?
     
@@ -53,10 +52,7 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     @objc func buttonAction(_ sender: UIBarButtonItem) {
-        //let onboardCitySelectVC = OnboardCitySelect()
-        //self.navigationController?.popToViewController(onboardCitySelectVC, animated: true)
         self.navigationController?.popViewController(animated: true)
-        //self.performSegue(withIdentifier: "userSettings", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,9 +65,6 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
             let notesVC = segue.destination as? AddNotesViewController
             notesVC?.userData = userData
         }
-//        if let uploadNotesVC = segue.destination as? AddNotesViewController {
-//            uploadNotesVC.userData = userData
-//        }
     }
     
     func setupNavBarItems() {
@@ -81,7 +74,6 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(OnboardEmptyList.buttonAction(_:)))
-        //backButton.tintColor = UIColor.white
         self.navigationItem.leftBarButtonItem = backButton
         
     }
@@ -97,16 +89,4 @@ class OnboardEmptyList: UIViewController, UIImagePickerControllerDelegate, UINav
             self.performSegue(withIdentifier: "xferImage", sender: self)
         })
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

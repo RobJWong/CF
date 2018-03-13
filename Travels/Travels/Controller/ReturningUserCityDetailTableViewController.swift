@@ -82,20 +82,15 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     func setupTableView() {
         cityName.adjustsFontSizeToFitWidth = true
-        //        let backgroundImage = UIImage(named: "greenBG")
-//        let imageView = UIImageView(image: backgroundImage)
-//        self.tableView.backgroundView = imageView
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     func setupNavBarItems() {
-        //self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = false
         self.navigationController?.view.backgroundColor = UIColor.clear
         self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 232.0 / 255.0, green: 243.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
-        //self.navigationController?.view.backgroundColor = UIColor.init(red: 232.0 / 255.0, green: 243.0 / 255.0, blue: 230.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(ReturningUserCityDetailTableViewController.backAction(_:)))
         self.navigationItem.leftBarButtonItem = backButton
@@ -109,13 +104,8 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
     
     @objc func backAction(_ sender: UIBarButtonItem) {
-//        var navigationArray = navigationController?.viewControllers ?? [Any]()        navigationArray.remove(at: 2)
-//        navigationController?.viewControllers = (navigationArray as? [UIViewController])!
-
-        //navigationController?.popViewController(animated: true)
         userData?.sectionName = nil
         navigationController?.popToRootViewController(animated: true)
-        //navigationController?.popToViewController(ReturningUserCityTableViewController(), animated: true)
     }
     
     @objc func addAction(_ sender: UIBarButtonItem) {
@@ -147,7 +137,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         databaseRef.observeSingleEvent(of: .value, with: { (snapshot) in
             for dataSet in snapshot.children {
                 let snap = dataSet as! DataSnapshot
-                //let k = snap.key
                 let v = snap.value
                 indexData = [:]
                 for (key, value) in v as! [String: Any] {
@@ -222,54 +211,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
                 if let error = error {
                     print(error)
                 } else {
-                    //original
                     let image = UIImage(data: data!)
                     cell.storedImage.image = image
-//option 1
-//                    let image = UIImage(data: data!)
-//                    tableView.beginUpdates()
-//                    let ratio = Float((image?.size.height)!) / Float((image?.size.width)!)
-//
-//                    let cellFrame = CGRect(x: 0, y: 0, width: tableView.contentSize.width, height: tableView.contentSize.width * CGFloat(ratio))
-//                    print(cell.storedImage.frame)
-//                    cell.storedImage.frame = cellFrame
-//                    cell.storedImage.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//                    cell.storedImage.translatesAutoresizingMaskIntoConstraints = true
-//                    cell.storedImage.contentMode = .scaleAspectFit
-//                    cell.storedImage.image = image
-//                    tableView.endUpdates()
-                    
-                    //option 2
-//                    let containerView = UIView(frame: CGRect(x:0,y:0,width:self.view.frame.width
-//                        ,height:500))
-//                    let imageView = UIImageView()
-//                    if let image = UIImage(data:data!) {
-//                        let ratio = image.size.width / image.size.height
-//                        if containerView.frame.width > containerView.frame.height {
-//                            let newHeight = containerView.frame.width / ratio
-//                            imageView.frame.size = CGSize(width: containerView.frame.width, height: newHeight)
-//                            let frame = CGRect(x: cell.storedImage.frame.origin.x, y: cell.storedImage.frame.origin.y, width: cell.storedImage.frame.size.width, height: newHeight)
-//                            cell.storedImage.frame = frame
-//                        }
-//                        else{
-//                            let newWidth = containerView.frame.height * ratio
-//                            imageView.frame.size = CGSize(width: newWidth, height: containerView.frame.height)
-//                            let frame = CGRect(x: cell.storedImage.frame.origin.x, y: cell.storedImage.frame.origin.y, width: newWidth, height: cell.storedImage.frame.size.height)
-//                            cell.storedImage.frame = frame
-//                        }
-//                    }
-//                    let image = UIImage(data: data!)
-//                    cell.storedImage.bottomAnchor.constraint(equalTo: cell.notes.topAnchor)
-//                    cell.storedImage.image = image
-                    
-                    
                 }
             }
             return cell
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "notesData", for: indexPath) as! NotesCell
-            //let noteString = tableData[indexPath.row]["Notes"] as! String
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             cell.notes.delegate = self
             cell.notes.tag = indexPath.row
@@ -277,10 +226,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         }
     }
     
-    func textViewDidChange(_ textView: UITextView) { //Handle the text changes here
-        //guard let indexPath = indexPathForEdit else {return }
-        //tableData[indexPath]["Notes"] = textView.text
-        //print("Am I ever here?")
+    func textViewDidChange(_ textView: UITextView) {
         let indexPath = textView.tag
         tableData[indexPath]["Notes"] = textView.text
         tableView.beginUpdates()
@@ -295,45 +241,13 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         }
 
         if cellCheck is ImageNotesCell {
-//            let cellImageNotes = tableView.cellForRow(at: indexPath) as! ImageNotesCell
-             //tableView.cellForRow(at: indexPath) as! ImageNotesCell
-                //cellImageNotes.becomeFirstResponder()
-                //cellImageNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
         } else if cellCheck is NotesCell {
-//            let cellNotes = tableView.cellForRow(at: indexPath) as! NotesCell
-            //tableView.cellForRow(at: indexPath) as! NotesCell
-                //cellNotes.becomeFirstResponder()
-                //cellNotes.resignFirstResponder()
                 indexPathForEdit = indexPath.row
         }
     }
     
-//    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-//        let sectionItems = tableData[indexPath.section]
-//        if indexPath.row >= sectionItems.count && isEditing {
-//            return false
-//        }
-//        return true
-//    }
-    
-//    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-//        return true
-//    }
-    
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            tableData.remove(at: indexPath.row)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//            saveAction()
-//        }
-//    }
-    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-//        let more = UITableViewRowAction(style: .default, title: "More") { action, index in
-//            print("more button tapped")
-//        }
-//        more.backgroundColor = .lightGray
         
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             print("delete button tapped")
@@ -351,18 +265,6 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         tableData.remove(at: fromIndexPath.row)
         tableData.insert(tempObj, at: to.row)
     }
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 }
 
 extension ReturningUserCityDetailTableViewController: ChangeSectionNameDelegate {

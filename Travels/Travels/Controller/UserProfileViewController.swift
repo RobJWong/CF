@@ -59,7 +59,6 @@ class UserProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     func setupNavBarItems() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -76,15 +75,4 @@ class UserProfileViewController: UIViewController {
     @objc func buttonAction(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
