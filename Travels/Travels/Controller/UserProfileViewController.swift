@@ -33,7 +33,7 @@ class UserProfileViewController: UIViewController {
                 guard let userID = self.userData?.userID else { return }
                 let deleteUser = Database.database().reference().child("Users").child(userID)
                 deleteUser.removeValue()
-        
+                
                 GIDSignIn.sharedInstance().signOut()
                 let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! LoginViewContoller
                 self.present(homeVC, animated: true, completion: nil)
@@ -51,7 +51,7 @@ class UserProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         setupNavBarItems()
     }
@@ -61,7 +61,7 @@ class UserProfileViewController: UIViewController {
             feedbackVC.userData = userData
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,7 +74,6 @@ class UserProfileViewController: UIViewController {
         self.navigationController?.view.backgroundColor = UIColor.clear
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(UserProfileViewController.buttonAction(_:)))
-        backButton.tintColor = UIColor.black
         self.navigationItem.leftBarButtonItem = backButton
     }
     
@@ -82,3 +81,4 @@ class UserProfileViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
+

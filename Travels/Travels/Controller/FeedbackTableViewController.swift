@@ -37,10 +37,11 @@ class FeedbackTableViewController: UITableViewController, UITextViewDelegate {
     }
     
     func setupNavBarItems() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.isTranslucent = false
+        //self.navigationController?.view.backgroundColor = UIColor.clear
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 252.0 / 255.0, green: 244.0 / 255.0, blue: 238.0 / 255.0, alpha: 1.0)
         
         let backButton = UIBarButtonItem(image:UIImage(named:"icon_back"), style:.plain, target:self, action:#selector(FeedbackTableViewController.buttonAction(_:)))
         self.navigationItem.leftBarButtonItem = backButton

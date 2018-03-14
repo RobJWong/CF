@@ -15,6 +15,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var memoryNotes: UITextView!
     @IBOutlet weak var viewImage: UIImageView!
     @IBOutlet weak var sectionName: UILabel!
+    @IBOutlet weak var rightCaretImage: UIImageView!
     
     var storedImage: UIImage?
     var imageURL: NSURL?
@@ -27,13 +28,16 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         memoryNotes.text = "Add notes!"
         memoryNotes.textColor = UIColor.lightGray
         viewImage.image = storedImage
-        
+        sectionName.text = "Select Category"
         setupNavBarItems()
-        setupSectionName()
         
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
         sectionName.addGestureRecognizer(sectionLabelTap)
+        
+        let rightCaretTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        rightCaretImage.isUserInteractionEnabled = true
+        rightCaretImage.addGestureRecognizer(rightCaretTap)
         
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
@@ -62,12 +66,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func setupSectionName() {
-        self.sectionName.textColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
-        self.sectionName.text = "Select Category"
-    }
-    
+
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.becomeFirstResponder()
         if textView.textColor == UIColor.lightGray {
@@ -86,7 +85,7 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        return true;
+        return true
     }
     
     func setupNavBarItems() {

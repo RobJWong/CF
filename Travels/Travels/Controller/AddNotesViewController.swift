@@ -15,13 +15,15 @@ class AddNotesViewController: UIViewController {
     
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var sectionName: UILabel!
+    @IBOutlet weak var rightCaretImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupNavBarItems()
-        setupSectionName()
+        
+        sectionName.text = "Select Category"
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -107,11 +109,6 @@ class AddNotesViewController: UIViewController {
         }
     }
     
-    func setupSectionName() {
-        self.sectionName.textColor = UIColor(red: 0.0 / 255.0, green: 122.0 / 255.0, blue: 255.0 / 255.0, alpha: 1.0)
-        self.sectionName.text = "Select Category"
-    }
-    
     func textViewDidBeginEditing(_ textView: UITextView) {
         textView.becomeFirstResponder()
         if textView.textColor == UIColor.lightGray {
@@ -148,6 +145,10 @@ class AddNotesViewController: UIViewController {
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
         sectionName.addGestureRecognizer(sectionLabelTap)
+        
+        let rightCaretTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
+        rightCaretImage.isUserInteractionEnabled = true
+        rightCaretImage.addGestureRecognizer(rightCaretTap)
         
         let tapScreen = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard(_:)))
         view.addGestureRecognizer(tapScreen)
