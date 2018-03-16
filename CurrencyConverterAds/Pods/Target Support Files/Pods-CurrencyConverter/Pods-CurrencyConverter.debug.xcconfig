@@ -1,0 +1,10 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/InMobiSDK" "${PODS_ROOT}/StartAppSDK"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/InMobiSDK" "${PODS_ROOT}/Headers/Public/StartAppSDK"
+LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
+OTHER_CFLAGS = $(inherited)  -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/InMobiSDK" -isystem "${PODS_ROOT}/Headers/Public/StartAppSDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"sqlite3.0" -l"z" -framework "AVFoundation" -framework "AdSupport" -framework "AudioToolbox" -framework "CoreAudio" -framework "CoreFoundation" -framework "CoreGraphics" -framework "CoreLocation" -framework "CoreMedia" -framework "CoreTelephony" -framework "Foundation" -framework "InMobiSDK" -framework "MediaPlayer" -framework "MessageUI" -framework "QuartzCore" -framework "SafariServices" -framework "Security" -framework "Social" -framework "StartApp" -framework "StoreKit" -framework "SystemConfiguration" -framework "UIKit" -framework "WebKit" -weak_framework "WebKit"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
+PODS_ROOT = ${SRCROOT}/Pods

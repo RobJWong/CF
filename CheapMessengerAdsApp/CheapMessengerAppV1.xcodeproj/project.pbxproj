@@ -1,0 +1,604 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D951D1231FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D951D1221FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift */; };
+		D95B60FF1FA273C7005B10D5 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D95B60FE1FA273C7005B10D5 /* AuthenticationManager.swift */; };
+		D9677A8A1F9A759F002C2465 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9677A891F9A759F002C2465 /* Users.swift */; };
+		D9677A8F1F9A8455002C2465 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D9677A8E1F9A8455002C2465 /* GoogleService-Info.plist */; };
+		D9677A9E1F9AAB1F002C2465 /* UserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9677A9D1F9AAB1F002C2465 /* UserTableViewController.swift */; };
+		D9677AA01F9E60D8002C2465 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9677A9F1F9E60D8002C2465 /* ChatViewController.swift */; };
+		D9FEE9711F803189001CF12C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9701F803189001CF12C /* AppDelegate.swift */; };
+		D9FEE9731F803189001CF12C /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9721F803189001CF12C /* LogInViewController.swift */; };
+		D9FEE9761F803189001CF12C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE9741F803189001CF12C /* Main.storyboard */; };
+		D9FEE9791F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9771F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld */; };
+		D9FEE97B1F803189001CF12C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE97A1F803189001CF12C /* Assets.xcassets */; };
+		D9FEE97E1F803189001CF12C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */; };
+		D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE9881F803E94001CF12C /* AlertBox.swift */; };
+		D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FEE98A1F804535001CF12C /* SignUpViewController.swift */; };
+		E6BE5403B96C6D305CF6195D /* Pods_CheapMessengerAppV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D951D1251FBA4B0A00D2DD5D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9FEE9651F803189001CF12C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9FEE96C1F803189001CF12C;
+			remoteInfo = CheapMessengerAppV1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		15B48EE81485A4DD87E0F5B9 /* Pods-CheapMessengerAppV1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapMessengerAppV1.release.xcconfig"; path = "Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1.release.xcconfig"; sourceTree = "<group>"; };
+		4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CheapMessengerAppV1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A75A82907E82AC2F9DF6F0AD /* Pods-CheapMessengerAppV1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CheapMessengerAppV1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1.debug.xcconfig"; sourceTree = "<group>"; };
+		D951D1201FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheapMessengerAppV1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D951D1221FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheapMessengerAppV1UITests.swift; sourceTree = "<group>"; };
+		D951D1241FBA4B0A00D2DD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D95B60FE1FA273C7005B10D5 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AuthenticationManager.swift; path = CheapMessengerAppV1/Model/AuthenticationManager.swift; sourceTree = SOURCE_ROOT; };
+		D9677A891F9A759F002C2465 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		D9677A8E1F9A8455002C2465 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D9677A9D1F9AAB1F002C2465 /* UserTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewController.swift; sourceTree = "<group>"; };
+		D9677A9F1F9E60D8002C2465 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		D9FEE96D1F803189001CF12C /* CheapMessengerAppV1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CheapMessengerAppV1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9FEE9701F803189001CF12C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9FEE9721F803189001CF12C /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		D9FEE9751F803189001CF12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9FEE9781F803189001CF12C /* CheapMessengerAppV1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CheapMessengerAppV1.xcdatamodel; sourceTree = "<group>"; };
+		D9FEE97A1F803189001CF12C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9FEE97D1F803189001CF12C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9FEE97F1F803189001CF12C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9FEE9881F803E94001CF12C /* AlertBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertBox.swift; sourceTree = "<group>"; };
+		D9FEE98A1F804535001CF12C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D951D11D1FBA4B0A00D2DD5D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FEE96A1F803189001CF12C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E6BE5403B96C6D305CF6195D /* Pods_CheapMessengerAppV1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C1C8DAC550D8535E63C68AC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D56525A5E3492DC76E41E55 /* Pods_CheapMessengerAppV1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5CAD96147A9205BE291A39A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A75A82907E82AC2F9DF6F0AD /* Pods-CheapMessengerAppV1.debug.xcconfig */,
+				15B48EE81485A4DD87E0F5B9 /* Pods-CheapMessengerAppV1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D951D1211FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests */ = {
+			isa = PBXGroup;
+			children = (
+				D951D1221FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift */,
+				D951D1241FBA4B0A00D2DD5D /* Info.plist */,
+			);
+			path = CheapMessengerAppV1UITests;
+			sourceTree = "<group>";
+		};
+		D9677A8B1F9A795D002C2465 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D9FEE9721F803189001CF12C /* LogInViewController.swift */,
+				D9FEE98A1F804535001CF12C /* SignUpViewController.swift */,
+				D9677A9D1F9AAB1F002C2465 /* UserTableViewController.swift */,
+				D9677A9F1F9E60D8002C2465 /* ChatViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D9677A941F9A9844002C2465 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D9FEE9881F803E94001CF12C /* AlertBox.swift */,
+				D95B60FE1FA273C7005B10D5 /* AuthenticationManager.swift */,
+				D9677A891F9A759F002C2465 /* Users.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D9FEE9641F803189001CF12C = {
+			isa = PBXGroup;
+			children = (
+				D9FEE96F1F803189001CF12C /* CheapMessengerAppV1 */,
+				D951D1211FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests */,
+				D9FEE96E1F803189001CF12C /* Products */,
+				C5CAD96147A9205BE291A39A /* Pods */,
+				C1C8DAC550D8535E63C68AC0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D9FEE96E1F803189001CF12C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D9FEE96D1F803189001CF12C /* CheapMessengerAppV1.app */,
+				D951D1201FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D9FEE96F1F803189001CF12C /* CheapMessengerAppV1 */ = {
+			isa = PBXGroup;
+			children = (
+				D9FEE9701F803189001CF12C /* AppDelegate.swift */,
+				D9677A941F9A9844002C2465 /* Model */,
+				D9677A8B1F9A795D002C2465 /* Controllers */,
+				D9FEE9741F803189001CF12C /* Main.storyboard */,
+				D9677A8E1F9A8455002C2465 /* GoogleService-Info.plist */,
+				D9FEE97A1F803189001CF12C /* Assets.xcassets */,
+				D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */,
+				D9FEE97F1F803189001CF12C /* Info.plist */,
+				D9FEE9771F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld */,
+			);
+			path = CheapMessengerAppV1;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D951D11F1FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D951D1271FBA4B0A00D2DD5D /* Build configuration list for PBXNativeTarget "CheapMessengerAppV1UITests" */;
+			buildPhases = (
+				D951D11C1FBA4B0A00D2DD5D /* Sources */,
+				D951D11D1FBA4B0A00D2DD5D /* Frameworks */,
+				D951D11E1FBA4B0A00D2DD5D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D951D1261FBA4B0A00D2DD5D /* PBXTargetDependency */,
+			);
+			name = CheapMessengerAppV1UITests;
+			productName = CheapMessengerAppV1UITests;
+			productReference = D951D1201FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		D9FEE96C1F803189001CF12C /* CheapMessengerAppV1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9FEE9821F803189001CF12C /* Build configuration list for PBXNativeTarget "CheapMessengerAppV1" */;
+			buildPhases = (
+				7E3DBC717DF0003D3DCE27D6 /* [CP] Check Pods Manifest.lock */,
+				D9FEE9691F803189001CF12C /* Sources */,
+				D9FEE96A1F803189001CF12C /* Frameworks */,
+				D9FEE96B1F803189001CF12C /* Resources */,
+				2A2DA3AE27A5B840007D9617 /* [CP] Embed Pods Frameworks */,
+				A08569350D08F400EEF986E5 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CheapMessengerAppV1;
+			productName = CheapMessengerAppV1;
+			productReference = D9FEE96D1F803189001CF12C /* CheapMessengerAppV1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D9FEE9651F803189001CF12C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Robert Wong";
+				TargetAttributes = {
+					D951D11F1FBA4B0A00D2DD5D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D9FEE96C1F803189001CF12C;
+					};
+					D9FEE96C1F803189001CF12C = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D9FEE9681F803189001CF12C /* Build configuration list for PBXProject "CheapMessengerAppV1" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D9FEE9641F803189001CF12C;
+			productRefGroup = D9FEE96E1F803189001CF12C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D9FEE96C1F803189001CF12C /* CheapMessengerAppV1 */,
+				D951D11F1FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D951D11E1FBA4B0A00D2DD5D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FEE96B1F803189001CF12C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FEE97E1F803189001CF12C /* LaunchScreen.storyboard in Resources */,
+				D9677A8F1F9A8455002C2465 /* GoogleService-Info.plist in Resources */,
+				D9FEE97B1F803189001CF12C /* Assets.xcassets in Resources */,
+				D9FEE9761F803189001CF12C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2A2DA3AE27A5B840007D9617 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Flurry-iOS-SDK/Flurry_iOS_SDK.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flurry_iOS_SDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E3DBC717DF0003D3DCE27D6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CheapMessengerAppV1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A08569350D08F400EEF986E5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1-resources.sh",
+				"$PODS_CONFIGURATION_BUILD_DIR/StartAppSDK/StartAppSDK.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CheapMessengerAppV1/Pods-CheapMessengerAppV1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D951D11C1FBA4B0A00D2DD5D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D951D1231FBA4B0A00D2DD5D /* CheapMessengerAppV1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D9FEE9691F803189001CF12C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9FEE98B1F804535001CF12C /* SignUpViewController.swift in Sources */,
+				D95B60FF1FA273C7005B10D5 /* AuthenticationManager.swift in Sources */,
+				D9FEE9891F803E94001CF12C /* AlertBox.swift in Sources */,
+				D9FEE9731F803189001CF12C /* LogInViewController.swift in Sources */,
+				D9FEE9711F803189001CF12C /* AppDelegate.swift in Sources */,
+				D9FEE9791F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld in Sources */,
+				D9677A9E1F9AAB1F002C2465 /* UserTableViewController.swift in Sources */,
+				D9677AA01F9E60D8002C2465 /* ChatViewController.swift in Sources */,
+				D9677A8A1F9A759F002C2465 /* Users.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D951D1261FBA4B0A00D2DD5D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9FEE96C1F803189001CF12C /* CheapMessengerAppV1 */;
+			targetProxy = D951D1251FBA4B0A00D2DD5D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D9FEE9741F803189001CF12C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9FEE9751F803189001CF12C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9FEE97C1F803189001CF12C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9FEE97D1F803189001CF12C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D951D1281FBA4B0A00D2DD5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CheapMessengerAppV1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CheapMessengerAppV1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CheapMessengerAppV1;
+			};
+			name = Debug;
+		};
+		D951D1291FBA4B0A00D2DD5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CheapMessengerAppV1UITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CheapMessengerAppV1UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CheapMessengerAppV1;
+			};
+			name = Release;
+		};
+		D9FEE9801F803189001CF12C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D9FEE9811F803189001CF12C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D9FEE9831F803189001CF12C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A75A82907E82AC2F9DF6F0AD /* Pods-CheapMessengerAppV1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
+				INFOPLIST_FILE = CheapMessengerAppV1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CheapMessengerAppV1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D9FEE9841F803189001CF12C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15B48EE81485A4DD87E0F5B9 /* Pods-CheapMessengerAppV1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S8U5C9WC7P;
+				INFOPLIST_FILE = CheapMessengerAppV1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.CheapMessengerAppV1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D951D1271FBA4B0A00D2DD5D /* Build configuration list for PBXNativeTarget "CheapMessengerAppV1UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D951D1281FBA4B0A00D2DD5D /* Debug */,
+				D951D1291FBA4B0A00D2DD5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9FEE9681F803189001CF12C /* Build configuration list for PBXProject "CheapMessengerAppV1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FEE9801F803189001CF12C /* Debug */,
+				D9FEE9811F803189001CF12C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9FEE9821F803189001CF12C /* Build configuration list for PBXNativeTarget "CheapMessengerAppV1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9FEE9831F803189001CF12C /* Debug */,
+				D9FEE9841F803189001CF12C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D9FEE9771F803189001CF12C /* CheapMessengerAppV1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D9FEE9781F803189001CF12C /* CheapMessengerAppV1.xcdatamodel */,
+			);
+			currentVersion = D9FEE9781F803189001CF12C /* CheapMessengerAppV1.xcdatamodel */;
+			path = CheapMessengerAppV1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D9FEE9651F803189001CF12C /* Project object */;
+}

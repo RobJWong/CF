@@ -10,16 +10,16 @@ import UIKit
 
 class ExerciseItemCell: UICollectionViewCell {
     
-    @IBOutlet private weak var exerciseName: UILabel!
-    @IBOutlet private weak var exerciseRep: UILabel!
+    @IBOutlet weak var exerciseName: UILabel!
+    @IBOutlet weak var exerciseRep: UILabel!
     
     
-    var exerciseItem: ExerciseSet? {
-        didSet {
-            if let exerciseItem = exerciseItem {
-                exerciseName.text = exerciseItem.exerciseName
-                exerciseRep.text = String(exerciseItem.reps)
-            }
-        }
-    }
+//    var exerciseItem: ExerciseSet? {
+//        didSet {
+//            if let exerciseItem = exerciseItem {
+//                exerciseName.text = exerciseItem.exerciseName
+//                exerciseRep.text = String(exerciseItem.reps)
+//            }
+//        }
+//    }
 }

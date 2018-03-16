@@ -12,9 +12,10 @@
 		D412228A1F17FAA300D65899 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D41222891F17FAA300D65899 /* Assets.xcassets */; };
 		D412228D1F17FAA300D65899 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D412228B1F17FAA300D65899 /* LaunchScreen.storyboard */; };
 		D41222951F17FB8800D65899 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41222941F17FB8800D65899 /* CollectionViewController.swift */; };
-		D41222991F17FBD600D65899 /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41222981F17FBD600D65899 /* ExerciseSet.swift */; };
 		D412229B1F19428A00D65899 /* ExerciseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D412229A1F19428A00D65899 /* ExerciseItemCell.swift */; };
-		D4A3BEC61F1D4403001CA177 /* ExerciseItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4A3BEC51F1D4403001CA177 /* ExerciseItemHeader.swift */; };
+		D978683220597729002D21AE /* ExerciseCollectionApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D978683020597729002D21AE /* ExerciseCollectionApp.xcdatamodeld */; };
+		D97868352059932B002D21AE /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97868332059932B002D21AE /* Exercise+CoreDataClass.swift */; };
+		D97868362059932B002D21AE /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97868342059932B002D21AE /* Exercise+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +26,10 @@
 		D412228C1F17FAA300D65899 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D412228E1F17FAA300D65899 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D41222941F17FB8800D65899 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
-		D41222981F17FBD600D65899 /* ExerciseSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseSet.swift; path = ../ExerciseSet.swift; sourceTree = "<group>"; };
 		D412229A1F19428A00D65899 /* ExerciseItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseItemCell.swift; sourceTree = "<group>"; };
-		D4A3BEC51F1D4403001CA177 /* ExerciseItemHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseItemHeader.swift; sourceTree = "<group>"; };
+		D978683120597729002D21AE /* ExerciseCollectionApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ExerciseCollectionApp.xcdatamodel; sourceTree = "<group>"; };
+		D97868332059932B002D21AE /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataClass.swift"; path = "ExerciseCollectionApp/Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D97868342059932B002D21AE /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Exercise+CoreDataProperties.swift"; path = "ExerciseCollectionApp/Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +46,8 @@
 		D41222761F17FAA300D65899 = {
 			isa = PBXGroup;
 			children = (
+				D97868332059932B002D21AE /* Exercise+CoreDataClass.swift */,
+				D97868342059932B002D21AE /* Exercise+CoreDataProperties.swift */,
 				D41222811F17FAA300D65899 /* ExerciseCollectionApp */,
 				D41222801F17FAA300D65899 /* Products */,
 			);
@@ -62,13 +66,12 @@
 			children = (
 				D41222821F17FAA300D65899 /* AppDelegate.swift */,
 				D41222861F17FAA300D65899 /* Main.storyboard */,
-				D4A3BEC51F1D4403001CA177 /* ExerciseItemHeader.swift */,
 				D412229A1F19428A00D65899 /* ExerciseItemCell.swift */,
-				D41222981F17FBD600D65899 /* ExerciseSet.swift */,
 				D41222941F17FB8800D65899 /* CollectionViewController.swift */,
 				D41222891F17FAA300D65899 /* Assets.xcassets */,
 				D412228B1F17FAA300D65899 /* LaunchScreen.storyboard */,
 				D412228E1F17FAA300D65899 /* Info.plist */,
+				D978683020597729002D21AE /* ExerciseCollectionApp.xcdatamodeld */,
 			);
 			path = ExerciseCollectionApp;
 			sourceTree = "<group>";
@@ -100,7 +103,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Robert Wong";
 				TargetAttributes = {
 					D412227E1F17FAA300D65899 = {
@@ -146,11 +149,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D978683220597729002D21AE /* ExerciseCollectionApp.xcdatamodeld in Sources */,
 				D412229B1F19428A00D65899 /* ExerciseItemCell.swift in Sources */,
-				D4A3BEC61F1D4403001CA177 /* ExerciseItemHeader.swift in Sources */,
-				D41222991F17FBD600D65899 /* ExerciseSet.swift in Sources */,
 				D41222951F17FB8800D65899 /* CollectionViewController.swift in Sources */,
+				D97868362059932B002D21AE /* Exercise+CoreDataProperties.swift in Sources */,
 				D41222831F17FAA300D65899 /* AppDelegate.swift in Sources */,
+				D97868352059932B002D21AE /* Exercise+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,7 +190,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -194,7 +200,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -237,7 +247,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -245,7 +257,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -319,6 +335,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D978683020597729002D21AE /* ExerciseCollectionApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D978683120597729002D21AE /* ExerciseCollectionApp.xcdatamodel */,
+			);
+			currentVersion = D978683120597729002D21AE /* ExerciseCollectionApp.xcdatamodel */;
+			path = ExerciseCollectionApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D41222771F17FAA300D65899 /* Project object */;
 }
