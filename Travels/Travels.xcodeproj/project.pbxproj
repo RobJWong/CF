@@ -19,7 +19,6 @@
 		D94CD2D02022399500EFA555 /* ChangeSectionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94CD2CF2022399500EFA555 /* ChangeSectionsTableViewController.swift */; };
 		D94CD2F52023B94900EFA555 /* AddNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94CD2F42023B94900EFA555 /* AddNotesViewController.swift */; };
 		D94CD2F7202424C800EFA555 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94CD2F6202424C800EFA555 /* UserProfileViewController.swift */; };
-		D96F1DF82017BD6D00793B23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D96F1DF72017BD6D00793B23 /* Assets.xcassets */; };
 		D96F1E142017C02700793B23 /* Goku.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E102017C02700793B23 /* Goku.ttf */; };
 		D96F1E152017C02800793B23 /* Montserrat-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E112017C02700793B23 /* Montserrat-Medium.ttf */; };
 		D96F1E162017C02800793B23 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D96F1E122017C02700793B23 /* Montserrat-Regular.ttf */; };
@@ -242,7 +241,6 @@
 				D984C1CB204F4DF300B0A906 /* GoogleService-Info.plist in Resources */,
 				D96F1E142017C02700793B23 /* Goku.ttf in Resources */,
 				D96F1E162017C02800793B23 /* Montserrat-Regular.ttf in Resources */,
-				D96F1DF82017BD6D00793B23 /* Assets.xcassets in Resources */,
 				D96F1E152017C02800793B23 /* Montserrat-Medium.ttf in Resources */,
 				D96F1E172017C02800793B23 /* Montserrat-SemiBold.ttf in Resources */,
 				D988801620056D88000DEE66 /* Main.storyboard in Resources */,
@@ -484,6 +482,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = Travels/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Travels;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -500,6 +499,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S8U5C9WC7P;
 				INFOPLIST_FILE = Travels/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Travels;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,6 +10,64 @@ import UIKit
 import InMobiSDK
 
 class ViewController: UIViewController, UITextFieldDelegate, IMBannerDelegate {
+    
+    //Mark : Properties
+    @IBOutlet weak var poundLabel: UILabel!
+    @IBOutlet weak var yenLabel: UILabel!
+    @IBOutlet weak var euroLabel: UILabel!
+    @IBOutlet weak var inputTextField: UITextField!
+    var banner: IMBanner?
+    @IBOutlet weak var adBanner: IMBanner!
+    
+    let poundRate = 0.69
+    let yenRate = 113.94
+    let euroRate = 0.89
+    var dollarAmount = 0.0
+    
+    //Mark : IBOutlets
+    @IBAction func clearDollarAmount(_ sender: UIButton) {
+        inputTextField.text = ""
+
+    }
+    
+    @IBAction func convertCurrency(_ sender: UIButton) {
+        if let amount = Double(inputTextField.text!) {
+            dollarAmount = amount
+        }
+        
+        poundLabel.text = "\(dollarAmount * poundRate)"
+        yenLabel.text = "\(dollarAmount * yenRate)"
+        euroLabel.text = "\(dollarAmount * euroRate)"
+        dollarAmount = 0.0
+    }
+    
+    //Mark : Function calls
+    
+    //Called when 'return' key is pressed
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
+    //Called when user taps outside the text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        inputTextField.delegate = self
+        // Do any additional setup after loading the view, typically from a nib.
+        banner = IMBanner(frame: CGRect(x: 0 , y: view.frame.height - 50, width: 320, height: 50), placementId: 1521204087376)
+        banner?.delegate = self
+        view.addSubview(banner!)
+        banner?.load()
+    }
+    
+    deinit {
+        banner?.delegate = nil
+    }
+
+    //Mark : Delegates
     func bannerDidFinishLoading(_ banner: IMBanner!) {
         print("bannerDidFinishLoading")
     }
@@ -47,64 +105,5 @@ class ViewController: UIViewController, UITextFieldDelegate, IMBannerDelegate {
         print("rewardActionCompletedWithRewards")
     }
     
-    
-    @IBOutlet weak var poundLabel: UILabel!
-    @IBOutlet weak var yenLabel: UILabel!
-    @IBOutlet weak var euroLabel: UILabel!
-    @IBOutlet weak var inputTextField: UITextField!
-    var banner: IMBanner?
-    @IBOutlet weak var adBanner: IMBanner!
-    
-    let poundRate = 0.69
-    let yenRate = 113.94
-    let euroRate = 0.89
-    var dollarAmount = 0.0
-    
-    @IBAction func clearDollarAmount(_ sender: UIButton) {
-        inputTextField.text = ""
-
-    }
-    
-    @IBAction func convertCurrency(_ sender: UIButton) {
-        if let amount = Double(inputTextField.text!) {
-            dollarAmount = amount
-        }
-        
-        poundLabel.text = "\(dollarAmount * poundRate)"
-        yenLabel.text = "\(dollarAmount * yenRate)"
-        euroLabel.text = "\(dollarAmount * euroRate)"
-        dollarAmount = 0.0
-    }
-    
-    //Called when 'return' key is pressed
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-
-    //Called when user taps outside the text field
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        inputTextField.delegate = self
-        // Do any additional setup after loading the view, typically from a nib.
-        banner = IMBanner(frame: CGRect(x: 0, y: 0, width: 320, height: 50), placementId: 1521204087376)
-        banner?.delegate = self
-        view.addSubview(banner!)
-        banner?.load()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    deinit {
-        banner?.delegate = nil
-    }
-
-
 }
 

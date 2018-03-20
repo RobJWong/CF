@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import Flurry_iOS_SDK
-import StartApp
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

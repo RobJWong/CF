@@ -82,10 +82,13 @@
                                     <action selector="clearDollarAmount:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Cwm-E8-MCP"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-qm-ksd" customClass="IMBanner">
-                                <rect key="frame" x="20" y="588" width="374" height="148"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-qm-ksd" customClass="IMBanner">
+                                <rect key="frame" x="20" y="310" width="374" height="133"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="mVW-QC-cO2"/>
+                                    <constraint firstAttribute="height" constant="133" id="zH6-Oh-7HS"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -109,10 +112,12 @@
                             <constraint firstItem="Cz2-5P-DTv" firstAttribute="top" secondItem="ARO-3F-FlS" secondAttribute="bottom" constant="8" id="ZzA-ww-G1g"/>
                             <constraint firstItem="gg1-IV-oVL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="cSi-sk-SkC"/>
                             <constraint firstItem="fh3-nG-92D" firstAttribute="width" secondItem="oOk-D0-tt0" secondAttribute="width" id="cnt-hV-ziz"/>
+                            <constraint firstItem="fKb-qm-ksd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dL3-31-hgy"/>
                             <constraint firstItem="ARO-3F-FlS" firstAttribute="top" secondItem="gg1-IV-oVL" secondAttribute="bottom" constant="8" id="kYg-Xo-t6l"/>
                             <constraint firstItem="gg1-IV-oVL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="kua-kr-ese"/>
                             <constraint firstItem="kkQ-Li-V0W" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="mjG-4D-Ita"/>
                             <constraint firstItem="Cz2-5P-DTv" firstAttribute="width" secondItem="gg1-IV-oVL" secondAttribute="width" id="nF6-lW-zHh"/>
+                            <constraint firstItem="fKb-qm-ksd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="8.5" id="olD-XM-OfQ"/>
                             <constraint firstItem="PAU-u7-Pkm" firstAttribute="top" secondItem="o6K-wX-2KM" secondAttribute="bottom" constant="8" id="scb-Lg-YS5"/>
                             <constraint firstItem="PAU-u7-Pkm" firstAttribute="leading" secondItem="Cz2-5P-DTv" secondAttribute="trailing" constant="8" id="vn9-pM-Aqn"/>
                             <constraint firstItem="ARO-3F-FlS" firstAttribute="width" secondItem="gg1-IV-oVL" secondAttribute="width" id="x8Q-qZ-bUO"/>
@@ -120,6 +125,11 @@
                             <constraint firstItem="ARO-3F-FlS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="zW7-32-SeY"/>
                             <constraint firstItem="oOk-D0-tt0" firstAttribute="top" secondItem="kkQ-Li-V0W" secondAttribute="bottom" constant="8" id="zt0-7y-Oxf"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fKb-qm-ksd"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="adBanner" destination="fKb-qm-ksd" id="iIP-h6-xW5"/>
@@ -131,6 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.681159420289859" y="65.217391304347828"/>
         </scene>
     </scenes>
     <resources>
