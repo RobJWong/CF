@@ -116,13 +116,13 @@
                     </view>
                     <connections>
                         <outlet property="googleLoginView" destination="eLz-97-SJy" id="lXx-mZ-WGU"/>
-                        <segue destination="1oo-Od-Rzz" kind="show" identifier="newUser" id="67C-eu-SQF"/>
-                        <segue destination="15S-El-PbY" kind="show" identifier="returningUser" id="SVq-zN-0MS"/>
+                        <segue destination="dBR-d7-xQv" kind="show" identifier="newUser" id="7A6-Uq-pQk"/>
+                        <segue destination="56B-bO-5Yy" kind="show" identifier="returningUser" id="1Vc-G2-RJ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="84.375" y="62.323943661971832"/>
+            <point key="canvasLocation" x="135" y="-771"/>
         </scene>
         <!--Add Notes View Controller-->
         <scene sceneID="w2P-Cm-VPx">
@@ -136,7 +136,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Note" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O8l-b7-8eV">
-                                        <rect key="frame" x="85.5" y="33" width="150" height="78"/>
+                                        <rect key="frame" x="85.5" y="77" width="150" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="O8l-b7-8eV" secondAttribute="height" multiplier="25:13" id="dxS-Zv-yST"/>
                                         </constraints>
@@ -145,7 +145,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mTu-cC-Wy7">
-                                        <rect key="frame" x="18" y="111" width="284" height="300"/>
+                                        <rect key="frame" x="18" y="155" width="284" height="256"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8l3-iw-IpA">
                                                 <rect key="frame" x="2" y="2" width="250" height="295"/>
@@ -155,10 +155,10 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DsV-am-wIQ">
-                                                <rect key="frame" x="10" y="10" width="264" height="280"/>
+                                                <rect key="frame" x="10" y="10" width="264" height="236"/>
                                                 <subviews>
                                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pfk-YC-dxY">
-                                                        <rect key="frame" x="30" y="30" width="204" height="220"/>
+                                                        <rect key="frame" x="30" y="30" width="204" height="176"/>
                                                         <color key="backgroundColor" red="0.90980392160000001" green="0.95294117649999999" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Montserrat-SemiBold" family="Montserrat" pointSize="21.600000381469727"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -256,7 +256,7 @@
                         <outlet property="sectionName" destination="K4g-ww-Mp2" id="52m-ID-lQM"/>
                         <segue destination="anA-rm-bjN" kind="show" identifier="sectionSelection" id="SCW-R9-qzk"/>
                         <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="XRv-ee-uG1"/>
-                        <segue destination="15S-El-PbY" kind="show" identifier="newUser" id="43W-sG-Gaf"/>
+                        <segue destination="56B-bO-5Yy" kind="show" identifier="newUer" id="ym8-cB-4jU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxu-wb-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,6 +427,51 @@ starting with?</string>
             </objects>
             <point key="canvasLocation" x="1696.875" y="948.59154929577471"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="5Qp-34-UQ5">
+            <objects>
+                <viewController id="Pu4-oz-edZ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Jap-0s-61A">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="rR4-0b-x7x"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sah-DK-wqM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LpR-UQ-zAe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3165" y="94"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4We-Vt-zJK">
+            <objects>
+                <navigationController id="dBR-d7-xQv" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QvH-O0-nWn">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="48H-h8-TKe" kind="relationship" relationship="rootViewController" id="Vsq-Oo-Qb9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nLc-iE-lO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-309" y="94"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="Nc2-mO-U4r">
+            <objects>
+                <splitViewController id="oGA-5n-1sc" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="dBR-d7-xQv" kind="relationship" relationship="masterViewController" id="luh-Sg-doY"/>
+                        <segue destination="56B-bO-5Yy" kind="relationship" relationship="detailViewController" id="Qlj-tO-M80"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2T-mU-7Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1459" y="93"/>
+        </scene>
         <!--User Profile View Controller-->
         <scene sceneID="c5Q-eQ-fUA">
             <objects>
@@ -544,7 +589,6 @@ starting with?</string>
                         <viewLayoutGuide key="safeArea" id="Fh1-8F-cIw"/>
                     </view>
                     <connections>
-                        <segue destination="cp0-no-YQx" kind="show" id="aB7-kN-ReX"/>
                         <segue destination="53B-3g-5Sr" kind="show" identifier="feedbackVC" id="G9v-Nz-DhO"/>
                     </connections>
                 </viewController>
@@ -762,21 +806,6 @@ starting with?</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ybo-Xe-lOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1998" y="2812"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="cfZ-c6-huL">
-            <objects>
-                <viewController id="cp0-no-YQx" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="aaa-TD-hoO">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="u1p-N8-dEd"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="duS-0b-3Ft" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3546" y="597"/>
         </scene>
         <!--Onboard Empty List-->
         <scene sceneID="akO-Tn-Amq">
@@ -1140,7 +1169,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AeD-7V-Nbb">
-                                        <rect key="frame" x="77" y="33" width="166" height="78"/>
+                                        <rect key="frame" x="77" y="77" width="166" height="78"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="AeD-7V-Nbb" secondAttribute="height" multiplier="83:39" id="pZy-IB-M49"/>
                                         </constraints>
@@ -1149,13 +1178,13 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboardingImage" translatesAutoresizingMaskIntoConstraints="NO" id="lHZ-nx-6jl">
-                                        <rect key="frame" x="8" y="111" width="305" height="274"/>
+                                        <rect key="frame" x="8" y="155" width="305" height="274"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="lHZ-nx-6jl" secondAttribute="height" multiplier="285:256" id="Vpp-Xg-edh"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NTM-Mg-Tfc">
-                                        <rect key="frame" x="32" y="390" width="256" height="165"/>
+                                        <rect key="frame" x="32" y="434" width="256" height="121"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="swM-u2-pYh">
                                                 <rect key="frame" x="0.0" y="0.0" width="256" height="31"/>
@@ -1186,7 +1215,7 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                                                 </constraints>
                                             </view>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="QlV-u8-090">
-                                                <rect key="frame" x="0.0" y="41" width="256" height="124"/>
+                                                <rect key="frame" x="0.0" y="41" width="256" height="80"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="15.199999809265137"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1236,30 +1265,12 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                         <outlet property="viewImage" destination="lHZ-nx-6jl" id="8hq-Qv-WJc"/>
                         <segue destination="anA-rm-bjN" kind="show" identifier="sectionSelection" id="mwW-iQ-vzn"/>
                         <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="oVn-3s-UoQ"/>
-                        <segue destination="15S-El-PbY" kind="show" identifier="newUser" id="Bh6-hz-hMB"/>
+                        <segue destination="56B-bO-5Yy" kind="show" identifier="newUser" id="QX3-Ls-ocL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8g-5q-PXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-712.5" y="2775"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="s1e-f2-Ktb">
-            <objects>
-                <navigationController storyboardIdentifier="returningUserNavController" automaticallyAdjustsScrollViewInsets="NO" id="15S-El-PbY" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="AC5-6P-j6b">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="c5I-LU-Pkc" kind="relationship" relationship="rootViewController" id="bxQ-zr-d2I"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lmc-bd-LSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="871.01449275362324" y="948.91304347826099"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pqw-Bp-iK9">
@@ -1271,13 +1282,28 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="48H-h8-TKe" kind="relationship" relationship="rootViewController" id="JEV-KU-DvL"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jww-8q-UOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1083" y="931"/>
+            <point key="canvasLocation" x="-1457" y="931"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qDf-Iu-21w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="56B-bO-5Yy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RGb-ic-e5G">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="c5I-LU-Pkc" kind="relationship" relationship="rootViewController" id="5sI-NM-oiy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qT6-Vi-E47" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="870" y="93"/>
         </scene>
     </scenes>
     <resources>
@@ -1289,9 +1315,10 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
         <image name="onboardingImage" width="305" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="43W-sG-Gaf"/>
+        <segue reference="Qlj-tO-M80"/>
         <segue reference="SCW-R9-qzk"/>
         <segue reference="XRv-ee-uG1"/>
-        <segue reference="jtB-Ri-fz7"/>
+        <segue reference="Ngr-JE-4YG"/>
+        <segue reference="7A6-Uq-pQk"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -13,23 +13,25 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailViewLabel: UILabel!
     
     var item: Item?
-
+    var loginCheck : Bool?
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginScreen") as UIViewController
+//        self.present(loginVC, animated: false, completion: nil)
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         if let detailItem = self.item {
             navigationItem.title = detailItem.title
             detailViewLabel.text = detailItem.text
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     /*
     // MARK: - Navigation
 
@@ -39,5 +41,12 @@ class DetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
+extension DetailViewController : LoginCheckDelegate {
+    func loginCheckFlag(login: String) {
+        sectionName.text = selection
+        sectionName.textColor = UIColor.black
+    }
+}
+

@@ -14,6 +14,8 @@
 		D45F02C41F476535007105F9 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F02C31F476535007105F9 /* DetailViewController.swift */; };
 		D45F02C61F476C80007105F9 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F02C51F476C80007105F9 /* Item.swift */; };
 		D45F02C81F47797A007105F9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D45F02C71F47797A007105F9 /* MasterViewController.swift */; };
+		D9B9720C2062CCF000B7EC4C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9720B2062CCEF00B7EC4C /* LoginViewController.swift */; };
+		D9B972102062D82800B7EC4C /* loginCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B9720F2062D82800B7EC4C /* loginCheck.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		D45F02C31F476535007105F9 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D45F02C51F476C80007105F9 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D45F02C71F47797A007105F9 /* MasterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = ../MasterViewController.swift; sourceTree = "<group>"; };
+		D9B9720B2062CCEF00B7EC4C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D9B9720F2062D82800B7EC4C /* loginCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginCheck.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +64,11 @@
 			children = (
 				D45F02C71F47797A007105F9 /* MasterViewController.swift */,
 				D45F02AF1F476419007105F9 /* AppDelegate.swift */,
+				D9B9720B2062CCEF00B7EC4C /* LoginViewController.swift */,
 				D45F02B31F476419007105F9 /* Main.storyboard */,
 				D45F02C51F476C80007105F9 /* Item.swift */,
 				D45F02C31F476535007105F9 /* DetailViewController.swift */,
+				D9B9720F2062D82800B7EC4C /* loginCheck.swift */,
 				D45F02B61F476419007105F9 /* Assets.xcassets */,
 				D45F02B81F476419007105F9 /* LaunchScreen.storyboard */,
 				D45F02BB1F476419007105F9 /* Info.plist */,
@@ -145,6 +151,8 @@
 				D45F02C81F47797A007105F9 /* MasterViewController.swift in Sources */,
 				D45F02C61F476C80007105F9 /* Item.swift in Sources */,
 				D45F02C41F476535007105F9 /* DetailViewController.swift in Sources */,
+				D9B9720C2062CCF000B7EC4C /* LoginViewController.swift in Sources */,
+				D9B972102062D82800B7EC4C /* loginCheck.swift in Sources */,
 				D45F02B01F476419007105F9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +317,7 @@
 				D45F02C01F476419007105F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
