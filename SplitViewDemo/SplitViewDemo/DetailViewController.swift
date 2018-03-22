@@ -13,7 +13,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var detailViewLabel: UILabel!
     
     var item: Item?
-    var loginCheck : Bool?
+    var userData : User?
     
 //    override func viewDidAppear(_ animated: Bool) {
 //        super.viewDidAppear(true)
@@ -22,9 +22,16 @@ class DetailViewController: UIViewController {
 //        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginScreen") as UIViewController
 //        self.present(loginVC, animated: false, completion: nil)
 //    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        guard let abc = userData?.loggedIn else { return }
+        if abc == false {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let loginVC = storyboard.instantiateViewController(withIdentifier: "loginScreen") as! LoginViewController
+            //loginVC.loginFlagDelegate = self
+            self.present(loginVC, animated: false, completion: nil)
+        }
         
         // Do any additional setup after loading the view.
         if let detailItem = self.item {
@@ -41,12 +48,5 @@ class DetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-}
-
-extension DetailViewController : LoginCheckDelegate {
-    func loginCheckFlag(login: String) {
-        sectionName.text = selection
-        sectionName.textColor = UIColor.black
-    }
 }
 

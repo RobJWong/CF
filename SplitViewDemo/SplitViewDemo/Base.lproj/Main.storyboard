@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="-214" y="-915"/>
         </scene>
-        <!--Test Master View Controller-->
+        <!--Test Master Split View Controller-->
         <scene sceneID="95u-nd-VQn">
             <objects>
-                <splitViewController id="xAT-Dy-L5v" customClass="TestMasterViewController" customModule="SplitViewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="xAT-Dy-L5v" customClass="TestMasterSplitViewController" customModule="SplitViewDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="ZjH-fC-bIZ" kind="relationship" relationship="masterViewController" id="enI-zT-jVW"/>
                         <segue destination="NBp-8W-zxt" kind="relationship" relationship="detailViewController" id="mhv-uK-9CE"/>

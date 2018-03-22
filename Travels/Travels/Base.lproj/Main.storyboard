@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oGA-5n-1sc">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -116,13 +116,11 @@
                     </view>
                     <connections>
                         <outlet property="googleLoginView" destination="eLz-97-SJy" id="lXx-mZ-WGU"/>
-                        <segue destination="dBR-d7-xQv" kind="show" identifier="newUser" id="7A6-Uq-pQk"/>
-                        <segue destination="56B-bO-5Yy" kind="show" identifier="returningUser" id="1Vc-G2-RJ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="-771"/>
+            <point key="canvasLocation" x="870" y="-39"/>
         </scene>
         <!--Add Notes View Controller-->
         <scene sceneID="w2P-Cm-VPx">
@@ -256,7 +254,6 @@
                         <outlet property="sectionName" destination="K4g-ww-Mp2" id="52m-ID-lQM"/>
                         <segue destination="anA-rm-bjN" kind="show" identifier="sectionSelection" id="SCW-R9-qzk"/>
                         <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="XRv-ee-uG1"/>
-                        <segue destination="56B-bO-5Yy" kind="show" identifier="newUer" id="ym8-cB-4jU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wxu-wb-dez" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -337,7 +334,7 @@ starting with?</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ba-0S-0av" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309.375" y="930.63380281690138"/>
+            <point key="canvasLocation" x="-1365" y="1811"/>
         </scene>
         <!--Returning User City Table View Controller-->
         <scene sceneID="DVM-AS-BuB">
@@ -452,12 +449,12 @@ starting with?</string>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="48H-h8-TKe" kind="relationship" relationship="rootViewController" id="Vsq-Oo-Qb9"/>
+                        <segue destination="c5I-LU-Pkc" kind="relationship" relationship="rootViewController" id="96P-LG-k04"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nLc-iE-lO3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-309" y="94"/>
+            <point key="canvasLocation" x="870" y="949"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nc2-mO-U4r">
@@ -465,12 +462,12 @@ starting with?</string>
                 <splitViewController id="oGA-5n-1sc" sceneMemberID="viewController">
                     <connections>
                         <segue destination="dBR-d7-xQv" kind="relationship" relationship="masterViewController" id="luh-Sg-doY"/>
-                        <segue destination="56B-bO-5Yy" kind="relationship" relationship="detailViewController" id="Qlj-tO-M80"/>
+                        <segue destination="1oo-Od-Rzz" kind="relationship" relationship="detailViewController" id="oUn-h9-NJk"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2T-mU-7Pl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1459" y="93"/>
+            <point key="canvasLocation" x="-309" y="-39"/>
         </scene>
         <!--User Profile View Controller-->
         <scene sceneID="c5Q-eQ-fUA">
@@ -1082,6 +1079,7 @@ V2hhdCB3b3VsZCB5b3UgA2xpa2UgdG8gYWRkPw
                             <outlet property="delegate" destination="rtn-eU-Xza" id="OfS-SM-23C"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="u1n-cs-cK5"/>
                     <connections>
                         <outlet property="changeSections" destination="Ode-bm-v0n" id="NCi-ky-Q4R"/>
                         <outlet property="cityName" destination="zit-CJ-MkF" id="2hp-Iz-hTW"/>
@@ -1265,7 +1263,6 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                         <outlet property="viewImage" destination="lHZ-nx-6jl" id="8hq-Qv-WJc"/>
                         <segue destination="anA-rm-bjN" kind="show" identifier="sectionSelection" id="mwW-iQ-vzn"/>
                         <segue destination="rtn-eU-Xza" kind="show" identifier="showMemoryTable" id="oVn-3s-UoQ"/>
-                        <segue destination="56B-bO-5Yy" kind="show" identifier="newUser" id="QX3-Ls-ocL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8g-5q-PXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1282,28 +1279,13 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rtn-eU-Xza" kind="relationship" relationship="rootViewController" id="dzK-B7-aca"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jww-8q-UOK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1457" y="931"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="qDf-Iu-21w">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="56B-bO-5Yy" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RGb-ic-e5G">
-                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="c5I-LU-Pkc" kind="relationship" relationship="rootViewController" id="5sI-NM-oiy"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qT6-Vi-E47" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="870" y="93"/>
+            <point key="canvasLocation" x="-309" y="949"/>
         </scene>
     </scenes>
     <resources>
@@ -1315,10 +1297,8 @@ RW50ZXIgYSADbmV3IGNhdGVnb3J5LCBvciBwaWNrIGFuIHByZXZpb3VzIGVudHJ5A
         <image name="onboardingImage" width="305" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Qlj-tO-M80"/>
         <segue reference="SCW-R9-qzk"/>
-        <segue reference="XRv-ee-uG1"/>
-        <segue reference="Ngr-JE-4YG"/>
-        <segue reference="7A6-Uq-pQk"/>
+        <segue reference="dzK-B7-aca"/>
+        <segue reference="VPg-Ba-LhS"/>
     </inferredMetricsTieBreakers>
 </document>

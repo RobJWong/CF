@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  TestMasterSplitViewController.swift
 //  SplitViewDemo
 //
 //  Created by Robert Wong on 3/21/18.
@@ -8,18 +8,22 @@
 
 import UIKit
 
-protocol LoginCheckDelegate {
-    func loginCheck(loginFlag: Bool) 
-}
-
-class LoginViewController: UIViewController {
-    
-    //var loginFlagDelegate : LoginCheckDelegate!
+class TestMasterSplitViewController: UISplitViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginScreen") as UIViewController
+//        self.present(loginVC, animated: false, completion: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let loginVC = storyboard.instantiateViewController(withIdentifier: "loginScreen") as UIViewController
+//        self.present(loginVC, animated: false, completion: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,11 +31,7 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func dismissViewController(_ sender: UIButton) {
-        //loginFlagDelegate.loginCheck(loginFlag: true)
-        dismiss(animated: true, completion: nil)
-    }
-    
+
     /*
     // MARK: - Navigation
 

@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import GooglePlaces
 
-class ReturningUserCityDetailTableViewController: UITableViewController, UITextViewDelegate {
+class ReturningUserCityDetailTableViewController: UITableViewController, UITextViewDelegate, UISplitViewControllerDelegate {
     
     var userData: UserData?
     var userID: String?
@@ -32,10 +32,8 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         setupTableView()
         setupNavBarItems()
         
-//        if userData?.newUser == true {
-//            userData?.newUser = false
-//            setupNavStack()
-//        }
+        splitViewController?.delegate = self
+        splitViewController?.preferredDisplayMode = .primaryOverlay
         
         if userData?.addedNewItem == true {
             userData?.addedNewItem = false

@@ -1,5 +1,5 @@
 //
-//  loginCheck.swift
+//  User.swift
 //  SplitViewDemo
 //
 //  Created by Robert Wong on 3/21/18.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-class loginChecker {
-    var loggedIn = false
+class User {
+    var loggedIn : Bool = false
 }
