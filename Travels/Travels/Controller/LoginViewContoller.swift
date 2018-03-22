@@ -20,9 +20,6 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().delegate = self
-        
         let googleLogin = UITapGestureRecognizer(target: self, action: #selector(googleLoginTapped(_:)))
         googleLoginView.isUserInteractionEnabled = true
         googleLoginView.addGestureRecognizer(googleLogin)
@@ -30,8 +27,9 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     
     @objc func googleLoginTapped(_ sender: UITapGestureRecognizer) {
         if NetworkReachabilityManager()!.isReachable {
-            SVProgressHUD.show(withStatus: "Logging in")
             googleLoginView.isUserInteractionEnabled = false
+            GIDSignIn.sharedInstance().uiDelegate = self
+            GIDSignIn.sharedInstance().delegate = self
             GIDSignIn.sharedInstance().signIn()
         } else {
             AlertBox.sendAlert(boxMessage: "Unable to connect to the internet. Please check connectivity before using app", presentingController: self)
@@ -60,8 +58,10 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if let err = error {
             print("Error signing in: ", err)
+            googleLoginView.isUserInteractionEnabled = true
             return
         }
+        SVProgressHUD.show(withStatus: "Logging in")
         guard let idToken = user.authentication.idToken, let accessToken = user.authentication.accessToken else { return }
         let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
         Auth.auth().signIn(with: credentials, completion: { (user, error) in
@@ -93,6 +93,14 @@ class LoginViewContoller: UIViewController, GIDSignInDelegate, GIDSignInUIDelega
                 }
             })
         })
+    }
+    
+    func sign(_ signIn: GIDSignIn!, dismiss viewController: UIViewController!) {
+        print("Dismissed")
+    }
+    
+    func sign(inWillDispatch signIn: GIDSignIn!, error: Error!) {
+        print("Dispatch")
     }
     
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
