@@ -28,14 +28,18 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
         setupTableView()
         setupNavBarItems()
         
-//        if userData?.newUser == true {
-//            userData?.newUser = false
-//            setupNavStack()
-//        }
+        if userData?.newUser == true {
+            userData?.newUser = false
+            //setupNavStack()
+        }
         
         if userData?.addedNewItem == true {
             userData?.addedNewItem = false
@@ -75,7 +79,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
     }
     
 //    func setupNavStack() {
-//        //let stack = self.navigationController?.viewControllers
+//        let stack = self.navigationController?.viewControllers
 //    }
     
     func setupTableView() {
@@ -115,6 +119,7 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         let deleteInfo = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section)
         deleteInfo.removeValue()
         let count = tableData.count
+        //need to fix this for deleting the last item of the list
         for idx in 0...count - 1 {
             let idxString = String(idx)
             let firebaseDB = Database.database().reference().child("Users").child(userID).child("Cities").child(selectedCity).child(section).child(idxString)
@@ -249,9 +254,14 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
         
         let delete = UITableViewRowAction(style: .normal, title: "Delete") { action, index in
             print("delete button tapped")
-            self.tableData.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.saveAction()
+            print("count: ", self.tableData.count)
+            if self.tableData.count == 1 {
+                AlertBox.sendAlert(boxMessage: "To delete the last item of the section you need to delete it in the change section area.", presentingController: self)
+            } else {
+                self.tableData.remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .fade)
+                self.saveAction()
+            }
         }
         delete.backgroundColor = .red
 

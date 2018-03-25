@@ -13,4 +13,5 @@ pod 'GoogleSignIn'
 pod 'GooglePlaces'
 pod 'SVProgressHUD'
 pod 'Alamofire'
+#pod 'Instabug'
 end

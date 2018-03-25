@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import GoogleSignIn
 import GooglePlaces
+//import Instabug
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GMSPlacesClient.provideAPIKey("AIzaSyACgm_LCxPsUe5s0dvzCTEm9nZ8c6vHBmE")
+        //Instabug.start(withToken: "888d006d3846c58b398abe3894cc9c60", invocationEvent: .shake)
         return true
     }
     

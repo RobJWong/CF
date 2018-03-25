@@ -33,7 +33,6 @@ class UserProfileViewController: UIViewController {
                 guard let userID = self.userData?.userID else { return }
                 let deleteUser = Database.database().reference().child("Users").child(userID)
                 deleteUser.removeValue()
-                
                 GIDSignIn.sharedInstance().signOut()
                 let homeVC = self.storyboard?.instantiateViewController(withIdentifier: "HomeScreen") as! LoginViewContoller
                 self.present(homeVC, animated: true, completion: nil)
