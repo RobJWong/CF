@@ -24,6 +24,15 @@ class AddNotesViewController: UIViewController {
         setupNavBarItems()
         
         sectionName.text = "Select Category"
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.dismissKeyboard(_:)))
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        notesTextView.inputAccessoryView = toolBar
     }
     
     override func viewDidAppear(_ animated: Bool) {

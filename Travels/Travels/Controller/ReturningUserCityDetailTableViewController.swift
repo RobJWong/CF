@@ -209,6 +209,15 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             guard let imageFirebasePath = tableData[indexPath.row]["Image"] else {
                 return cell }
+            let toolBar = UIToolbar()
+            toolBar.sizeToFit()
+            
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.dismissKeyboard(_:)))
+            toolBar.setItems([flexibleSpace, doneButton], animated: false)
+            cell.notes.inputAccessoryView = toolBar
+            
             let pathReference = Storage.storage().reference(withPath: imageFirebasePath as! String)
             pathReference.getData(maxSize: 1 * 1614 * 1614) { data, error in
                 if let error = error {
@@ -225,6 +234,15 @@ class ReturningUserCityDetailTableViewController: UITableViewController, UITextV
             cell.notes.text = tableData[indexPath.row]["Notes"] as! String
             cell.notes.delegate = self
             cell.notes.tag = indexPath.row
+            
+            let toolBar = UIToolbar()
+            toolBar.sizeToFit()
+            let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+            
+            let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.dismissKeyboard(_:)))
+            toolBar.setItems([flexibleSpace, doneButton], animated: false)
+            cell.notes.inputAccessoryView = toolBar
+            
             return cell
         }
     }

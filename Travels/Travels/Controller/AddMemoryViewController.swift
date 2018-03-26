@@ -31,6 +31,15 @@ class AddMemoryViewController: UIViewController, UITextViewDelegate {
         sectionName.text = "Select Category"
         setupNavBarItems()
         
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.dismissKeyboard(_:)))
+        toolBar.setItems([flexibleSpace, doneButton], animated: false)
+        memoryNotes.inputAccessoryView = toolBar
+        
         let sectionLabelTap = UITapGestureRecognizer(target: self, action: #selector(labelTapped(_:)))
         sectionName.isUserInteractionEnabled = true
         sectionName.addGestureRecognizer(sectionLabelTap)
